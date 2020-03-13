@@ -15,7 +15,7 @@ export const fetchAllPosts = () => (
     })
 )
 
-//just added but doesn't work?
+
 export const fetchPost = (id) => (
     $.ajax({
         method: "GET",

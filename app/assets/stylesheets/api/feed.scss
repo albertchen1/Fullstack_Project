@@ -62,7 +62,7 @@
 .feed-profile-background{
     height: 15%;
     width: 100%; 
-    z-index: -1px;
+    z-index: -1;
 }
 
 #feed-img img {
@@ -143,6 +143,11 @@ hr{
 .icon-post {
     font-size: 24px;
     color: grey;
+    min-width: 20px;
+}
+
+.icon-post i{
+    min-width: 20px;
 }
 
 .icon-text{
@@ -210,6 +215,7 @@ hr{
     z-index: 101;
     border: 1px solid black;
     border-radius: 5px;
+    background-color: white;
 }
 
 

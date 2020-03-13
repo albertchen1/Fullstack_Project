@@ -2065,14 +2065,14 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "splash_pic1",
         src: window.splash_pic1
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        "class": "welcome-message"
+        className: "welcome-message"
       }, "Welcome to your professional community"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "container_splash_pic2"
+        className: "container_splash_pic2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "splash_pic2",
         src: window.splash_pic2
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "message_splash_pic2"
+        className: "message_splash_pic2"
       }, "Join your colleagues, classmates, and friends on LinkedList."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "alternative-signup-button",
         type: "button"
@@ -2427,8 +2427,7 @@ var fetchAllPosts = function fetchAllPosts() {
     method: "GET",
     url: "/api/posts"
   });
-}; //just added but doesn't work?
-
+};
 var fetchPost = function fetchPost(id) {
   return $.ajax({
     method: "GET",
@@ -54805,13 +54804,13 @@ var NotFound = function NotFound() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header-logo"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-    "class": "notfound-content"
+    className: "notfound-content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-    "class": "header-pagenotfound"
+    className: "header-pagenotfound"
   }, "Page Not Found"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-    "class": "body-pagenotfound"
+    className: "body-pagenotfound"
   }, "Uh oh, we can\u2019t seem to find the page you\u2019re looking for.  Try going back to the home page."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-    "class": "link-returnhome"
+    className: "link-returnhome"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

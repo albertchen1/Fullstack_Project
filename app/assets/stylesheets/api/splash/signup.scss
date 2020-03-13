@@ -1,0 +1,132 @@
+
+
+.signup-logo{
+    content: url(https://i.imgur.com/mtLupon.png);
+    display: inline-block;
+}
+
+.signup-form-container{
+    position: relative;
+    // top: 200px;
+    // margin-left: 20px;
+    // top: 80px;
+    text-align: center;
+    background-image: linear-gradient(to right, #2867B2, #4682B4);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 1000px;
+    background-position: center top;
+    // border-radius: 4px;
+
+}
+
+
+
+.navlink{
+    background-color: #D3D3D3;
+}
+
+.signup-form{
+    width: 500px;
+    background-color: #D3D3D3;
+    padding: 20px;
+    // margin: 30px;
+    display: inline-block;
+    // text-align: center;
+    border-radius: 4px;
+}
+
+label{
+    background-color:  #D3D3D3;
+    color: black;
+    font-size: 16px;
+    // display: flex;
+    // justify-content: left;
+    position: relative;
+    // text-align: left;
+    // text-align: justify;
+    float: left;
+    left: 48px;
+
+}
+
+// .signup-fname-label, .signup-lname-label, .signup-location-label{
+//     background-color:  #D3D3D3;
+//     color: black;
+//     font-size: 16px;
+//     // display: flex;
+//     // justify-content: left;
+//     position: relative;
+//     // text-align: left;
+//     // text-align: justify;
+//     // float: right;
+// }
+
+// .signup-email-label{
+
+// }
+
+.signup-input{
+    font-size:14pt;
+    // height:420px;
+    width: 400px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: white;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+.signup-form-box{
+    font-size: 20pt;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    // background-image: linear-gradient(to right, #2867B2, #4682B4);
+    padding-top: 0;
+}
+
+.splash_pic1{
+    display: none;
+}
+
+.session-submit, .session-demo{
+    font-size: 18px;
+    width: 400px;
+    color: white;
+    height: 30px;
+    background-color:#2867B2;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.session-submit:hover, .session-demo:hover{
+    background-color:  #4682B4;
+}
+
+.signup-errors{
+    font-size: 16px;
+    color: white;
+    background-color: red;
+}
+
+.already-on-linkedlist{
+    font-size: 14pt;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #D3D3D3;
+    color: black;
+    // display: inline-block;
+    // text-align: center;
+    display: block;
+}
+
+.already-signin-link{
+    font-size: 14pt;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #D3D3D3;
+    color: #2867B2;
+    // display: inline-block;
+    // text-align: center;
+    display: block;
+}
+
+.already-on-linkedlist, .already-signin-link{
+    display: inline;
+}

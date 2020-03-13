@@ -1,0 +1,234 @@
+.welcome-navbar{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    background-color: #283e4a;
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    float: right;
+}
+
+.welcome-header{
+    position: absolute;
+    right: 50px;
+    font-size: larger;
+    color: #2867B2;
+    margin: 1em;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.feed-profile-background{
+    content: image_url('profileBlueBackground.png');
+}
+
+
+
+.list-logo{
+    // content: url(https://i.imgur.com/mtLupon.png);
+    content: image_url('Listicon.png');
+    position: absolute;
+    margin: 0.5em;
+}
+
+.feed-container{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 40px; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+//
+.feed-profile-container{
+    width: 15%; 
+    height: 400px; 
+    background-color: white; 
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15);
+    border-radius: 2px;
+    position: sticky;
+    top: 70px;
+    left: 0;
+}
+
+.feed-profile-background{
+    height: 15%;
+    width: 100%; 
+    z-index: -1px;
+}
+
+#feed-img img {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-self: center;
+    border-radius: 50%;
+    
+}
+
+#feed-img{
+    // align-content: center;
+    // content: image_url('blankprofilepic.png');
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 2px solid white;
+    z-index: 1px;
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+    margin: 0;
+    flex-direction: row;
+}
+
+#feed-name{
+    font-weight: bold; 
+    text-align: center; 
+    font-size: 18px;
+    padding-bottom: 4%;
+}
+
+#feed-title{
+    text-align: center;
+    font-size: 14px; 
+    color: grey;
+}
+
+hr{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.feed-num-container{
+    display: flex; 
+    justify-content: space-between;
+    margin-top: 4%;
+    // text-align: center;
+    // display: inline;
+}
+
+#feed-num-views-text, #feed-num-connections-text {
+    color: #696969;
+    font-size: 12px;
+}
+
+#feed-num-views-num, #feed-num-connections-num {
+    color: rgb(64, 192, 224);
+    margin-right: 10%; 
+    cursor: pointer;
+    font-size: 12px;
+}
+
+// #feed-num-connections-text, #feed-num-connections-text{
+//     display: inline;
+// }
+
+.icon-create {
+    display: flex;
+}
+
+.icon-post {
+    font-size: 24px;
+    color: grey;
+}
+
+.icon-text{
+    font-weight: bolder;
+    color: grey;
+    padding-top: 4.5%;
+    cursor: pointer;
+}
+
+.post-container {
+    width: 53%;
+    display: flex; 
+    flex-direction: column; 
+}
+
+.post-create {
+    width: 100%; 
+    height: 130px; 
+    background-color: white; 
+    box-shadow: 0 0 0 1px black;
+    border-radius: 2px;
+    margin-bottom: 35px; 
+}
+
+.post-create-container {
+    display: flex; 
+    justify-content: space-between;
+    padding: 5%; 
+    border-bottom: 1px solid grey;
+}
+
+.write-article{
+    padding-left: 5%; 
+    padding-top: 3%;
+    color: lightblue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.news-container{
+    width: 27.5%; 
+    height: 100%;
+    position: sticky;
+    top: 70px;
+    left: 0;
+    border:  solid grey;
+    border-width: thin;
+    // box-shadow: 0 0 0 1px black;
+    // border-style: solid;
+}
+
+//modal
+
+.create-post-modal-hidden {
+    display: none;
+}
+
+
+.create-post-modal-show {
+    position: absolute;
+    height: 30vh;
+    width: 40%;
+    left: 20%;
+    top: 20%;
+    z-index: 101;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+// TO EXPAND HTML AND BODY TO COVER THE WHOLE PAGE
+body, #root {
+    height: 100vh;
+}
+
+.feed-div {
+    height: 100vh;
+}
+
+.greyed-out {
+    position: fixed; 
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+

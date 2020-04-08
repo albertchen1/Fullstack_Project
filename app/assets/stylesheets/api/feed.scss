@@ -35,7 +35,9 @@
     // content: url(https://i.imgur.com/mtLupon.png);
     content: image_url('Listicon.png');
     position: absolute;
-    margin: 0.5em;
+    margin: 1em;
+    border-radius: 12px;
+    border: 1px solid black;
 }
 
 .feed-container{

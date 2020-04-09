@@ -35,7 +35,7 @@
     // content: url(https://i.imgur.com/mtLupon.png);
     content: image_url('Listicon.png');
     position: absolute;
-    margin: 1em;
+    margin: 8px 8px 8px 8px;
     border-radius: 12px;
     border: 1px solid black;
 }
@@ -145,11 +145,11 @@ hr{
 .icon-post {
     font-size: 24px;
     color: grey;
-    min-width: 20px;
+    // min-width: 20px;
 }
 
 .icon-post i{
-    min-width: 20px;
+    // min-width: 20px;
 }
 
 .icon-text{

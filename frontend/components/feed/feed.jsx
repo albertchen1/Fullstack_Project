@@ -99,11 +99,14 @@ class Feed extends React.Component {
                                     <div className="icon-post">
                                         <i className="ff-edit"></i>
                                     </div>
-                                    <div className="icon-text" onClick={this.openModal}>&nbsp; Start a post <i className="fas fa-edit"></i></div>
+                                    <div className="icon-text" onClick={this.openModal}>
+                                        <i className="fas fa-edit"></i> 
+                                        &nbsp; Start a post 
+                                    </div>
                                 </div>
-                                <div className='icon-post'><i className="icon-camera" onClick={e => alert("feature not available")} ></i></div>
-                                <div className='icon-post'><i className="icon-video" onClick={e => alert("feature not available")} ></i></div>
-                                <div className='icon-post'><i className="icon-doc" onClick={e => alert("feature not available")}></i></div>
+                                <div className='icon-post'><i class="fas fa-camera" onClick={e => alert("feature not available")} ></i></div>
+                                <div className='icon-post'><i className="fas fa-video" onClick={e => alert("feature not available")} ></i></div>
+                                <div className='icon-post'><i className="fas fa-file-alt" onClick={e => alert("feature not available")}></i></div>
                             </div>
                             <div className='write-article' onClick={e => alert("feature not available")}>Write an article on LinkedList</div>
                         </div>

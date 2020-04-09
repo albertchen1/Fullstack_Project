@@ -741,7 +741,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
         id: "feed-name"
       }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "feed-title"
-      }, "Student")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Software Engineer")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-num"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-num-container"
@@ -775,7 +775,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }), "\xA0 Start a post")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "icon-post"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-camera",
+        className: "fas fa-camera",
         onClick: function onClick(e) {
           return alert("feature not available");
         }
@@ -798,11 +798,31 @@ var Feed = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick(e) {
           return alert("feature not available");
         }
-      }, "Write an article on LinkedList")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Write an article "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "on-linkedlist"
+      }, " on LinkedList")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-list"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_container__WEBPACK_IMPORTED_MODULE_4__["default"], null)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post1-ad"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post1-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "list-logo-post"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post1-header-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post1-company"
+      }, "LinkedList"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post1-followers"
+      }, "11,332,114 followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post1-promoted"
+      }, "Promoted"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post1-body-text"
+      }, "See the expanded list of who\u2019s viewed your profile. Make connections to boost the power of your network. Try LinkedIn Premium for free."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post1-pic"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-container"
       }, "Today\u2019s news and views")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-post-modal-hidden"

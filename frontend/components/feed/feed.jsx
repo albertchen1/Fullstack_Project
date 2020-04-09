@@ -76,7 +76,7 @@ class Feed extends React.Component {
                         <div className="feed-profile-info">
                             <div id="feed-img"><img src={window.blankprofilepic}/></div>
                             <div id="feed-name">Albert Chen</div>
-                            <div id="feed-title">Student</div>
+                            <div id="feed-title">Software Engineer</div>
                         </div>
                         <hr/>
                         <div className="feed-num">
@@ -104,16 +104,33 @@ class Feed extends React.Component {
                                         &nbsp; Start a post 
                                     </div>
                                 </div>
-                                <div className='icon-post'><i class="fas fa-camera" onClick={e => alert("feature not available")} ></i></div>
+                                <div className='icon-post'><i className="fas fa-camera" onClick={e => alert("feature not available")} ></i></div>
                                 <div className='icon-post'><i className="fas fa-video" onClick={e => alert("feature not available")} ></i></div>
                                 <div className='icon-post'><i className="fas fa-file-alt" onClick={e => alert("feature not available")}></i></div>
                             </div>
-                            <div className='write-article' onClick={e => alert("feature not available")}>Write an article on LinkedList</div>
+                            <div className='write-article' onClick={e => alert("feature not available")}>Write an article </div>
+                            <div className='on-linkedlist'> on LinkedList</div>
                         </div>
                         <div className="post-list">
                             <div className="post-container">
                                 <PostsContainer />
                             </div>
+                        </div>
+                        <div className="post1-ad">
+                            <div className="post1-container">
+                                <div id="list-logo-post"></div>
+                                <div id="post1-header-text">
+                                    <div id="post1-company">LinkedList</div>
+                                    <div id="post1-followers">11,332,114 followers</div>
+                                    <div id="post1-promoted">Promoted</div>
+                                </div>
+                            </div>
+                            <div className="post1-body-text">
+                                See the expanded list of who’s viewed your 
+                                profile. Make connections to boost the power of 
+                                your network. Try LinkedIn Premium for free. 
+                            </div>
+                            <div className="post1-pic"></div>
                         </div>
                     </div>
                     <div className="news-container">

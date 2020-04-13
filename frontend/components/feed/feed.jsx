@@ -128,10 +128,23 @@ class Feed extends React.Component {
                             <div className="post1-body-text">
                                 See the expanded list of who’s viewed your 
                                 profile. Make connections to boost the power of 
-                                your network. Try LinkedIn Premium for free. 
+                                your network. Try LinkedList Premium for free. 
                             </div>
                             <div className="post1-pic"></div>
+                            <div className="post1-pic-desc">
+                                <h4 id="post1-pic-desc-header"> <br/> LinkedList Premium</h4>
+                                <h4 id="post1-pic-desc-site">linkedlist.com <br/> </h4>
+                            </div>
+                            <div className="post1-comments">
+                                View all comments
+                            </div>
+                            <div className="post1-reacts">
+                                <div className="like"><i class="far fa-thumbs-up"></i> Like </div>
+                                <div className="comment"><i class="far fa-comment-alt"></i> Comment </div>
+                                <div className="share"><i class="far fa-share-square"></i> Share </div>
+                            </div>
                         </div>
+    
                     </div>
                     <div className="news-container">
                         Today’s news and views

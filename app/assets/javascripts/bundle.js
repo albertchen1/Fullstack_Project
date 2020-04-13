@@ -820,9 +820,31 @@ var Feed = /*#__PURE__*/function (_React$Component) {
         id: "post1-promoted"
       }, "Promoted"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post1-body-text"
-      }, "See the expanded list of who\u2019s viewed your profile. Make connections to boost the power of your network. Try LinkedIn Premium for free."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "See the expanded list of who\u2019s viewed your profile. Make connections to boost the power of your network. Try LinkedList Premium for free."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post1-pic"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post1-pic-desc"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        id: "post1-pic-desc-header"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " LinkedList Premium"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        id: "post1-pic-desc-site"
+      }, "linkedlist.com ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post1-comments"
+      }, "View all comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post1-reacts"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "like"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "far fa-thumbs-up"
+      }), " Like "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "comment"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "far fa-comment-alt"
+      }), " Comment "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "share"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "far fa-share-square"
+      }), " Share ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-container"
       }, "Today\u2019s news and views")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-post-modal-hidden"

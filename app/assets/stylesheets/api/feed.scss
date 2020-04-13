@@ -1,24 +1,23 @@
 .welcome-navbar{
     width: 100%;
-    height: 70px;
+    height: 11vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin-bottom: 4vh;
     background-color: #283e4a;
     position: fixed;
-    top: 0px;
+    top: 0vh;
     z-index: 1;
     float: right;
 }
 
 .welcome-header{
     position: absolute;
-    right: 50px;
+    right: 8vh;
     font-size: larger;
     color: #2867B2;
-    margin: 1em;
-
+    margin: 3vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -33,31 +32,33 @@
 
 .list-logo{
     // content: url(https://i.imgur.com/mtLupon.png);
+    height: 6vh;
     content: image_url('Listicon.png');
     position: absolute;
-    margin: 8px 8px 8px 8px;
-    border-radius: 12px;
-    border: 1px solid black;
+    margin: 2vh 2vh 2vh 11vh;
+    border-radius: 2vh;
+    border: .15vh solid black;
 }
 
 .feed-container{
     display: flex; 
     flex-direction: row; 
     justify-content: space-between;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-top: 40px; 
+    padding-top: 10vh;
+    padding-left: 12vh;
+    padding-right: 12vh;
+    margin-top: 6vh; 
     font-family: Arial, Helvetica, sans-serif;
 }
 //
 .feed-profile-container{
     width: 15%; 
-    height: 400px; 
+    height: 60vh; 
     background-color: white; 
-    box-shadow: 0 0 0 1px rgba(0,0,0,.15);
-    border-radius: 2px;
+    box-shadow: 0 0 0 .15vh rgba(0,0,0,.15);
+    border-radius: .3vh;
     position: sticky;
-    top: 70px;
+    top: 11vh;
     left: 0;
 }
 
@@ -73,43 +74,44 @@
     display: flex;
     justify-self: center;
     border-radius: 50%;
-    
+    border: .3vh solid white;
+    box-shadow: 0 .5vh 0 0 #f2f2f2;
 }
 
 #feed-img{
     // align-content: center;
     // content: image_url('blankprofilepic.png');
-    width: 72px;
-    height: 72px;
+    width: 11vh;
+    height: 11vh;
     border-radius: 50%;
     box-sizing: border-box;
-    border: 2px solid white;
-    z-index: 1px;
+    border: .3vh solid white;
     display: flex;
     justify-content: center;
     object-fit: cover;
-    margin: 0;
+    margin: -20% 0% 0 30%;
     flex-direction: row;
 }
 
 #feed-name{
     font-weight: bold; 
     text-align: center; 
-    font-size: 18px;
+    font-size: 2.8vh;
     padding-bottom: 4%;
+    padding-top: 15%;
 }
 
 #feed-title{
     text-align: center;
-    font-size: 14px; 
+    font-size: 2.2vh; 
     color: grey;
 }
 
 hr{
     display: block;
-    height: 1px;
+    height: .15vh;
     border: 0;
-    border-top: 1px solid #ccc;
+    border-top: .15vh solid #ccc;
     margin: 1em 0;
     padding: 0;
 }
@@ -124,14 +126,21 @@ hr{
 
 #feed-num-views-text, #feed-num-connections-text {
     color: #696969;
-    font-size: 12px;
+    font-size: 1.9vh;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+#feed-num-connections-num {
+    margin-left: 43%;
 }
 
 #feed-num-views-num, #feed-num-connections-num {
     color: rgb(64, 192, 224);
     margin-right: 10%; 
     cursor: pointer;
-    font-size: 12px;
+    font-size: 1.9vh;
+    display: inline-block;
 }
 
 // #feed-num-connections-text, #feed-num-connections-text{
@@ -143,13 +152,11 @@ hr{
 }
 
 .icon-post {
-    font-size: 24px;
+    font-size: 3.8vh;
     color: grey;
-    // min-width: 20px;
 }
 
 .icon-post i{
-    // min-width: 20px;
     cursor: pointer;
 }
 
@@ -168,65 +175,135 @@ hr{
 
 .post-create {
     width: 100%; 
-    height: 140px; 
+    height: 19vh; 
     background-color: white; 
-    box-shadow: 0 0 0 1px black;
-    border-radius: 2px;
-    margin-bottom: 35px; 
+    box-shadow: 0 0 0 .15vh rgba(0,0,0,.15);
+    border-radius: .3vh;
+    margin-bottom: 5.5vh; 
+    padding-bottom: 1vh;
 }
 
 .post-create-container {
     display: flex; 
     justify-content: space-between;
     padding: 5%; 
-    border-bottom: 1px solid grey;
+    border-bottom: .15vh solid grey;
+}
+
+.write-article{
+    padding-left: 5%; 
+    padding-top: 2%;
+    color: #0073b1;
+    text-decoration: underline;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.post-item{
+    width: 100%; 
+    height: 100%;
+    background-color: white; 
+    box-shadow: 0 0 0 .15vh rgba(0,0,0,.15);
+    border-radius: .3vh;
+    margin-bottom: 5.5vh; 
+    margin-top: 5.5vh; 
 }
 
 .post1-ad {
     width: 100%; 
-    height: 600px; 
+    height: 86vh;
     background-color: white; 
-    box-shadow: 0 0 0 1px black;
-    border-radius: 2px;
-    margin-bottom: 35px; 
-    margin-top: 35px; 
+    box-shadow: 0 0 0 .15vh rgba(0,0,0,.15);
+    border-radius: .3vh;
+    margin-bottom: 5.5vh; 
+    margin-top: 5.5vh; 
 }
 
-.post1-container {
-    // display: flex;
+.post2-post {
+    width: 100%; 
+    height: 36vh;
+    background-color: white; 
+    box-shadow: 0 0 0 .15vh rgba(0,0,0,.15);
+    border-radius: .3vh;
+    margin-bottom: 5.5vh; 
+    margin-top: 5.5vh; 
+}
+
+.post3-uiuc {
+    width: 100%; 
+    height: 88vh;
+    background-color: white; 
+    box-shadow: 0 0 0 .15vh rgba(0,0,0,.15);
+    border-radius: .3vh;
+    margin-bottom: 5.5vh; 
+    margin-top: 5.5vh; 
+}
+
+
+.post1-container, .post2-container, .post-item-container, .post3-container {
     justify-content: space-between;
     padding: 3% 3% 1% 3%;
-    // border-bottom: 1px solid grey;
 }
 
 #list-logo-post {
     content: image_url('Listicon-mini.png');
     margin-left: 3%;
-    border-radius: 12px;
-    border: 1px solid black;
-    // display: flex;
+    border-radius: 1.9vh;
+    border: .15vh solid black;
     display: inline-block;
 }
 
-#post1-header-text {
+#shaq-post {
+    content: image_url('shaq.jpeg');
+    margin-left: 3%;
+    border-radius: 1.9vh;
     display: inline-block;
-    margin-left: 20px;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 5vh;
 }
 
-#post1-company {
+#self-post {
+    content: image_url('mini-profile-pic.png');
+    margin-left: 3%;
+    border-radius: 1.9vh;
+    display: inline-block;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 5vh;
+}
+
+#uiuc-post {
+    content: image_url('uiuc-logo.png');
+    margin-left: 3%;
+    border-radius: 1.9vh;
+    display: inline-block;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 5vh;
+}
+
+#post1-header-text, #post2-header-text, #post-item-header-text, #post3-header-text {
+    display: inline-block;
+    margin-left: 3.1vh;
+}
+
+#post1-company, #post2-name, #post-item-name, #post3-company {
     color: black;
     // font-weight: bold;
-    font-size: 16px;
+    font-size: 2.5vh;
 }
 
-#post1-followers, #post1-promoted {
+#post1-followers, #post1-promoted, #post2-headline, #post2-time, #post-item-headline, #post-item-time, #post3-followers, #post3-time {
     color: grey;
-    font-size: 14px;
+    font-size: 2.2vh;
+    margin-top: .4vh;
+    margin-bottom: .4vh;
 }
 
-.post1-body-text {
+.post1-body-text, .post2-body-text, .post-item-body-text, .post3-body-text {
     color: black;
-    font-size: 16px;
+    font-size: 2.5vh;
     margin: 1% 5% 3% 5%;
 }
 
@@ -239,45 +316,47 @@ hr{
     cursor: pointer;
 }
 
-.post1-pic-desc {
+.post3-pic {
+    content: image_url('uiuc-post-pic.png');
+    display: block;
+    margin: auto;
+    max-width:100%;
+    max-height: 100%;
+    cursor: pointer;
+}
+
+.post1-pic-desc, .post3-pic-desc {
     background-color:  #f2f2f2;
     cursor: pointer;
 }
 
-#post1-pic-desc-header {
-    margin: 0 3% 0 3%;
+#post1-pic-desc-header , #post3-pic-desc-header {
+    margin: 0 3% 0 5%;
     font-size: 15px;
 }
 
-#post1-pic-desc-site {
-    margin: 2% 3% 0 3%;
+#post1-pic-desc-site, #post3-pic-desc-site {
+    margin: 2% 3% 0 5%;
+    font-size: 14px;
+    color: grey;
+    padding-bottom: 2vh;
+}
+
+.post-comments {
+    margin: 2% 3% 2% 5%;
     font-size: 14px;
     color: grey;
 }
 
-.post1-comments {
-    margin: 1% 3% 1% 3%;
-    font-size: 14px;
-    color: grey;
-}
-
-.post1-reacts {
+.post-reacts {
     border-top: 1px solid grey;
+    padding-bottom: .5vh;
 }
 
 .like, .comment, .share {
-    margin: 1% 3% 1% 3%;
+    margin: 1% 3% 1% 5%;
     display: inline-block;
     cursor: pointer;
-}
-
-.write-article{
-    padding-left: 5%; 
-    padding-top: 3%;
-    color: #0073b1;
-    text-decoration: underline;
-    cursor: pointer;
-    display: inline-block;
 }
 
 .on-linkedlist {
@@ -285,16 +364,41 @@ hr{
     padding-left: 5px;
 }
 
-.news-container{
+// news container on right side
+.news-container {
     width: 27.5%; 
     height: 100%;
     position: sticky;
-    top: 70px;
+    top: 11vh;
     left: 0;
-    border:  solid grey;
-    border-width: thin;
-    // box-shadow: 0 0 0 1px black;
-    // border-style: solid;
+    box-shadow: 0 0 0 .15vh rgba(0,0,0,.15);
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.news-container-header {
+    margin: 3vh 2vh 1vh 2vh;
+    font-size: 3vh;
+}
+
+.news-link:hover {
+    background-color: lightgray;
+}
+
+.news-link {
+    padding: 2vh 2vh 2vh 2vh;
+}
+
+
+.news-title {
+    font-size: 2.3vh;
+    padding-bottom: 1vh;
+    font-weight: bold;
+}
+
+.news-time {
+    color: grey;
+    font-size: 2.1vh;
 }
 
 //modal

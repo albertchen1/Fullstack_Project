@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <script type="text/javascript">
-    window.blankprofilepic = "<%= image_url('blankprofilepic.png')%>";  
+    window.blankprofilepic = "<%= image_url('mini-profile-pic.png')%>";  
     window.currentUser = <%= render(
       "api/users/user.json.jbuilder",
       user: current_user

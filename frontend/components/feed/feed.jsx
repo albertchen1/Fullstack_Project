@@ -65,11 +65,7 @@ class Feed extends React.Component {
         return (
             <div className="feed-div">
                 <NavbarContainer />
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+
                 <div className="feed-container">
                     <div className="feed-profile-container">
                         <div className="feed-profile-background"></div>
@@ -112,8 +108,36 @@ class Feed extends React.Component {
                             <div className='on-linkedlist'> on LinkedList</div>
                         </div>
                         <div className="post-list">
-                            <div className="post-container">
+                            <div className="post-list-container">
                                 <PostsContainer />
+                            </div>
+                        </div>
+                        <div className="post2-post">
+                            <div className="post2-container">
+                                <div id="shaq-post"></div>
+                                <div id="post2-header-text">
+                                    <div id="post2-name">Shaquille O'Neal</div>
+                                    <div id="post2-headline">Business mogul, Former athlete, Purveyor of fun</div>
+                                    <div id="post2-time">5d</div>
+                                </div>
+                            </div>
+                            <div className="post2-body-text">
+                                I can't lie - if companies are doing video 
+                                interviews via Zoom, I'm not sure I'll be able 
+                                to find a job until this pandemic ends.
+                                <br/>
+                                <br/>
+                                My wife gave me a haircut last night, and I 
+                                currently look like one of the players in Wii 
+                                Tennis
+                            </div>
+                            <div className="post-comments">
+                                0 Likes 0 comments
+                            </div>
+                            <div className="post-reacts">
+                                <div className="like"><i className="far fa-thumbs-up"></i> Like </div>
+                                <div className="comment"><i className="far fa-comment-alt"></i> Comment </div>
+                                <div className="share"><i className="far fa-share-square"></i> Share </div>
                             </div>
                         </div>
                         <div className="post1-ad">
@@ -130,24 +154,94 @@ class Feed extends React.Component {
                                 profile. Make connections to boost the power of 
                                 your network. Try LinkedList Premium for free. 
                             </div>
-                            <div className="post1-pic"></div>
-                            <div className="post1-pic-desc">
-                                <h4 id="post1-pic-desc-header"> <br/> LinkedList Premium</h4>
-                                <h4 id="post1-pic-desc-site">linkedlist.com <br/> </h4>
+                            <a href="https://premium.linkedin.com/">
+                                <div className="post1-pic"></div>
+                                <div className="post1-pic-desc">
+                                    <h4 id="post1-pic-desc-header"> <br/> LinkedList Premium</h4>
+                                    <h4 id="post1-pic-desc-site">linkedlist.com <br/> </h4>
+                                </div>
+                            </a>    
+                            <div className="post-comments">
+                                0 Likes 0 comments
                             </div>
-                            <div className="post1-comments">
-                                View all comments
-                            </div>
-                            <div className="post1-reacts">
-                                <div className="like"><i class="far fa-thumbs-up"></i> Like </div>
-                                <div className="comment"><i class="far fa-comment-alt"></i> Comment </div>
-                                <div className="share"><i class="far fa-share-square"></i> Share </div>
+                            <div className="post-reacts">
+                                <div className="like"><i className="far fa-thumbs-up"></i> Like </div>
+                                <div className="comment"><i className="far fa-comment-alt"></i> Comment </div>
+                                <div className="share"><i className="far fa-share-square"></i> Share </div>
                             </div>
                         </div>
-    
+                        <div className="post3-uiuc">
+                            <div className="post3-container">
+                                <div id="uiuc-post"></div>
+                                <div id="post3-header-text">
+                                    <div id="post3-company">University of 
+                                        Illinois at Urbana-Champaign
+                                    </div>
+                                    <div id="post3-followers">411,797 followers</div>
+                                    <div id="post3-time">1mo</div>
+                                </div>
+                            </div>
+                            <div className="post3-body-text">
+                                For the ninth time in the past 10 years, 
+                                Illinois has been named among the U.S. colleges 
+                                and universities that produce the most Fulbright 
+                                U.S. Student Awards.
+                            </div>
+                            <a href="https://news.illinois.edu/view/6367/806559">
+                                <div className="post3-pic"></div>
+                                <div className="post3-pic-desc">
+                                    <h4 id="post3-pic-desc-header">
+                                        <br /> 
+                                        U of I among top producers of Fulbright awards
+                                    </h4>
+                                    <h4 id="post3-pic-desc-site">
+                                        news.illinois.edu 
+                                        <br /> 
+                                    </h4>
+                                </div>
+                            </a>
+                            <div className="post-comments">
+                                0 Likes 0 comments
+                            </div>
+                            <div className="post-reacts">
+                                <div className="like"><i className="far fa-thumbs-up"></i> Like </div>
+                                <div className="comment"><i className="far fa-comment-alt"></i> Comment </div>
+                                <div className="share"><i className="far fa-share-square"></i> Share </div>
+                            </div>
+                        </div>
                     </div>
                     <div className="news-container">
-                        Today’s news and views
+                        <div className="news-container-header"> Today’s news and views </div>
+                        <div className="news-link">
+                            <a href="https://www.linkedin.com/feed/news/nows-a-great-time-for-average-art-4807604/">
+                                <div className="news-title"> Now's a great time for average art</div>
+                                <div className="news-time"> 1d ago • 9,653 readers</div>
+                            </a>
+                        </div>
+                        <div className="news-link">
+                            <a href="https://www.linkedin.com/feed/news/imagining-the-post-pandemic-office-4805468/">
+                                <div className="news-title"> Imagining the post-pandemic office</div>
+                                <div className="news-time"> 1d ago • 9,003 readers</div>
+                            </a>
+                        </div>
+                        <div className="news-link">
+                            <a href="https://www.linkedin.com/feed/news/setting-work-from-home-boundaries-4808276/">
+                                <div className="news-title"> Setting work-from-home boundaries</div>
+                                <div className="news-time"> 2h ago • 5,217 readers</div>
+                            </a>
+                        </div>
+                        <div className="news-link">
+                            <a href="https://www.linkedin.com/feed/news/robots-join-the-coronavirus-fight-4815956/">
+                                <div className="news-title"> Robots join the coronavirus fight</div>
+                                <div className="news-time"> 1d ago • 2,086 readers</div>
+                            </a>
+                        </div>
+                        <div className="news-link">
+                            <a href="https://www.linkedin.com/feed/news/ny-hospitals-on-the-brink-4811772/">
+                                <div className="news-title"> NY hospitals 'on the brink'</div>
+                                <div className="news-time"> 12h ago • 3,031 readers</div>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div className="create-post-modal-hidden">

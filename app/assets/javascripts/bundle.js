@@ -725,7 +725,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-profile-container"
@@ -803,8 +803,40 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, " on LinkedList")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-list"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-container"
+        className: "post-list-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post2-post"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post2-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "shaq-post"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post2-header-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post2-name"
+      }, "Shaquille O'Neal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post2-headline"
+      }, "Business mogul, Former athlete, Purveyor of fun"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post2-time"
+      }, "5d"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post2-body-text"
+      }, "I can't lie - if companies are doing video interviews via Zoom, I'm not sure I'll be able to find a job until this pandemic ends.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "My wife gave me a haircut last night, and I currently look like one of the players in Wii Tennis"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-comments"
+      }, "0 Likes 0 comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-reacts"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "like"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-thumbs-up"
+      }), " Like "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "comment"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-comment-alt"
+      }), " Comment "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "share"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-share-square"
+      }), " Share "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post1-ad"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post1-container"
@@ -820,7 +852,9 @@ var Feed = /*#__PURE__*/function (_React$Component) {
         id: "post1-promoted"
       }, "Promoted"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post1-body-text"
-      }, "See the expanded list of who\u2019s viewed your profile. Make connections to boost the power of your network. Try LinkedList Premium for free."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "See the expanded list of who\u2019s viewed your profile. Make connections to boost the power of your network. Try LinkedList Premium for free."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://premium.linkedin.com/"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post1-pic"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post1-pic-desc"
@@ -828,25 +862,109 @@ var Feed = /*#__PURE__*/function (_React$Component) {
         id: "post1-pic-desc-header"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " LinkedList Premium"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         id: "post1-pic-desc-site"
-      }, "linkedlist.com ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post1-comments"
-      }, "View all comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post1-reacts"
+      }, "linkedlist.com ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-comments"
+      }, "0 Likes 0 comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-reacts"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "like"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "far fa-thumbs-up"
+        className: "far fa-thumbs-up"
       }), " Like "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "comment"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "far fa-comment-alt"
+        className: "far fa-comment-alt"
       }), " Comment "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "share"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "far fa-share-square"
+        className: "far fa-share-square"
+      }), " Share "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post3-uiuc"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post3-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "uiuc-post"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post3-header-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post3-company"
+      }, "University of Illinois at Urbana-Champaign"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post3-followers"
+      }, "411,797 followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post3-time"
+      }, "1mo"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post3-body-text"
+      }, "For the ninth time in the past 10 years, Illinois has been named among the U.S. colleges and universities that produce the most Fulbright U.S. Student Awards."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://news.illinois.edu/view/6367/806559"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post3-pic"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post3-pic-desc"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        id: "post3-pic-desc-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "U of I among top producers of Fulbright awards"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        id: "post3-pic-desc-site"
+      }, "news.illinois.edu", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-comments"
+      }, "0 Likes 0 comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-reacts"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "like"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-thumbs-up"
+      }), " Like "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "comment"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-comment-alt"
+      }), " Comment "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "share"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-share-square"
       }), " Share ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-container"
-      }, "Today\u2019s news and views")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-container-header"
+      }, " Today\u2019s news and views "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-link"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.linkedin.com/feed/news/nows-a-great-time-for-average-art-4807604/"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-title"
+      }, " Now's a great time for average art"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-time"
+      }, " 1d ago \u2022 9,653 readers"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-link"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.linkedin.com/feed/news/imagining-the-post-pandemic-office-4805468/"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-title"
+      }, " Imagining the post-pandemic office"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-time"
+      }, " 1d ago \u2022 9,003 readers"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-link"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.linkedin.com/feed/news/setting-work-from-home-boundaries-4808276/"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-title"
+      }, " Setting work-from-home boundaries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-time"
+      }, " 2h ago \u2022 5,217 readers"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-link"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.linkedin.com/feed/news/robots-join-the-coronavirus-fight-4815956/"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-title"
+      }, " Robots join the coronavirus fight"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-time"
+      }, " 1d ago \u2022 2,086 readers"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-link"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.linkedin.com/feed/news/ny-hospitals-on-the-brink-4811772/"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-title"
+      }, " NY hospitals 'on the brink'"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "news-time"
+      }, " 12h ago \u2022 3,031 readers"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-post-modal-hidden"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-a-post"
@@ -943,7 +1061,37 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.post.body));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-item-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "self-post"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post-item-header-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post-item-name"
+      }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post2-headline"
+      }, "Software Engineer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post2-time"
+      }, "1m"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post2-body-text"
+      }, this.props.post.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-comments"
+      }, "0 Likes 0 comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-reacts"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "like"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-thumbs-up"
+      }), " Like "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "comment"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-comment-alt"
+      }), " Comment "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "share"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-share-square"
+      }), " Share ")));
     }
   }]);
 

@@ -105,12 +105,15 @@ a {
     color: inherit;    
 }
 
+.navbar-icons:hover {
+    color: white;
+}
 
 .navbar-icons{
     font-size: 24px;
-    color: white;
+    color: #f2f2f2;
     text-align: center;
-    margin-right: 0.5em;
+    margin-right: 8vh;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: lighter;
 }
@@ -118,7 +121,7 @@ a {
 
 
 .navbar-pic{
-    content: image_url('blankprofilepic.png');
+    content: image_url('mini-profile-pic.png');
     width: 28px;
     height: 28px;
     border-radius: 50%;

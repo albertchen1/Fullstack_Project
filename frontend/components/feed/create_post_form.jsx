@@ -42,7 +42,7 @@ class CreatePostForm extends React.Component {
     }
 
     handleSubmit(e) {
-
+        console.log(this.state)
         e.preventDefault();
         let form = {
             body: this.state.body
@@ -87,8 +87,7 @@ class CreatePostForm extends React.Component {
                 </div>
 
                 <form onSubmit={this.handleSubmit.bind(this)}>
-                    {/* why is there two classNames here  */}
-                    <input className='post-input'
+                    <input 
                         className='create-post-form'
                         type='text'
                         value={this.state.body}
@@ -96,10 +95,6 @@ class CreatePostForm extends React.Component {
                         placeholder='What do you want to talk about?' />
                     <br />
                     <br />
-
-
-
-
 
                     <div className='create-post-bottom'>
                         <div className='post-form-icons'>

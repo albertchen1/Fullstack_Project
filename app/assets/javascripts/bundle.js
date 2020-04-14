@@ -130,7 +130,7 @@ var closeModal = function closeModal() {
 /*!******************************************!*\
   !*** ./frontend/actions/post_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_ALL_POSTS, RECEIVE_POST, receiveAllPosts, receivePost, fetchAllPosts, fetchPost, createPost */
+/*! exports provided: RECEIVE_ALL_POSTS, RECEIVE_POST, receiveAllPosts, receivePost, fetchAllPosts, fetchPost, createPost, deletePost */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -142,6 +142,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllPosts", function() { return fetchAllPosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPost", function() { return fetchPost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPost", function() { return createPost; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePost", function() { return deletePost; });
 /* harmony import */ var _util_post_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/post_api_util */ "./frontend/util/post_api_util.js");
 // import * as APIUtil from "../util/session_api_util";
 
@@ -176,6 +177,13 @@ var fetchPost = function fetchPost(id) {
 var createPost = function createPost(post) {
   return function (dispatch) {
     return _util_post_api_util__WEBPACK_IMPORTED_MODULE_0__["createPost"](post).then(function (posts) {
+      return dispatch(receiveAllPosts(posts));
+    });
+  };
+};
+var deletePost = function deletePost(id) {
+  return function (dispatch) {
+    return _util_post_api_util__WEBPACK_IMPORTED_MODULE_0__["removePost"](id).then(function (posts) {
       return dispatch(receiveAllPosts(posts));
     });
   };
@@ -541,6 +549,7 @@ var CreatePostForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       var _this3 = this;
 
+      console.log(this.state);
       e.preventDefault();
       var form = {
         body: this.state.body
@@ -576,8 +585,6 @@ var CreatePostForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _React$createElement;
-
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-post-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -585,9 +592,13 @@ var CreatePostForm = /*#__PURE__*/function (_React$Component) {
         className: "close-post-x"
       }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit.bind(this)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", (_React$createElement = {
-        className: "post-input"
-      }, _defineProperty(_React$createElement, "className", "create-post-form"), _defineProperty(_React$createElement, "type", "text"), _defineProperty(_React$createElement, "value", this.state.body), _defineProperty(_React$createElement, "onChange", this.handleInput.bind(this)), _defineProperty(_React$createElement, "placeholder", "What do you want to talk about?"), _React$createElement)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "create-post-form",
+        type: "text",
+        value: this.state.body,
+        onChange: this.handleInput.bind(this),
+        placeholder: "What do you want to talk about?"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-post-bottom"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-form-icons"
@@ -1059,6 +1070,8 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
   _createClass(PostItem, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1066,6 +1079,11 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "self-post"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "delete-button",
+        onClick: function onClick() {
+          return _this.props.deletePost(_this.props.post.id);
+        }
+      }, "X"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post-item-header-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post-item-name"
@@ -1075,7 +1093,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         id: "post2-time"
       }, "1m"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post2-body-text"
-      }, this.props.post.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.post.body, this.props.post.photoFile), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-comments"
       }, "0 Likes 0 comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-reacts"
@@ -1124,9 +1142,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -1139,9 +1157,13 @@ var Posts = /*#__PURE__*/function (_React$Component) {
   _inherits(Posts, _React$Component);
 
   function Posts(props) {
+    var _this;
+
     _classCallCheck(this, Posts);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Posts).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Posts).call(this, props));
+    _this.deletePost = _this.deletePost.bind(_assertThisInitialized(_this));
+    return _this;
   } // renderPosts() {
   //     if (this.props.posts.length > 0) {
   //         return this.props.posts.map(post => {
@@ -1154,14 +1176,22 @@ var Posts = /*#__PURE__*/function (_React$Component) {
 
 
   _createClass(Posts, [{
+    key: "deletePost",
+    value: function deletePost(id) {
+      this.props.deletePost(id);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "posts-div"
       }, this.props.posts.map(function (post, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_post_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: idx,
-          post: post
+          post: post,
+          deletePost: _this2.deletePost
         });
       }));
     }
@@ -1185,6 +1215,8 @@ var Posts = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _posts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./posts */ "./frontend/components/feed/posts.jsx");
+/* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/post_actions */ "./frontend/actions/post_actions.js");
+
 
 
 
@@ -1208,7 +1240,10 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       return logout;
     }(function () {
       return dispatch(logout());
-    })
+    }),
+    deletePost: function deletePost(id) {
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_2__["deletePost"])(id));
+    }
   };
 };
 
@@ -2595,7 +2630,7 @@ var configureStore = function configureStore() {
 /*!****************************************!*\
   !*** ./frontend/util/post_api_util.js ***!
   \****************************************/
-/*! exports provided: createPost, fetchAllPosts, fetchPost */
+/*! exports provided: createPost, fetchAllPosts, fetchPost, removePost */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2603,6 +2638,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPost", function() { return createPost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllPosts", function() { return fetchAllPosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPost", function() { return fetchPost; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removePost", function() { return removePost; });
 var createPost = function createPost(post) {
   return $.ajax({
     method: "POST",
@@ -2621,6 +2657,12 @@ var fetchAllPosts = function fetchAllPosts() {
 var fetchPost = function fetchPost(id) {
   return $.ajax({
     method: "GET",
+    url: "/api/posts/".concat(id)
+  });
+};
+var removePost = function removePost(id) {
+  return $.ajax({
+    method: "DELETE",
     url: "/api/posts/".concat(id)
   });
 };

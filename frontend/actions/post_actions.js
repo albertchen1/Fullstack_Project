@@ -27,3 +27,8 @@ export const createPost = (post) => dispatch => (
     APIUtil.createPost(post)
       .then(posts => dispatch(receiveAllPosts(posts)))
 )
+
+export const deletePost = (id) => dispatch => (
+    APIUtil.removePost(id)
+      .then((posts) => dispatch(receiveAllPosts(posts)))
+)

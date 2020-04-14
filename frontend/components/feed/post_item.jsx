@@ -5,11 +5,14 @@ class PostItem extends React.Component {
         super(props)
     }
 
+
+
     render() {
         return (
             <div className="post-item">
                 <div className="post-item-container">
                     <div id="self-post"></div>
+                    <div id="delete-button" onClick={() => this.props.deletePost(this.props.post.id)}>X</div>
                     <div id="post-item-header-text">
                         <div id="post-item-name">Albert Chen</div>
                         <div id="post2-headline">Software Engineer</div>
@@ -18,6 +21,7 @@ class PostItem extends React.Component {
                 </div>
                 <div className="post2-body-text">
                     {this.props.post.body}
+                    {this.props.post.photoFile}
                 </div>
                 <div className="post-comments">
                     0 Likes 0 comments

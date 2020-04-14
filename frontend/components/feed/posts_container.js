@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Posts from './posts'
+import { deletePost } from '../../actions/post_actions'
 
 const mapStateToProps = (state) => {
     return {
@@ -8,7 +9,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    deletePost: (id) => dispatch(deletePost(id))
 });
 
 export default connect(

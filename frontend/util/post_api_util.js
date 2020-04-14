@@ -22,3 +22,11 @@ export const fetchPost = (id) => (
         url: `/api/posts/${id}`,
     })
 )
+
+export const removePost = (id) => (
+    $.ajax({
+        method: "DELETE",
+        url: `/api/posts/${id}`,
+
+    })
+)

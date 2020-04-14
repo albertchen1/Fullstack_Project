@@ -4,6 +4,7 @@ import PostItem from './post_item'
 class Posts extends React.Component {
     constructor(props) {
         super(props)
+        this.deletePost = this.deletePost.bind(this)
     }
 
     // renderPosts() {
@@ -16,6 +17,11 @@ class Posts extends React.Component {
     //     }
     // }
 
+    deletePost(id) {
+        this.props.deletePost(id)
+            
+    }
+
     render() {
         return (
             <div className="posts-div">
@@ -23,6 +29,7 @@ class Posts extends React.Component {
                 <PostItem
                   key={idx}
                   post={post}
+                  deletePost={this.deletePost}
                 />
               ))}
             </div>

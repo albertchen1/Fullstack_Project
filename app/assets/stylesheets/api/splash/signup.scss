@@ -7,16 +7,11 @@
 
 .signup-form-container{
     position: relative;
-    // top: 200px;
-    // margin-left: 20px;
-    // top: 80px;
     text-align: center;
     background-image: linear-gradient(to right, #2867B2, #4682B4);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 1000px;
+    height: 146.2vh;
     background-position: center top;
-    // border-radius: 4px;
-
 }
 
 
@@ -26,60 +21,36 @@
 }
 
 .signup-form{
-    width: 500px;
+    width: 73vh;
     background-color: #D3D3D3;
-    padding: 20px;
-    // margin: 30px;
+    padding: 2.9vh;
     display: inline-block;
-    // text-align: center;
-    border-radius: 4px;
+    border-radius: .58vh;
 }
 
 label{
     background-color:  #D3D3D3;
     color: black;
-    font-size: 16px;
-    // display: flex;
-    // justify-content: left;
+    font-size: 2.3vh;
     position: relative;
-    // text-align: left;
-    // text-align: justify;
     float: left;
-    left: 48px;
+    left: 7vh;
 
 }
 
-// .signup-fname-label, .signup-lname-label, .signup-location-label{
-//     background-color:  #D3D3D3;
-//     color: black;
-//     font-size: 16px;
-//     // display: flex;
-//     // justify-content: left;
-//     position: relative;
-//     // text-align: left;
-//     // text-align: justify;
-//     // float: right;
-// }
-
-// .signup-email-label{
-
-// }
-
 .signup-input{
     font-size:14pt;
-    // height:420px;
-    width: 400px;
+    width: 58.5vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: white;
     border-style: solid;
-    border-radius: 4px;
+    border-radius: .58vh;
 }
 
 .signup-form-box{
     font-size: 20pt;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
-    // background-image: linear-gradient(to right, #2867B2, #4682B4);
     padding-top: 0;
 }
 
@@ -88,13 +59,13 @@ label{
 }
 
 .session-submit, .session-demo{
-    font-size: 18px;
-    width: 400px;
+    font-size: 2.6vh;
+    width: 58.5vh;
     color: white;
-    height: 30px;
+    height: 4.4vh;
     background-color:#2867B2;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: .58vh;
 }
 
 .session-submit:hover, .session-demo:hover{
@@ -102,7 +73,7 @@ label{
 }
 
 .signup-errors{
-    font-size: 16px;
+    font-size: 2.3vh;
     color: white;
     background-color: red;
 }
@@ -112,8 +83,6 @@ label{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #D3D3D3;
     color: black;
-    // display: inline-block;
-    // text-align: center;
     display: block;
 }
 
@@ -122,8 +91,6 @@ label{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #D3D3D3;
     color: #2867B2;
-    // display: inline-block;
-    // text-align: center;
     display: block;
 }
 

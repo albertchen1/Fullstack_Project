@@ -30,6 +30,8 @@ class Posts extends React.Component {
                   key={idx}
                   post={post}
                   deletePost={this.deletePost}
+                  createComment={this.props.createComment}
+                  fetchAllComments={this.props.fetchAllComments}
                 />
               ))}
             </div>

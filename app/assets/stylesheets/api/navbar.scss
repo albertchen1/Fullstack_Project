@@ -2,97 +2,41 @@
 
 .login-signup{
     float: right;
-    margin-right: 150px;
+    margin-right: 22vh;
 }
 
 .navbar-login-button{
-    // // background-color: #0073b1;
-    // // color: white;
-    // //  text-decoration: none;
-
-    // //copied from actual site.change later
-    // //  background-color: rgba(0,0,0,0);
-    // border: 0;
-    // border-radius: 10px;
-    // // -webkit-box-sizing: border-box;
-    // // box-sizing: border-box;
-    // color: #0073b1;
-    // // cursor: pointer;
-    // // display: inline-block;
-    // font-size: 1.6rem;
-    // font-weight: 400;
-    // font-family: inherit;
-    // // height: 32px;
-    // // line-height: 32px;
-    // // overflow: hidden;
-    // // outline-width: 2px;
-    // // padding: 0 16px;
-    // position: relative;
-    // text-align: center;
-    // // text-decoration: none;
-    // // -webkit-transition-duration: 167ms;
-    // // transition-duration: 167ms;
-    // // -webkit-transition-property: background-color,color,-webkit-box-shadow;
-    // // transition-property: background-color,color,-webkit-box-shadow;
-    // // transition-property: background-color,box-shadow,color;
-    // // transition-property: background-color,box-shadow,color,-webkit-box-shadow;
-    // // -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    // // transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    // // vertical-align: middle;
-    // // z-index: 0;
-    // // -webkit-box-shadow: inset 0 0 0 1px #0073b1, inset 0 0 0 2px rgba(0,0,0,0), inset 0 0 0 1px rgba(0,0,0,0);
-    // box-shadow: inset 0 0 0 1px #0073b1, inset 0 0 0 2px rgba(0,0,0,0), inset 0 0 0 1px rgba(0,0,0,0);
-    // // -webkit-box-ordinal-group: 4;
-    // // -ms-flex-order: 3;
-    // // order: 3;
-    // // -ms-flex-negative: 0;
-    // // flex-shrink: 0;
-
-    // // position: absolute;
-    // // top: 1050px;
-    // // left: 100px;
-    // // font-size: 20px;
-    // // background-color: #2867B2;
-    // // text-decoration: none;
-    // // color: white;
-    // // border-radius: 26px;
-    // // padding: 14px 26px;
-
-    // // display: inline-block;
-    border: 1px solid #2977c9;
+    border: .146vh solid #2977c9;
     color: #2977c9;
-    padding: 7px;
-    padding-right: 15px;
-    padding-left: 15px;
-    border-radius: 3px;
+    padding: 1vh;
+    padding-right: 2.2vh;
+    padding-left: 2.2vh;
+    border-radius: .44vh;
     transition: none;
     font-family: sans-serif;
     font-size: inherit;
     font-weight: bold;
     cursor: pointer;
-
 }
 
 .navbar-login-button:hover{
     background-color: rgba(152,216,244,0.25);
     color: #006097;
-    box-shadow: inset 0 0 0 1px #0073b1, inset 0 0 0 2px #006097, inset 0 0 0 1px rgba(0,0,0,0);
+    box-shadow: inset 0 0 0 .146vh #0073b1, inset 0 0 0 .29vh #006097, inset 0 0 0 .146vh rgba(0,0,0,0);
 }
 
 .navbar-signup-button{
     color: #78808a;
-    padding: 7px;
-    padding-right: 15px;
-    padding-left: 15px;
-    border-radius: 3px;
+    padding: 1vh;
+    padding-right: 2.2vh;
+    padding-left: 2.2vh;
+    border-radius: .44vh;
     transition: none;
     font-family: inherit;
     font-size: inherit;
     font-weight: bold;
     cursor: pointer;
     border: none;
-
-
 }
 
 .navbar-signup-button:hover{
@@ -110,7 +54,7 @@ a {
 }
 
 .navbar-icons{
-    font-size: 24px;
+    font-size: 3.51vh;
     color: #f2f2f2;
     text-align: center;
     margin-right: 8vh;
@@ -122,13 +66,11 @@ a {
 
 .navbar-pic{
     content: image_url('mini-profile-pic.png');
-    width: 28px;
-    height: 28px;
+    width: 4.1vh;
+    height: 4.1vh;
     border-radius: 50%;
     box-sizing: border-box;
-    border: 1px solid white;
-    // top: -55px;
-    // position: absolute;
+    border: .146vh solid white;
     z-index: 1;
 }
 
@@ -141,11 +83,9 @@ a {
     display: none;
     position: absolute;
     color: #666666;
-    // background-color: #f9f9f9;
     background-color: white;
-    min-width: 109px;
-    min-height: 30px;
-    // box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 15.9vh;
+    min-height: 4.4vh;
     z-index: 1;
     border-radius: .5em;
   }
@@ -155,11 +95,11 @@ a {
   }
 
   #navbar-icon-label{
-      font-size: 12px;
+      font-size: 1.75vh;
   }
 
   .nav-dropdown{
       color: white;
-      font-size: 12px;
+      font-size: 1.75vh;
       font-family: Arial, Helvetica, sans-serif;
   }

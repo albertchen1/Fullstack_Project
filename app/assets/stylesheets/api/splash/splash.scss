@@ -3,77 +3,58 @@
 .header-logo{
     content: url(https://i.imgur.com/mtLupon.png);
     position: absolute;
-    left: 50px;
-    margin-top: 10px;
+    left: 7.3vh;
+    margin-top: 1.4vh;
 }
-
-// .splash-nav-header-logo{
-//     content: url(https://i.imgur.com/mtLupon.png);
-//     position: absolute;
-//     left: 50px;
-// }
-
-
 
 .welcome-message{
 
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     position: absolute;
-    top: 400px;
-    max-width: 400px;
-    margin-left: 50px;
+    top: 58.5vh;
+    max-width: 58.5vh;
+    margin-left: 7.3vh;
     color: #2867B2;
-    font-size: 40px;
+    font-size: 5.85vh;
     white-space: initial;
 }
 
-// body{
-//     margin-top: 10px;
-//     height: 1500px;
-// }
-
-
 .splash_pic1{
     position: absolute;
-    right: 100px;
-    top: 100px;
-    width: 600px;
-    // z-index: -1;
+    right: 14.6vh;
+    top: 14.6vh;
+    width: 87.7vh;
     display: flex;
 }
 
-// .container_splash_pic2{
-//     position: relative;
-//     color: white;
-// }
-
 .splash_pic2{
-    margin-top: 700px;
+    margin-top: 102.3vh;
 }
 
 .message_splash_pic2 {
     position: absolute;
-    // top: 8px;
-    top: 880px;
-    left: 100px;
+    top: 128.6vh;
+    left: 14.6vh;
     color: #2867B2;
-    font-size: 60px;
+    font-size: 8.8vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    max-width: 1000px;
+    max-width: 146.2vh;
     z-index: 100;
     text-align: left;
 }
 
 .alternative-signup-button {
     position: absolute;
-    top: 1020px;
-    left: 100px;
-    font-size: 20px;
+    top: 149.1vh;
+    left: 14.6vh;
+    font-size: 2.9vh;
     background-color: #2867B2;
     text-decoration: none;
     color: white;
-    border-radius: 26px;
-    padding: 14px 26px;
+    border-radius: 3.8;
+    padding: 2.05vh 3.8vh;
 }
 
-.alternative-signup-button:visited { text-decoration: none; }
+.alternative-signup-button:visited { 
+    text-decoration: none; 
+}

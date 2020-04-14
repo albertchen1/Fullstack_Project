@@ -174,8 +174,8 @@ form {
  */
 
 fieldset {
-    border: 1px solid #c0c0c0;
-    margin: 0 2px;
+    border: .146vh solid #c0c0c0;
+    margin: 0 .3vh;
     padding: 0.35em 0.625em 0.75em;
 }
 
@@ -189,7 +189,7 @@ legend {
     border: 0; /* 1 */
     padding: 0;
     white-space: normal; /* 2 */
-    *margin-left: -7px; /* 3 */
+    *margin-left: -1vh; /* 3 */
 }
 
 /**
@@ -270,8 +270,8 @@ input[type="checkbox"],
 input[type="radio"] {
     box-sizing: border-box; /* 1 */
     padding: 0; /* 2 */
-    *height: 13px; /* 3 */
-    *width: 13px; /* 3 */
+    *height: 1.9vh; /* 3 */
+    *width: 1.9vh; /* 3 */
 }
 
 /**

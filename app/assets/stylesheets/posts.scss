@@ -1,3 +1,13 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#delete-button {
+    // border:  1px solid black;
+    width: 2vh;
+    height:  2vh;
+    background-color: lightgray;
+    color: white;
+    // border-radius: 5px;
+    font-size: 14pt;
+    text-align:  center;
+    margin-left: 95%;
+    display: inline-block;
+    cursor: pointer;
+}

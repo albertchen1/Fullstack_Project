@@ -1200,13 +1200,13 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-item-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "self-post"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "delete-button",
         onClick: function onClick() {
           return _this3.props.deletePost(_this3.props.post.id);
         }
       }, "X"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "self-post"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post-item-header-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post-item-name"

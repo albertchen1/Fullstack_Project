@@ -56,7 +56,13 @@ class PostItem extends React.Component {
         return (
             <div className="post-item">
                 <div className="post-item-container">
-                    <div id="delete-button" onClick={() => this.props.deletePost(this.props.post.id)}>X</div>
+                    <div id="three-dot-dropdown">
+                        <div id="post-dropdown-content">
+                            <div id="delete-button" onClick={() => this.props.deletePost(this.props.post.id)}>Delete Post</div>
+                            <div>HELLO</div>
+                        </div>
+                    </div>
+                    
                     <div id="self-post"></div>
                     <div id="post-item-header-text">
                         <div id="post-item-name">Albert Chen</div>

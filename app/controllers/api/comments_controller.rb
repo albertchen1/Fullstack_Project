@@ -16,7 +16,7 @@ class Api::CommentsController < ApplicationController
     end
 
     def show
-        @comments = Comment.find_by(post_id: params[:id])
+        @comments = Comment.where(post_id: params[:id])
         render :show
     end
 

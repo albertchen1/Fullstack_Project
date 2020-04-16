@@ -1134,11 +1134,16 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(PostItem).call(this, props));
     _this.state = {
       post_id: _this.props.post.id,
-      body: ''
+      body: '',
+      dropdown: false,
+      showComments: false
     };
     _this.createComment = _this.createComment.bind(_assertThisInitialized(_this));
     _this.fetchAllComments = _this.fetchAllComments.bind(_assertThisInitialized(_this));
     _this.openCreateComment = _this.openCreateComment.bind(_assertThisInitialized(_this));
+    _this.openDropdown = _this.openDropdown.bind(_assertThisInitialized(_this));
+    _this.renderDropdown = _this.renderDropdown.bind(_assertThisInitialized(_this));
+    _this.renderViewComments = _this.renderViewComments.bind(_assertThisInitialized(_this));
     return _this;
   } // updateField(field) {
   //     return e => this.setState({
@@ -1153,6 +1158,19 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       if (document.getElementsByClassName("create-message").length < 1) {
+        // <form action="/action_page.php" method="get" id="form1">
+        //     <label for="fname">First name:</label>
+        //     <input type="text" id="fname" name="fname"/>
+        //         <label for="lname">Last name:</label>
+        //         <input type="text" id="lname" name="lname"/>
+        // </form>
+        // <button type="submit" form="form1" value="Submit">Submit</button>
+        // <div className="">
+        //     <form className="create-comment-form" action="" onSubmit={this.createComment()}>
+        //         <input type="text" id="create-comment-input" className="create-message" placeholder="Add a comment"/>
+        //     </form>
+        //     <button form="create-comment-form" type="submit" value="Submit">Submit</button>
+        // </div>
         var createCommentdiv = document.createElement("div");
         var createCommentForm = document.createElement("form");
         var submitCommentButton = document.createElement("button");
@@ -1162,6 +1180,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
           return _this2.createComment();
         };
 
+        createCommentForm.setAttribute("class", "create-comment-form");
         var createCommentInput = document.createElement("input");
         createCommentInput.setAttribute("type", "text");
         createCommentInput.setAttribute("id", "create-comment-input");
@@ -1170,8 +1189,15 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         createCommentForm.appendChild(createCommentInput);
         createCommentForm.appendChild(submitCommentButton);
         document.getElementsByClassName("post-item")[0].append(createCommentForm);
+        this.setState({
+          showComments: true
+        });
+        this.fetchAllComments();
       } else {
-        document.getElementsByClassName("create-message")[0].remove();
+        this.setState({
+          showComments: false
+        });
+        document.getElementsByClassName("create-comment-form")[0].remove();
       }
 
       console.log(document.getElementsByClassName("create-message"));
@@ -1191,24 +1217,63 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
       this.props.fetchAllComments(this.props.post.id);
     }
   }, {
-    key: "render",
-    value: function render() {
+    key: "openDropdown",
+    value: function openDropdown() {
+      this.setState({
+        dropdown: true
+      });
+    }
+  }, {
+    key: "renderDropdown",
+    value: function renderDropdown() {
       var _this3 = this;
 
+      if (this.state.dropdown === true) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "post-dropdown-content"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "delete-button",
+          onClick: function onClick() {
+            return _this3.props.deletePost(_this3.props.post.id);
+          }
+        }, "Delete Post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "HELLO"));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "three-dot-dropdown"
+        });
+      }
+    }
+  }, {
+    key: "renderViewComments",
+    value: function renderViewComments() {
+      var _this4 = this;
+
+      if (this.state.showComments) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.comments.map(function (comment) {
+          if (comment.postId === _this4.props.post.id) {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+              className: "comment-list",
+              key: comment.id
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.body));
+          } else {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "null");
+          }
+        }));
+      } else {
+        return null;
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-item-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "three-dot-dropdown"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post-dropdown-content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "delete-button",
-        onClick: function onClick() {
-          return _this3.props.deletePost(_this3.props.post.id);
-        }
-      }, "Delete Post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "HELLO"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "three-dot-dropdown",
+        onClick: this.openDropdown
+      }, this.renderDropdown()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "self-post"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post-item-header-text"
@@ -1239,7 +1304,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         className: "share"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-share-square"
-      }), " Share ")));
+      }), " Share ")), this.renderViewComments());
     }
   }]);
 
@@ -1323,7 +1388,8 @@ var Posts = /*#__PURE__*/function (_React$Component) {
           post: post,
           deletePost: _this2.deletePost,
           createComment: _this2.props.createComment,
-          fetchAllComments: _this2.props.fetchAllComments
+          fetchAllComments: _this2.props.fetchAllComments,
+          comments: _this2.props.comments
         });
       }));
     }
@@ -1356,7 +1422,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    posts: Object.values(state.entities.posts)
+    posts: Object.values(state.entities.posts),
+    comments: Object.values(state.entities.comments)
   };
 };
 
@@ -2510,6 +2577,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /***/ }),
 
+/***/ "./frontend/reducers/comments_reducer.js":
+/*!***********************************************!*\
+  !*** ./frontend/reducers/comments_reducer.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var commentsReducer = function commentsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  var newState = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.merge({}, state);
+
+  switch (action.type) {
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_COMMENTS"]:
+      return action.comments;
+
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_COMMENT"]:
+      return Object.assign({}, state, _defineProperty({}, action.comment.id, action.comment));
+    // newState[action.currentUser.id] = action.currentUser;
+    // return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (commentsReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/entities_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/entities_reducer.js ***!
@@ -2522,12 +2631,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _posts_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./posts_reducer */ "./frontend/reducers/posts_reducer.js");
+/* harmony import */ var _comments_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comments_reducer */ "./frontend/reducers/comments_reducer.js");
+
 
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  posts: _posts_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  posts: _posts_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 

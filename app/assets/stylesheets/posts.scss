@@ -1,11 +1,9 @@
 #three-dot-dropdown {
     content: image_url('three-dots.png');
     // border:  1px solid black;
-    width: 2vh;
-    height:  2vh;
-    background-color: lightgray;
-    color: white;
-    // border-radius: 5px;
+    width: 3vh;
+    height:  3vh;
+    // color: white;
     font-size: 14pt;
     text-align:  center;
     margin-left: 95%;
@@ -13,12 +11,13 @@
     cursor: pointer;
 }
 
-#three-dot-dropdown:hover, #post-dropdown-content {
-    display: block;
-}
+// #three-dot-dropdown:hover, #post-dropdown-content {
+//     display: block;
+// }
 
 #post-dropdown-content {
-    display: none;
+    // display: none;
+    display: block;
     position: absolute;
     color: #666666;
     background-color: black;
@@ -45,4 +44,8 @@
     size: 50px;
     height: 100px;
     width: 100px;
+}
+
+.comment-list {
+    display: block;
 }

@@ -41,11 +41,49 @@
     // margin-left: 95%;
     // display: inline-block;
     // cursor: pointer;
-    size: 50px;
-    height: 100px;
-    width: 100px;
+    size: 14pt;
+    height: 50vh;
+    width: 23vh;
+    background-color: white;
+    float: right;
+    box-shadow: 0 0 0 0.15vh rgba(0, 0, 0, 0.15);
 }
 
 .comment-list {
     display: block;
+}
+
+.comment-pic {
+    content: image_url('mini-profile-pic.png');
+    margin-left: 3%;
+    display: inline-block;
+    height: 5vh;
+    width: 5vh;
+    border-radius: 5vh;
+}
+
+.comment-body {
+    background-color: #f2f2f2;
+    height: 5vh;
+    width: 85%;
+    border-radius: 2vh;
+    display: inline-block;
+    padding-left: 2vh;
+}
+
+#create-comment-input {
+    border: 1px solid rgba(0,0,0,.45);
+    // font-size: 1.4rem;
+    // line-height: 1.42857;
+    // font-weight: 400;
+    color: rgba(0,0,0,.75);
+    // flex: 1 1 auto;
+    // width: 100%;
+    // min-width: 0;
+    
+    font-size: 2vh;
+    padding: 1vh 1.5vh 1vh 1.5vh; 
+    border-radius: 4vh;
+    // height: 4.5vh;
+    width: 70%;
 }

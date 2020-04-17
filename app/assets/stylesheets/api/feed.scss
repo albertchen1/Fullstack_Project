@@ -342,11 +342,28 @@ hr{
     padding-bottom: 2vh;
 }
 
-.post-comments {
-    margin: 2% 3% 2% 5%;
+.post-likes-comments{
+    margin: 0 3% 2% 5%;
     font-size: 2vh;
     color: grey;
+    // display: inline-block;
 }
+
+.post-likes {
+    margin: 0 1% 0% 0%;
+    font-size: 2vh;
+    color: grey;
+    display: inline-block;
+}
+
+.post-comments {
+    margin: 0 1% 0% 0%;
+    font-size: 2vh;
+    color: grey;
+    display: inline-block;
+    cursor: pointer;
+}
+
 
 .post-reacts {
     border-top: .15vh solid grey;

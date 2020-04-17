@@ -54,7 +54,7 @@ class PostItem extends React.Component {
             createCommentInput.setAttribute("type", "text");
             createCommentInput.setAttribute("id", "create-comment-input");
             createCommentInput.setAttribute("class", "create-message")
-            createCommentInput.placeholder = "Add a comment"
+            createCommentInput.placeholder = "Add a comment..."
             createCommentForm.appendChild(createCommentInput)
             createCommentForm.appendChild(submitCommentButton)
             document.getElementsByClassName("post-item")[0].append(createCommentForm)
@@ -64,6 +64,7 @@ class PostItem extends React.Component {
             this.setState({showComments: false})
             document.getElementsByClassName("create-comment-form")[0].remove()
         }
+        console.log(document.getElementsByClassName("comment-pic"))//not working
         console.log(document.getElementsByClassName("create-message"))
     }
 
@@ -88,7 +89,6 @@ class PostItem extends React.Component {
             return (
                 <div id="post-dropdown-content">
                     <div id="delete-button" onClick={() => this.props.deletePost(this.props.post.id)}>Delete Post</div>
-                    <div>HELLO</div>
                 </div>
             )
         } else {
@@ -106,7 +106,8 @@ class PostItem extends React.Component {
                     if (comment.postId === this.props.post.id) {
                         return (
                             <div className="comment-list" key={comment.id}>
-                                <span>{comment.body}</span>
+                                <span className="comment-pic"></span>
+                                <span className="comment-body">{comment.body}</span>
                             </div>
                         )
                     } else {
@@ -146,11 +147,12 @@ class PostItem extends React.Component {
                     {this.props.post.body}
                     {this.props.post.photoFile}
                 </div>
-                <div className="post-comments">
-                    0 Likes 
-                    <h4 onClick={this.openCreateComment}>
-                        0 comments
-                    </h4>
+                <div className="post-likes-comments" onClick={this.openCreateComment}>
+                    <div className="post-likes">0 Likes </div> 
+                    {/* <h4 onClick={this.openCreateComment}> */}
+                    <div className="post-comments">0 comments</div>
+                    
+                    {/* </h4> */}
                 </div>
                 <div className="post-reacts">
                     <div className="like"><i className="far fa-thumbs-up"></i> Like </div>

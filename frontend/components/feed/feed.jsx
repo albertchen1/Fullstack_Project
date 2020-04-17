@@ -131,7 +131,7 @@ class Feed extends React.Component {
                                 currently look like one of the players in Wii 
                                 Tennis
                             </div>
-                            <div className="post-comments">
+                            <div className="post-likes-comments">
                                 0 Likes 0 comments
                             </div>
                             <div className="post-reacts">
@@ -161,7 +161,7 @@ class Feed extends React.Component {
                                     <h4 id="post1-pic-desc-site">linkedlist.com <br/> </h4>
                                 </div>
                             </a>    
-                            <div className="post-comments">
+                            <div className="post-likes-comments">
                                 0 Likes 0 comments
                             </div>
                             <div className="post-reacts">
@@ -200,7 +200,7 @@ class Feed extends React.Component {
                                     </h4>
                                 </div>
                             </a>
-                            <div className="post-comments">
+                            <div className="post-likes-comments">
                                 0 Likes 0 comments
                             </div>
                             <div className="post-reacts">

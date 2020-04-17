@@ -897,7 +897,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, "5d"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post2-body-text"
       }, "I can't lie - if companies are doing video interviews via Zoom, I'm not sure I'll be able to find a job until this pandemic ends.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "My wife gave me a haircut last night, and I currently look like one of the players in Wii Tennis"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-comments"
+        className: "post-likes-comments"
       }, "0 Likes 0 comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-reacts"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -939,7 +939,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " LinkedList Premium"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         id: "post1-pic-desc-site"
       }, "linkedlist.com ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-comments"
+        className: "post-likes-comments"
       }, "0 Likes 0 comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-reacts"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -981,7 +981,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "U of I among top producers of Fulbright awards"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         id: "post3-pic-desc-site"
       }, "news.illinois.edu", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-comments"
+        className: "post-likes-comments"
       }, "0 Likes 0 comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-reacts"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1185,7 +1185,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         createCommentInput.setAttribute("type", "text");
         createCommentInput.setAttribute("id", "create-comment-input");
         createCommentInput.setAttribute("class", "create-message");
-        createCommentInput.placeholder = "Add a comment";
+        createCommentInput.placeholder = "Add a comment...";
         createCommentForm.appendChild(createCommentInput);
         createCommentForm.appendChild(submitCommentButton);
         document.getElementsByClassName("post-item")[0].append(createCommentForm);
@@ -1199,6 +1199,8 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         });
         document.getElementsByClassName("create-comment-form")[0].remove();
       }
+
+      console.log(document.getElementsByClassName("comment-pic")); //not working
 
       console.log(document.getElementsByClassName("create-message"));
     }
@@ -1236,7 +1238,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
           onClick: function onClick() {
             return _this3.props.deletePost(_this3.props.post.id);
           }
-        }, "Delete Post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "HELLO"));
+        }, "Delete Post"));
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "three-dot-dropdown"
@@ -1254,7 +1256,11 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "comment-list",
               key: comment.id
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.body));
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+              className: "comment-pic"
+            }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+              className: "comment-body"
+            }, comment.body));
           } else {
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "null");
           }
@@ -1286,9 +1292,12 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
       }, "1m"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post2-body-text"
       }, this.props.post.body, this.props.post.photoFile), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-comments"
-      }, "0 Likes", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "post-likes-comments",
         onClick: this.openCreateComment
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-likes"
+      }, "0 Likes "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-comments"
       }, "0 comments")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-reacts"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

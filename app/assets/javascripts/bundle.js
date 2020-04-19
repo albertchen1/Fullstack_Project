@@ -614,7 +614,6 @@ var CreatePostForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       var _this3 = this;
 
-      console.log(this.state);
       e.preventDefault();
       var form = {
         body: this.state.body
@@ -650,7 +649,21 @@ var CreatePostForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      var that = this;
+
+      window.onclick = function (e) {
+        console.log(e.target);
+
+        if (!e.target.matches(".create-post-modal-show")) {
+          console.log("not matching"); // that.props.closeModal();
+        } else {
+          console.log("dont close");
+        }
+      };
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "create-post-outer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-post-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.props.closeModal,
@@ -1142,6 +1155,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
     _this.fetchAllComments = _this.fetchAllComments.bind(_assertThisInitialized(_this));
     _this.openCreateComment = _this.openCreateComment.bind(_assertThisInitialized(_this));
     _this.openDropdown = _this.openDropdown.bind(_assertThisInitialized(_this));
+    _this.closeDropdown = _this.closeDropdown.bind(_assertThisInitialized(_this));
     _this.renderDropdown = _this.renderDropdown.bind(_assertThisInitialized(_this));
     _this.renderViewComments = _this.renderViewComments.bind(_assertThisInitialized(_this));
     return _this;
@@ -1174,7 +1188,10 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         var createCommentdiv = document.createElement("div");
         var createCommentForm = document.createElement("form");
         var submitCommentButton = document.createElement("button");
+        var createCommentpic = document.createElement("img");
+        createCommentpic.setAttribute("class", "comment-pic");
         submitCommentButton.setAttribute("type", "submit");
+        submitCommentButton.innerHTML = "Submit";
 
         createCommentForm.onsubmit = function (e) {
           return _this2.createComment();
@@ -1186,6 +1203,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         createCommentInput.setAttribute("id", "create-comment-input");
         createCommentInput.setAttribute("class", "create-message");
         createCommentInput.placeholder = "Add a comment...";
+        createCommentForm.appendChild(createCommentpic);
         createCommentForm.appendChild(createCommentInput);
         createCommentForm.appendChild(submitCommentButton);
         document.getElementsByClassName("post-item")[0].append(createCommentForm);
@@ -1199,8 +1217,6 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         });
         document.getElementsByClassName("create-comment-form")[0].remove();
       }
-
-      console.log(document.getElementsByClassName("comment-pic")); //not working
 
       console.log(document.getElementsByClassName("create-message"));
     }
@@ -1226,6 +1242,13 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "closeDropdown",
+    value: function closeDropdown() {
+      this.setState({
+        dropdown: false
+      });
+    }
+  }, {
     key: "renderDropdown",
     value: function renderDropdown() {
       var _this3 = this;
@@ -1234,11 +1257,17 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "post-dropdown-content"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "edit-button"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          "class": "far fa-edit"
+        }), " Edit Post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "delete-button",
           onClick: function onClick() {
             return _this3.props.deletePost(_this3.props.post.id);
           }
-        }, "Delete Post"));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          "class": "far fa-trash-alt"
+        }), " Delete Post"));
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "three-dot-dropdown"
@@ -1256,9 +1285,9 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "comment-list",
               key: comment.id
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "comment-pic"
-            }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "comment-body"
             }, comment.body));
           } else {
@@ -1272,20 +1301,30 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var that = this;
+
+      window.onclick = function (e) {
+        if (!e.target.matches("#post-dropdown-content")) {
+          that.closeDropdown();
+        }
+      };
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-item-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "three-dot-dropdown",
-        onClick: this.openDropdown
-      }, this.renderDropdown()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "self-post"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post-item-header-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post-item-name-dropdown"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post-item-name"
-      }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "three-dot-dropdown",
+        onClick: this.openDropdown
+      }, this.renderDropdown())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post2-headline"
       }, "Software Engineer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post2-time"
@@ -1389,6 +1428,14 @@ var Posts = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      // window.onclick = function(e) {
+      //     console.log(e.target)
+      //     console.log(e.target.matches("three-dot-dropdown"))
+      //     if (!e.target.matches("three-dot-dropdown")) {
+      //         console.log("yes")
+      //         // this.closeDropdown();
+      //     }
+      // }
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "posts-div"
       }, this.props.posts.map(function (post, idx) {

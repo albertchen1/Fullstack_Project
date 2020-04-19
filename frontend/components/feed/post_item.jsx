@@ -13,6 +13,7 @@ class PostItem extends React.Component {
         this.fetchAllComments=this.fetchAllComments.bind(this)
         this.openCreateComment = this.openCreateComment.bind(this)
         this.openDropdown = this.openDropdown.bind(this)
+        this.closeDropdown = this.closeDropdown.bind(this)
         this.renderDropdown = this.renderDropdown.bind(this)
         this.renderViewComments = this.renderViewComments.bind(this)
     }
@@ -47,7 +48,10 @@ class PostItem extends React.Component {
             let createCommentdiv = document.createElement("div")
             let createCommentForm = document.createElement("form")
             let submitCommentButton = document.createElement("button")
+            let createCommentpic = document.createElement("img")
+            createCommentpic.setAttribute("class", "comment-pic")
             submitCommentButton.setAttribute("type", "submit")
+            submitCommentButton.innerHTML = "Submit";
             createCommentForm.onsubmit = (e) => this.createComment()
             createCommentForm.setAttribute("class", "create-comment-form")
             let createCommentInput = document.createElement("input")
@@ -55,6 +59,7 @@ class PostItem extends React.Component {
             createCommentInput.setAttribute("id", "create-comment-input");
             createCommentInput.setAttribute("class", "create-message")
             createCommentInput.placeholder = "Add a comment..."
+            createCommentForm.appendChild(createCommentpic)
             createCommentForm.appendChild(createCommentInput)
             createCommentForm.appendChild(submitCommentButton)
             document.getElementsByClassName("post-item")[0].append(createCommentForm)
@@ -64,7 +69,6 @@ class PostItem extends React.Component {
             this.setState({showComments: false})
             document.getElementsByClassName("create-comment-form")[0].remove()
         }
-        console.log(document.getElementsByClassName("comment-pic"))//not working
         console.log(document.getElementsByClassName("create-message"))
     }
 
@@ -84,11 +88,16 @@ class PostItem extends React.Component {
         this.setState({dropdown: true})
     }
 
+    closeDropdown() {
+        this.setState({dropdown: false})
+    }
+
     renderDropdown() {
         if (this.state.dropdown === true) {
             return (
                 <div id="post-dropdown-content">
-                    <div id="delete-button" onClick={() => this.props.deletePost(this.props.post.id)}>Delete Post</div>
+                    <div id="edit-button"><i class="far fa-edit"></i> Edit Post</div>
+                    <div id="delete-button" onClick={() => this.props.deletePost(this.props.post.id)}><i class="far fa-trash-alt"></i> Delete Post</div>
                 </div>
             )
         } else {
@@ -106,8 +115,8 @@ class PostItem extends React.Component {
                     if (comment.postId === this.props.post.id) {
                         return (
                             <div className="comment-list" key={comment.id}>
-                                <span className="comment-pic"></span>
-                                <span className="comment-body">{comment.body}</span>
+                                <div className="comment-pic"></div>
+                                <div className="comment-body">{comment.body}</div>
                             </div>
                         )
                     } else {
@@ -125,20 +134,30 @@ class PostItem extends React.Component {
 
 
     render() {
+        let that = this;
+        window.onclick = function(e) {
+            if (!e.target.matches("#post-dropdown-content")) {
+                that.closeDropdown();
+            }
+        }
         return (
             <div className="post-item">
                 <div className="post-item-container">
-                    <button id="three-dot-dropdown" onClick={this.openDropdown}>
-                        {this.renderDropdown()}
-                        {/* <div id="post-dropdown-content">
-                            <div id="delete-button" onClick={() => this.props.deletePost(this.props.post.id)}>Delete Post</div>
-                            <div>HELLO</div>
-                        </div> */}
-                    </button>
+
                     
                     <div id="self-post"></div>
                     <div id="post-item-header-text">
-                        <div id="post-item-name">Albert Chen</div>
+                        <div id="post-item-name-dropdown">
+                            <div id="post-item-name">Albert Chen</div>
+                            <button id="three-dot-dropdown" onClick={this.openDropdown}>
+                                {this.renderDropdown()}
+                                {/* <div id="post-dropdown-content">
+                                    <div id="delete-button" onClick={() => this.props.deletePost(this.props.post.id)}>Delete Post</div>
+                                    <div>HELLO</div>
+                                </div> */}
+                            </button>
+                        </div>
+
                         <div id="post2-headline">Software Engineer</div>
                         <div id="post2-time">1m</div>
                     </div>

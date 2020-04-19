@@ -288,11 +288,22 @@ hr{
     margin-left: 3.1vh;
 }
 
-#post1-company, #post2-name, #post-item-name, #post3-company {
+#post1-company, #post2-name, #post3-company {
     color: black;
     // font-weight: bold;
     font-size: 2.5vh;
 }
+
+#post-item-name {
+    color: black;
+    font-size: 2.5vh;
+    display: inline-block;
+}
+
+#post-item-name-dropdown {
+    display: inline-block;
+}
+
 
 #post1-followers, #post1-promoted, #post2-headline, #post2-time, #post-item-headline, #post-item-time, #post3-followers, #post3-time {
     color: grey;

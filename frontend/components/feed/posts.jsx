@@ -22,7 +22,17 @@ class Posts extends React.Component {
             
     }
 
+
+
     render() {
+        // window.onclick = function(e) {
+        //     console.log(e.target)
+        //     console.log(e.target.matches("three-dot-dropdown"))
+        //     if (!e.target.matches("three-dot-dropdown")) {
+        //         console.log("yes")
+        //         // this.closeDropdown();
+        //     }
+        // }
         return (
             <div className="posts-div">
                 {this.props.posts.map((post, idx) => (

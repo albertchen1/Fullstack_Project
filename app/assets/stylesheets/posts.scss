@@ -7,8 +7,9 @@
     font-size: 14pt;
     text-align:  center;
     margin-left: 95%;
-    display: inline-block;
+    // display: inline-block;
     cursor: pointer;
+    border: none;
 }
 
 // #three-dot-dropdown:hover, #post-dropdown-content {
@@ -29,28 +30,27 @@
     border-radius: .5em;
 }
 
-#delete-button {
-    // // border:  1px solid black;
-    // width: 2vh;
-    // height:  2vh;
-    // background-color: lightgray;
-    // color: white;
-    // // border-radius: 5px;
-    // font-size: 14pt;
-    // text-align:  center;
-    // margin-left: 95%;
-    // display: inline-block;
-    // cursor: pointer;
-    size: 14pt;
-    height: 50vh;
-    width: 23vh;
+
+
+#delete-button, #edit-button {
+    padding: 1vh 1vh 1vh 1vh;
+    size: 12pt
+}
+
+#post-dropdown-content {
+    height: 15vh;
+    width: 28vh;
     background-color: white;
-    float: right;
+    // float: right;
     box-shadow: 0 0 0 0.15vh rgba(0, 0, 0, 0.15);
+    border-right-width: 8px;
+    border-bottom: 8px solid #fff;
+    border-left-width: 8px;
 }
 
 .comment-list {
-    display: block;
+    display: flex;
+    align-items: center;
 }
 
 .comment-pic {
@@ -67,7 +67,8 @@
     height: 5vh;
     width: 85%;
     border-radius: 2vh;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     padding-left: 2vh;
 }
 

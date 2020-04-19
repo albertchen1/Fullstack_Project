@@ -42,7 +42,6 @@ class CreatePostForm extends React.Component {
     }
 
     handleSubmit(e) {
-        console.log(this.state)
         e.preventDefault();
         let form = {
             body: this.state.body
@@ -80,8 +79,18 @@ class CreatePostForm extends React.Component {
 
 
     render() {
+        let that = this;
+        window.onclick = function(e) {
+            console.log(e.target)
+            if (!e.target.matches(".create-post-modal-show")) {
+                console.log("not matching")
+                // that.props.closeModal();
+            } else {
+                console.log("dont close")
+            }
+        }
         return (
-            <div>
+            <div className="create-post-outer">
                 <div className='create-post-header'>
                     <div onClick={this.props.closeModal} className="close-post-x">X</div>
                 </div>

@@ -1,7 +1,76 @@
+.modal-header {
+    width: 100%;
+}
+
 .create-post-form{
     min-width: 43.86vh;
 }
 
+.create-post-header {
+    display: flex;
+    background-color: #0073b1;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 3vh;
+    // width: 100%;
+}
+
+.create-a-post {
+    display: flex;
+    color: white;
+    min-width: 25%;
+    // margin-left: 3vh;
+    // text-align: left;
+    // float: right;
+}
+
 .close-post-x{
-    text-align: right;
+    display: flex;
+    color: white;
+    // text-align: right;
+    // float: right;
+    cursor: pointer;
+    margin-left: 68%;
+}
+
+#create-post-pic {
+    content: image_url('mini-profile-pic.png');
+    margin-left: 3%;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 4vh;
+    padding-right: 1vh;
+}
+
+.create-post-pic-name {
+    display: flex;
+    padding-top: 2.5vh;
+}
+
+#create-post-name-anyone {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    display: inline-block;
+    padding-top: .5%;
+}
+
+#create-post-name {
+    color: black;
+    padding-bottom: .7vh;
+}
+
+#create-post-anyone {
+    color: grey;
+    border: .146vh solid black;
+    min-width: 13vh;
+    // display: inline-block;
+    justify-content: space-between;
+}
+
+#create-post-anyone:hover {
+    background-color: lightgray;
+    border: .15vh solid black;
+    cursor: pointer;
 }

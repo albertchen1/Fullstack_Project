@@ -666,9 +666,25 @@ var CreatePostForm = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-post-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "create-a-post"
+      }, "Create a post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.props.closeModal,
         className: "close-post-x"
-      }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "create-post-pic-name"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "create-post-pic"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "create-post-name-anyone"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "create-post-name"
+      }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "create-post-anyone"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-globe-americas"
+      }), "Anyone", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-sort-down"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit.bind(this)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "create-post-form",
@@ -1259,14 +1275,14 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "edit-button"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          "class": "far fa-edit"
+          className: "far fa-edit"
         }), " Edit Post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "delete-button",
           onClick: function onClick() {
             return _this3.props.deletePost(_this3.props.post.id);
           }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          "class": "far fa-trash-alt"
+          className: "far fa-trash-alt"
         }), " Delete Post"));
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

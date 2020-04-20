@@ -6,8 +6,7 @@
     // color: white;
     font-size: 14pt;
     text-align:  center;
-    margin-left: 95%;
-    // display: inline-block;
+    display: flex;
     cursor: pointer;
     border: none;
 }
@@ -30,11 +29,14 @@
     border-radius: .5em;
 }
 
-
+// .far fa-edit, .far fa-trash-alt {
+//     color: red;
+// }
 
 #delete-button, #edit-button {
     padding: 1vh 1vh 1vh 1vh;
-    size: 12pt
+    size: 12pt;
+    // color: black;
 }
 
 #post-dropdown-content {

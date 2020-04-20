@@ -286,6 +286,7 @@ hr{
 #post1-header-text, #post2-header-text, #post-item-header-text, #post3-header-text {
     display: inline-block;
     margin-left: 3.1vh;
+    width: 83%;
 }
 
 #post1-company, #post2-name, #post3-company {
@@ -297,11 +298,12 @@ hr{
 #post-item-name {
     color: black;
     font-size: 2.5vh;
-    display: inline-block;
+    display: flex;
+    width: 100%;
 }
 
 #post-item-name-dropdown {
-    display: inline-block;
+    display: flex;
 }
 
 
@@ -438,7 +440,7 @@ hr{
 
 .create-post-modal-show {
     position: absolute;
-    height: 30vh;
+    height: 55vh;
     width: 40%;
     left: 20%;
     top: 20%;

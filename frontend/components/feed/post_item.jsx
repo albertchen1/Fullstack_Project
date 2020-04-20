@@ -96,8 +96,8 @@ class PostItem extends React.Component {
         if (this.state.dropdown === true) {
             return (
                 <div id="post-dropdown-content">
-                    <div id="edit-button"><i class="far fa-edit"></i> Edit Post</div>
-                    <div id="delete-button" onClick={() => this.props.deletePost(this.props.post.id)}><i class="far fa-trash-alt"></i> Delete Post</div>
+                    <div id="edit-button"><i className="far fa-edit"></i> Edit Post</div>
+                    <div id="delete-button" onClick={() => this.props.deletePost(this.props.post.id)}><i className="far fa-trash-alt"></i> Delete Post</div>
                 </div>
             )
         } else {

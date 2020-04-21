@@ -1,6 +1,6 @@
 .welcome-navbar{
     width: 100%;
-    height: 11vh;
+    height: 9vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -17,7 +17,7 @@
     right: 8vh;
     font-size: larger;
     color: #2867B2;
-    margin: 3vh;
+    margin: 2vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -32,7 +32,7 @@
 
 .list-logo{
     // content: url(https://i.imgur.com/mtLupon.png);
-    height: 6vh;
+    height: 5vh;
     content: image_url('Listicon.png');
     position: absolute;
     margin: 2vh 2vh 2vh 11vh;

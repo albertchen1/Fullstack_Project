@@ -72,21 +72,22 @@
     display: flex;
     align-items: center;
     padding-left: 2vh;
+    margin: 1vh 1vh 1vh 1vh;
 }
 
 #create-comment-input {
     border: 1px solid rgba(0,0,0,.45);
-    // font-size: 1.4rem;
-    // line-height: 1.42857;
-    // font-weight: 400;
     color: rgba(0,0,0,.75);
-    // flex: 1 1 auto;
-    // width: 100%;
-    // min-width: 0;
-    
     font-size: 2vh;
     padding: 1vh 1.5vh 1vh 1.5vh; 
     border-radius: 4vh;
-    // height: 4.5vh;
     width: 70%;
+    margin: 1vh 1vh 1vh 1vh;
+}
+
+.submit-comment {
+    border-radius: 1vh;
+    background-color: #0073b1;
+    color: white;
+    font-size: 2.3vh;
 }

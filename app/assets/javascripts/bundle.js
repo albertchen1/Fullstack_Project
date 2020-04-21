@@ -1223,6 +1223,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         var createCommentpic = document.createElement("img");
         createCommentpic.setAttribute("class", "comment-pic");
         submitCommentButton.setAttribute("type", "submit");
+        submitCommentButton.setAttribute("class", "submit-comment");
         submitCommentButton.innerHTML = "Submit";
 
         createCommentForm.onsubmit = function (e) {
@@ -1648,7 +1649,7 @@ var Navbar = function Navbar(_ref) {
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "dropdown-content"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      to: "/profilepage"
+      to: "/profile"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "view-profile"
     }, "View Profile")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -2623,7 +2624,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _nav_bar_navbar_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../nav_bar/navbar_container */ "./frontend/components/nav_bar/navbar_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -2633,13 +2637,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
  // import ExperienceItemIndex from "../experience_items/experience_item_index";
@@ -2652,68 +2657,77 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var Profile = /*#__PURE__*/function (_React$Component) {
   _inherits(Profile, _React$Component);
 
-  function Profile() {
+  // componentDidMount() {
+  //     this.props.fetchUser(this.props.match.params.userId);
+  // }
+  // componentDidUpdate(prevProps) {
+  //     if (prevProps.match.params.userId != this.props.match.params.userId) {
+  //         this.props.fetchUser(this.props.match.params.userId);
+  //     }
+  // }
+  function Profile(props) {
+    var _this;
+
     _classCallCheck(this, Profile);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Profile).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Profile).call(this, props));
+    _this.state = {
+      username: '',
+      password: '',
+      first_name: '',
+      last_name: '',
+      location: ''
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Profile, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchUser(this.props.match.params.userId);
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
     }
   }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps) {
-      if (prevProps.match.params.userId != this.props.match.params.userId) {
-        this.props.fetchUser(this.props.match.params.userId);
-      }
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var user = Object.assign({}, this.state);
+      this.props.processForm(user);
+    }
+  }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: "error-".concat(i)
+        }, error);
+      }));
     }
   }, {
     key: "render",
     value: function render() {
-      if (!this.props.user) {
-        return null;
-      }
-
-      var isCurrentUser = true;
-
-      if (this.props.user.id != this.props.currentUserId) {
-        isCurrentUser = false;
-      }
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ProfileNavbar, {
-        users: this.props.users,
-        currentUserId: this.props.currentUserId
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "profile"
+      // if (!this.props.user) {
+      //     return null;
+      // }
+      // let isCurrentUser = true;
+      // if (this.props.user.id != this.props.currentUserId) {
+      //     isCurrentUser = false;
+      // }
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-header-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "profile-summary"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ProfileSummary, {
-        user: this.props.user,
-        isCurrentUser: isCurrentUser
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "profile-about"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ProfileAbout, {
-        user: this.props.user,
-        isCurrentUser: isCurrentUser
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "experience-item-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ExperienceItemIndex, {
-        userId: this.props.user.id,
-        isCurrentUser: isCurrentUser
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "education-item-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EducationItemIndex, {
-        userId: this.props.user.id,
-        isCurrentUser: isCurrentUser
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "education-item-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SkillsIndex, {
-        userId: this.props.user.id,
-        isCurrentUser: isCurrentUser
-      }))));
+        className: "profile-header-background"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-header-pic"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-header-info"
+      })));
     }
   }]);
 

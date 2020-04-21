@@ -51,6 +51,7 @@ class PostItem extends React.Component {
             let createCommentpic = document.createElement("img")
             createCommentpic.setAttribute("class", "comment-pic")
             submitCommentButton.setAttribute("type", "submit")
+            submitCommentButton.setAttribute("class", "submit-comment")
             submitCommentButton.innerHTML = "Submit";
             createCommentForm.onsubmit = (e) => this.createComment()
             createCommentForm.setAttribute("class", "create-comment-form")

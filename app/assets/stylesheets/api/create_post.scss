@@ -3,7 +3,12 @@
 }
 
 .create-post-form{
-    min-width: 43.86vh;
+    width: 88%;
+    height: 15vh;
+    margin: 3vh 0 3vh 0;
+    padding: 0 2vh 0 2vh;
+    border: none;
+    resize: none;
 }
 
 .create-post-header {
@@ -63,14 +68,43 @@
 
 #create-post-anyone {
     color: grey;
-    border: .146vh solid black;
+    border: .146vh solid grey;
     min-width: 13vh;
     // display: inline-block;
+    display: flex;
     justify-content: space-between;
+    padding: .5vh 1vh .5vh 1vh;
+    font-size: 10pt;
 }
 
 #create-post-anyone:hover {
     background-color: lightgray;
     border: .15vh solid black;
     cursor: pointer;
+}
+
+.icon-post-form {
+    color: grey;
+    font-size: 22pt;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#icon-post-form-each {
+    padding: 2vh 3vh 3vh 2vh;
+}
+
+#icon-submit-file {
+    font-size: 12pt;
+}
+
+.post-modal-submit {
+    background-color: #0073b1;
+    color: white;
+    font-size: 14pt;
+    height: 5vh;
+    border: none;
+    border-radius: .3vh;
+    margin: 2vh 3vh 3vh 50%;
 }

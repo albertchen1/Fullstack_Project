@@ -105,7 +105,7 @@ class CreatePostForm extends React.Component {
                 </div>
 
                 <form onSubmit={this.handleSubmit.bind(this)}>
-                    <input 
+                    <textarea 
                         className='create-post-form'
                         type='text'
                         value={this.state.body}
@@ -117,27 +117,21 @@ class CreatePostForm extends React.Component {
                     <div className='create-post-bottom'>
                         <div className='post-form-icons'>
                             <div className='icon-post-form'>
-                                <div className='icon-submit-file'>
-                                    {/* <i className="fas fa-camera">
-                                </i> */}
+                                <div id="icon-post-form-each"><i className="fas fa-camera"></i></div>
+                                <div id="icon-post-form-each"><i className="fas fa-video"></i></div>
+                                <div id="icon-post-form-each"><i className="fas fa-file-alt"></i></div>
 
-                                    <input
-                                        id='icon-post-form'
-                                        type='file'
-                                        onChange={this.handleFile.bind(this)} />
-                                </div>
-
+                                <input className='post-modal-submit' type='submit' value='Post' />
 
                             </div>
-                            {/* <div className='icon-post-form'><i className="fas fa-video"></i></div>
-                            <div className='icon-post-form'><i className="fas fa-file-alt"></i></div>
-                              */}
+                                <input
+                                    id='icon-submit-file'
+                                    type='file'
+                                    onChange={this.handleFile.bind(this)}
+                                />
                         </div>
 
-
-                        <input className='post-modal-submit' type='submit' value='Post' />
                     </div>
-
                 </form>
             </div>
         )

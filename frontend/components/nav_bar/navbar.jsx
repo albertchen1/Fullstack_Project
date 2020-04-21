@@ -75,7 +75,9 @@ const Navbar = ({ currentUser, logout }) => {
                             Me &nbsp;<i className='fa fa-caret-down'></i>
                             <div className='dropdown-content'>
                                 {/* <Link to={`/git/${this.props.currentUser.id}`}>View Profile</Link> */}
-                                <div className="view-profile">View Profile</div>
+                                <Link to="/profilepage" >
+                                    <div className="view-profile">View Profile</div>
+                                </Link>
                                 <Link to='/'>  <div className="header-button-logout" onClick={logout}>Sign Out</div> </Link>
 
                             </div> 

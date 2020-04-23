@@ -34,7 +34,7 @@
 // }
 
 #delete-button, #edit-button {
-    padding: 1vh 1vh 1vh 1vh;
+    padding: 1vh .5vw 1vh .5vw;
     size: 12pt;
     // color: black;
 }
@@ -71,7 +71,7 @@
     border-radius: 2vh;
     display: flex;
     align-items: center;
-    padding-left: 2vh;
+    padding-left: .95vw;
     margin: 1vh .475vw 1vh .475vw;
 }
 
@@ -79,7 +79,7 @@
     border: 1px solid rgba(0,0,0,.45);
     color: rgba(0,0,0,.75);
     font-size: 2vh;
-    padding: 1vh 1.5vh 1vh 1.5vh; 
+    padding: 1vh .7vw 1vh .7vw; 
     border-radius: 4vh;
     width: 70%;
     margin: 1vh .475vw 1vh .475vw;

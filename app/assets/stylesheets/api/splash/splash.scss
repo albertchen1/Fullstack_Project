@@ -12,8 +12,8 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     position: absolute;
     top: 58.5vh;
-    max-width: 58.5vh;
-    margin-left: 7.3vh;
+    max-width: 27.8vw;
+    margin-left: 3.5vw;
     color: #2867B2;
     font-size: 5.85vh;
     white-space: initial;
@@ -23,12 +23,14 @@
     position: absolute;
     right: 14.6vh;
     top: 14.6vh;
-    width: 87.7vh;
+    width: 41.7vw;
     display: flex;
 }
 
 .splash_pic2{
     margin-top: 102.3vh;
+    width: 100%;
+    max-width: 100vw;
 }
 
 .message_splash_pic2 {
@@ -38,7 +40,7 @@
     color: #2867B2;
     font-size: 8.8vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    max-width: 146.2vh;
+    max-width: 69vw;
     z-index: 100;
     text-align: left;
 }
@@ -51,8 +53,8 @@
     background-color: #2867B2;
     text-decoration: none;
     color: white;
-    border-radius: 3.8;
-    padding: 2.05vh 3.8vh;
+    border-radius: 3.8vh;
+    padding: 2.05vh 1.8vw;
 }
 
 .alternative-signup-button:visited { 

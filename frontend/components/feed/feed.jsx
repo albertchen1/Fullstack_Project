@@ -81,7 +81,7 @@ class Feed extends React.Component {
                                 <div id="feed-num-views-num">0</div>
                             </div>
                             <br/>
-                            <div id="feed-num-container">
+                            <div className="feed-num-container">
                                 <div id="feed-num-connections-text">Connections</div>
                                 <div id="feed-num-connections-num">1</div>
                             </div>

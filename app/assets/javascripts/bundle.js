@@ -871,7 +871,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, "Who viewed your profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "feed-num-views-num"
       }, "0")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "feed-num-container"
+        className: "feed-num-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "feed-num-connections-text"
       }, "Connections"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

@@ -6,7 +6,7 @@
     width: 88%;
     height: 15vh;
     margin: 3vh 0 3vh 0;
-    padding: 0 2vh 0 2vh;
+    padding: 0 .95vw 0 .95vw;
     border: none;
     resize: none;
 }
@@ -18,7 +18,7 @@
     font-size: 16pt;
     padding-top: 2vh;
     padding-bottom: 2vh;
-    padding-left: 3vh;
+    padding-left: 1.425vw;
     // width: 100%;
 }
 
@@ -44,9 +44,9 @@
     content: image_url('mini-profile-pic.png');
     margin-left: 3%;
     height: 7vh;
-    width: 7vh;
+    width: 3.33vw;
     border-radius: 4vh;
-    padding-right: 1vh;
+    padding-right: .48vw;
 }
 
 .create-post-pic-name {
@@ -69,11 +69,11 @@
 #create-post-anyone {
     color: grey;
     border: .146vh solid grey;
-    min-width: 13vh;
+    min-width: 6.2vw;
     // display: inline-block;
     display: flex;
     justify-content: space-between;
-    padding: .5vh 1vh .5vh 1vh;
+    padding: .5vh .5vw .5vh .5vw;
     font-size: 10pt;
 }
 
@@ -92,7 +92,7 @@
 }
 
 #icon-post-form-each {
-    padding: 2vh 3vh 3vh 2vh;
+    padding: 2vh 1.4vw 3vh .95vw;
 }
 
 #icon-submit-file {
@@ -106,5 +106,5 @@
     height: 5vh;
     border: none;
     border-radius: .3vh;
-    margin: 2vh 3vh 3vh 50%;
+    margin: 2vh 1.4vw 3vh 50%;
 }

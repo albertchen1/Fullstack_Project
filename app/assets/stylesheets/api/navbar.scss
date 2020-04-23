@@ -76,11 +76,11 @@ a {
 }
 
 
- .nav-dropdown:hover .dropdown-content {
+.nav-dropdown:hover .dropdown-content {
     display: block;
-  }
+}
 
-  .dropdown-content {
+.dropdown-content {
     display: none;
     position: absolute;
     color: #666666;
@@ -89,18 +89,18 @@ a {
     min-height: 4.4vh;
     z-index: 1;
     border-radius: .5em;
-  }
+}
 
-  .header-button-logout, .view-profile{
-        margin: 0.5em;
-  }
+.header-button-logout, .view-profile{
+    margin: 0.5em;
+}
 
-  #navbar-icon-label{
-      font-size: 1.75vh;
-  }
+#navbar-icon-label{
+    font-size: 1.75vh;
+}
 
-  .nav-dropdown{
-      color: white;
-      font-size: 1.75vh;
-      font-family: Arial, Helvetica, sans-serif;
-  }
+.nav-dropdown{
+    color: white;
+    font-size: 1.75vh;
+    font-family: Arial, Helvetica, sans-serif;
+}

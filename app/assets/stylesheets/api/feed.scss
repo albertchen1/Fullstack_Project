@@ -17,7 +17,7 @@
     right: 8vh;
     font-size: larger;
     color: #2867B2;
-    margin: 2vh;
+    margin: 2vh .95vw 2vh .95vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -35,7 +35,7 @@
     height: 5vh;
     content: image_url('Listicon.png');
     position: absolute;
-    margin: 2vh 2vh 2vh 11vh;
+    margin: 2vh .95vw 2vh 5.225vw;
     border-radius: 2vh;
     border: .15vh solid black;
 }
@@ -81,7 +81,7 @@
 #feed-img{
     // align-content: center;
     // content: image_url('blankprofilepic.png');
-    width: 11vh;
+    width: 5.225vw;
     height: 11vh;
     border-radius: 50%;
     box-sizing: border-box;
@@ -205,8 +205,8 @@ hr{
     background-color: white; 
     box-shadow: 0 0 0 .15vh rgba(0,0,0,.15);
     border-radius: .3vh;
-    margin-bottom: 5.5vh; 
-    margin-top: 5.5vh; 
+    margin-bottom: 2.5vh; 
+    margin-top: 2.5vh; 
 }
 
 .post1-ad {
@@ -215,8 +215,8 @@ hr{
     background-color: white; 
     box-shadow: 0 0 0 .15vh rgba(0,0,0,.15);
     border-radius: .3vh;
-    margin-bottom: 5.5vh; 
-    margin-top: 5.5vh; 
+    margin-bottom: 2.5vh; 
+    margin-top: 2.5vh; 
 }
 
 .post2-post {
@@ -225,8 +225,8 @@ hr{
     background-color: white; 
     box-shadow: 0 0 0 .15vh rgba(0,0,0,.15);
     border-radius: .3vh;
-    margin-bottom: 5.5vh; 
-    margin-top: 5.5vh; 
+    margin-bottom: 2.5vh; 
+    margin-top: 2.5vh; 
 }
 
 .post3-uiuc {
@@ -235,14 +235,15 @@ hr{
     background-color: white; 
     box-shadow: 0 0 0 .15vh rgba(0,0,0,.15);
     border-radius: .3vh;
-    margin-bottom: 5.5vh; 
-    margin-top: 5.5vh; 
+    margin-bottom: 2.5vh; 
+    margin-top: 2.5vh; 
 }
 
 
 .post1-container, .post2-container, .post-item-container, .post3-container {
     justify-content: space-between;
     padding: 3% 3% 1% 3%;
+    display: flex;
 }
 
 #list-logo-post {
@@ -251,6 +252,7 @@ hr{
     border-radius: 1.9vh;
     border: .15vh solid black;
     display: inline-block;
+    height: 5vh;
 }
 
 #shaq-post {
@@ -259,7 +261,7 @@ hr{
     border-radius: 1.9vh;
     display: inline-block;
     height: 7vh;
-    width: 7vh;
+    width: 3.3vw;
     border-radius: 5vh;
 }
 
@@ -269,7 +271,7 @@ hr{
     border-radius: 1.9vh;
     display: inline-block;
     height: 7vh;
-    width: 7vh;
+    width: 3.3vw;
     border-radius: 5vh;
 }
 
@@ -279,13 +281,13 @@ hr{
     border-radius: 1.9vh;
     display: inline-block;
     height: 7vh;
-    width: 7vh;
+    width: 3.3vw;
     border-radius: 5vh;
 }
 
 #post1-header-text, #post2-header-text, #post-item-header-text, #post3-header-text {
     display: inline-block;
-    margin-left: 3.1vh;
+    margin-left: 1.5vw;
     width: 83%;
 }
 
@@ -356,7 +358,7 @@ hr{
 }
 
 .post-likes-comments{
-    margin: 0 3% 2% 5%;
+    margin: 1% 3% 2% 5%;
     font-size: 2vh;
     color: grey;
     // display: inline-block;
@@ -407,7 +409,7 @@ hr{
 }
 
 .news-container-header {
-    margin: 3vh 2vh 1vh 2vh;
+    margin: 3vh .95vw 1vh .95vw;
     font-size: 3vh;
 }
 

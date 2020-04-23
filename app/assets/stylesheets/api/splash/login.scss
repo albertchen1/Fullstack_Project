@@ -1,6 +1,6 @@
 .login-form-container{
     position: relative;
-    margin-left: 2.9vh;
+    margin-left: 1.3775vw;
     text-align: center;
     background-color: white;
 }
@@ -38,7 +38,7 @@
     font-size: 2.3vh;
     background-color: #0073b1;
     color: white;
-    width: 58.5vh;  
+    width: 27.8vw;  
     height: 3em;
     border-radius: .58vh;
 }
@@ -79,7 +79,7 @@
 .login-input-username{
     position: relative;
     font-size:14pt;
-    width: 58.5vh;
+    width: 27.8vw;
     height: 3em;
     padding-left: 0.5em;
     border-style: solid;
@@ -90,7 +90,7 @@
 .login-input-password{
     position: relative;
     font-size:14pt;
-    width: 58.5vh;
+    width: 27.8vw;
     height: 3em;
     padding-left: 0.5em;
     border-style: solid;
@@ -102,7 +102,7 @@
 .login-username-label{
     position: absolute;
     top: 0;
-    padding: .146vh 0 0 1.9vh;
+    padding: .146vh 0 0 .9vw;
     transition: all 200ms;
     opacity: 1;
     top: 2.9vh;
@@ -113,7 +113,7 @@
 .login-password-label{
     position: absolute;
     top: 0;
-    padding: .146vh 0 0 1.9vh;
+    padding: .146vh 0 0 9vw;
     transition: all 200ms;
     opacity: 1;
     top: 2.9vh;

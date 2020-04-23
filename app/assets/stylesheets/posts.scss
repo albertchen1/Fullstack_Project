@@ -1,7 +1,7 @@
 #three-dot-dropdown {
     content: image_url('three-dots.png');
     // border:  1px solid black;
-    width: 3vh;
+    width: 1.4vw;
     height:  3vh;
     // color: white;
     font-size: 14pt;
@@ -23,7 +23,7 @@
     background-color: black;
     // min-width: 15.9vh;
     // min-height: 7vh;
-    width: 10vh;
+    width: 4.75vw;
     height: 10vh;
     z-index: 100;
     border-radius: .5em;
@@ -41,13 +41,13 @@
 
 #post-dropdown-content {
     height: 15vh;
-    width: 28vh;
+    width: 13.3vw;
     background-color: white;
     // float: right;
     box-shadow: 0 0 0 0.15vh rgba(0, 0, 0, 0.15);
-    border-right-width: 8px;
+    border-right-width: .55vw;
     border-bottom: 8px solid #fff;
-    border-left-width: 8px;
+    border-left-width: .55vw;
 }
 
 .comment-list {
@@ -60,7 +60,7 @@
     margin-left: 3%;
     display: inline-block;
     height: 5vh;
-    width: 5vh;
+    width: 2.4vw;
     border-radius: 5vh;
 }
 
@@ -72,7 +72,7 @@
     display: flex;
     align-items: center;
     padding-left: 2vh;
-    margin: 1vh 1vh 1vh 1vh;
+    margin: 1vh .475vw 1vh .475vw;
 }
 
 #create-comment-input {
@@ -82,7 +82,7 @@
     padding: 1vh 1.5vh 1vh 1.5vh; 
     border-radius: 4vh;
     width: 70%;
-    margin: 1vh 1vh 1vh 1vh;
+    margin: 1vh .475vw 1vh .475vw;
 }
 
 .submit-comment {

@@ -76,7 +76,32 @@ class Profile extends React.Component {
                 <div className="profile-header-container">
                     <div className="profile-header-background"></div>
                     <div className="profile-header-pic"></div>
-                    <div className="profile-header-info"></div>
+                    <div className="profile-header-info">
+                        <div id="profile-header-name">Albert Chen</div>
+                        <div id="profile-header-title">Software Engineer</div>
+                        <div id="profile-header-location">United States</div>
+                    </div>
+                </div>
+                <div className="profile-about-container">
+                    <div className="profile-about-header">
+                        <h4 id="about-title">About</h4>
+                        <div id="profile-about-edit-icon"><i className="fas fa-pencil-alt"></i></div>
+                    </div>
+                    <div className="profile-about-content">I am a software engineer.</div>
+                </div>
+                <div className="profile-experience-container">
+                    <div className="profile-experience-header">
+                        <h4 id="experience-title">Experience</h4>
+                        <div id="add-experience-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div id="profile-experience-edit-icon"><i className="fas fa-pencil-alt"></i></div>
+                </div>
+                <div className="profile-education-container">
+                    <div className="profile-education-header">
+                        <h4 id="education-title">Education</h4>
+                        <div id="add-education-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div id="profile-education-edit-icon"><i className="fas fa-pencil-alt"></i></div>
                 </div>
 
 

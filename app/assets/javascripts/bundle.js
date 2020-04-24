@@ -1009,7 +1009,10 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, "0 Likes 0 comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-reacts"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "like"
+        className: "like",
+        onClick: function onClick(e) {
+          return alert("Feature coming soon!");
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-thumbs-up"
       }), " Like "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1017,7 +1020,10 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-comment-alt"
       }), " Comment "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "share"
+        className: "share",
+        onClick: function onClick(e) {
+          return alert("Feature coming soon!");
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-share-square"
       }), " Share "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1051,7 +1057,10 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, "0 Likes 0 comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-reacts"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "like"
+        className: "like",
+        onClick: function onClick(e) {
+          return alert("Feature coming soon!");
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-thumbs-up"
       }), " Like "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1059,7 +1068,10 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-comment-alt"
       }), " Comment "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "share"
+        className: "share",
+        onClick: function onClick(e) {
+          return alert("Feature coming soon!");
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-share-square"
       }), " Share "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1093,7 +1105,10 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, "0 Likes 0 comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-reacts"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "like"
+        className: "like",
+        onClick: function onClick(e) {
+          return alert("Feature coming soon!");
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-thumbs-up"
       }), " Like "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1101,7 +1116,10 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-comment-alt"
       }), " Comment "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "share"
+        className: "share",
+        onClick: function onClick(e) {
+          return alert("Feature coming soon!");
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-share-square"
       }), " Share ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1111,6 +1129,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, " Today\u2019s news and views "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-link"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        target: "_blank",
         href: "https://www.linkedin.com/feed/news/nows-a-great-time-for-average-art-4807604/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-title"
@@ -1119,6 +1138,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, " 1d ago \u2022 9,653 readers"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-link"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        target: "_blank",
         href: "https://www.linkedin.com/feed/news/imagining-the-post-pandemic-office-4805468/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-title"
@@ -1127,6 +1147,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, " 1d ago \u2022 9,003 readers"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-link"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        target: "_blank",
         href: "https://www.linkedin.com/feed/news/setting-work-from-home-boundaries-4808276/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-title"
@@ -1135,6 +1156,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, " 2h ago \u2022 5,217 readers"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-link"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        target: "_blank",
         href: "https://www.linkedin.com/feed/news/robots-join-the-coronavirus-fight-4815956/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-title"
@@ -1143,6 +1165,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, " 1d ago \u2022 2,086 readers"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-link"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        target: "_blank",
         href: "https://www.linkedin.com/feed/news/ny-hospitals-on-the-brink-4811772/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-title"
@@ -1443,7 +1466,10 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
       }, "0 comments")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-reacts"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "like"
+        className: "like",
+        onClick: function onClick(e) {
+          return alert("Feature coming soon!");
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-thumbs-up"
       }), " Like "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1452,7 +1478,10 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-comment-alt"
       }), " Comment "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "share"
+        className: "share",
+        onClick: function onClick(e) {
+          return alert("Feature coming soon!");
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-share-square"
       }), " Share ")), this.renderViewComments());

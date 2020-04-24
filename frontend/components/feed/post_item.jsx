@@ -179,9 +179,9 @@ class PostItem extends React.Component {
                     {/* </h4> */}
                 </div>
                 <div className="post-reacts">
-                    <div className="like"><i className="far fa-thumbs-up"></i> Like </div>
+                    <div className="like" onClick={e => alert("Feature coming soon!")}><i className="far fa-thumbs-up"></i> Like </div>
                     <div className="comment" onClick={this.openCreateComment}><i className="far fa-comment-alt"></i> Comment </div>
-                    <div className="share"><i className="far fa-share-square"></i> Share </div>
+                    <div className="share" onClick={e => alert("Feature coming soon!")}><i className="far fa-share-square"></i> Share </div>
                 </div>
                 {this.renderViewComments()}
             </div>

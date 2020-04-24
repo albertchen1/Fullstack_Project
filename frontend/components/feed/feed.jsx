@@ -135,9 +135,9 @@ class Feed extends React.Component {
                                 0 Likes 0 comments
                             </div>
                             <div className="post-reacts">
-                                <div className="like"><i className="far fa-thumbs-up"></i> Like </div>
+                                <div className="like" onClick={e => alert("Feature coming soon!")}><i className="far fa-thumbs-up"></i> Like </div>
                                 <div className="comment"><i className="far fa-comment-alt"></i> Comment </div>
-                                <div className="share"><i className="far fa-share-square"></i> Share </div>
+                                <div className="share" onClick={e => alert("Feature coming soon!")} ><i className="far fa-share-square"></i> Share </div>
                             </div>
                         </div>
                         <div className="post1-ad">
@@ -165,9 +165,9 @@ class Feed extends React.Component {
                                 0 Likes 0 comments
                             </div>
                             <div className="post-reacts">
-                                <div className="like"><i className="far fa-thumbs-up"></i> Like </div>
+                                <div className="like" onClick={e => alert("Feature coming soon!")}><i className="far fa-thumbs-up"></i> Like </div>
                                 <div className="comment"><i className="far fa-comment-alt"></i> Comment </div>
-                                <div className="share"><i className="far fa-share-square"></i> Share </div>
+                                <div className="share" onClick={e => alert("Feature coming soon!")}><i className="far fa-share-square"></i> Share </div>
                             </div>
                         </div>
                         <div className="post3-uiuc">
@@ -204,40 +204,40 @@ class Feed extends React.Component {
                                 0 Likes 0 comments
                             </div>
                             <div className="post-reacts">
-                                <div className="like"><i className="far fa-thumbs-up"></i> Like </div>
+                                <div className="like" onClick={e => alert("Feature coming soon!")}><i className="far fa-thumbs-up"></i> Like </div>
                                 <div className="comment"><i className="far fa-comment-alt"></i> Comment </div>
-                                <div className="share"><i className="far fa-share-square"></i> Share </div>
+                                <div className="share" onClick={e => alert("Feature coming soon!")}><i className="far fa-share-square"></i> Share </div>
                             </div>
                         </div>
                     </div>
                     <div className="news-container">
                         <div className="news-container-header"> Today’s news and views </div>
                         <div className="news-link">
-                            <a href="https://www.linkedin.com/feed/news/nows-a-great-time-for-average-art-4807604/">
+                            <a target="_blank" href="https://www.linkedin.com/feed/news/nows-a-great-time-for-average-art-4807604/">
                                 <div className="news-title"> Now's a great time for average art</div>
                                 <div className="news-time"> 1d ago • 9,653 readers</div>
                             </a>
                         </div>
                         <div className="news-link">
-                            <a href="https://www.linkedin.com/feed/news/imagining-the-post-pandemic-office-4805468/">
+                            <a target="_blank" href="https://www.linkedin.com/feed/news/imagining-the-post-pandemic-office-4805468/">
                                 <div className="news-title"> Imagining the post-pandemic office</div>
                                 <div className="news-time"> 1d ago • 9,003 readers</div>
                             </a>
                         </div>
                         <div className="news-link">
-                            <a href="https://www.linkedin.com/feed/news/setting-work-from-home-boundaries-4808276/">
+                            <a target="_blank" href="https://www.linkedin.com/feed/news/setting-work-from-home-boundaries-4808276/">
                                 <div className="news-title"> Setting work-from-home boundaries</div>
                                 <div className="news-time"> 2h ago • 5,217 readers</div>
                             </a>
                         </div>
                         <div className="news-link">
-                            <a href="https://www.linkedin.com/feed/news/robots-join-the-coronavirus-fight-4815956/">
+                            <a target="_blank" href="https://www.linkedin.com/feed/news/robots-join-the-coronavirus-fight-4815956/">
                                 <div className="news-title"> Robots join the coronavirus fight</div>
                                 <div className="news-time"> 1d ago • 2,086 readers</div>
                             </a>
                         </div>
                         <div className="news-link">
-                            <a href="https://www.linkedin.com/feed/news/ny-hospitals-on-the-brink-4811772/">
+                            <a target="_blank" href="https://www.linkedin.com/feed/news/ny-hospitals-on-the-brink-4811772/">
                                 <div className="news-title"> NY hospitals 'on the brink'</div>
                                 <div className="news-time"> 12h ago • 3,031 readers</div>
                             </a>

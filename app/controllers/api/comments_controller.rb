@@ -8,8 +8,10 @@ class Api::CommentsController < ApplicationController
         @comment = Comment.new(comment_params)
         @comment.user_id = current_user.id
         if @comment.save
-            @comments = Comment.where(post_id: @comment.post_id)
-            render :show 
+            # @comments = Comment.where(post_id: @comment.post_id)
+            @post = Post.find(@comment.post_id)
+            render '/api/posts/show'
+            # render :show 
         else
             render json: @comment.errors.full_messages, status: 422
         end

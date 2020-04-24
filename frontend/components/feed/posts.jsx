@@ -42,7 +42,7 @@ class Posts extends React.Component {
                   deletePost={this.deletePost}
                   createComment={this.props.createComment}
                   fetchAllComments={this.props.fetchAllComments}
-                  comments={this.props.comments}
+                  comments={post.comments ? Object.values(post.comments) : []}
                 />
               ))}
             </div>

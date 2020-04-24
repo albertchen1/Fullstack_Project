@@ -48,6 +48,7 @@ class CreatePostForm extends React.Component {
         }
         this.props.createPost(form)
         .then(() => {
+            this.setState({body: ''})
             this.props.closeModal();
         })
 

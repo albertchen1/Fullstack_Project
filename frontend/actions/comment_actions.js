@@ -1,5 +1,6 @@
 // import * as APIUtil from "../util/session_api_util";
 import * as APIUtil from "../util/comment_api_util";
+import {receivePost} from './post_actions';
 export const RECEIVE_ALL_COMMENTS = 'RECEIVE_ALL_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 
@@ -25,7 +26,8 @@ export const fetchComment = (id) => dispatch => (
 
 export const createComment = (comment) => dispatch => (
     APIUtil.createComment(comment)
-        .then(comments => dispatch(receiveAllComments(comments)))
+        // .then(comments => dispatch(receiveAllComments(comments)))
+        .then(post => dispatch(receivePost(post)))
 )
 
 export const deleteComment = (id) => dispatch => (

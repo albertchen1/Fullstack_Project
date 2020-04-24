@@ -104,7 +104,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createComment", function() { return createComment; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComment", function() { return deleteComment; });
 /* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/comment_api_util */ "./frontend/util/comment_api_util.js");
+/* harmony import */ var _post_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./post_actions */ "./frontend/actions/post_actions.js");
 // import * as APIUtil from "../util/session_api_util";
+
 
 var RECEIVE_ALL_COMMENTS = 'RECEIVE_ALL_COMMENTS';
 var RECEIVE_COMMENT = 'RECEIVE_COMMENT';
@@ -136,8 +138,9 @@ var fetchComment = function fetchComment(id) {
 };
 var createComment = function createComment(comment) {
   return function (dispatch) {
-    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["createComment"](comment).then(function (comments) {
-      return dispatch(receiveAllComments(comments));
+    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["createComment"](comment) // .then(comments => dispatch(receiveAllComments(comments)))
+    .then(function (post) {
+      return dispatch(Object(_post_actions__WEBPACK_IMPORTED_MODULE_1__["receivePost"])(post));
     });
   };
 };
@@ -681,6 +684,10 @@ var CreatePostForm = /*#__PURE__*/function (_React$Component) {
         body: this.state.body
       };
       this.props.createPost(form).then(function () {
+        _this3.setState({
+          body: ''
+        });
+
         _this3.props.closeModal();
       }); // const formData = new FormData();
       // formData.append('post[body]', this.state.body);
@@ -1259,7 +1266,11 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
     value: function openCreateComment() {
       var _this2 = this;
 
-      if (document.getElementsByClassName("create-message").length < 1) {
+      var post = this.props.post;
+      console.log(document.getElementById("create-comment-form-".concat(post.id)));
+      console.log(!document.getElementById("create-comment-form-".concat(post.id)) ? "true" : "false");
+
+      if (!document.getElementById("create-comment-form-".concat(post.id))) {
         // <form action="/action_page.php" method="get" id="form1">
         //     <label for="fname">First name:</label>
         //     <input type="text" id="fname" name="fname"/>
@@ -1272,7 +1283,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         //         <input type="text" id="create-comment-input" className="create-message" placeholder="Add a comment"/>
         //     </form>
         //     <button form="create-comment-form" type="submit" value="Submit">Submit</button>
-        // </div>
+        // </div>            
         var createCommentdiv = document.createElement("div");
         var createCommentForm = document.createElement("form");
         var submitCommentButton = document.createElement("button");
@@ -1287,15 +1298,16 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         };
 
         createCommentForm.setAttribute("class", "create-comment-form");
+        createCommentForm.setAttribute("id", "create-comment-form-".concat(post.id));
         var createCommentInput = document.createElement("input");
         createCommentInput.setAttribute("type", "text");
-        createCommentInput.setAttribute("id", "create-comment-input");
+        createCommentInput.setAttribute("id", "create-comment-input-".concat(post.id));
         createCommentInput.setAttribute("class", "create-message");
         createCommentInput.placeholder = "Add a comment...";
         createCommentForm.appendChild(createCommentpic);
         createCommentForm.appendChild(createCommentInput);
         createCommentForm.appendChild(submitCommentButton);
-        document.getElementsByClassName("post-item")[0].append(createCommentForm);
+        document.getElementsByClassName("post-item-".concat(this.props.post.id))[0].append(createCommentForm);
         this.setState({
           showComments: true
         });
@@ -1304,19 +1316,21 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         this.setState({
           showComments: false
         });
-        document.getElementsByClassName("create-comment-form")[0].remove();
+        document.getElementById("create-comment-form-".concat(post.id)).remove();
       }
 
-      console.log(document.getElementsByClassName("create-message"));
+      console.log(document.getElementById("create-comment-form-".concat(post.id)));
     }
   }, {
     key: "createComment",
     value: function createComment() {
+      var post = this.props.post;
       var comment = {
-        body: document.getElementById("create-comment-input").value,
+        body: document.getElementById("create-comment-input-".concat(post.id)).value,
         post_id: this.props.post.id
       };
       this.props.createComment(comment);
+      document.getElementById("create-comment-input-".concat(post.id)).value = '';
     }
   }, {
     key: "fetchAllComments",
@@ -1399,7 +1413,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
       };
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-item"
+        className: "post-item post-item-".concat(this.props.post.id)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-item-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1534,7 +1548,7 @@ var Posts = /*#__PURE__*/function (_React$Component) {
           deletePost: _this2.deletePost,
           createComment: _this2.props.createComment,
           fetchAllComments: _this2.props.fetchAllComments,
-          comments: _this2.props.comments
+          comments: post.comments ? Object.values(post.comments) : []
         });
       }));
     }

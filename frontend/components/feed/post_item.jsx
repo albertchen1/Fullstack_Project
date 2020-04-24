@@ -25,7 +25,10 @@ class PostItem extends React.Component {
     // }
 
     openCreateComment() {
-        if (document.getElementsByClassName("create-message").length < 1) {
+        let post = this.props.post
+        console.log(document.getElementById(`create-comment-form-${post.id}`))
+        console.log(!document.getElementById(`create-comment-form-${post.id}`) ? "true" : "false")
+        if (!document.getElementById(`create-comment-form-${post.id}`)) {
             // <form action="/action_page.php" method="get" id="form1">
             //     <label for="fname">First name:</label>
             //     <input type="text" id="fname" name="fname"/>
@@ -41,10 +44,7 @@ class PostItem extends React.Component {
 
             //     </form>
             //     <button form="create-comment-form" type="submit" value="Submit">Submit</button>
-            // </div>
-
-
-
+            // </div>            
             let createCommentdiv = document.createElement("div")
             let createCommentForm = document.createElement("form")
             let submitCommentButton = document.createElement("button")
@@ -55,30 +55,34 @@ class PostItem extends React.Component {
             submitCommentButton.innerHTML = "Submit";
             createCommentForm.onsubmit = (e) => this.createComment()
             createCommentForm.setAttribute("class", "create-comment-form")
+            createCommentForm.setAttribute("id", `create-comment-form-${post.id}`)
             let createCommentInput = document.createElement("input")
             createCommentInput.setAttribute("type", "text");
-            createCommentInput.setAttribute("id", "create-comment-input");
+
+            createCommentInput.setAttribute("id", `create-comment-input-${post.id}`);
             createCommentInput.setAttribute("class", "create-message")
             createCommentInput.placeholder = "Add a comment..."
             createCommentForm.appendChild(createCommentpic)
             createCommentForm.appendChild(createCommentInput)
             createCommentForm.appendChild(submitCommentButton)
-            document.getElementsByClassName("post-item")[0].append(createCommentForm)
+            document.getElementsByClassName(`post-item-${this.props.post.id}`)[0].append(createCommentForm)
             this.setState({showComments: true})
             this.fetchAllComments()
         } else {
             this.setState({showComments: false})
-            document.getElementsByClassName("create-comment-form")[0].remove()
+            document.getElementById(`create-comment-form-${post.id}`).remove()
         }
-        console.log(document.getElementsByClassName("create-message"))
+        console.log(document.getElementById(`create-comment-form-${post.id}`))
     }
 
     createComment() {
+        let post = this.props.post
         let comment = {
-            body: document.getElementById("create-comment-input").value,
+            body: document.getElementById(`create-comment-input-${post.id}`).value,
             post_id: this.props.post.id
         }
         this.props.createComment(comment)
+        document.getElementById(`create-comment-input-${post.id}`).value = ''
     }
 
     fetchAllComments() {
@@ -142,7 +146,7 @@ class PostItem extends React.Component {
             }
         }
         return (
-            <div className="post-item">
+            <div className={`post-item post-item-${this.props.post.id}`}>
                 <div className="post-item-container">
 
                     

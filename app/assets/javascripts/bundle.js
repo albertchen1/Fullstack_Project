@@ -514,7 +514,63 @@ var Connections = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "FEED", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "connections-page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "manage-network-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "manage-network-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "manage-network-title"
+      }, "Manage Network"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-connections"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-connections-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-user-friends"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "manage-network-connections-text"
+      }, "Connections")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-others"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-others-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-address-book"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-contacts-text"
+      }, "Contacts")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-others"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-others-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-walking"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-people-text"
+      }, "People I Follow")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-others"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-others-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-users"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-groups-text"
+      }, "Groups")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-others"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-others-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-file-alt"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-pages-text"
+      }, "Pages")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-others"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-others-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-hashtag"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "manage-network-hashtags-text"
+      }, "Hashtags"))))));
     }
   }]);
 
@@ -2728,10 +2784,16 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-header-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-header-name-edit-line"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "profile-header-name"
       }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "profile-header-edit-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-pencil-alt"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "profile-header-title"
-      }, "Software Engineer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "profile-header-location"
       }, "United States"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-about-container"

@@ -76,9 +76,14 @@ class Profile extends React.Component {
                 <div className="profile-header-container">
                     <div className="profile-header-background"></div>
                     <div className="profile-header-pic"></div>
+                    
                     <div className="profile-header-info">
-                        <div id="profile-header-name">Albert Chen</div>
-                        <div id="profile-header-title">Software Engineer</div>
+                        <div className="profile-header-name-edit-line">
+                            <div id="profile-header-name">Albert Chen</div>
+                            <div id="profile-header-edit-icon"><i className="fas fa-pencil-alt"></i></div>
+                        </div>
+                        
+                        <div id="profile-header-title">Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java</div>
                         <div id="profile-header-location">United States</div>
                     </div>
                 </div>

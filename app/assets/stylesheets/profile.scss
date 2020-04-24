@@ -52,9 +52,16 @@
     border: solid .7vh lightgray;
 }
 
+#profile-header-edit-icon {
+    margin-left: 77%;
+    color: #0073b1;
+    font-size: 16pt;
+    cursor: pointer;
+}
+
 .profile-header-info {
     display: inline-block;
-    margin-left: 1.4vw;
+    margin-left: 1.7vw;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -66,6 +73,7 @@
 #profile-header-title, #profile-header-location {
     font-size: 14pt;
     margin-bottom: 2vh;
+    max-width: 55%;
 }
 
 .profile-about-container {
@@ -89,30 +97,51 @@
     display: flex;
 }
 
-#about-title{
+#about-title, #experience-title, #education-title {
     font-size: 16pt;
     color: black;
-    padding-right: 90%;
 }
 
-#experience-title {
-    font-size: 16pt;
-    color: black;
-    padding-right: 83%;
+.profile-header-name-edit-line {
+    display: flex;
 }
 
-#education-title {
-    font-size: 16pt;
-    color: black;
-    padding-right: 85%;
-}
-
-#profile-about-edit-icon , #profile-experience-edit-icon, #add-experience-icon, 
-#add-education-icon, #profile-education-edit-icon{
+#profile-about-edit-icon {
     color: #0073b1;
     font-size: 16pt;
     cursor: pointer;
+    margin-left: 90%;
 }
+
+#profile-experience-edit-icon {
+    color: #0073b1;
+    font-size: 16pt;
+    cursor: pointer;
+    margin-left: 85%;
+}
+
+#add-experience-icon {
+    color: #0073b1;
+    font-size: 16pt;
+    cursor: pointer;
+    margin-left: 83%;
+}
+
+#add-education-icon {
+    color: #0073b1;
+    font-size: 16pt;
+    cursor: pointer;
+    margin-left: 85%;
+}
+
+#profile-education-edit-icon {
+    color: #0073b1;
+    font-size: 16pt;
+    cursor: pointer;
+    margin-left: 85%;
+}
+
+
 
 .profile-about-content {
     font-size: 11pt;

@@ -1,0 +1,87 @@
+.connections-page {
+    // height: 100%;
+    height: 800vh;
+    background-color:  #f2f2f2;
+}
+
+.manage-network-container {
+    width: 22.5%;
+    height: 40vh;
+    position: sticky;
+    top: 15vh;
+    margin-left: 10%;
+    box-shadow: 0 0 0 0.15vh rgba(0, 0, 0, 0.15);
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.manage-network-info {
+    padding: 3vh 1.4vw 3vh 1.4vw;
+    color: rgb(83, 83, 83)
+}
+
+#manage-network-title {
+    font-size: 14pt;
+    padding-bottom: 2vh;
+}
+
+#manage-network-connections {
+    display: flex;
+    padding: 1vh 0;
+    cursor: pointer;
+}
+
+#manage-network-connections:hover {
+    background-color: rgb(236, 241, 243);
+
+}
+
+#manage-network-connections-icon {
+    font-size: 16pt;
+
+}
+
+#manage-network-connections-text {
+    font-size: 14pt;
+    padding-left: 1vw;
+}
+
+#manage-network-others {
+    display: flex;
+    padding: 1vh 0;
+    cursor: pointer;
+}
+
+#manage-network-others:hover {
+    background-color: rgb(236, 241, 243);
+
+}
+
+#manage-network-others-icon {
+    font-size: 16pt;
+}
+
+#manage-network-contacts-text {
+    font-size: 14pt;
+    padding-left: 1.5vw;
+}
+
+#manage-network-people-text {
+    font-size: 14pt;
+    padding-left: 1.9vw;
+}
+
+#manage-network-groups-text {
+    font-size: 14pt;
+    padding-left: .9vw;
+}
+
+#manage-network-pages-text {
+    font-size: 14pt;
+    padding-left: 1.7vw;
+}
+
+#manage-network-hashtags-text {
+    font-size: 14pt;
+    padding-left: 1.4vw;
+}

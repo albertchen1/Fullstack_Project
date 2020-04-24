@@ -44,9 +44,51 @@ class Connections extends React.Component {
     render() {
         return (
             <div>
-                FEED
                 {/* dispatch(logout()); to logout */}
                 <NavbarContainer />
+
+                <div className="connections-page">
+                    <div className="manage-network-container">
+                        <div className="manage-network-info">
+                            <h3 id="manage-network-title">Manage Network</h3>
+                            <div id="manage-network-connections">
+                                <div id="manage-network-connections-icon"><i class="fas fa-user-friends"></i></div>
+                                <h3 id="manage-network-connections-text">Connections</h3>
+                            </div>
+                            <div id="manage-network-others">
+                                <div id="manage-network-others-icon"><i class="fas fa-address-book"></i></div>
+                                <div id="manage-network-contacts-text">Contacts</div>
+                            </div>
+                            <div id="manage-network-others">
+                                <div id="manage-network-others-icon"><i class="fas fa-walking"></i></div>
+                                <div id="manage-network-people-text">People I Follow</div>
+                            </div>
+                            <div id="manage-network-others">
+                                <div id="manage-network-others-icon"><i class="fas fa-users"></i></div>
+                                <div id="manage-network-groups-text">Groups</div>
+                            </div>
+                            <div id="manage-network-others">
+                                <div id="manage-network-others-icon"><i class="fas fa-file-alt"></i></div>
+                                <div id="manage-network-pages-text">Pages</div>
+                            </div>
+                            <div id="manage-network-others">
+                                <div id="manage-network-others-icon"><i class="fas fa-hashtag"></i></div>
+                                <div id="manage-network-hashtags-text">Hashtags</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+
                 {/* <div className="login-form-container">
                     <form onSubmit={this.handleSubmit} className="login-form-box">
                         <label className="welcome-back">Welcome Back!</label>

@@ -17,3 +17,4 @@ const postsReducer = (state = {}, action) => {
 };
 
 export default postsReducer;
+

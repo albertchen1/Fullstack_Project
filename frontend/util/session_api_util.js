@@ -15,12 +15,12 @@ export const fetchAllUsers = () => (
     })
 )
 
-export const fetchUser = (userId) => {
-    $.ajax({
-        method: "GET",
-        url: `/api/users/${userId}`
-    })
-}
+// export const fetchUser = (userId) => {
+//     $.ajax({
+//         method: "GET",
+//         url: `/api/users/${userId}`
+//     })
+// }
 
 export const login = (formUser) => (
     $.ajax({

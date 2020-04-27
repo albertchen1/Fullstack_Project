@@ -1,0 +1,140 @@
+.edit-header-modal, .edit-about-modal {
+    background-color: black;
+}
+
+.edit-header-container, .edit-about-container {
+    margin: 9vh 20% 3vh 20%;
+    font-family: Arial, Helvetica, sans-serif;
+
+
+    width: 50.8vw; 
+    min-height: 13vh; 
+    background-color: white; 
+    display:flex; 
+    flex-direction: column;
+    box-shadow: 0 0 0 2px rgba(0,0,0,.15);
+    border-radius: .3vh;
+    // padding: 1vh 1vw 1vh 1vw;
+}
+
+.edit-header-top, .edit-about-top{
+    background-color: #f2f2f2;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2vh 2vw 2vh 1vw;
+    // padding-top: 2vh;
+    // padding-bottom: 2vh;
+}
+#edit-header-edit-intro, #edit-about-title {
+    font-size: 14pt;
+    display: flex;
+    color: black;
+    min-width: 25%;
+}
+
+#edit-header-exit, #edit-about-exit {
+    font-size: 18pt;
+    display: flex;
+    color: rgb(77, 77, 77);
+    cursor: pointer;
+    margin-left: 75%;
+}
+
+#edit-header-background-image {
+    content: image_url('profile-blue-background.png');
+    // display: flex;
+    // max-width: 120%;
+    // height: 100%;
+    // position: relative;
+
+    position: relative;
+    width: 100%;
+    padding-bottom: 10vh;
+}
+
+#edit-header-profile-pic {
+    content: image_url('mini-profile-pic.png');
+    margin-left: 2%;
+    border-radius: 1.9vh;
+    // display: inline-block;
+    height: 20vh;
+    width: 9.5vw;
+    border-radius: 16vh;
+    position: absolute; 
+    margin-top: -11%;
+    border: solid .7vh lightgray;
+}
+
+.edit-header-names-field {
+    display: flex;
+    padding: 2vh 2vw 2vh 2vw;
+}
+
+.edit-header-headline, .edit-header-location, .edit-about-summary{
+    padding: 2vh 2vw 2vh 2vw;
+}
+
+.edit-header-firstname {
+    max-width: 47%;
+    width: 25vw;
+    // padding-right: 25vw ;
+}
+
+.edit-header-lastname {
+    max-width: 40%;
+    width: 20vw;
+    padding-left: 1.5vw;
+}
+
+#edit-header-firstname-label, #edit-header-lastname-label, 
+#edit-header-headline-label, #edit-header-location-label,
+#edit-about-summary-label {
+    display: inline-block;
+    padding: 1vh .5vw 1vh 0;
+}
+
+#edit-header-firstname-box, #edit-header-lastname-box {
+    width: 22vw;
+    max-width: 22vw;
+    padding: 1vh .5vw 1vh .5vw;
+    border: .01vh solid black;
+}
+
+#edit-header-headline-box {
+    width: 100%;
+    max-width: 45.5vw;
+    padding: 1vh .5vw 1vh .5vw;
+    border: .01vh solid black;
+}
+
+#edit-about-summary-box {
+    width: 100%;
+    max-width: 45.5vw;
+    height: 15vh;
+    max-height: 15vh;
+    padding: 1vh .5vw 1vh .5vw;
+    border: .01vh solid black;
+}
+
+#edit-header-location-box {
+    width: 100%;
+    max-width: 45.5vw;
+    padding: 1vh .5vw 1vh .5vw;
+    border: .01vh solid black;
+}
+
+.edit-header-submit-container, .edit-about-submit-container {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.edit-header-submit, .edit-about-submit {
+    background-color: #0073b1;
+    color: white;
+    font-size: 12pt;
+    height: 5vh;
+    max-width: 4vw;
+    border: none;
+    border-radius: .3vh;
+    margin: 2vh 1.4vw 3vh 89%;
+}

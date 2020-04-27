@@ -1,19 +1,15 @@
 import React from "react"
 import { withRouter } from 'react-router-dom';
 import NavbarContainer from '../nav_bar/navbar_container';
-// import ExperienceItemIndex from "../experience_items/experience_item_index";
-// import EducationItemIndex from '../education_items/education_item_index';
-// import SkillsIndex from '../skills/skills_index';
-
-// import ProfileSummary from './profile_summary';
-// import ProfileAbout from './profile-about';
-// import ProfileNavbar from './profile_nav';
+// import EditHeaderModal from '../../components/user/profile_modal/edit_header_modal_container';
+import EditHeaderModal from '../../components/user/profile_modal/edit_header_modal';
+import EditAboutModal from '../../components/user/profile_modal/edit_about_modal';
 
 class Profile extends React.Component {
 
     componentDidMount() {
         console.log(this.props)
-        this.props.fetchUser(this.props.user[0].id);
+        this.props.fetchUser(this.props.user.id)
     }
 
     // componentDidUpdate(prevProps) {
@@ -77,9 +73,8 @@ class Profile extends React.Component {
     renderEditHeader() {
         if (this.state.header) {
             return (
-                // <EditHeaderModal user={this.props.user}/>
-                // <input value={this.props.user.first_name}>
-                null
+                <EditHeaderModal user={this.props.user} updateUser={this.props.updateUser}/>
+                // null
             )
         }else {
             return null
@@ -106,10 +101,9 @@ class Profile extends React.Component {
         }
     }
     renderEditAbout() {
-        if (this.state.header) {
+        if (this.state.about) {
             return (
-                // <EditAboutModal />
-                null
+                <EditAboutModal user={this.props.user} updateUser={this.props.updateUser}/>
             )
         }else {
             return null
@@ -168,33 +162,6 @@ class Profile extends React.Component {
                 </div>
 
 
-                {/* <ProfileNavbar users={this.props.users} currentUserId={this.props.currentUserId} />
-
-                <div className='profile'>
-
-
-                    <div className='profile-summary'>
-                        <ProfileSummary user={this.props.user} isCurrentUser={isCurrentUser} />
-                    </div>
-
-                    <div className='profile-about'>
-                        <ProfileAbout user={this.props.user} isCurrentUser={isCurrentUser} />
-                    </div>
-
-                    <div className='experience-item-container'>
-                        <ExperienceItemIndex userId={this.props.user.id} isCurrentUser={isCurrentUser} />
-                    </div>
-
-                    <div className='education-item-container'>
-                        <EducationItemIndex userId={this.props.user.id} isCurrentUser={isCurrentUser} />
-                    </div>
-
-                    <div className='education-item-container'>
-                        <SkillsIndex userId={this.props.user.id} isCurrentUser={isCurrentUser} />
-                    </div>
-
-
-                </div> */}
                 {this.renderEditAbout()}
                 {this.renderEditExperience()}
                 {this.renderEditEducation()}

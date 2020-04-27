@@ -2335,8 +2335,8 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       var demo = {
         username: "demo".concat(Math.random() * 100000000, "@demo.com"),
         password: '123456',
-        first_name: 'Demo',
-        last_name: 'User',
+        first_name: 'Albert',
+        last_name: 'Chen',
         location: 'San Francisco Bay Area',
         headline: 'Software Engineer'
       };
@@ -2765,6 +2765,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _nav_bar_navbar_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../nav_bar/navbar_container */ "./frontend/components/nav_bar/navbar_container.js");
+/* harmony import */ var _components_user_profile_modal_edit_header_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/user/profile_modal/edit_header_modal */ "./frontend/components/user/profile_modal/edit_header_modal.jsx");
+/* harmony import */ var _components_user_profile_modal_edit_about_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/user/profile_modal/edit_about_modal */ "./frontend/components/user/profile_modal/edit_about_modal.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -2787,12 +2789,10 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
- // import ExperienceItemIndex from "../experience_items/experience_item_index";
-// import EducationItemIndex from '../education_items/education_item_index';
-// import SkillsIndex from '../skills/skills_index';
-// import ProfileSummary from './profile_summary';
-// import ProfileAbout from './profile-about';
-// import ProfileNavbar from './profile_nav';
+ // import EditHeaderModal from '../../components/user/profile_modal/edit_header_modal_container';
+
+
+
 
 var Profile = /*#__PURE__*/function (_React$Component) {
   _inherits(Profile, _React$Component);
@@ -2801,7 +2801,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       console.log(this.props);
-      this.props.fetchUser(this.props.user[0].id);
+      this.props.fetchUser(this.props.user.id);
     } // componentDidUpdate(prevProps) {
     //     if (prevProps.match.params.userId != this.props.match.params.userId) {
     //         this.props.fetchUser(this.props.match.params.userId);
@@ -2872,10 +2872,11 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     key: "renderEditHeader",
     value: function renderEditHeader() {
       if (this.state.header) {
-        return (// <EditHeaderModal user={this.props.user}/>
-          // <input value={this.props.user.first_name}>
-          null
-        );
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_profile_modal_edit_header_modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          user: this.props.user,
+          updateUser: this.props.updateUser
+        }) // null
+        ;
       } else {
         return null;
       }
@@ -2905,10 +2906,11 @@ var Profile = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderEditAbout",
     value: function renderEditAbout() {
-      if (this.state.header) {
-        return (// <EditAboutModal />
-          null
-        );
+      if (this.state.about) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_profile_modal_edit_about_modal__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          user: this.props.user,
+          updateUser: this.props.updateUser
+        });
       } else {
         return null;
       }
@@ -3028,7 +3030,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    user: Object.values(state.entities.users)
+    user: Object.values(state.entities.users)[0]
   };
 };
 
@@ -3036,11 +3038,342 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchUser: function fetchUser(userId) {
       return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUser"])(userId));
+    },
+    updateUser: function updateUser(user) {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["updateUser"])(user));
     }
   };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_profile__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/user/profile_modal/edit_about_modal.jsx":
+/*!*********************************************************************!*\
+  !*** ./frontend/components/user/profile_modal/edit_about_modal.jsx ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var EditAboutModal = /*#__PURE__*/function (_React$Component) {
+  _inherits(EditAboutModal, _React$Component);
+
+  function EditAboutModal(props) {
+    var _this;
+
+    _classCallCheck(this, EditAboutModal);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditAboutModal).call(this, props));
+    _this.state = {
+      // first_name: this.props.user.firstName,
+      // last_name: this.props.user.lastName,
+      // location: this.props.user.location
+      user: _this.props.user
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(EditAboutModal, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log(this.props.user);
+    }
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
+  }, {
+    key: "handleInput",
+    value: function handleInput(e) {
+      this.setState({
+        user: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var user = Object.assign({}, this.state);
+      this.props.processForm(user).then(this.props.closeModal);
+    }
+  }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      return (// <ul>
+        //     {this.props.errors.map((error, i) => (
+        //         <li key={`error-${i}`}>
+        //             {error}
+        //         </li>
+        //     ))}
+        // </ul>
+        null
+      );
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-about-modal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-about-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-about-top"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        id: "edit-about-title"
+      }, "Edit about"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        id: "edit-about-exit"
+      }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-about-summary"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-about-summary-label"
+      }, "Summary "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "edit-about-summary-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        id: "edit-about-summary-box",
+        value: this.state.user,
+        onChange: this.handleInput.bind(this)
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-about-submit-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "edit-about-submit",
+        type: "submit",
+        value: "Save"
+      }))));
+    }
+  }]);
+
+  return EditAboutModal;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(EditAboutModal));
+
+/***/ }),
+
+/***/ "./frontend/components/user/profile_modal/edit_header_modal.jsx":
+/*!**********************************************************************!*\
+  !*** ./frontend/components/user/profile_modal/edit_header_modal.jsx ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
+  _inherits(EditHeaderModal, _React$Component);
+
+  function EditHeaderModal(props) {
+    var _this;
+
+    _classCallCheck(this, EditHeaderModal);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditHeaderModal).call(this, props));
+    _this.state = {
+      first_name: _this.props.user.firstName,
+      last_name: _this.props.user.lastName,
+      location: _this.props.user.location
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(EditHeaderModal, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log(this.props.user);
+    }
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
+  }, {
+    key: "handleInputFirstName",
+    value: function handleInputFirstName(e) {
+      this.setState({
+        first_name: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleInputLastName",
+    value: function handleInputLastName(e) {
+      this.setState({
+        last_name: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleInputHeadline",
+    value: function handleInputHeadline(e) {
+      this.setState({
+        last_name: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleInputLocation",
+    value: function handleInputLocation(e) {
+      this.setState({
+        location: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var user = Object.assign({}, this.state);
+      this.props.processForm(user).then(this.props.closeModal);
+    }
+  }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      return (// <ul>
+        //     {this.props.errors.map((error, i) => (
+        //         <li key={`error-${i}`}>
+        //             {error}
+        //         </li>
+        //     ))}
+        // </ul>
+        null
+      );
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-header-modal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-header-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-header-top"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        id: "edit-header-edit-intro"
+      }, "Edit intro"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        id: "edit-header-exit"
+      }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-header-images"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "edit-header-background-image"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "edit-header-profile-pic"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-header-names-field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-header-firstname"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-header-firstname-label"
+      }, "First Name *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "edit-header-firstname-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "edit-header-firstname-box",
+        value: this.state.first_name,
+        onChange: this.handleInputFirstName.bind(this)
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-header-lastname"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-header-lastname-label"
+      }, "Last Name *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "edit-header-lastname-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "edit-header-lastname-box",
+        value: this.state.last_name,
+        onChange: this.handleInputLastName.bind(this)
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-header-headline"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-header-headline-label"
+      }, "Headline *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "edit-header-headline-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        id: "edit-header-headline-box",
+        value: this.state.last_name,
+        onChange: this.handleInputHeadline.bind(this)
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-header-location"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-header-location-label"
+      }, "Location *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "edit-header-location-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "edit-header-location-box",
+        value: this.state.location,
+        onChange: this.handleInputLocation.bind(this)
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-header-submit-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "edit-header-submit",
+        type: "submit",
+        value: "Save"
+      }))));
+    }
+  }]);
+
+  return EditHeaderModal;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(EditHeaderModal));
 
 /***/ }),
 

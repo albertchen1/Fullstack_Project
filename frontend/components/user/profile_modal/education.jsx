@@ -65,13 +65,13 @@ class Education extends React.Component {
 
     render() {
         return (
-            <div className="profile-education-container">
+            <div className="profile-education-list-container">
                 <div className="profile-education-pic"></div>
                 <div className="profile-education-info">
-                    <h3 id="profile-education-info-title" value={this.state.user}>title</h3>
-                    <h4 id="profile-education-info-company" value={this.state.user}>company</h4>
+                    <h3 id="profile-education-info-school" value={this.state.user}>school</h3>
+                    <h4 id="profile-education-info-fieldstudy" value={this.state.user}>field of study</h4>
                     <h5 id="profile-education-info-dates" value={this.state.user}>dates</h5>
-                    <h5 id="profile-education-info-location" value={this.state.user}>location</h5>
+                    <h5 id="profile-education-info-description" value={this.state.user}>description</h5>
                 </div>
             </div>
 

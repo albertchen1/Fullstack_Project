@@ -6,6 +6,8 @@ import EditHeaderModal from '../../components/user/profile_modal/edit_header_mod
 import EditAboutModal from '../../components/user/profile_modal/edit_about_modal';
 import EditExperienceModal from '../../components/user/profile_modal/edit_experience_modal';
 import EditEducationModal from '../../components/user/profile_modal/edit_education_modal';
+import Education from '../../components/user/profile_modal/education';
+// import {Modal1} from '../../components/feed/modal';
 
 class Profile extends React.Component {
 
@@ -72,9 +74,9 @@ class Profile extends React.Component {
     renderEducation() {
         if (this.props.educations.length > 0) {
             return (
-                this.props.educations.map(education => (
-                    <div key={education.id}>{education.school}</div>
-                    // <Education education={education}/>
+                this.props.educations.map((education) => (
+                    // <div key={education.id}>{education.school}</div>
+                    <Education education={education}/>
                 ))
             )
         } else {
@@ -126,6 +128,15 @@ class Profile extends React.Component {
             return null
         }
     }
+
+
+
+
+
+
+
+
+    
     
     render() {
         // if (!this.props.user) {
@@ -136,6 +147,10 @@ class Profile extends React.Component {
         // if (this.props.user.id != this.props.currentUserId) {
         //     isCurrentUser = false;
         // }
+
+
+
+        // const [isModal, setModal] = React.useState(false);
 
 
         return (
@@ -166,7 +181,23 @@ class Profile extends React.Component {
                 <div className="profile-experience-container">
                     <div className="profile-experience-header">
                         <h4 id="experience-title">Experience</h4>
-                        <div id="add-experience-icon"><i className="fas fa-plus"></i></div>
+                        <div id="add-experience-icon"><i className="fas fa-plus">
+
+
+                            {/* <React.Fragment>
+                                <button onClick={() => setModal(true)}>Click Here</button>
+                                <Modal1
+                                    isVisible={isModal}
+                                    title="Modal Title"
+                                    content={<p>Add your content here</p>}
+                                    footer={<button>Cancel</button>}
+                                    onClose={() => setModal(false)}
+                                />
+                            </React.Fragment> */}
+
+
+
+                        </i></div>
                     </div>
                     <div id="profile-experience-edit-icon" onClick={() => this.openEditModal('experience')}><i className="fas fa-pencil-alt"></i></div>
                 </div>
@@ -176,7 +207,7 @@ class Profile extends React.Component {
                         <div id="add-education-icon"><i className="fas fa-plus"></i></div>
                     </div>
                     <div id="profile-education-edit-icon" onClick={() => this.openEditModal('education')}><i className="fas fa-pencil-alt"></i></div>
-                    {this.renderEducation()}
+                    <div className="profile-education-list">{this.renderEducation()}</div>
                 </div>
 
 

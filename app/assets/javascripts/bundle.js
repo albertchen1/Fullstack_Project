@@ -672,7 +672,15 @@ var Connections = /*#__PURE__*/function (_React$Component) {
         className: "fas fa-hashtag"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "manage-network-hashtags-text"
-      }, "Hashtags"))))));
+      }, "Hashtags")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "invitations-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "invitations-header-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        id: "invitations-label"
+      }, "Invitations")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "invitations-list"
+      }))));
     }
   }]);
 
@@ -2838,6 +2846,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_user_profile_modal_edit_about_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/user/profile_modal/edit_about_modal */ "./frontend/components/user/profile_modal/edit_about_modal.jsx");
 /* harmony import */ var _components_user_profile_modal_edit_experience_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/user/profile_modal/edit_experience_modal */ "./frontend/components/user/profile_modal/edit_experience_modal.jsx");
 /* harmony import */ var _components_user_profile_modal_edit_education_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/user/profile_modal/edit_education_modal */ "./frontend/components/user/profile_modal/edit_education_modal.jsx");
+/* harmony import */ var _components_user_profile_modal_education__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/user/profile_modal/education */ "./frontend/components/user/profile_modal/education.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -2866,6 +2875,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+ // import {Modal1} from '../../components/feed/modal';
 
 var Profile = /*#__PURE__*/function (_React$Component) {
   _inherits(Profile, _React$Component);
@@ -2942,10 +2952,11 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     value: function renderEducation() {
       if (this.props.educations.length > 0) {
         return this.props.educations.map(function (education) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            key: education.id
-          }, education.school) // <Education education={education}/>
-          ;
+          return (// <div key={education.id}>{education.school}</div>
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_profile_modal_education__WEBPACK_IMPORTED_MODULE_7__["default"], {
+              education: education
+            })
+          );
         });
       } else {
         return null;
@@ -3020,6 +3031,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       // if (this.props.user.id != this.props.currentUserId) {
       //     isCurrentUser = false;
       // }
+      // const [isModal, setModal] = React.useState(false);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-page"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3094,7 +3106,9 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-pencil-alt"
-      })), this.renderEducation()), this.renderEditAbout(), this.renderEditExperience(), this.renderEditEducation(), this.renderEditHeader());
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-education-list"
+      }, this.renderEducation())), this.renderEditAbout(), this.renderEditExperience(), this.renderEditEducation(), this.renderEditHeader());
     }
   }]);
 
@@ -4684,6 +4698,141 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(EditHeaderModal));
+
+/***/ }),
+
+/***/ "./frontend/components/user/profile_modal/education.jsx":
+/*!**************************************************************!*\
+  !*** ./frontend/components/user/profile_modal/education.jsx ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var Education = /*#__PURE__*/function (_React$Component) {
+  _inherits(Education, _React$Component);
+
+  function Education(props) {
+    var _this;
+
+    _classCallCheck(this, Education);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Education).call(this, props));
+    _this.state = {
+      user: _this.props.user
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Education, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log(this.props.user);
+    }
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    } // handleInputSchool(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputDegree(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputFieldStudy(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputStartYear(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputEndYear(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputDescription(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var user = Object.assign({}, this.state);
+      this.props.processForm(user).then(this.props.closeModal);
+    }
+  }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      return (// <ul>
+        //     {this.props.errors.map((error, i) => (
+        //         <li key={`error-${i}`}>
+        //             {error}
+        //         </li>
+        //     ))}
+        // </ul>
+        null
+      );
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-education-list-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-education-pic"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-education-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "profile-education-info-school",
+        value: this.state.user
+      }, "school"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        id: "profile-education-info-fieldstudy",
+        value: this.state.user
+      }, "field of study"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-education-info-dates",
+        value: this.state.user
+      }, "dates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-education-info-description",
+        value: this.state.user
+      }, "description")));
+    }
+  }]);
+
+  return Education;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Education));
 
 /***/ }),
 

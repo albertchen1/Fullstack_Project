@@ -77,6 +77,14 @@ class Connections extends React.Component {
                             </div>
                         </div>
                     </div>
+                    <div className="invitations-container">
+                        <div className="invitations-header-container">
+                            <h4 id="invitations-label">Invitations</h4>
+                        </div>
+                        <div className="invitations-list">
+
+                        </div>
+                    </div>
 
 
                 </div>

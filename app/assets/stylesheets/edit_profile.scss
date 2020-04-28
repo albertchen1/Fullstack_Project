@@ -146,3 +146,30 @@
     border-radius: .3vh;
     margin: 2vh 1.4vw 3vh 89%;
 }
+
+
+
+
+.profile-education-info {
+    width: 42vw;
+    margin: 1vh 2vw 1vh 12%;
+    font-family: Arial, Helvetica, sans-serif;
+
+
+    height: 13vh; 
+    background-color: white; 
+    display:flex; 
+    flex-direction: column;
+    box-shadow: 0 0 0 2px rgba(0,0,0,.15);
+    border-radius: .3vh;
+}
+
+.profile-education-pic {
+    content: image_url('aa-logo.png');
+    // margin-left: 2%;
+    // display: inline-block;
+    height: 10vh;
+    width: 4.4vw;
+    position: absolute; 
+    // margin-top: -11%;
+}

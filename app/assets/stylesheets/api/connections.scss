@@ -2,6 +2,8 @@
     // height: 100%;
     height: 800vh;
     background-color:  #f2f2f2;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .manage-network-container {
@@ -12,12 +14,12 @@
     margin-left: 10%;
     box-shadow: 0 0 0 0.15vh rgba(0, 0, 0, 0.15);
     background-color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 .manage-network-info {
     padding: 3vh 1.4vw 3vh 1.4vw;
-    color: rgb(83, 83, 83)
+    color: rgb(46, 46, 46)
 }
 
 #manage-network-title {
@@ -84,4 +86,30 @@
 #manage-network-hashtags-text {
     font-size: 14pt;
     padding-left: 1.4vw;
+}
+
+.invitations-container {
+    width: 50%;
+    height: 40vh;
+    position: sticky;
+    top: 15vh;
+    margin-left: 5%;
+    box-shadow: 0 0 0 0.15vh rgba(0, 0, 0, 0.15);
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.invitations-header-container {
+    height: 2vh;
+    position: sticky;
+    top: 15vh;
+    box-shadow: 0 0 0 0.15vh rgba(0, 0, 0, 0.15);
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 3vh 2vw;
+    color: rgb(46, 46, 46)
+}
+
+#invitations-label {
+    font-size: 13pt;
 }

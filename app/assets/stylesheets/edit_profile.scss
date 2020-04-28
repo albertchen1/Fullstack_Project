@@ -1,8 +1,10 @@
-.edit-header-modal, .edit-about-modal {
+.edit-header-modal, .edit-about-modal, .edit-experience-modal, 
+.edit-education-modal {
     background-color: black;
 }
 
-.edit-header-container, .edit-about-container {
+.edit-header-container, .edit-about-container, .edit-experience-container,
+.edit-education-container {
     margin: 9vh 20% 3vh 20%;
     font-family: Arial, Helvetica, sans-serif;
 
@@ -17,7 +19,8 @@
     // padding: 1vh 1vw 1vh 1vw;
 }
 
-.edit-header-top, .edit-about-top{
+.edit-header-top, .edit-about-top, .edit-experience-top,
+.edit-education-top {
     background-color: #f2f2f2;
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
@@ -25,14 +28,17 @@
     // padding-top: 2vh;
     // padding-bottom: 2vh;
 }
-#edit-header-edit-intro, #edit-about-title {
+
+#edit-header-edit-intro, #edit-about-title, #edit-experience-edit-intro,
+#edit-education-edit-intro {
     font-size: 14pt;
     display: flex;
     color: black;
     min-width: 25%;
 }
 
-#edit-header-exit, #edit-about-exit {
+#edit-header-exit, #edit-about-exit, #edit-experience-exit,
+#edit-education-exit {
     font-size: 18pt;
     display: flex;
     color: rgb(77, 77, 77);
@@ -65,22 +71,25 @@
     border: solid .7vh lightgray;
 }
 
-.edit-header-names-field {
+.edit-header-names-field, .edit-education-dates-field {
     display: flex;
     padding: 2vh 2vw 2vh 2vw;
 }
 
-.edit-header-headline, .edit-header-location, .edit-about-summary{
+.edit-header-headline, .edit-header-location, .edit-about-summary, 
+.edit-experience-title, .edit-experience-company, .edit-experience-location,
+.edit-experience-dates-field, .edit-education-title, .edit-education-degree,
+.edit-education-fieldstudy, .edit-education-description {
     padding: 2vh 2vw 2vh 2vw;
 }
 
-.edit-header-firstname {
+.edit-header-firstname, .edit-experience-start, .edit-education-start {
     max-width: 47%;
     width: 25vw;
     // padding-right: 25vw ;
 }
 
-.edit-header-lastname {
+.edit-header-lastname, .edit-experience-end, .edit-education-end {
     max-width: 40%;
     width: 20vw;
     padding-left: 1.5vw;
@@ -88,7 +97,9 @@
 
 #edit-header-firstname-label, #edit-header-lastname-label, 
 #edit-header-headline-label, #edit-header-location-label,
-#edit-about-summary-label {
+#edit-about-summary-label, #edit-experience-title-label,
+#edit-experience-company-label, #edit-experience-location-label 
+{
     display: inline-block;
     padding: 1vh .5vw 1vh 0;
 }
@@ -96,13 +107,6 @@
 #edit-header-firstname-box, #edit-header-lastname-box {
     width: 22vw;
     max-width: 22vw;
-    padding: 1vh .5vw 1vh .5vw;
-    border: .01vh solid black;
-}
-
-#edit-header-headline-box {
-    width: 100%;
-    max-width: 45.5vw;
     padding: 1vh .5vw 1vh .5vw;
     border: .01vh solid black;
 }
@@ -116,7 +120,10 @@
     border: .01vh solid black;
 }
 
-#edit-header-location-box {
+#edit-header-headline-box, #edit-header-location-box, #edit-experience-title-box,
+#edit-experience-company-box, #edit-experience-location-box, 
+#edit-education-school-box, #edit-education-degree-box,
+#edit-education-fieldstudy-box, #edit-education-description-box {
     width: 100%;
     max-width: 45.5vw;
     padding: 1vh .5vw 1vh .5vw;
@@ -128,7 +135,8 @@
     justify-content: space-between;
 }
 
-.edit-header-submit, .edit-about-submit {
+.edit-header-submit, .edit-about-submit, 
+.edit-experience-submit, .edit-education-submit {
     background-color: #0073b1;
     color: white;
     font-size: 12pt;

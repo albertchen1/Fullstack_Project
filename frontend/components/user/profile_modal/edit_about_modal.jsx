@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { closeModal } from '../../../actions/modal_actions';
 
 class EditAboutModal extends React.Component {
     constructor(props) {
@@ -53,7 +54,7 @@ class EditAboutModal extends React.Component {
                 <div className="edit-about-container">
                     <div className="edit-about-top">
                         <h2 id="edit-about-title">Edit about</h2>
-                        <h2 id="edit-about-exit">X</h2>
+                        <h2 id="edit-about-exit" onClick={this.props.closeModal}>X</h2>
                     </div>
                     
 

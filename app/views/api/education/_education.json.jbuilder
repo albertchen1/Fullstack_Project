@@ -1,0 +1,1 @@
+json.extract! education, :school, :degree, :field_study, :gpa, :start_year, :end_year, :description

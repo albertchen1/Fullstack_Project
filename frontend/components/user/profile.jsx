@@ -4,12 +4,15 @@ import NavbarContainer from '../nav_bar/navbar_container';
 // import EditHeaderModal from '../../components/user/profile_modal/edit_header_modal_container';
 import EditHeaderModal from '../../components/user/profile_modal/edit_header_modal';
 import EditAboutModal from '../../components/user/profile_modal/edit_about_modal';
+import EditExperienceModal from '../../components/user/profile_modal/edit_experience_modal';
+import EditEducationModal from '../../components/user/profile_modal/edit_education_modal';
 
 class Profile extends React.Component {
 
     componentDidMount() {
         console.log(this.props)
         this.props.fetchUser(this.props.user.id)
+        this.props.fetchEducation(this.props.user.id)
     }
 
     // componentDidUpdate(prevProps) {
@@ -39,6 +42,7 @@ class Profile extends React.Component {
         // this.renderEditHeader = this.renderEditHeader.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this);
         this.openEditModal = this.openEditModal.bind(this)
+        this.renderEducation = this.renderEducation.bind(this)
     }
 
     update(field) {
@@ -65,6 +69,19 @@ class Profile extends React.Component {
         );
     }
 
+    renderEducation() {
+        if (this.props.educations.length > 0) {
+            return (
+                this.props.educations.map(education => (
+                    <div key={education.id}>{education.school}</div>
+                    // <Education education={education}/>
+                ))
+            )
+        } else {
+            return null
+        }
+    }
+
     openEditModal(topic) {
         console.log(topic)
         this.setState({[topic]: true})
@@ -81,20 +98,20 @@ class Profile extends React.Component {
         }
     }
     renderEditExperience() {
-        if (this.state.header) {
+        if (this.state.experience) {
             return (
-                // <EditExperienceModal />
-                null
+                <EditExperienceModal user={this.props.user} updateUser={this.props.updateUser}/>
+                // null
             )
         }else {
             return null
         }
     }
     renderEditEducation() {
-        if (this.state.header) {
+        if (this.state.education) {
             return (
-                // <EditEducationModal />
-                null
+                <EditEducationModal user={this.props.user} updateUser={this.props.updateUser}/>
+                // null
             )
         }else {
             return null
@@ -159,6 +176,7 @@ class Profile extends React.Component {
                         <div id="add-education-icon"><i className="fas fa-plus"></i></div>
                     </div>
                     <div id="profile-education-edit-icon" onClick={() => this.openEditModal('education')}><i className="fas fa-pencil-alt"></i></div>
+                    {this.renderEducation()}
                 </div>
 
 

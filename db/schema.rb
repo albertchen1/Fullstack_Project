@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_060253) do
+ActiveRecord::Schema.define(version: 2020_04_28_053708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,28 @@ ActiveRecord::Schema.define(version: 2020_04_14_060253) do
     t.integer "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "educations", force: :cascade do |t|
+    t.string "school", null: false
+    t.string "degree"
+    t.string "field_study"
+    t.float "gpa"
+    t.integer "start_year"
+    t.integer "end_year"
+    t.text "description"
+    t.integer "user_id", null: false
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "company", null: false
+    t.string "location"
+    t.string "start_date_month", null: false
+    t.integer "start_date_year", null: false
+    t.string "end_date_month", null: false
+    t.integer "end_date_year", null: false
+    t.integer "user_id", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -39,6 +61,8 @@ ActiveRecord::Schema.define(version: 2020_04_14_060253) do
     t.string "location", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "summary"
+    t.text "headline", null: false
   end
 
 end

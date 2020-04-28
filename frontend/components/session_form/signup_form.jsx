@@ -30,17 +30,25 @@ class SignupForm extends React.Component {
         this.props.processForm(user);
     }
 
+    // handleDemo(e) {
+    //     e.preventDefault();
+    //     const demo = {
+    //         username: `demo${Math.random() * 100000000}@demo.com`,
+    //         password: '123456',
+    //         first_name: 'Albert',
+    //         last_name: 'Chen',
+    //         location: 'San Francisco Bay Area',
+    //         headline: 'Software Engineer'
+    //     };
+    //     this.props.processForm(demo) //.then(() => this.props.history.push('/feed'));
+    // }
     handleDemo(e) {
         e.preventDefault();
         const demo = {
-            username: `demo${Math.random() * 100000000}@demo.com`,
-            password: '123456',
-            first_name: 'Albert',
-            last_name: 'Chen',
-            location: 'San Francisco Bay Area',
-            headline: 'Software Engineer'
+            username: 'demo@demo.com',
+            password: '123456'
         };
-        this.props.processForm(demo) //.then(() => this.props.history.push('/feed'));
+        this.props.login(demo) //.then(() => this.props.history.push('/feed'));
     }
 
     renderErrors() {

@@ -259,6 +259,64 @@ var deletePost = function deletePost(id) {
 
 /***/ }),
 
+/***/ "./frontend/actions/profile/education_actions.js":
+/*!*******************************************************!*\
+  !*** ./frontend/actions/profile/education_actions.js ***!
+  \*******************************************************/
+/*! exports provided: RECEIVE_ALL_EDUCATION, RECEIVE_EDUCATION, receiveEducations, receiveEducation, fetchEducation, createEducation, deleteEducation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_EDUCATION", function() { return RECEIVE_ALL_EDUCATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_EDUCATION", function() { return RECEIVE_EDUCATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveEducations", function() { return receiveEducations; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveEducation", function() { return receiveEducation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchEducation", function() { return fetchEducation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createEducation", function() { return createEducation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteEducation", function() { return deleteEducation; });
+/* harmony import */ var _util_profile_education_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../util/profile/education_api_util */ "./frontend/util/profile/education_api_util.js");
+// import * as APIUtil from "../util/session_api_util";
+
+var RECEIVE_ALL_EDUCATION = 'RECEIVE_ALL_EDUCATION';
+var RECEIVE_EDUCATION = 'RECEIVE_EDUCATION';
+var receiveEducations = function receiveEducations(educations) {
+  return {
+    type: RECEIVE_ALL_EDUCATION,
+    educations: educations
+  };
+};
+var receiveEducation = function receiveEducation(education) {
+  return {
+    type: RECEIVE_EDUCATION,
+    education: education
+  };
+};
+var fetchEducation = function fetchEducation(userId) {
+  return function (dispatch) {
+    return _util_profile_education_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchEducation"](userId).then(function (educations) {
+      return dispatch(receiveEducations(educations));
+    });
+  };
+};
+var createEducation = function createEducation(education) {
+  return function (dispatch) {
+    return _util_profile_education_api_util__WEBPACK_IMPORTED_MODULE_0__["createEducation"](education) // .then(comments => dispatch(receiveAllComments(comments)))
+    .then(function (education) {
+      return dispatch(receiveEducation(education));
+    });
+  };
+};
+var deleteEducation = function deleteEducation(educationId) {
+  return function (dispatch) {
+    return _util_profile_education_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteEducation"](educationId).then(function (educations) {
+      return dispatch(receiveEducations(comments));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -2327,20 +2385,28 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.processForm(user);
-    }
+    } // handleDemo(e) {
+    //     e.preventDefault();
+    //     const demo = {
+    //         username: `demo${Math.random() * 100000000}@demo.com`,
+    //         password: '123456',
+    //         first_name: 'Albert',
+    //         last_name: 'Chen',
+    //         location: 'San Francisco Bay Area',
+    //         headline: 'Software Engineer'
+    //     };
+    //     this.props.processForm(demo) //.then(() => this.props.history.push('/feed'));
+    // }
+
   }, {
     key: "handleDemo",
     value: function handleDemo(e) {
       e.preventDefault();
       var demo = {
-        username: "demo".concat(Math.random() * 100000000, "@demo.com"),
-        password: '123456',
-        first_name: 'Albert',
-        last_name: 'Chen',
-        location: 'San Francisco Bay Area',
-        headline: 'Software Engineer'
+        username: 'demo@demo.com',
+        password: '123456'
       };
-      this.props.processForm(demo); //.then(() => this.props.history.push('/feed'));
+      this.props.login(demo); //.then(() => this.props.history.push('/feed'));
     }
   }, {
     key: "renderErrors",
@@ -2630,6 +2696,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     clearErrors: function clearErrors() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["clearErrors"])());
+    },
+    login: function login(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
     }
   };
 };
@@ -2767,6 +2836,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nav_bar_navbar_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../nav_bar/navbar_container */ "./frontend/components/nav_bar/navbar_container.js");
 /* harmony import */ var _components_user_profile_modal_edit_header_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/user/profile_modal/edit_header_modal */ "./frontend/components/user/profile_modal/edit_header_modal.jsx");
 /* harmony import */ var _components_user_profile_modal_edit_about_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/user/profile_modal/edit_about_modal */ "./frontend/components/user/profile_modal/edit_about_modal.jsx");
+/* harmony import */ var _components_user_profile_modal_edit_experience_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/user/profile_modal/edit_experience_modal */ "./frontend/components/user/profile_modal/edit_experience_modal.jsx");
+/* harmony import */ var _components_user_profile_modal_edit_education_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/user/profile_modal/edit_education_modal */ "./frontend/components/user/profile_modal/edit_education_modal.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -2794,6 +2865,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
 var Profile = /*#__PURE__*/function (_React$Component) {
   _inherits(Profile, _React$Component);
 
@@ -2802,6 +2875,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       console.log(this.props);
       this.props.fetchUser(this.props.user.id);
+      this.props.fetchEducation(this.props.user.id);
     } // componentDidUpdate(prevProps) {
     //     if (prevProps.match.params.userId != this.props.match.params.userId) {
     //         this.props.fetchUser(this.props.match.params.userId);
@@ -2834,6 +2908,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
 
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.openEditModal = _this.openEditModal.bind(_assertThisInitialized(_this));
+    _this.renderEducation = _this.renderEducation.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2863,6 +2938,20 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }));
     }
   }, {
+    key: "renderEducation",
+    value: function renderEducation() {
+      if (this.props.educations.length > 0) {
+        return this.props.educations.map(function (education) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: education.id
+          }, education.school) // <Education education={education}/>
+          ;
+        });
+      } else {
+        return null;
+      }
+    }
+  }, {
     key: "openEditModal",
     value: function openEditModal(topic) {
       console.log(topic);
@@ -2884,10 +2973,12 @@ var Profile = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderEditExperience",
     value: function renderEditExperience() {
-      if (this.state.header) {
-        return (// <EditExperienceModal />
-          null
-        );
+      if (this.state.experience) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_profile_modal_edit_experience_modal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          user: this.props.user,
+          updateUser: this.props.updateUser
+        }) // null
+        ;
       } else {
         return null;
       }
@@ -2895,10 +2986,12 @@ var Profile = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderEditEducation",
     value: function renderEditEducation() {
-      if (this.state.header) {
-        return (// <EditEducationModal />
-          null
-        );
+      if (this.state.education) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_profile_modal_edit_education_modal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          user: this.props.user,
+          updateUser: this.props.updateUser
+        }) // null
+        ;
       } else {
         return null;
       }
@@ -3001,7 +3094,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-pencil-alt"
-      }))), this.renderEditAbout(), this.renderEditExperience(), this.renderEditEducation(), this.renderEditHeader());
+      })), this.renderEducation()), this.renderEditAbout(), this.renderEditExperience(), this.renderEditEducation(), this.renderEditHeader());
     }
   }]);
 
@@ -3024,13 +3117,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _profile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile */ "./frontend/components/user/profile.jsx");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _actions_profile_education_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/profile/education_actions */ "./frontend/actions/profile/education_actions.js");
+
 
 
 
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    user: Object.values(state.entities.users)[0]
+    user: Object.values(state.entities.users)[0],
+    educations: Object.values(state.entities.educations)
   };
 };
 
@@ -3041,6 +3137,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     updateUser: function updateUser(user) {
       return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["updateUser"])(user));
+    },
+    fetchEducation: function fetchEducation(userId) {
+      return dispatch(Object(_actions_profile_education_actions__WEBPACK_IMPORTED_MODULE_3__["fetchEducation"])(userId));
     }
   };
 };
@@ -3061,6 +3160,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -3080,6 +3180,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -3156,7 +3257,8 @@ var EditAboutModal = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         id: "edit-about-title"
       }, "Edit about"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        id: "edit-about-exit"
+        id: "edit-about-exit",
+        onClick: this.props.closeModal
       }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-about-summary"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -3181,6 +3283,1214 @@ var EditAboutModal = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(EditAboutModal));
+
+/***/ }),
+
+/***/ "./frontend/components/user/profile_modal/edit_education_modal.jsx":
+/*!*************************************************************************!*\
+  !*** ./frontend/components/user/profile_modal/edit_education_modal.jsx ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var EditEducationModal = /*#__PURE__*/function (_React$Component) {
+  _inherits(EditEducationModal, _React$Component);
+
+  function EditEducationModal(props) {
+    var _this;
+
+    _classCallCheck(this, EditEducationModal);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditEducationModal).call(this, props));
+    _this.state = {
+      user: _this.props.user
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(EditEducationModal, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log(this.props.user);
+    }
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
+  }, {
+    key: "handleInputSchool",
+    value: function handleInputSchool(e) {
+      this.setState({
+        user: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleInputDegree",
+    value: function handleInputDegree(e) {
+      this.setState({
+        user: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleInputFieldStudy",
+    value: function handleInputFieldStudy(e) {
+      this.setState({
+        user: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleInputStartYear",
+    value: function handleInputStartYear(e) {
+      this.setState({
+        user: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleInputEndYear",
+    value: function handleInputEndYear(e) {
+      this.setState({
+        user: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleInputDescription",
+    value: function handleInputDescription(e) {
+      this.setState({
+        user: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var user = Object.assign({}, this.state);
+      this.props.processForm(user).then(this.props.closeModal);
+    }
+  }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      return (// <ul>
+        //     {this.props.errors.map((error, i) => (
+        //         <li key={`error-${i}`}>
+        //             {error}
+        //         </li>
+        //     ))}
+        // </ul>
+        null
+      );
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-education-modal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-education-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-education-top"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        id: "edit-education-edit-intro"
+      }, "Edit education"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        id: "edit-education-exit"
+      }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-education-title"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-education-school-label"
+      }, "School *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "edit-education-school-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "edit-education-school-box",
+        value: this.state.user,
+        onChange: this.handleInputSchool.bind(this)
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-education-degree"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-education-degree-label"
+      }, "Degree"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "edit-education-degree-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "edit-education-degree-box",
+        value: this.state.user,
+        onChange: this.handleInputDegree.bind(this)
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-education-fieldstudy"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-education-fieldstudy-label"
+      }, "Field of Study"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "edit-education-fieldstudy-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "edit-education-fieldstudy-box",
+        value: this.state.user,
+        onChange: this.handleInputFieldStudy.bind(this)
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-education-dates-field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-education-start"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-education-start-label"
+      }, "Start Year"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "edit-education-start-year"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "edit-education-start-year-list"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2020"
+      }, "2020"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2019"
+      }, "2019"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2018"
+      }, "2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2017"
+      }, "2017"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2016"
+      }, "2016"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2015"
+      }, "2015"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2014"
+      }, "2014"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2013"
+      }, "2013"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2012"
+      }, "2012"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2011"
+      }, "2011"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2010"
+      }, "2010"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2009"
+      }, "2009"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2008"
+      }, "2008"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2007"
+      }, "2007"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2006"
+      }, "2006"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2005"
+      }, "2005"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2004"
+      }, "2004"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2003"
+      }, "2003"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2002"
+      }, "2002"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2001"
+      }, "2001"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2000"
+      }, "2000"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1999"
+      }, "1999"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1998"
+      }, "1998"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1997"
+      }, "1997"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1996"
+      }, "1996"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1995"
+      }, "1995"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1994"
+      }, "1994"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1993"
+      }, "1993"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1992"
+      }, "1992"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1991"
+      }, "1991"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1990"
+      }, "1990"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1989"
+      }, "1989"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1988"
+      }, "1988"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1987"
+      }, "1987"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1986"
+      }, "1986"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1985"
+      }, "1985"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1984"
+      }, "1984"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1983"
+      }, "1983"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1982"
+      }, "1982"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1981"
+      }, "1981"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1980"
+      }, "1980"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1979"
+      }, "1979"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1978"
+      }, "1978"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1977"
+      }, "1977"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1976"
+      }, "1976"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1975"
+      }, "1975"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1974"
+      }, "1974"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1973"
+      }, "1973"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1972"
+      }, "1972"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1971"
+      }, "1971"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1970"
+      }, "1970"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1969"
+      }, "1969"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1968"
+      }, "1968"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1967"
+      }, "1967"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1966"
+      }, "1966"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1965"
+      }, "1965"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1964"
+      }, "1964"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1963"
+      }, "1963"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1962"
+      }, "1962"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1961"
+      }, "1961"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1960"
+      }, "1960"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1959"
+      }, "1959"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1958"
+      }, "1958"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1957"
+      }, "1957"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1956"
+      }, "1956"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1955"
+      }, "1955"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1954"
+      }, "1954"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1953"
+      }, "1953"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1952"
+      }, "1952"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1951"
+      }, "1951"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1950"
+      }, "1950"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1949"
+      }, "1949"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1948"
+      }, "1948"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1947"
+      }, "1947"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1946"
+      }, "1946"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1945"
+      }, "1945"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1944"
+      }, "1944"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1943"
+      }, "1943"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1942"
+      }, "1942"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1941"
+      }, "1941"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1940"
+      }, "1940"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1939"
+      }, "1939"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1938"
+      }, "1938"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1937"
+      }, "1937"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1936"
+      }, "1936"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1935"
+      }, "1935"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1934"
+      }, "1934"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1933"
+      }, "1933"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1932"
+      }, "1932"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1931"
+      }, "1931"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1930"
+      }, "1930")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-education-end"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-education-end-label"
+      }, "End Year (or expected)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "edit-education-end-year"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "edit-education-end-year-list"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2020"
+      }, "2020"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2019"
+      }, "2019"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2018"
+      }, "2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2017"
+      }, "2017"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2016"
+      }, "2016"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2015"
+      }, "2015"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2014"
+      }, "2014"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2013"
+      }, "2013"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2012"
+      }, "2012"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2011"
+      }, "2011"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2010"
+      }, "2010"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2009"
+      }, "2009"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2008"
+      }, "2008"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2007"
+      }, "2007"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2006"
+      }, "2006"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2005"
+      }, "2005"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2004"
+      }, "2004"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2003"
+      }, "2003"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2002"
+      }, "2002"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2001"
+      }, "2001"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2000"
+      }, "2000"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1999"
+      }, "1999"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1998"
+      }, "1998"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1997"
+      }, "1997"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1996"
+      }, "1996"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1995"
+      }, "1995"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1994"
+      }, "1994"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1993"
+      }, "1993"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1992"
+      }, "1992"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1991"
+      }, "1991"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1990"
+      }, "1990"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1989"
+      }, "1989"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1988"
+      }, "1988"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1987"
+      }, "1987"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1986"
+      }, "1986"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1985"
+      }, "1985"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1984"
+      }, "1984"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1983"
+      }, "1983"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1982"
+      }, "1982"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1981"
+      }, "1981"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1980"
+      }, "1980"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1979"
+      }, "1979"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1978"
+      }, "1978"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1977"
+      }, "1977"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1976"
+      }, "1976"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1975"
+      }, "1975"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1974"
+      }, "1974"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1973"
+      }, "1973"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1972"
+      }, "1972"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1971"
+      }, "1971"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1970"
+      }, "1970"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1969"
+      }, "1969"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1968"
+      }, "1968"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1967"
+      }, "1967"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1966"
+      }, "1966"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1965"
+      }, "1965"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1964"
+      }, "1964"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1963"
+      }, "1963"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1962"
+      }, "1962"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1961"
+      }, "1961"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1960"
+      }, "1960"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1959"
+      }, "1959"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1958"
+      }, "1958"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1957"
+      }, "1957"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1956"
+      }, "1956"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1955"
+      }, "1955"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1954"
+      }, "1954"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1953"
+      }, "1953"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1952"
+      }, "1952"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1951"
+      }, "1951"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1950"
+      }, "1950"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1949"
+      }, "1949"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1948"
+      }, "1948"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1947"
+      }, "1947"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1946"
+      }, "1946"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1945"
+      }, "1945"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1944"
+      }, "1944"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1943"
+      }, "1943"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1942"
+      }, "1942"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1941"
+      }, "1941"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1940"
+      }, "1940"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1939"
+      }, "1939"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1938"
+      }, "1938"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1937"
+      }, "1937"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1936"
+      }, "1936"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1935"
+      }, "1935"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1934"
+      }, "1934"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1933"
+      }, "1933"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1932"
+      }, "1932"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1931"
+      }, "1931"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1930"
+      }, "1930"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-education-description"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-education-description-label"
+      }, "Description"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "edit-education-description-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        id: "edit-education-description-box",
+        value: this.state.user,
+        onChange: this.handleInputDescription.bind(this)
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-education-submit-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "edit-education-submit",
+        type: "submit",
+        value: "Save"
+      }))));
+    }
+  }]);
+
+  return EditEducationModal;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(EditEducationModal));
+
+/***/ }),
+
+/***/ "./frontend/components/user/profile_modal/edit_experience_modal.jsx":
+/*!**************************************************************************!*\
+  !*** ./frontend/components/user/profile_modal/edit_experience_modal.jsx ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
+  _inherits(EditExperienceModal, _React$Component);
+
+  function EditExperienceModal(props) {
+    var _this;
+
+    _classCallCheck(this, EditExperienceModal);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditExperienceModal).call(this, props));
+    _this.state = {
+      user: _this.props.user
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(EditExperienceModal, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log(this.props.user);
+    }
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
+  }, {
+    key: "handleInputTitle",
+    value: function handleInputTitle(e) {
+      this.setState({
+        user: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleInputCompany",
+    value: function handleInputCompany(e) {
+      this.setState({
+        user: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleInputLocation",
+    value: function handleInputLocation(e) {
+      this.setState({
+        user: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleInputStartDate",
+    value: function handleInputStartDate(e) {
+      this.setState({
+        user: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleInputEndDate",
+    value: function handleInputEndDate(e) {
+      this.setState({
+        user: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleInputDescription",
+    value: function handleInputDescription(e) {
+      this.setState({
+        user: e.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var user = Object.assign({}, this.state);
+      this.props.processForm(user).then(this.props.closeModal);
+    }
+  }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      return (// <ul>
+        //     {this.props.errors.map((error, i) => (
+        //         <li key={`error-${i}`}>
+        //             {error}
+        //         </li>
+        //     ))}
+        // </ul>
+        null
+      );
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-experience-modal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-experience-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-experience-top"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        id: "edit-experience-edit-intro"
+      }, "Edit experience"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        id: "edit-experience-exit"
+      }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-experience-title"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-experience-title-label"
+      }, "Title *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "edit-experience-title-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "edit-experience-title-box",
+        value: this.state.user,
+        onChange: this.handleInputTitle.bind(this)
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-experience-company"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-experience-company-label"
+      }, "Company *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "edit-experience-company-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "edit-experience-company-box",
+        value: this.state.user,
+        onChange: this.handleInputCompany.bind(this)
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-experience-location"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-experience-location-label"
+      }, "Location "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "edit-experience-location-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "edit-experience-location-box",
+        value: this.state.user,
+        onChange: this.handleInputLocation.bind(this)
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-experience-dates-field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-experience-start"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-experience-startdate-label"
+      }, "Start Date *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "edit-experience-startdate-dates"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "edit-experience-startdate-month"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "edit-experience-startdate-month-list"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Jan"
+      }, "January"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Feb"
+      }, "February"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Mar"
+      }, "March"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Apr"
+      }, "April"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "May"
+      }, "May"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Jun"
+      }, "June"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Jul"
+      }, "July"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Aug"
+      }, "August"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Sep"
+      }, "September"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Oct"
+      }, "October"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Nov"
+      }, "November"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Dec"
+      }, "December"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "edit-experience-startdate-year"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "edit-experience-startdate-year-list"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2020"
+      }, "2020"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2019"
+      }, "2019"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2018"
+      }, "2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2017"
+      }, "2017"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2016"
+      }, "2016"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2015"
+      }, "2015"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2014"
+      }, "2014"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2013"
+      }, "2013"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2012"
+      }, "2012"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2011"
+      }, "2011"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2010"
+      }, "2010"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2009"
+      }, "2009"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2008"
+      }, "2008"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2007"
+      }, "2007"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2006"
+      }, "2006"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2005"
+      }, "2005"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2004"
+      }, "2004"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2003"
+      }, "2003"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2002"
+      }, "2002"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2001"
+      }, "2001"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2000"
+      }, "2000"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1999"
+      }, "1999"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1998"
+      }, "1998"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1997"
+      }, "1997"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1996"
+      }, "1996"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1995"
+      }, "1995"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1994"
+      }, "1994"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1993"
+      }, "1993"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1992"
+      }, "1992"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1991"
+      }, "1991"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1990"
+      }, "1990"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1989"
+      }, "1989"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1988"
+      }, "1988"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1987"
+      }, "1987"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1986"
+      }, "1986"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1985"
+      }, "1985"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1984"
+      }, "1984"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1983"
+      }, "1983"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1982"
+      }, "1982"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1981"
+      }, "1981"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1980"
+      }, "1980"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1979"
+      }, "1979"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1978"
+      }, "1978"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1977"
+      }, "1977"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1976"
+      }, "1976"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1975"
+      }, "1975"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1974"
+      }, "1974"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1973"
+      }, "1973"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1972"
+      }, "1972"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1971"
+      }, "1971"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1970"
+      }, "1970"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1969"
+      }, "1969"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1968"
+      }, "1968"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1967"
+      }, "1967"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1966"
+      }, "1966"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1965"
+      }, "1965"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1964"
+      }, "1964"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1963"
+      }, "1963"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1962"
+      }, "1962"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1961"
+      }, "1961"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1960"
+      }, "1960"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1959"
+      }, "1959"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1958"
+      }, "1958"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1957"
+      }, "1957"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1956"
+      }, "1956"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1955"
+      }, "1955"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1954"
+      }, "1954"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1953"
+      }, "1953"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1952"
+      }, "1952"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1951"
+      }, "1951"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1950"
+      }, "1950"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1949"
+      }, "1949"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1948"
+      }, "1948"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1947"
+      }, "1947"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1946"
+      }, "1946"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1945"
+      }, "1945"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1944"
+      }, "1944"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1943"
+      }, "1943"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1942"
+      }, "1942"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1941"
+      }, "1941"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1940"
+      }, "1940"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1939"
+      }, "1939"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1938"
+      }, "1938"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1937"
+      }, "1937"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1936"
+      }, "1936"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1935"
+      }, "1935"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1934"
+      }, "1934"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1933"
+      }, "1933"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1932"
+      }, "1932"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1931"
+      }, "1931"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1930"
+      }, "1930"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-experience-end"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-experience-enddate-label"
+      }, "End Date *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "edit-experience-enddate-dates"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "edit-experience-enddate-month"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "edit-experience-enddate-month-list"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Jan"
+      }, "January"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Feb"
+      }, "February"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Mar"
+      }, "March"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Apr"
+      }, "April"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "May"
+      }, "May"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Jun"
+      }, "June"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Jul"
+      }, "July"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Aug"
+      }, "August"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Sep"
+      }, "September"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Oct"
+      }, "October"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Nov"
+      }, "November"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Dec"
+      }, "December"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "edit-experience-enddate-year"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "edit-experience-enddate-year-list"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2020"
+      }, "2020"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2019"
+      }, "2019"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2018"
+      }, "2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2017"
+      }, "2017"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2016"
+      }, "2016"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2015"
+      }, "2015"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2014"
+      }, "2014"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2013"
+      }, "2013"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2012"
+      }, "2012"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2011"
+      }, "2011"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2010"
+      }, "2010"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2009"
+      }, "2009"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2008"
+      }, "2008"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2007"
+      }, "2007"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2006"
+      }, "2006"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2005"
+      }, "2005"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2004"
+      }, "2004"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2003"
+      }, "2003"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2002"
+      }, "2002"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2001"
+      }, "2001"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2000"
+      }, "2000"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1999"
+      }, "1999"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1998"
+      }, "1998"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1997"
+      }, "1997"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1996"
+      }, "1996"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1995"
+      }, "1995"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1994"
+      }, "1994"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1993"
+      }, "1993"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1992"
+      }, "1992"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1991"
+      }, "1991"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1990"
+      }, "1990"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1989"
+      }, "1989"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1988"
+      }, "1988"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1987"
+      }, "1987"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1986"
+      }, "1986"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1985"
+      }, "1985"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1984"
+      }, "1984"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1983"
+      }, "1983"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1982"
+      }, "1982"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1981"
+      }, "1981"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1980"
+      }, "1980"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1979"
+      }, "1979"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1978"
+      }, "1978"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1977"
+      }, "1977"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1976"
+      }, "1976"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1975"
+      }, "1975"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1974"
+      }, "1974"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1973"
+      }, "1973"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1972"
+      }, "1972"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1971"
+      }, "1971"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1970"
+      }, "1970"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1969"
+      }, "1969"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1968"
+      }, "1968"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1967"
+      }, "1967"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1966"
+      }, "1966"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1965"
+      }, "1965"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1964"
+      }, "1964"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1963"
+      }, "1963"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1962"
+      }, "1962"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1961"
+      }, "1961"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1960"
+      }, "1960"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1959"
+      }, "1959"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1958"
+      }, "1958"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1957"
+      }, "1957"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1956"
+      }, "1956"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1955"
+      }, "1955"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1954"
+      }, "1954"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1953"
+      }, "1953"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1952"
+      }, "1952"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1951"
+      }, "1951"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1950"
+      }, "1950"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1949"
+      }, "1949"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1948"
+      }, "1948"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1947"
+      }, "1947"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1946"
+      }, "1946"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1945"
+      }, "1945"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1944"
+      }, "1944"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1943"
+      }, "1943"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1942"
+      }, "1942"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1941"
+      }, "1941"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1940"
+      }, "1940"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1939"
+      }, "1939"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1938"
+      }, "1938"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1937"
+      }, "1937"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1936"
+      }, "1936"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1935"
+      }, "1935"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1934"
+      }, "1934"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1933"
+      }, "1933"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1932"
+      }, "1932"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1931"
+      }, "1931"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1930"
+      }, "1930")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-experience-submit-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "edit-experience-submit",
+        type: "submit",
+        value: "Save"
+      }))));
+    }
+  }]);
+
+  return EditExperienceModal;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(EditExperienceModal));
 
 /***/ }),
 
@@ -3475,6 +4785,48 @@ var commentsReducer = function commentsReducer() {
 
 /***/ }),
 
+/***/ "./frontend/reducers/education_reducer.js":
+/*!************************************************!*\
+  !*** ./frontend/reducers/education_reducer.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_profile_education_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/profile/education_actions */ "./frontend/actions/profile/education_actions.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var educationsReducer = function educationsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  var newState = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.merge({}, state);
+
+  switch (action.type) {
+    case _actions_profile_education_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_EDUCATION"]:
+      return action.educations;
+
+    case _actions_profile_education_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_EDUCATION"]:
+      return Object.assign({}, state, _defineProperty({}, action.education.id, action.education));
+    // newState[action.currentUser.id] = action.currentUser;
+    // return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (educationsReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/entities_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/entities_reducer.js ***!
@@ -3488,6 +4840,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _posts_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./posts_reducer */ "./frontend/reducers/posts_reducer.js");
 /* harmony import */ var _comments_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comments_reducer */ "./frontend/reducers/comments_reducer.js");
+/* harmony import */ var _education_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./education_reducer */ "./frontend/reducers/education_reducer.js");
+
 
 
 
@@ -3495,7 +4849,8 @@ __webpack_require__.r(__webpack_exports__);
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   posts: _posts_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
+  comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  educations: _education_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -3812,6 +5167,58 @@ var removePost = function removePost(id) {
   return $.ajax({
     method: "DELETE",
     url: "/api/posts/".concat(id)
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/profile/education_api_util.js":
+/*!*****************************************************!*\
+  !*** ./frontend/util/profile/education_api_util.js ***!
+  \*****************************************************/
+/*! exports provided: createEducation, fetchEducation, updateEducation, deleteEducation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createEducation", function() { return createEducation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchEducation", function() { return fetchEducation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateEducation", function() { return updateEducation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteEducation", function() { return deleteEducation; });
+var createEducation = function createEducation(education) {
+  return $.ajax({
+    method: "POST",
+    url: "/api/educations",
+    data: {
+      education: education
+    }
+  });
+};
+var fetchEducation = function fetchEducation(userId) {
+  return $.ajax({
+    method: "GET",
+    url: "/api/educations/".concat(userId)
+  });
+}; // export const fetchAllEducations = () => (
+//     $.ajax({
+//         method: "GET",
+//         url: `/api/education/`,
+//     })
+// )
+
+var updateEducation = function updateEducation(education) {
+  return $.ajax({
+    method: "PATCH",
+    url: "/api/educations/".concat(education.id),
+    data: {
+      education: education
+    }
+  });
+};
+var deleteEducation = function deleteEducation(educationId) {
+  return $.ajax({
+    method: "DELETE",
+    url: "/api/educations/".concat(educationId)
   });
 };
 

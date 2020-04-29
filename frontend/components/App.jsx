@@ -36,7 +36,6 @@ const App = () => (
             <ProtectedRoute exact path='/profile' component={ProfileContainer} />
             <AuthRoute component={NotFound} />
             <ProtectedRoute component={NotFound} />
-
         </Switch>
 
     </div>

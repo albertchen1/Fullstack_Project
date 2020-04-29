@@ -2940,14 +2940,13 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
- // import EditHeaderModal from '../../components/user/profile_modal/edit_header_modal_container';
 
 
 
 
 
 
- // import {Modal1} from '../../components/feed/modal';
+
 
 var Profile = /*#__PURE__*/function (_React$Component) {
   _inherits(Profile, _React$Component);
@@ -3040,11 +3039,14 @@ var Profile = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderExperience",
     value: function renderExperience() {
+      var _this4 = this;
+
       if (this.props.experiences.length > 0) {
         return this.props.experiences.map(function (experience) {
           return (// <div key={experience.id}>{experience.title}</div>
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_profile_modal_experience__WEBPACK_IMPORTED_MODULE_8__["default"], {
-              experience: experience
+              experience: experience,
+              updateExperience: _this4.props.updateExperience
             })
           );
         });
@@ -3086,7 +3088,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this5 = this;
 
       // if (!this.props.user) {
       //     return null;
@@ -3113,7 +3115,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "profile-header-edit-icon",
         onClick: function onClick() {
-          return _this4.openEditModal('header');
+          return _this5.openEditModal('header');
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-pencil-alt"
@@ -3130,7 +3132,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "profile-about-edit-icon",
         onClick: function onClick() {
-          return _this4.openEditModal('about');
+          return _this5.openEditModal('about');
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-pencil-alt"
@@ -3146,7 +3148,9 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         id: "add-experience-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-plus"
-      }))), this.renderExperience()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-experience-list"
+      }, this.renderExperience())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-education-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-education-header"
@@ -3236,7 +3240,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -3260,7 +3263,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
 var EditAboutModal = /*#__PURE__*/function (_React$Component) {
   _inherits(EditAboutModal, _React$Component);
 
@@ -3274,7 +3276,8 @@ var EditAboutModal = /*#__PURE__*/function (_React$Component) {
       // first_name: this.props.user.firstName,
       // last_name: this.props.user.lastName,
       // location: this.props.user.location
-      user: _this.props.user
+      // user: this.props.user
+      summary: _this.props.about.summary
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -3325,7 +3328,9 @@ var EditAboutModal = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "edit-about-modal"
+        className: "modal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-about-modal modal-dialog"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-about-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3334,7 +3339,7 @@ var EditAboutModal = /*#__PURE__*/function (_React$Component) {
         id: "edit-about-title"
       }, "Edit about"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         id: "edit-about-exit",
-        onClick: this.props.closeModal
+        onClick: this.props.close
       }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-about-summary"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -3343,15 +3348,16 @@ var EditAboutModal = /*#__PURE__*/function (_React$Component) {
         id: "edit-about-summary-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         id: "edit-about-summary-box",
-        value: this.state.user,
-        onChange: this.handleInput.bind(this)
+        value: this.state.summary,
+        onChange: this.update('summary')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-about-submit-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "edit-about-submit",
         type: "submit",
-        value: "Save"
-      }))));
+        value: "Save",
+        onClick: this.handleSubmit
+      })))));
     }
   }]);
 
@@ -3461,7 +3467,9 @@ var EditEducationModal = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "edit-education-modal"
+        className: "modal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-education-modal modal-dialog"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-education-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3899,7 +3907,7 @@ var EditEducationModal = /*#__PURE__*/function (_React$Component) {
         className: "edit-education-submit",
         value: "Save",
         onClick: this.handleSubmit
-      }))));
+      })))));
     }
   }]);
 
@@ -3934,9 +3942,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -3957,13 +3965,13 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       title: _this.props.experience.title,
       company: _this.props.experience.company,
-      location: _this.props.experience.location || '',
+      location: _this.props.experience.location,
       start_date_month: _this.props.experience.start_date_month,
       start_date_year: _this.props.experience.start_date_year,
       end_date_year: _this.props.experience.end_date_year,
       end_date_month: _this.props.experience.end_date_month
-    }; // this.handleSubmit = this.handleSubmit.bind(this);
-
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -3993,12 +4001,23 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
     // handleInputDescription(e) {
     //     this.setState({ user: e.currentTarget.value });
     // }
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     const user = Object.assign({}, this.state);
-    //     this.props.processForm(user).then(this.props.closeModal);
-    // }
 
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var experience = this.props.experience;
+      experience.title = this.experience.title;
+      experience.company = this.experience.company;
+      experience.location = this.experience.location;
+      experience.start_date_month = this.experience.start_date_month;
+      experience.start_date_year = this.experience.start_date_year;
+      experience.end_date_month = this.experience.end_date_month;
+      experience.end_date_year = this.experience.end_date_year;
+      experience.description = this.experience.description; // const user = Object.assign({}, this.state);
+
+      this.props.updateExperience(experience).then(this.props.close);
+    }
   }, {
     key: "renderErrors",
     value: function renderErrors() {
@@ -4016,7 +4035,9 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "edit-experience-modal"
+        className: "modal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-experience-modal modal-dialog"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-experience-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4033,7 +4054,9 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, "Title *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         id: "edit-experience-title-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "edit-experience-title-box"
+        id: "edit-experience-title-box",
+        value: this.state.title,
+        onChange: this.update('title')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-experience-company"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -4041,7 +4064,9 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, "Company *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         id: "edit-experience-company-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "edit-experience-company-box"
+        id: "edit-experience-company-box",
+        value: this.state.company,
+        onChange: this.update('company')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-experience-location"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -4049,7 +4074,9 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, "Location "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         id: "edit-experience-location-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "edit-experience-location-box"
+        id: "edit-experience-location-box",
+        value: this.state.location,
+        onChange: this.update('location')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-experience-dates-field"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4079,7 +4106,9 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, "July"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Aug"
       }, "August"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Sep"
+        value: "Sep",
+        selected: true,
+        hidden: true
       }, "September"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Oct"
       }, "October"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -4089,13 +4118,17 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, "December"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "edit-experience-startdate-year"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        id: "edit-experience-startdate-year-list"
+        id: "edit-experience-startdate-year-list",
+        value: this.state.start_date_year,
+        onChange: this.update('start_date_year')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2020"
       }, "2020"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2019"
       }, "2019"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "2018"
+        value: "2018",
+        selected: true,
+        hidden: true
       }, "2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2017"
       }, "2017"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -4301,7 +4334,9 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, "August"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Sep"
       }, "September"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Oct"
+        value: "Oct",
+        selected: true,
+        hidden: true
       }, "October"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Nov"
       }, "November"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -4313,7 +4348,9 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2020"
       }, "2020"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "2019"
+        value: "2019",
+        selected: true,
+        hidden: true
       }, "2019"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2018"
       }, "2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -4493,12 +4530,23 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, "1931"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1930"
       }, "1930")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-experience-description"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "edit-experience-description-label"
+      }, "Description "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "edit-experience-description-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        id: "edit-experience-description-box",
+        value: this.state.description,
+        onChange: this.update('description')
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-experience-submit-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "edit-experience-submit",
         type: "submit",
-        value: "Save"
-      }))));
+        value: "Save",
+        onClick: this.handleSubmit
+      })))));
     }
   }]);
 
@@ -4841,18 +4889,14 @@ var Education = /*#__PURE__*/function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         id: "profile-education-info-school"
       }, education.school), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-        id: "profile-education-info-fieldstudy",
-        value: education.field_study
-      }, "field of study"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        id: "profile-education-info-start-date",
-        value: education.start_year
-      }, "dates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        id: "profile-education-info-end-date",
-        value: education.end_year
-      }, "dates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        id: "profile-education-info-description",
-        value: education.description
-      }, "description")), this.renderEdit());
+        id: "profile-education-info-fieldstudy"
+      }, education.fieldStudy), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-education-info-start-date"
+      }, education.startYear), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-education-info-end-date"
+      }, education.endYear), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-education-info-description"
+      }, education.description)), this.renderEdit());
     }
   }]);
 
@@ -4937,7 +4981,8 @@ var Experience = /*#__PURE__*/function (_React$Component) {
       if (this.state.edit) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_edit_experience_modal__WEBPACK_IMPORTED_MODULE_2__["default"], {
           experience: this.props.experience,
-          close: this.closeEdit
+          close: this.closeEdit,
+          updateExperience: this.props.updateExperience
         });
       } else {
         return null;
@@ -4999,18 +5044,22 @@ var Experience = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-pencil-alt"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        id: "profile-experience-info-school"
+        id: "profile-experience-info-title"
       }, experience.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-        id: "profile-experience-info-fieldstudy"
-      }, experience.company), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        id: "profile-experience-info-start-date"
+        id: "profile-experience-info-company"
+      }, experience.company), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        id: "profile-experience-info-location"
+      }, experience.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-experience-info-start-date-month"
       }, experience.startDateMonth), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        id: "profile-experience-info-end-date"
+        id: "profile-experience-info-start-date-year"
       }, experience.startDateYear), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        id: "profile-experience-info-description"
+        id: "profile-experience-info-end-date-month"
       }, experience.endDateMonth), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-experience-info-end-date-year"
+      }, experience.endDateYear), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         id: "profile-experience-info-description"
-      }, experience.endDateYear)), this.renderEdit());
+      }, experience.description)), this.renderEdit());
     }
   }]);
 

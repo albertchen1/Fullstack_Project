@@ -88,10 +88,10 @@ class Education extends React.Component {
                 <div className="profile-education-info">
                     <div id="profile-education-edit-icon" onClick={this.openEdit}><i className="fas fa-pencil-alt"></i></div>
                     <h3 id="profile-education-info-school">{education.school}</h3>
-                    <h4 id="profile-education-info-fieldstudy" value={education.field_study}>field of study</h4>
-                    <h5 id="profile-education-info-start-date" value={education.start_year}>dates</h5>
-                    <h5 id="profile-education-info-end-date" value={education.end_year}>dates</h5>
-                    <h5 id="profile-education-info-description" value={education.description}>description</h5>
+                    <h4 id="profile-education-info-fieldstudy" >{education.fieldStudy}</h4>
+                    <h5 id="profile-education-info-start-date" >{education.startYear}</h5>
+                    <h5 id="profile-education-info-end-date" >{education.endYear}</h5>
+                    <h5 id="profile-education-info-description" >{education.description}</h5>
                 </div>
                 {this.renderEdit()}
             </div>

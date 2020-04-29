@@ -1,14 +1,13 @@
 import React from "react"
 import { withRouter } from 'react-router-dom';
 import NavbarContainer from '../nav_bar/navbar_container';
-// import EditHeaderModal from '../../components/user/profile_modal/edit_header_modal_container';
 import EditHeaderModal from '../../components/user/profile_modal/edit_header_modal';
 import EditAboutModal from '../../components/user/profile_modal/edit_about_modal';
 import EditExperienceModal from '../../components/user/profile_modal/edit_experience_modal';
 import EditEducationModal from '../../components/user/profile_modal/edit_education_modal';
 import Education from '../../components/user/profile_modal/education';
 import Experience from '../../components/user/profile_modal/experience';
-// import {Modal1} from '../../components/feed/modal';
+
 
 class Profile extends React.Component {
 
@@ -89,7 +88,7 @@ class Profile extends React.Component {
             return (
                 this.props.experiences.map((experience) => (
                     // <div key={experience.id}>{experience.title}</div>
-                    <Experience experience={experience}/>
+                    <Experience experience={experience} updateExperience={this.props.updateExperience}/>
                 ))
             )
         } else {
@@ -167,26 +166,10 @@ class Profile extends React.Component {
                 <div className="profile-experience-container">
                     <div className="profile-experience-header">
                         <h4 id="experience-title">Experience</h4>
-                        <div id="add-experience-icon"><i className="fas fa-plus">
-
-
-                            {/* <React.Fragment>
-                                <button onClick={() => setModal(true)}>Click Here</button>
-                                <Modal1
-                                    isVisible={isModal}
-                                    title="Modal Title"
-                                    content={<p>Add your content here</p>}
-                                    footer={<button>Cancel</button>}
-                                    onClose={() => setModal(false)}
-                                />
-                            </React.Fragment> */}
-
-
-
-                        </i></div>
+                        <div id="add-experience-icon"><i className="fas fa-plus"></i></div>
                     </div>
                     {/* <div id="profile-experience-edit-icon" onClick={() => this.openEditModal('experience')}><i className="fas fa-pencil-alt"></i></div> */}
-                    {this.renderExperience()}
+                    <div className="profile-experience-list">{this.renderExperience()}</div>
                 </div>
                 <div className="profile-education-container">
                     <div className="profile-education-header">

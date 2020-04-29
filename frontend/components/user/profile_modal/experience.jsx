@@ -25,7 +25,7 @@ class Experience extends React.Component {
     renderEdit() {
         if (this.state.edit) {
             return (
-                <EditExperienceModal experience={this.props.experience} close={this.closeEdit} />
+                <EditExperienceModal experience={this.props.experience} close={this.closeEdit} updateExperience={this.props.updateExperience}/>
             )
         } else {
             return null
@@ -88,12 +88,14 @@ class Experience extends React.Component {
                 <div className="profile-experience-pic"></div>
                 <div className="profile-experience-info">
                     <div id="profile-experience-edit-icon" onClick={this.openEdit}><i className="fas fa-pencil-alt"></i></div>
-                    <h3 id="profile-experience-info-school">{experience.title}</h3>
-                    <h4 id="profile-experience-info-fieldstudy" >{experience.company}</h4>
-                    <h5 id="profile-experience-info-start-date" >{experience.startDateMonth}</h5>
-                    <h5 id="profile-experience-info-end-date" >{experience.startDateYear}</h5>
-                    <h5 id="profile-experience-info-description" >{experience.endDateMonth}</h5>
-                    <h5 id="profile-experience-info-description" >{experience.endDateYear}</h5>
+                    <h3 id="profile-experience-info-title">{experience.title}</h3>
+                    <h4 id="profile-experience-info-company" >{experience.company}</h4>
+                    <h4 id="profile-experience-info-location" >{experience.location}</h4>
+                    <h5 id="profile-experience-info-start-date-month" >{experience.startDateMonth}</h5>
+                    <h5 id="profile-experience-info-start-date-year" >{experience.startDateYear}</h5>
+                    <h5 id="profile-experience-info-end-date-month" >{experience.endDateMonth}</h5>
+                    <h5 id="profile-experience-info-end-date-year" >{experience.endDateYear}</h5>
+                    <h5 id="profile-experience-info-description" >{experience.description}</h5>
                 </div>
                 {this.renderEdit()}
             </div>

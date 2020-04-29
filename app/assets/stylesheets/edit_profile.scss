@@ -4,12 +4,13 @@
     height: 100%;
     width: 100%;
     max-width: 100vw;
+    // font-family: BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
 }
 
 .edit-header-container, .edit-about-container, .edit-experience-container,
 .edit-education-container {
     margin: 1vh 20% 1vh 20%;
-    font-family: Arial, Helvetica, sans-serif;
+    // font-family: BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
 
 
     width: 50.8vw; 
@@ -26,7 +27,7 @@
 .edit-education-top {
     background-color: #f2f2f2;
     display: flex;
-    font-family: Arial, Helvetica, sans-serif;
+    // font-family: BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
     padding: 2vh 2vw 2vh 1vw;
     // padding-top: 2vh;
     // padding-bottom: 2vh;
@@ -160,29 +161,81 @@
     margin: 2vh 1.4vw 3vh 89%;
 }
 
+.profile-education-school-edit-icon, .profile-experience-icon-title {
+    display: flex;
+}
+
+#profile-education-info-school, #profile-experience-info-title {
+    min-width: 36vw;
+    max-width: 36vw;
+    font-size: 13pt;
+    font-weight: 500;
+    // font-family: BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
+    padding-bottom: 1vh;
+}
+
+#profile-education-info-fieldstudy, #profile-education-info-degree, #profile-experience-info-company {
+    font-size: 11pt;
+    padding-bottom: 1vh;
+}
+
+.profile-education-info-dates, .profile-experience-info-dates {
+    display: flex;
+    color: grey;
+    font-size: 11pt;
+    padding-bottom: 1vh;
+}
+
+#profile-education-info-description {
+    font-size: 11pt;
+    padding-bottom: 1vh;
+}
+
+#profile-experience-edit-icon {
+    color: #0073b1;
+    font-size: 16pt;
+    cursor: pointer;
+    margin-left: 16%;
+}
+#profile-education-edit-icon {
+    color: #0073b1;
+    font-size: 16pt;
+    cursor: pointer;
+    margin-left: 17%;
+}
 
 
-
-.profile-education-info {
+.profile-education-info, .profile-experience-info {
     width: 42vw;
-    margin: 1vh 2vw 1vh 12%;
-    font-family: Arial, Helvetica, sans-serif;
+    margin: 3vh 2vw 1vh 12%;
+    // font-family: Arial, Helvetica, sans-serif;
 
 
-    height: 13vh; 
+    min-height: 13vh; 
     background-color: white; 
     display:flex; 
     flex-direction: column;
-    box-shadow: 0 0 0 2px rgba(0,0,0,.15);
-    border-radius: .3vh;
+    // box-shadow: 0 0 0 2px rgba(0,0,0,.15);
+    box-shadow:0px 1px 1px rgba(0,0,0,.15);
 }
 
 .profile-education-pic {
     content: image_url('aa-logo.png');
     // margin-left: 2%;
     // display: inline-block;
-    height: 10vh;
-    width: 4.4vw;
+    height: 8vh;
+    width: 3.5vw;
     position: absolute; 
     // margin-top: -11%;
 }
+
+.profile-experience-pic {
+    content: image_url('ey-logo.png');
+    // margin-left: 2%;
+    // display: inline-block;
+    height: 8vh;
+    width: 3.5vw;
+    position: absolute; 
+    // margin-top: -11%;
+}
+

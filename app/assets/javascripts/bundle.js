@@ -750,7 +750,13 @@ var Connections = /*#__PURE__*/function (_React$Component) {
         id: "invitations-label"
       }, "Invitations")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "invitations-list"
-      }))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "invitations-list-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "invitations-user-pic"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "invitations-user-info"
+      }))))));
     }
   }]);
 
@@ -3138,7 +3144,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         className: "fas fa-pencil-alt"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-about-content"
-      }, "I am a software engineer.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.renderEditAbout())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-experience-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-experience-header"
@@ -4882,19 +4888,25 @@ var Education = /*#__PURE__*/function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-education-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-education-school-edit-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "profile-education-info-school"
+      }, education.school), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "profile-education-edit-icon",
         onClick: this.openEdit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-pencil-alt"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        id: "profile-education-info-school"
-      }, education.school), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        id: "profile-education-info-degree"
+      }, education.degree), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         id: "profile-education-info-fieldstudy"
-      }, education.fieldStudy), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+      }, education.fieldStudy), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-education-info-dates"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         id: "profile-education-info-start-date"
-      }, education.startYear), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+      }, education.startYear), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "\xA0-\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         id: "profile-education-info-end-date"
-      }, education.endYear), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+      }, education.endYear)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         id: "profile-education-info-description"
       }, education.description)), this.renderEdit());
     }
@@ -5039,25 +5051,29 @@ var Experience = /*#__PURE__*/function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-experience-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-experience-icon-title"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "profile-experience-info-title"
+      }, experience.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "profile-experience-edit-icon",
         onClick: this.openEdit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-pencil-alt"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        id: "profile-experience-info-title"
-      }, experience.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         id: "profile-experience-info-company"
-      }, experience.company), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+      }, experience.company), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-experience-info-dates"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-experience-info-start-date-month"
+      }, experience.startDateMonth, "\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-experience-info-start-date-year"
+      }, experience.startDateYear, " - "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-experience-info-end-date-month"
+      }, "\xA0", experience.endDateMonth, "\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-experience-info-end-date-year"
+      }, experience.endDateYear)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         id: "profile-experience-info-location"
       }, experience.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        id: "profile-experience-info-start-date-month"
-      }, experience.startDateMonth), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        id: "profile-experience-info-start-date-year"
-      }, experience.startDateYear), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        id: "profile-experience-info-end-date-month"
-      }, experience.endDateMonth), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        id: "profile-experience-info-end-date-year"
-      }, experience.endDateYear), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         id: "profile-experience-info-description"
       }, experience.description)), this.renderEdit());
     }

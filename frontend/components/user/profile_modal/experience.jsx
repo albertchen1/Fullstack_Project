@@ -87,14 +87,21 @@ class Experience extends React.Component {
             <div className="profile-experience-list-container">
                 <div className="profile-experience-pic"></div>
                 <div className="profile-experience-info">
-                    <div id="profile-experience-edit-icon" onClick={this.openEdit}><i className="fas fa-pencil-alt"></i></div>
-                    <h3 id="profile-experience-info-title">{experience.title}</h3>
+                    <div className="profile-experience-icon-title">
+                        <h3 id="profile-experience-info-title">{experience.title}</h3>
+                        <div id="profile-experience-edit-icon" onClick={this.openEdit}><i className="fas fa-pencil-alt"></i></div>
+                    </div>
+                    
                     <h4 id="profile-experience-info-company" >{experience.company}</h4>
+                    
+                    <div className="profile-experience-info-dates">
+                        <h5 id="profile-experience-info-start-date-month" >{experience.startDateMonth}&nbsp;</h5>
+                        <h5 id="profile-experience-info-start-date-year" >{experience.startDateYear} - </h5>
+                        <h5 id="profile-experience-info-end-date-month" >&nbsp;{experience.endDateMonth}&nbsp;</h5>
+                        <h5 id="profile-experience-info-end-date-year" >{experience.endDateYear}</h5>
+                        
+                    </div>
                     <h4 id="profile-experience-info-location" >{experience.location}</h4>
-                    <h5 id="profile-experience-info-start-date-month" >{experience.startDateMonth}</h5>
-                    <h5 id="profile-experience-info-start-date-year" >{experience.startDateYear}</h5>
-                    <h5 id="profile-experience-info-end-date-month" >{experience.endDateMonth}</h5>
-                    <h5 id="profile-experience-info-end-date-year" >{experience.endDateYear}</h5>
                     <h5 id="profile-experience-info-description" >{experience.description}</h5>
                 </div>
                 {this.renderEdit()}

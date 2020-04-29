@@ -36,14 +36,27 @@ education1 = Education.create!(
     user_id: User.find_by(username: 'demo@demo.com').id
 )
 
+education2 = Education.create!(
+    school: "University of Illinois at Urbana-Champaign",
+    degree: 'Master of Science',
+    field_study: 'Accountancy',
+    start_year: 2017,
+    end_year: 2018,
+    user_id: User.find_by(username: 'demo@demo.com').id
+)
+
 experience1 = Experience.create!({
-    title: "Teacher",
-    company: "aA",
-    location: 'San Francisco',
-    start_date_month: 'Jan',
-    start_date_year: 2000, 
-    end_date_month: 'Dec', 
-    end_date_year: 2010,
+    title: "Business Intelligence Analyst - Tax Technology & Transformation",
+    company: "Ernst & Young",
+    location: 'San Francisco Bay Area',
+    start_date_month: 'Sep',
+    start_date_year: 2018, 
+    end_date_month: 'Oct', 
+    end_date_year: 2019,
     # description: 'I love this job',
     user_id: User.find_by(username: 'demo@demo.com').id
 })
+
+# about1 = About.create!({
+#     summary: "I love coding"
+# })

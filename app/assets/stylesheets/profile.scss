@@ -1,6 +1,11 @@
+body {
+        font-family: BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
+}
+
 .profile-page {
     height: 100%;
     background-color:  #f2f2f2;
+    
 }
 
 .profile-header-container {
@@ -23,6 +28,7 @@
     flex-direction: column;
     box-shadow: 0 0 0 2px rgba(0,0,0,.15);
     border-radius: .3vh;
+    // font-family: BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
 }
 
 .profile-header-background {
@@ -62,7 +68,7 @@
 .profile-header-info {
     display: inline-block;
     margin-left: 1.7vw;
-    font-family: Arial, Helvetica, sans-serif;
+    // font-family: Arial, Helvetica, sans-serif;
 }
 
 #profile-header-name {
@@ -78,7 +84,7 @@
 
 .profile-about-container {
     margin: 9vh 0 3vh 9.5vw;
-    font-family: Arial, Helvetica, sans-serif;
+    // font-family: Arial, Helvetica, sans-serif;
     // border: 1px solid black;
     // width: 45%;
 
@@ -98,7 +104,7 @@
 }
 
 #about-title, #experience-title, #education-title {
-    font-size: 16pt;
+    font-size: 15pt;
     color: black;
 }
 
@@ -113,12 +119,7 @@
     margin-left: 90%;
 }
 
-#profile-experience-edit-icon {
-    color: #0073b1;
-    font-size: 16pt;
-    cursor: pointer;
-    margin-left: 85%;
-}
+
 
 #add-experience-icon {
     color: #0073b1;
@@ -134,12 +135,7 @@
     margin-left: 85%;
 }
 
-#profile-education-edit-icon {
-    color: #0073b1;
-    font-size: 16pt;
-    cursor: pointer;
-    margin-left: 85%;
-}
+
 
 
 
@@ -151,7 +147,7 @@
 
 .profile-experience-container {
     margin: 9vh 0 0 9.5vw;
-    font-family: Arial, Helvetica, sans-serif;
+    // font-family: Arial, Helvetica, sans-serif;
 
     width: 50.8vw; 
     min-height: 13vh; 
@@ -165,7 +161,7 @@
 
 .profile-education-container {
     margin: 0vh 0 0 9.5vw;
-    font-family: Arial, Helvetica, sans-serif;
+    // font-family: Arial, Helvetica, sans-serif;
 
     width: 50.8vw; 
     min-height: 13vh; 

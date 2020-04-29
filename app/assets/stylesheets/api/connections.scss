@@ -90,6 +90,8 @@
 
 .invitations-container {
     width: 50%;
+    min-height: 30vh;
+    max-height: 50vh;
     height: 40vh;
     position: sticky;
     top: 15vh;
@@ -112,4 +114,14 @@
 
 #invitations-label {
     font-size: 13pt;
+}
+
+.invitations-user-pic {
+    content: image_url('steve-carell-pic.jpg');
+    margin: 2vh 1vw 2vh 2vw;
+    height: 10vh;
+    width: 6.65vw;
+    border-radius: 5vh;
+    position: absolute; 
+
 }

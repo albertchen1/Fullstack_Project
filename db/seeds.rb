@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Experience.delete_all
 Comment.delete_all
 Post.delete_all
 Education.delete_all
@@ -26,5 +27,22 @@ demo = User.create!(username: 'demo@demo.com' ,
 
 education1 = Education.create!(
     school: "App Academy",
+    degree: 'Certificate',
+    field_study: 'Software Engineering',
+    gpa: 4.0,
+    start_year: 2019,
+    end_year: 2020,
+    description: 'Cool',
     user_id: User.find_by(username: 'demo@demo.com').id
 )
+
+experience1 = Experience.create!({
+    title: "Teacher",
+    company: "aA",
+    location: 'San Francisco',
+    start_date_month: 'Jan',
+    start_date_year: 2000, 
+    end_date_month: 'Dec', 
+    end_date_year: 2010,
+    user_id: User.find_by(username: 'demo@demo.com').id
+})

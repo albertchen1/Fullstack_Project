@@ -5,13 +5,15 @@ class EditExperienceModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: this.props.user
+            title: this.props.experience.title,
+            company: this.props.experience.company,
+            location: this.props.experience.location || '',
+            start_date_month: this.props.experience.start_date_month,
+            start_date_year: this.props.experience.start_date_year,
+            end_date_year: this.props.experience.end_date_year,
+            end_date_month: this.props.experience.end_date_month
         };
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    componentDidMount() {
-        console.log(this.props.user)
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     update(field) {
@@ -20,35 +22,35 @@ class EditExperienceModal extends React.Component {
         });
     }
 
-    handleInputTitle(e) {
-        this.setState({ user: e.currentTarget.value });
-    }
+    // handleInputTitle(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
 
-    handleInputCompany(e) {
-        this.setState({ user: e.currentTarget.value });
-    }
+    // handleInputCompany(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
 
-    handleInputLocation(e) {
-        this.setState({ user: e.currentTarget.value });
-    }
+    // handleInputLocation(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
 
-    handleInputStartDate(e) {
-        this.setState({ user: e.currentTarget.value });
-    }
+    // handleInputStartDate(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
 
-    handleInputEndDate(e) {
-        this.setState({ user: e.currentTarget.value });
-    }
+    // handleInputEndDate(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
 
-    handleInputDescription(e) {
-        this.setState({ user: e.currentTarget.value });
-    }
+    // handleInputDescription(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.processForm(user).then(this.props.closeModal);
-    }
+    // handleSubmit(e) {
+    //     e.preventDefault();
+    //     const user = Object.assign({}, this.state);
+    //     this.props.processForm(user).then(this.props.closeModal);
+    // }
 
     renderErrors() {
         return (
@@ -69,29 +71,29 @@ class EditExperienceModal extends React.Component {
                 <div className="edit-experience-container">
                     <div className="edit-experience-top">
                         <h2 id="edit-experience-edit-intro">Edit experience</h2>
-                        <h2 id="edit-experience-exit">X</h2>
+                        <h2 id="edit-experience-exit" onClick={this.props.close}>X</h2>
                     </div>
                     <div className="edit-experience-title">
                         <h3 id="edit-experience-title-label">Title *</h3>
                         <form id="edit-experience-title-form">
-                            <input id="edit-experience-title-box" value={this.state.user}
-                                onChange={this.handleInputTitle.bind(this)}>
+                            <input id="edit-experience-title-box"
+                                >
                             </input>
                         </form>
                     </div>
                     <div className="edit-experience-company">
                         <h3 id="edit-experience-company-label">Company *</h3>
                         <form id="edit-experience-company-form">
-                            <input id="edit-experience-company-box" value={this.state.user}
-                                onChange={this.handleInputCompany.bind(this)}>
+                            <input id="edit-experience-company-box" 
+                                >
                             </input>
                         </form>
                     </div>
                     <div className="edit-experience-location">
                         <h3 id="edit-experience-location-label">Location </h3>
                         <form id="edit-experience-location-form">
-                            <input id="edit-experience-location-box" value={this.state.user}
-                                onChange={this.handleInputLocation.bind(this)}>
+                            <input id="edit-experience-location-box"
+                                >
                             </input>
                         </form>
                     </div>

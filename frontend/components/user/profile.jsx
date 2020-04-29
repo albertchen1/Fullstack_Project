@@ -7,6 +7,7 @@ import EditAboutModal from '../../components/user/profile_modal/edit_about_modal
 import EditExperienceModal from '../../components/user/profile_modal/edit_experience_modal';
 import EditEducationModal from '../../components/user/profile_modal/edit_education_modal';
 import Education from '../../components/user/profile_modal/education';
+import Experience from '../../components/user/profile_modal/experience';
 // import {Modal1} from '../../components/feed/modal';
 
 class Profile extends React.Component {
@@ -15,6 +16,7 @@ class Profile extends React.Component {
         console.log(this.props)
         this.props.fetchUser(this.props.user.id)
         this.props.fetchEducation(this.props.user.id)
+        this.props.fetchExperience(this.props.user.id)
     }
 
     // componentDidUpdate(prevProps) {
@@ -44,7 +46,6 @@ class Profile extends React.Component {
         // this.renderEditHeader = this.renderEditHeader.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this);
         this.openEditModal = this.openEditModal.bind(this)
-        this.renderEducation = this.renderEducation.bind(this)
     }
 
     update(field) {
@@ -76,7 +77,19 @@ class Profile extends React.Component {
             return (
                 this.props.educations.map((education) => (
                     // <div key={education.id}>{education.school}</div>
-                    <Education education={education}/>
+                    <Education education={education} updateEducation={this.props.updateEducation}/>
+                ))
+            )
+        } else {
+            return null
+        }
+    }
+    renderExperience() {
+        if (this.props.experiences.length > 0) {
+            return (
+                this.props.experiences.map((experience) => (
+                    // <div key={experience.id}>{experience.title}</div>
+                    <Experience experience={experience}/>
                 ))
             )
         } else {
@@ -99,26 +112,7 @@ class Profile extends React.Component {
             return null
         }
     }
-    renderEditExperience() {
-        if (this.state.experience) {
-            return (
-                <EditExperienceModal user={this.props.user} updateUser={this.props.updateUser}/>
-                // null
-            )
-        }else {
-            return null
-        }
-    }
-    renderEditEducation() {
-        if (this.state.education) {
-            return (
-                <EditEducationModal user={this.props.user} updateUser={this.props.updateUser}/>
-                // null
-            )
-        }else {
-            return null
-        }
-    }
+    
     renderEditAbout() {
         if (this.state.about) {
             return (
@@ -129,14 +123,6 @@ class Profile extends React.Component {
         }
     }
 
-
-
-
-
-
-
-
-    
     
     render() {
         // if (!this.props.user) {
@@ -199,21 +185,20 @@ class Profile extends React.Component {
 
                         </i></div>
                     </div>
-                    <div id="profile-experience-edit-icon" onClick={() => this.openEditModal('experience')}><i className="fas fa-pencil-alt"></i></div>
+                    {/* <div id="profile-experience-edit-icon" onClick={() => this.openEditModal('experience')}><i className="fas fa-pencil-alt"></i></div> */}
+                    {this.renderExperience()}
                 </div>
                 <div className="profile-education-container">
                     <div className="profile-education-header">
                         <h4 id="education-title">Education</h4>
                         <div id="add-education-icon"><i className="fas fa-plus"></i></div>
                     </div>
-                    <div id="profile-education-edit-icon" onClick={() => this.openEditModal('education')}><i className="fas fa-pencil-alt"></i></div>
+                    {/* <div id="profile-education-edit-icon" onClick={() => this.openEditModal('education')}><i className="fas fa-pencil-alt"></i></div> */}
                     <div className="profile-education-list">{this.renderEducation()}</div>
                 </div>
 
 
                 {this.renderEditAbout()}
-                {this.renderEditExperience()}
-                {this.renderEditEducation()}
                 {this.renderEditHeader()}
             </div>
 

@@ -263,7 +263,7 @@ var deletePost = function deletePost(id) {
 /*!*******************************************************!*\
   !*** ./frontend/actions/profile/education_actions.js ***!
   \*******************************************************/
-/*! exports provided: RECEIVE_ALL_EDUCATION, RECEIVE_EDUCATION, receiveEducations, receiveEducation, fetchEducation, createEducation, deleteEducation */
+/*! exports provided: RECEIVE_ALL_EDUCATION, RECEIVE_EDUCATION, receiveEducations, receiveEducation, fetchEducation, createEducation, updateEducation, deleteEducation */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -274,6 +274,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveEducation", function() { return receiveEducation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchEducation", function() { return fetchEducation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createEducation", function() { return createEducation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateEducation", function() { return updateEducation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteEducation", function() { return deleteEducation; });
 /* harmony import */ var _util_profile_education_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../util/profile/education_api_util */ "./frontend/util/profile/education_api_util.js");
 // import * as APIUtil from "../util/session_api_util";
@@ -307,10 +308,79 @@ var createEducation = function createEducation(education) {
     });
   };
 };
+var updateEducation = function updateEducation(education) {
+  return dispatch(_util_profile_education_api_util__WEBPACK_IMPORTED_MODULE_0__["updateEducation"](education).then(function (educations) {
+    return dispatch(receiveEducations(educations));
+  }));
+};
 var deleteEducation = function deleteEducation(educationId) {
   return function (dispatch) {
     return _util_profile_education_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteEducation"](educationId).then(function (educations) {
-      return dispatch(receiveEducations(comments));
+      return dispatch(receiveEducations(educations));
+    });
+  };
+};
+
+/***/ }),
+
+/***/ "./frontend/actions/profile/experience_actions.js":
+/*!********************************************************!*\
+  !*** ./frontend/actions/profile/experience_actions.js ***!
+  \********************************************************/
+/*! exports provided: RECEIVE_ALL_EXPERIENCES, RECEIVE_EXPERIENCE, receiveExperiences, receiveExperience, fetchExperience, updateExperience, createExperience, deleteExperience */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_EXPERIENCES", function() { return RECEIVE_ALL_EXPERIENCES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_EXPERIENCE", function() { return RECEIVE_EXPERIENCE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveExperiences", function() { return receiveExperiences; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveExperience", function() { return receiveExperience; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchExperience", function() { return fetchExperience; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateExperience", function() { return updateExperience; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createExperience", function() { return createExperience; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteExperience", function() { return deleteExperience; });
+/* harmony import */ var _util_profile_experience_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../util/profile/experience_api_util */ "./frontend/util/profile/experience_api_util.js");
+// import * as APIUtil from "../util/session_api_util";
+
+var RECEIVE_ALL_EXPERIENCES = 'RECEIVE_ALL_EXPERIENCES';
+var RECEIVE_EXPERIENCE = 'RECEIVE_EXPERIENCE';
+var receiveExperiences = function receiveExperiences(experiences) {
+  return {
+    type: RECEIVE_ALL_EXPERIENCES,
+    experiences: experiences
+  };
+};
+var receiveExperience = function receiveExperience(experience) {
+  return {
+    type: RECEIVE_EXPERIENCE,
+    experience: experience
+  };
+};
+var fetchExperience = function fetchExperience(userId) {
+  return function (dispatch) {
+    return _util_profile_experience_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchExperience"](userId).then(function (experiences) {
+      return dispatch(receiveExperiences(experiences));
+    });
+  };
+};
+var updateExperience = function updateExperience(experience) {
+  return dispatch(_util_profile_experience_api_util__WEBPACK_IMPORTED_MODULE_0__["updateExperience"](experience).then(function (experiences) {
+    return dispatch(receiveExperiences(experiences));
+  }));
+};
+var createExperience = function createExperience(experience) {
+  return function (dispatch) {
+    return _util_profile_experience_api_util__WEBPACK_IMPORTED_MODULE_0__["createExperience"](experience) // .then(comments => dispatch(receiveAllComments(comments)))
+    .then(function (experience) {
+      return dispatch(receiveExperience(experience));
+    });
+  };
+};
+var deleteExperience = function deleteExperience(experienceId) {
+  return function (dispatch) {
+    return _util_profile_experience_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteExperience"](experienceId).then(function (experiences) {
+      return dispatch(receiveExperiences(experiences));
     });
   };
 };
@@ -2847,6 +2917,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_user_profile_modal_edit_experience_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/user/profile_modal/edit_experience_modal */ "./frontend/components/user/profile_modal/edit_experience_modal.jsx");
 /* harmony import */ var _components_user_profile_modal_edit_education_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/user/profile_modal/edit_education_modal */ "./frontend/components/user/profile_modal/edit_education_modal.jsx");
 /* harmony import */ var _components_user_profile_modal_education__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/user/profile_modal/education */ "./frontend/components/user/profile_modal/education.jsx");
+/* harmony import */ var _components_user_profile_modal_experience__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/user/profile_modal/experience */ "./frontend/components/user/profile_modal/experience.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -2875,6 +2946,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
  // import {Modal1} from '../../components/feed/modal';
 
 var Profile = /*#__PURE__*/function (_React$Component) {
@@ -2886,6 +2958,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       console.log(this.props);
       this.props.fetchUser(this.props.user.id);
       this.props.fetchEducation(this.props.user.id);
+      this.props.fetchExperience(this.props.user.id);
     } // componentDidUpdate(prevProps) {
     //     if (prevProps.match.params.userId != this.props.match.params.userId) {
     //         this.props.fetchUser(this.props.match.params.userId);
@@ -2918,7 +2991,6 @@ var Profile = /*#__PURE__*/function (_React$Component) {
 
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.openEditModal = _this.openEditModal.bind(_assertThisInitialized(_this));
-    _this.renderEducation = _this.renderEducation.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2950,11 +3022,29 @@ var Profile = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderEducation",
     value: function renderEducation() {
+      var _this3 = this;
+
       if (this.props.educations.length > 0) {
         return this.props.educations.map(function (education) {
           return (// <div key={education.id}>{education.school}</div>
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_profile_modal_education__WEBPACK_IMPORTED_MODULE_7__["default"], {
-              education: education
+              education: education,
+              updateEducation: _this3.props.updateEducation
+            })
+          );
+        });
+      } else {
+        return null;
+      }
+    }
+  }, {
+    key: "renderExperience",
+    value: function renderExperience() {
+      if (this.props.experiences.length > 0) {
+        return this.props.experiences.map(function (experience) {
+          return (// <div key={experience.id}>{experience.title}</div>
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_profile_modal_experience__WEBPACK_IMPORTED_MODULE_8__["default"], {
+              experience: experience
             })
           );
         });
@@ -2982,32 +3072,6 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
-    key: "renderEditExperience",
-    value: function renderEditExperience() {
-      if (this.state.experience) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_profile_modal_edit_experience_modal__WEBPACK_IMPORTED_MODULE_5__["default"], {
-          user: this.props.user,
-          updateUser: this.props.updateUser
-        }) // null
-        ;
-      } else {
-        return null;
-      }
-    }
-  }, {
-    key: "renderEditEducation",
-    value: function renderEditEducation() {
-      if (this.state.education) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_profile_modal_edit_education_modal__WEBPACK_IMPORTED_MODULE_6__["default"], {
-          user: this.props.user,
-          updateUser: this.props.updateUser
-        }) // null
-        ;
-      } else {
-        return null;
-      }
-    }
-  }, {
     key: "renderEditAbout",
     value: function renderEditAbout() {
       if (this.state.about) {
@@ -3022,7 +3086,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       // if (!this.props.user) {
       //     return null;
@@ -3049,7 +3113,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "profile-header-edit-icon",
         onClick: function onClick() {
-          return _this3.openEditModal('header');
+          return _this4.openEditModal('header');
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-pencil-alt"
@@ -3066,7 +3130,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "profile-about-edit-icon",
         onClick: function onClick() {
-          return _this3.openEditModal('about');
+          return _this4.openEditModal('about');
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-pencil-alt"
@@ -3082,14 +3146,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         id: "add-experience-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-plus"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "profile-experience-edit-icon",
-        onClick: function onClick() {
-          return _this3.openEditModal('experience');
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-pencil-alt"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), this.renderExperience()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-education-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-education-header"
@@ -3100,15 +3157,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-plus"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "profile-education-edit-icon",
-        onClick: function onClick() {
-          return _this3.openEditModal('education');
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-pencil-alt"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-education-list"
-      }, this.renderEducation())), this.renderEditAbout(), this.renderEditExperience(), this.renderEditEducation(), this.renderEditHeader());
+      }, this.renderEducation())), this.renderEditAbout(), this.renderEditHeader());
     }
   }]);
 
@@ -3132,6 +3182,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _profile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile */ "./frontend/components/user/profile.jsx");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
 /* harmony import */ var _actions_profile_education_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/profile/education_actions */ "./frontend/actions/profile/education_actions.js");
+/* harmony import */ var _actions_profile_experience_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/profile/experience_actions */ "./frontend/actions/profile/experience_actions.js");
+
 
 
 
@@ -3140,7 +3192,8 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state) {
   return {
     user: Object.values(state.entities.users)[0],
-    educations: Object.values(state.entities.educations)
+    educations: Object.values(state.entities.educations),
+    experiences: Object.values(state.entities.experiences)
   };
 };
 
@@ -3154,6 +3207,15 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     fetchEducation: function fetchEducation(userId) {
       return dispatch(Object(_actions_profile_education_actions__WEBPACK_IMPORTED_MODULE_3__["fetchEducation"])(userId));
+    },
+    fetchExperience: function fetchExperience(userId) {
+      return dispatch(Object(_actions_profile_experience_actions__WEBPACK_IMPORTED_MODULE_4__["fetchExperience"])(userId));
+    },
+    updateEducation: function updateEducation(education) {
+      return dispatch(Object(_actions_profile_education_actions__WEBPACK_IMPORTED_MODULE_3__["updateEducation"])(education));
+    },
+    updateExperience: function updateExperience(experience) {
+      return dispatch(Object(_actions_profile_experience_actions__WEBPACK_IMPORTED_MODULE_4__["updateExperience"])(experience));
     }
   };
 };
@@ -3345,18 +3407,18 @@ var EditEducationModal = /*#__PURE__*/function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(EditEducationModal).call(this, props));
     _this.state = {
-      user: _this.props.user
+      school: _this.props.education.school,
+      field_study: _this.props.education.fieldStudy,
+      degree: _this.props.education.degree,
+      start_year: _this.props.education.startYear,
+      end_year: _this.props.education.endYear,
+      description: _this.props.education.description
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(EditEducationModal, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      console.log(this.props.user);
-    }
-  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -3366,53 +3428,21 @@ var EditEducationModal = /*#__PURE__*/function (_React$Component) {
       };
     }
   }, {
-    key: "handleInputSchool",
-    value: function handleInputSchool(e) {
-      this.setState({
-        user: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleInputDegree",
-    value: function handleInputDegree(e) {
-      this.setState({
-        user: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleInputFieldStudy",
-    value: function handleInputFieldStudy(e) {
-      this.setState({
-        user: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleInputStartYear",
-    value: function handleInputStartYear(e) {
-      this.setState({
-        user: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleInputEndYear",
-    value: function handleInputEndYear(e) {
-      this.setState({
-        user: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleInputDescription",
-    value: function handleInputDescription(e) {
-      this.setState({
-        user: e.currentTarget.value
-      });
-    }
+    key: "componentDidMount",
+    value: function componentDidMount() {}
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var user = Object.assign({}, this.state);
-      this.props.processForm(user).then(this.props.closeModal);
+      var education = this.props.education;
+      education.school = this.state.school;
+      education.degree = this.state.degree;
+      education.field_study = this.state.field_study;
+      education.start_year = this.state.start_year;
+      education.end_year = this.state.end_year;
+      education.description = this.state.description; // education.id = this.props.education.id
+
+      this.props.updateEducation(education).then(this.props.close);
     }
   }, {
     key: "renderErrors",
@@ -3439,7 +3469,8 @@ var EditEducationModal = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         id: "edit-education-edit-intro"
       }, "Edit education"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        id: "edit-education-exit"
+        id: "edit-education-exit",
+        onClick: this.props.close
       }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-education-title"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -3448,8 +3479,8 @@ var EditEducationModal = /*#__PURE__*/function (_React$Component) {
         id: "edit-education-school-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "edit-education-school-box",
-        value: this.state.user,
-        onChange: this.handleInputSchool.bind(this)
+        value: this.state.school,
+        onChange: this.update('school')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-education-degree"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -3458,8 +3489,8 @@ var EditEducationModal = /*#__PURE__*/function (_React$Component) {
         id: "edit-education-degree-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "edit-education-degree-box",
-        value: this.state.user,
-        onChange: this.handleInputDegree.bind(this)
+        value: this.state.degree,
+        onChange: this.update('degree')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-education-fieldstudy"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -3468,8 +3499,8 @@ var EditEducationModal = /*#__PURE__*/function (_React$Component) {
         id: "edit-education-fieldstudy-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "edit-education-fieldstudy-box",
-        value: this.state.user,
-        onChange: this.handleInputFieldStudy.bind(this)
+        value: this.state.field_study,
+        onChange: this.update('field_study')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-education-dates-field"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3860,14 +3891,14 @@ var EditEducationModal = /*#__PURE__*/function (_React$Component) {
         id: "edit-education-description-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         id: "edit-education-description-box",
-        value: this.state.user,
-        onChange: this.handleInputDescription.bind(this)
+        value: this.state.description,
+        onChange: this.update('description')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-education-submit-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "edit-education-submit",
-        type: "submit",
-        value: "Save"
+        value: "Save",
+        onClick: this.handleSubmit
       }))));
     }
   }]);
@@ -3903,9 +3934,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -3924,18 +3955,19 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(EditExperienceModal).call(this, props));
     _this.state = {
-      user: _this.props.user
-    };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+      title: _this.props.experience.title,
+      company: _this.props.experience.company,
+      location: _this.props.experience.location || '',
+      start_date_month: _this.props.experience.start_date_month,
+      start_date_year: _this.props.experience.start_date_year,
+      end_date_year: _this.props.experience.end_date_year,
+      end_date_month: _this.props.experience.end_date_month
+    }; // this.handleSubmit = this.handleSubmit.bind(this);
+
     return _this;
   }
 
   _createClass(EditExperienceModal, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      console.log(this.props.user);
-    }
-  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -3943,56 +3975,30 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
-    }
-  }, {
-    key: "handleInputTitle",
-    value: function handleInputTitle(e) {
-      this.setState({
-        user: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleInputCompany",
-    value: function handleInputCompany(e) {
-      this.setState({
-        user: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleInputLocation",
-    value: function handleInputLocation(e) {
-      this.setState({
-        user: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleInputStartDate",
-    value: function handleInputStartDate(e) {
-      this.setState({
-        user: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleInputEndDate",
-    value: function handleInputEndDate(e) {
-      this.setState({
-        user: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleInputDescription",
-    value: function handleInputDescription(e) {
-      this.setState({
-        user: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleSubmit",
-    value: function handleSubmit(e) {
-      e.preventDefault();
-      var user = Object.assign({}, this.state);
-      this.props.processForm(user).then(this.props.closeModal);
-    }
+    } // handleInputTitle(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputCompany(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputLocation(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputStartDate(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputEndDate(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputDescription(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleSubmit(e) {
+    //     e.preventDefault();
+    //     const user = Object.assign({}, this.state);
+    //     this.props.processForm(user).then(this.props.closeModal);
+    // }
+
   }, {
     key: "renderErrors",
     value: function renderErrors() {
@@ -4018,7 +4024,8 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         id: "edit-experience-edit-intro"
       }, "Edit experience"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        id: "edit-experience-exit"
+        id: "edit-experience-exit",
+        onClick: this.props.close
       }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-experience-title"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -4026,9 +4033,7 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, "Title *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         id: "edit-experience-title-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "edit-experience-title-box",
-        value: this.state.user,
-        onChange: this.handleInputTitle.bind(this)
+        id: "edit-experience-title-box"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-experience-company"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -4036,9 +4041,7 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, "Company *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         id: "edit-experience-company-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "edit-experience-company-box",
-        value: this.state.user,
-        onChange: this.handleInputCompany.bind(this)
+        id: "edit-experience-company-box"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-experience-location"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -4046,9 +4049,7 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, "Location "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         id: "edit-experience-location-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "edit-experience-location-box",
-        value: this.state.user,
-        onChange: this.handleInputLocation.bind(this)
+        id: "edit-experience-location-box"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-experience-dates-field"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4713,9 +4714,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _edit_education_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit_education_modal */ "./frontend/components/user/profile_modal/edit_education_modal.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -4736,6 +4736,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Education = /*#__PURE__*/function (_React$Component) {
   _inherits(Education, _React$Component);
 
@@ -4746,26 +4747,47 @@ var Education = /*#__PURE__*/function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Education).call(this, props));
     _this.state = {
-      user: _this.props.user
-    };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+      edit: false
+    }; // this.handleSubmit = this.handleSubmit.bind(this);
+
+    _this.renderEdit = _this.renderEdit.bind(_assertThisInitialized(_this));
+    _this.openEdit = _this.openEdit.bind(_assertThisInitialized(_this));
+    _this.closeEdit = _this.closeEdit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Education, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      console.log(this.props.user);
+    key: "openEdit",
+    value: function openEdit() {
+      this.setState({
+        edit: true
+      });
     }
   }, {
-    key: "update",
-    value: function update(field) {
-      var _this2 = this;
-
-      return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
-      };
-    } // handleInputSchool(e) {
+    key: "closeEdit",
+    value: function closeEdit() {
+      this.setState({
+        edit: false
+      });
+    }
+  }, {
+    key: "renderEdit",
+    value: function renderEdit() {
+      if (this.state.edit) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_edit_education_modal__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          education: this.props.education,
+          close: this.closeEdit,
+          updateEducation: this.props.updateEducation
+        });
+      } else {
+        return null;
+      }
+    } // update(field) {
+    //     return e => this.setState({
+    //         [field]: e.currentTarget.value
+    //     });
+    // }
+    // handleInputSchool(e) {
     //     this.setState({ user: e.currentTarget.value });
     // }
     // handleInputDegree(e) {
@@ -4783,49 +4805,54 @@ var Education = /*#__PURE__*/function (_React$Component) {
     // handleInputDescription(e) {
     //     this.setState({ user: e.currentTarget.value });
     // }
+    // handleSubmit(e) {
+    //     e.preventDefault();
+    //     const user = Object.assign({}, this.state);
+    //     this.props.processForm(user).then(this.props.closeModal);
+    // }
+    // renderErrors() {
+    //     return (
+    //         // <ul>
+    //         //     {this.props.errors.map((error, i) => (
+    //         //         <li key={`error-${i}`}>
+    //         //             {error}
+    //         //         </li>
+    //         //     ))}
+    //         // </ul>
+    //         null
+    //     );
+    // }
 
-  }, {
-    key: "handleSubmit",
-    value: function handleSubmit(e) {
-      e.preventDefault();
-      var user = Object.assign({}, this.state);
-      this.props.processForm(user).then(this.props.closeModal);
-    }
-  }, {
-    key: "renderErrors",
-    value: function renderErrors() {
-      return (// <ul>
-        //     {this.props.errors.map((error, i) => (
-        //         <li key={`error-${i}`}>
-        //             {error}
-        //         </li>
-        //     ))}
-        // </ul>
-        null
-      );
-    }
   }, {
     key: "render",
     value: function render() {
+      var education = this.props.education;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-education-list-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-education-pic"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-education-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        id: "profile-education-info-school",
-        value: this.state.user
-      }, "school"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "profile-education-edit-icon",
+        onClick: this.openEdit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-pencil-alt"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "profile-education-info-school"
+      }, education.school), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         id: "profile-education-info-fieldstudy",
-        value: this.state.user
+        value: education.field_study
       }, "field of study"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        id: "profile-education-info-dates",
-        value: this.state.user
+        id: "profile-education-info-start-date",
+        value: education.start_year
+      }, "dates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-education-info-end-date",
+        value: education.end_year
       }, "dates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         id: "profile-education-info-description",
-        value: this.state.user
-      }, "description")));
+        value: education.description
+      }, "description")), this.renderEdit());
     }
   }]);
 
@@ -4833,6 +4860,164 @@ var Education = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Education));
+
+/***/ }),
+
+/***/ "./frontend/components/user/profile_modal/experience.jsx":
+/*!***************************************************************!*\
+  !*** ./frontend/components/user/profile_modal/experience.jsx ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _edit_experience_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit_experience_modal */ "./frontend/components/user/profile_modal/edit_experience_modal.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var Experience = /*#__PURE__*/function (_React$Component) {
+  _inherits(Experience, _React$Component);
+
+  function Experience(props) {
+    var _this;
+
+    _classCallCheck(this, Experience);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Experience).call(this, props));
+    _this.state = {
+      edit: false
+    }; // this.handleSubmit = this.handleSubmit.bind(this);
+
+    _this.renderEdit = _this.renderEdit.bind(_assertThisInitialized(_this));
+    _this.openEdit = _this.openEdit.bind(_assertThisInitialized(_this));
+    _this.closeEdit = _this.closeEdit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Experience, [{
+    key: "openEdit",
+    value: function openEdit() {
+      this.setState({
+        edit: true
+      });
+    }
+  }, {
+    key: "closeEdit",
+    value: function closeEdit() {
+      this.setState({
+        edit: false
+      });
+    }
+  }, {
+    key: "renderEdit",
+    value: function renderEdit() {
+      if (this.state.edit) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_edit_experience_modal__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          experience: this.props.experience,
+          close: this.closeEdit
+        });
+      } else {
+        return null;
+      }
+    } // update(field) {
+    //     return e => this.setState({
+    //         [field]: e.currentTarget.value
+    //     });
+    // }
+    // handleInputSchool(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputDegree(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputFieldStudy(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputStartYear(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputEndYear(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleInputDescription(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+    // handleSubmit(e) {
+    //     e.preventDefault();
+    //     const user = Object.assign({}, this.state);
+    //     this.props.processForm(user).then(this.props.closeModal);
+    // }
+    // renderErrors() {
+    //     return (
+    //         // <ul>
+    //         //     {this.props.errors.map((error, i) => (
+    //         //         <li key={`error-${i}`}>
+    //         //             {error}
+    //         //         </li>
+    //         //     ))}
+    //         // </ul>
+    //         null
+    //     );
+    // }
+
+  }, {
+    key: "render",
+    value: function render() {
+      var experience = this.props.experience;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-experience-list-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-experience-pic"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-experience-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "profile-experience-edit-icon",
+        onClick: this.openEdit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-pencil-alt"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "profile-experience-info-school"
+      }, experience.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        id: "profile-experience-info-fieldstudy"
+      }, experience.company), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-experience-info-start-date"
+      }, experience.startDateMonth), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-experience-info-end-date"
+      }, experience.startDateYear), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-experience-info-description"
+      }, experience.endDateMonth), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        id: "profile-experience-info-description"
+      }, experience.endDateYear)), this.renderEdit());
+    }
+  }]);
+
+  return Experience;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Experience));
 
 /***/ }),
 
@@ -4990,6 +5175,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _posts_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./posts_reducer */ "./frontend/reducers/posts_reducer.js");
 /* harmony import */ var _comments_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comments_reducer */ "./frontend/reducers/comments_reducer.js");
 /* harmony import */ var _education_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./education_reducer */ "./frontend/reducers/education_reducer.js");
+/* harmony import */ var _experiences_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./experiences_reducer */ "./frontend/reducers/experiences_reducer.js");
+
 
 
 
@@ -4999,7 +5186,8 @@ var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   posts: _posts_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
   comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
-  educations: _education_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
+  educations: _education_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
+  experiences: _experiences_reducer__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -5022,6 +5210,48 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
   session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/experiences_reducer.js":
+/*!**************************************************!*\
+  !*** ./frontend/reducers/experiences_reducer.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_profile_experience_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/profile/experience_actions */ "./frontend/actions/profile/experience_actions.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var experienceReducer = function experienceReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  var newState = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.merge({}, state);
+
+  switch (action.type) {
+    case _actions_profile_experience_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_EXPERIENCES"]:
+      return action.experiences;
+
+    case _actions_profile_experience_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_EXPERIENCE"]:
+      return Object.assign({}, state, _defineProperty({}, action.experience.id, action.experience));
+    // newState[action.currentUser.id] = action.currentUser;
+    // return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (experienceReducer);
 
 /***/ }),
 
@@ -5368,6 +5598,52 @@ var deleteEducation = function deleteEducation(educationId) {
   return $.ajax({
     method: "DELETE",
     url: "/api/educations/".concat(educationId)
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/profile/experience_api_util.js":
+/*!******************************************************!*\
+  !*** ./frontend/util/profile/experience_api_util.js ***!
+  \******************************************************/
+/*! exports provided: createExperience, fetchExperience, updateExperience, deleteExperience */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createExperience", function() { return createExperience; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchExperience", function() { return fetchExperience; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateExperience", function() { return updateExperience; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteExperience", function() { return deleteExperience; });
+var createExperience = function createExperience(experience) {
+  return $.ajax({
+    method: "POST",
+    url: "/api/experiences",
+    data: {
+      experience: experience
+    }
+  });
+};
+var fetchExperience = function fetchExperience(userId) {
+  return $.ajax({
+    method: "GET",
+    url: "/api/experiences/".concat(userId)
+  });
+};
+var updateExperience = function updateExperience(experience) {
+  return $.ajax({
+    method: "PATCH",
+    url: "/api/experiences/".concat(experience.id),
+    data: {
+      experience: experience
+    }
+  });
+};
+var deleteExperience = function deleteExperience(experienceId) {
+  return $.ajax({
+    method: "DELETE",
+    url: "/api/experiences/".concat(experienceId)
   });
 };
 

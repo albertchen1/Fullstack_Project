@@ -25,7 +25,12 @@ export const createEducation = (education) => dispatch => (
         .then(education => dispatch(receiveEducation(education)))
 )
 
+export const updateEducation = education => dispatch (
+    APIUtil.updateEducation(education)
+        .then(educations => dispatch(receiveEducations(educations)))
+)
+
 export const deleteEducation = (educationId) => dispatch => (
     APIUtil.deleteEducation(educationId)
-        .then((educations) => dispatch(receiveEducations(comments)))
+        .then((educations) => dispatch(receiveEducations(educations)))
 )

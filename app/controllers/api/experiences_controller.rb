@@ -17,11 +17,11 @@ class Api::ExperiencesController < ApplicationController
     end
 
     def show
-        @experience = Experience.find(params[:id])
-        if @user
+        @experiences = Experience.where(user_id: params[:id])
+        if @experiences
             render '/api/experiences/show'
         else
-            render json: @experience.errors.full_messages, status: 422
+            render json: @experiences.errors.full_messages, status: 422
         end
 
     end

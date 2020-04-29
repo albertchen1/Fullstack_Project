@@ -1,0 +1,33 @@
+export const createExperience = (experience) => (
+    $.ajax({
+        method: "POST",
+        url: "/api/experiences",
+        data: {
+            experience
+        }
+    })
+)
+
+export const fetchExperience = (userId) => (
+    $.ajax({
+        method: "GET",
+        url: `/api/experiences/${userId}`,
+    })
+)
+
+
+export const updateExperience = (experience) => (
+    $.ajax({
+        method: "PATCH",
+        url: `/api/experiences/${experience.id}`,
+        data: {
+            experience
+        }
+    })
+)
+export const deleteExperience = (experienceId) => (
+    $.ajax({
+        method: "DELETE",
+        url: `/api/experiences/${experienceId}`,
+    })
+)

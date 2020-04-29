@@ -1,8 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import EditEducationModal from './edit_education_modal';
+import EditExperienceModal from './edit_experience_modal';
 
-class Education extends React.Component {
+
+class Experience extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,16 +16,16 @@ class Education extends React.Component {
     }
 
     openEdit() {
-        this.setState({edit: true})
+        this.setState({ edit: true })
     }
     closeEdit() {
-        this.setState({edit: false})
+        this.setState({ edit: false })
     }
 
     renderEdit() {
         if (this.state.edit) {
             return (
-                <EditEducationModal education={this.props.education} close={this.closeEdit} updateEducation={this.props.updateEducation}/>
+                <EditExperienceModal experience={this.props.experience} close={this.closeEdit} />
             )
         } else {
             return null
@@ -81,17 +82,18 @@ class Education extends React.Component {
     // }
 
     render() {
-        let education = this.props.education
+        let experience = this.props.experience
         return (
-            <div className="profile-education-list-container">
-                <div className="profile-education-pic"></div>
-                <div className="profile-education-info">
-                    <div id="profile-education-edit-icon" onClick={this.openEdit}><i className="fas fa-pencil-alt"></i></div>
-                    <h3 id="profile-education-info-school">{education.school}</h3>
-                    <h4 id="profile-education-info-fieldstudy" value={education.field_study}>field of study</h4>
-                    <h5 id="profile-education-info-start-date" value={education.start_year}>dates</h5>
-                    <h5 id="profile-education-info-end-date" value={education.end_year}>dates</h5>
-                    <h5 id="profile-education-info-description" value={education.description}>description</h5>
+            <div className="profile-experience-list-container">
+                <div className="profile-experience-pic"></div>
+                <div className="profile-experience-info">
+                    <div id="profile-experience-edit-icon" onClick={this.openEdit}><i className="fas fa-pencil-alt"></i></div>
+                    <h3 id="profile-experience-info-school">{experience.title}</h3>
+                    <h4 id="profile-experience-info-fieldstudy" >{experience.company}</h4>
+                    <h5 id="profile-experience-info-start-date" >{experience.startDateMonth}</h5>
+                    <h5 id="profile-experience-info-end-date" >{experience.startDateYear}</h5>
+                    <h5 id="profile-experience-info-description" >{experience.endDateMonth}</h5>
+                    <h5 id="profile-experience-info-description" >{experience.endDateYear}</h5>
                 </div>
                 {this.renderEdit()}
             </div>
@@ -100,4 +102,4 @@ class Education extends React.Component {
     }
 }
 
-export default withRouter(Education);
+export default withRouter(Experience);

@@ -5,13 +5,14 @@ class EditEducationModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: this.props.user
+            school: this.props.education.school,
+            field_study: this.props.education.fieldStudy,
+            degree: this.props.education.degree,
+            start_year: this.props.education.startYear,
+            end_year: this.props.education.endYear,
+            description: this.props.education.description
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    componentDidMount() {
-        console.log(this.props.user)
     }
 
     update(field) {
@@ -20,34 +21,21 @@ class EditEducationModal extends React.Component {
         });
     }
 
-    handleInputSchool(e) {
-        this.setState({ user: e.currentTarget.value });
+    componentDidMount() {
     }
 
-    handleInputDegree(e) {
-        this.setState({ user: e.currentTarget.value });
-    }
-
-    handleInputFieldStudy(e) {
-        this.setState({ user: e.currentTarget.value });
-    }
-
-    handleInputStartYear(e) {
-        this.setState({ user: e.currentTarget.value });
-    }
-
-    handleInputEndYear(e) {
-        this.setState({ user: e.currentTarget.value });
-    }
-
-    handleInputDescription(e) {
-        this.setState({ user: e.currentTarget.value });
-    }
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.processForm(user).then(this.props.closeModal);
+        let education = this.props.education
+        education.school = this.state.school
+        education.degree = this.state.degree
+        education.field_study = this.state.field_study
+        education.start_year = this.state.start_year
+        education.end_year = this.state.end_year
+        education.description = this.state.description
+        // education.id = this.props.education.id
+        this.props.updateEducation(education).then(this.props.close);
     }
 
     renderErrors() {
@@ -69,29 +57,29 @@ class EditEducationModal extends React.Component {
                 <div className="edit-education-container">
                     <div className="edit-education-top">
                         <h2 id="edit-education-edit-intro">Edit education</h2>
-                        <h2 id="edit-education-exit">X</h2>
+                        <h2 id="edit-education-exit" onClick={this.props.close}>X</h2>
                     </div>
                     <div className="edit-education-title">
                         <h3 id="edit-education-school-label">School *</h3>
                         <form id="edit-education-school-form">
-                            <input id="edit-education-school-box" value={this.state.user}
-                                onChange={this.handleInputSchool.bind(this)}>
+                            <input id="edit-education-school-box" value={this.state.school}
+                                onChange={this.update('school')}>
                             </input>
                         </form>
                     </div>
                     <div className="edit-education-degree">
                         <h3 id="edit-education-degree-label">Degree</h3>
                         <form id="edit-education-degree-form">
-                            <input id="edit-education-degree-box" value={this.state.user}
-                                onChange={this.handleInputDegree.bind(this)}>
+                            <input id="edit-education-degree-box" value={this.state.degree}
+                                onChange={this.update('degree')}>
                             </input>
                         </form>
                     </div>
                     <div className="edit-education-fieldstudy">
                         <h3 id="edit-education-fieldstudy-label">Field of Study</h3>
                         <form id="edit-education-fieldstudy-form">
-                            <input id="edit-education-fieldstudy-box" value={this.state.user}
-                                onChange={this.handleInputFieldStudy.bind(this)}>
+                            <input id="edit-education-fieldstudy-box" value={this.state.field_study}
+                                onChange={this.update('field_study')}>
                             </input>
                         </form>
                     </div>
@@ -299,14 +287,14 @@ class EditEducationModal extends React.Component {
                     <div className="edit-education-description">
                         <h3 id="edit-education-description-label">Description</h3>
                         <form id="edit-education-description-form">
-                            <textarea id="edit-education-description-box" value={this.state.user}
-                                onChange={this.handleInputDescription.bind(this)}>
+                            <textarea id="edit-education-description-box" value={this.state.description}
+                                onChange={this.update('description')}>
                             </textarea>
                         </form>
                     </div>
 
                     <div className="edit-education-submit-container">
-                        <input className='edit-education-submit' type='submit' value='Save' />
+                        <button className='edit-education-submit' value='Save' onClick={this.handleSubmit}/>
                     </div>
 
                 </div>

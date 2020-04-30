@@ -756,7 +756,17 @@ var Connections = /*#__PURE__*/function (_React$Component) {
         className: "invitations-user-pic"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "invitations-user-info"
-      }))))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        id: "invitations-name"
+      }, "Steve Carell"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "invitations-headline-buttons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        id: "invitations-headline"
+      }, "Actor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "invitations-ignore-button"
+      }, "Ignore"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "invitations-accept-button"
+      }, "Accept"))))))));
     }
   }]);
 
@@ -913,64 +923,67 @@ var CreatePostForm = /*#__PURE__*/function (_React$Component) {
         }
       };
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "create-post-outer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "create-post-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "create-a-post"
-      }, "Create a post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        onClick: this.props.closeModal,
-        className: "close-post-x"
-      }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "create-post-pic-name"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "create-post-pic"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "create-post-name-anyone"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "create-post-name"
-      }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "create-post-anyone"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-globe-americas"
-      }), "Anyone", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-sort-down"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit.bind(this)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-        className: "create-post-form",
-        type: "text",
-        value: this.state.body,
-        onChange: this.handleInput.bind(this),
-        placeholder: "What do you want to talk about?"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "create-post-bottom"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-form-icons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "icon-post-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "icon-post-form-each"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-camera"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "icon-post-form-each"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-video"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "icon-post-form-each"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-file-alt"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "post-modal-submit",
-        type: "submit",
-        value: "Post"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "icon-submit-file",
-        type: "file",
-        onChange: this.handleFile.bind(this)
-      })))));
+      return (// <div className="modal">
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "create-post-outer"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "create-post-header"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "create-a-post"
+        }, "Create a post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          onClick: this.props.closeModal,
+          className: "close-post-x"
+        }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "create-post-pic-name"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "create-post-pic"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "create-post-name-anyone"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "create-post-name"
+        }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "create-post-anyone"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-globe-americas"
+        }), "Anyone", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-sort-down"
+        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          onSubmit: this.handleSubmit.bind(this)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+          className: "create-post-form",
+          type: "text",
+          value: this.state.body,
+          onChange: this.handleInput.bind(this),
+          placeholder: "What do you want to talk about?"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "create-post-bottom"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "post-form-icons"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "icon-post-form"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "icon-post-form-each"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-camera"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "icon-post-form-each"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-video"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "icon-post-form-each"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-file-alt"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "post-modal-submit",
+          type: "submit",
+          value: "Post"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          id: "icon-submit-file",
+          type: "file",
+          onChange: this.handleFile.bind(this)
+        }))))) // </div>
+
+      );
     }
   }]);
 
@@ -1052,7 +1065,10 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
-    }
+    } // refreshPage() {
+    //     window.location.reload();
+    // }
+
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
@@ -3144,7 +3160,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         className: "fas fa-pencil-alt"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-about-content"
-      }, this.renderEditAbout())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.user.summary)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-experience-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-experience-header"
@@ -3279,11 +3295,7 @@ var EditAboutModal = /*#__PURE__*/function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(EditAboutModal).call(this, props));
     _this.state = {
-      // first_name: this.props.user.firstName,
-      // last_name: this.props.user.lastName,
-      // location: this.props.user.location
-      // user: this.props.user
-      summary: _this.props.about.summary
+      summary: _this.props.user.summary
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -3302,20 +3314,18 @@ var EditAboutModal = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
-    }
-  }, {
-    key: "handleInput",
-    value: function handleInput(e) {
-      this.setState({
-        user: e.currentTarget.value
-      });
-    }
+    } // handleInput(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
+
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var user = Object.assign({}, this.state);
-      this.props.processForm(user).then(this.props.closeModal);
+      var user = Object.assign({}, this.state); // this.props.processForm(user).then(this.props.close);
+      // this.props.user.summary = this.state.user.summary;
+
+      this.props.updateUser(user).then(this.props.close);
     }
   }, {
     key: "renderErrors",
@@ -4610,7 +4620,8 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       first_name: _this.props.user.firstName,
       last_name: _this.props.user.lastName,
-      location: _this.props.user.location
+      location: _this.props.user.location,
+      headline: _this.props.user.headline
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -4629,41 +4640,27 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
-    }
-  }, {
-    key: "handleInputFirstName",
-    value: function handleInputFirstName(e) {
-      this.setState({
-        first_name: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleInputLastName",
-    value: function handleInputLastName(e) {
-      this.setState({
-        last_name: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleInputHeadline",
-    value: function handleInputHeadline(e) {
-      this.setState({
-        last_name: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleInputLocation",
-    value: function handleInputLocation(e) {
-      this.setState({
-        location: e.currentTarget.value
-      });
-    }
+    } // handleInputFirstName(e) {
+    //     this.setState({ first_name: e.currentTarget.value});
+    // }
+    // handleInputLastName(e) {
+    //     this.setState({ last_name: e.currentTarget.value});
+    // }
+    // handleInputHeadline(e) {
+    //     this.setState({ last_name: e.currentTarget.value});
+    // }
+    // handleInputLocation(e) {
+    //     this.setState({ location: e.currentTarget.value});
+    // }
+
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault();
-      var user = Object.assign({}, this.state);
-      this.props.processForm(user).then(this.props.closeModal);
+      e.preventDefault(); // const user = Object.assign({}, this.state);
+      // this.props.processForm(user).then(this.props.close);
+
+      this.props.user = this.state.user;
+      this.props.updateUser(user).then(this.props.close);
     }
   }, {
     key: "renderErrors",
@@ -4682,7 +4679,9 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "edit-header-modal"
+        className: "modal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-header-modal modal-dialog"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-header-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4690,7 +4689,8 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         id: "edit-header-edit-intro"
       }, "Edit intro"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        id: "edit-header-exit"
+        id: "edit-header-exit",
+        onClick: this.props.close
       }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-header-images"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4708,7 +4708,7 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "edit-header-firstname-box",
         value: this.state.first_name,
-        onChange: this.handleInputFirstName.bind(this)
+        onChange: this.update('firstName')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-header-lastname"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -4718,7 +4718,7 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "edit-header-lastname-box",
         value: this.state.last_name,
-        onChange: this.handleInputLastName.bind(this)
+        onChange: this.update('lastName')
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-header-headline"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -4727,8 +4727,8 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
         id: "edit-header-headline-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         id: "edit-header-headline-box",
-        value: this.state.last_name,
-        onChange: this.handleInputHeadline.bind(this)
+        value: this.state.headline,
+        onChange: this.update('headline')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-header-location"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -4738,14 +4738,14 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "edit-header-location-box",
         value: this.state.location,
-        onChange: this.handleInputLocation.bind(this)
+        onChange: this.update('location')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-header-submit-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "edit-header-submit",
         type: "submit",
         value: "Save"
-      }))));
+      })))));
     }
   }]);
 

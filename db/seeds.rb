@@ -19,7 +19,7 @@ demo = User.create!(username: 'demo@demo.com' ,
                    first_name: 'Albert', 
                    last_name:'Chen', 
                    location: 'San Francisco Bay Area', 
-                   headline: 'Software Engineer',
+                   headline: 'Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java',
                    summary: "I'm a software engineer with a passion for building products. I have experience with React, Redux, Ruby, Ruby on Rails, SQL, JavaScript, HTML5, CSS3, Node.js, Express.js, Python, and Java. My main projects right now are a MERN stack project creating custom memes and a React/Redux/Rails project rebuilding LinkedIn's site. Other frameworks and technologies I have experience with include Git, AJAX, RESTful API, JBuilder, jQuery, Heroku, AWS, and Ruby ERB."
 
 

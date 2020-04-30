@@ -6,11 +6,7 @@ class EditAboutModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // first_name: this.props.user.firstName,
-            // last_name: this.props.user.lastName,
-            // location: this.props.user.location
-            // user: this.props.user
-            summary: this.props.about.summary
+            summary: this.props.user.summary
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -25,15 +21,18 @@ class EditAboutModal extends React.Component {
         });
     }
 
-    handleInput(e) {
-        this.setState({ user: e.currentTarget.value });
-    }
+    // handleInput(e) {
+    //     this.setState({ user: e.currentTarget.value });
+    // }
 
 
     handleSubmit(e) {
         e.preventDefault();
+
         const user = Object.assign({}, this.state);
-        this.props.processForm(user).then(this.props.closeModal);
+        // this.props.processForm(user).then(this.props.close);
+        // this.props.user.summary = this.state.user.summary;
+        this.props.updateUser(user).then(this.props.close);
     }
 
     renderErrors() {

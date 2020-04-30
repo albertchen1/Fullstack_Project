@@ -91,50 +91,53 @@ class CreatePostForm extends React.Component {
             }
         }
         return (
-            <div className="create-post-outer">
-                <div className='create-post-header'>
-                    <div className="create-a-post">Create a post</div>
-                    <div onClick={this.props.closeModal} className="close-post-x">X</div>
-                </div>
-                <div className="create-post-pic-name">
-                    <div id="create-post-pic"></div>
-                    <div id="create-post-name-anyone">
-                        <div id="create-post-name">Albert Chen</div>
-                        <div id="create-post-anyone"><i className="fas fa-globe-americas"></i>Anyone<i className="fas fa-sort-down"></i></div>
+            // <div className="modal">
+                <div className="create-post-outer">
+                    <div className='create-post-header'>
+                        <div className="create-a-post">Create a post</div>
+                        <div onClick={this.props.closeModal} className="close-post-x">X</div>
                     </div>
-                    
-                </div>
-
-                <form onSubmit={this.handleSubmit.bind(this)}>
-                    <textarea 
-                        className='create-post-form'
-                        type='text'
-                        value={this.state.body}
-                        onChange={this.handleInput.bind(this)}
-                        placeholder='What do you want to talk about?' />
-                    <br />
-                    <br />
-
-                    <div className='create-post-bottom'>
-                        <div className='post-form-icons'>
-                            <div className='icon-post-form'>
-                                <div id="icon-post-form-each"><i className="fas fa-camera"></i></div>
-                                <div id="icon-post-form-each"><i className="fas fa-video"></i></div>
-                                <div id="icon-post-form-each"><i className="fas fa-file-alt"></i></div>
-
-                                <input className='post-modal-submit' type='submit' value='Post' />
-
-                            </div>
-                                <input
-                                    id='icon-submit-file'
-                                    type='file'
-                                    onChange={this.handleFile.bind(this)}
-                                />
+                    <div className="create-post-pic-name">
+                        <div id="create-post-pic"></div>
+                        <div id="create-post-name-anyone">
+                            <div id="create-post-name">Albert Chen</div>
+                            <div id="create-post-anyone"><i className="fas fa-globe-americas"></i>Anyone<i className="fas fa-sort-down"></i></div>
                         </div>
-
+                        
                     </div>
-                </form>
-            </div>
+
+                    <form onSubmit={this.handleSubmit.bind(this)}>
+                        <textarea 
+                            className='create-post-form'
+                            type='text'
+                            value={this.state.body}
+                            onChange={this.handleInput.bind(this)}
+                            placeholder='What do you want to talk about?' />
+                        <br />
+                        <br />
+
+                        <div className='create-post-bottom'>
+                            <div className='post-form-icons'>
+                                <div className='icon-post-form'>
+                                    <div id="icon-post-form-each"><i className="fas fa-camera"></i></div>
+                                    <div id="icon-post-form-each"><i className="fas fa-video"></i></div>
+                                    <div id="icon-post-form-each"><i className="fas fa-file-alt"></i></div>
+
+                                    <input className='post-modal-submit' type='submit' value='Post' />
+
+                                </div>
+                                    <input
+                                        id='icon-submit-file'
+                                        type='file'
+                                        onChange={this.handleFile.bind(this)}
+                                    />
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            // </div>
+
         )
     }
 

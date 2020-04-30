@@ -161,7 +161,7 @@ class Profile extends React.Component {
                         <h4 id="about-title">About</h4>
                         <div id="profile-about-edit-icon"onClick={() => this.openEditModal('about')}><i className="fas fa-pencil-alt"></i></div>
                     </div>
-                    <div className="profile-about-content">{this.renderEditAbout()}</div>
+                    <div className="profile-about-content">{this.props.user.summary}</div>
                 </div>
                 <div className="profile-experience-container">
                     <div className="profile-experience-header">
@@ -179,8 +179,6 @@ class Profile extends React.Component {
                     {/* <div id="profile-education-edit-icon" onClick={() => this.openEditModal('education')}><i className="fas fa-pencil-alt"></i></div> */}
                     <div className="profile-education-list">{this.renderEducation()}</div>
                 </div>
-
-
                 {this.renderEditAbout()}
                 {this.renderEditHeader()}
             </div>

@@ -28,6 +28,10 @@ class Feed extends React.Component {
         });
     }
 
+    // refreshPage() {
+    //     window.location.reload();
+    // }
+
     componentDidMount() {
         // console.log(this.props)
         this.props.fetchAllPosts()
@@ -63,7 +67,9 @@ class Feed extends React.Component {
 
     render() {
         return (
+            
             <div className="feed-div">
+               {/* {this.refreshPage()}  */}
                 <NavbarContainer />
 
                 <div className="feed-container">

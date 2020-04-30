@@ -12,7 +12,7 @@
     position: sticky;
     top: 15vh;
     margin-left: 10%;
-    box-shadow: 0 0 0 0.15vh rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 0 0.07vw rgba(0, 0, 0, 0.15);
     background-color: white;
     
 }
@@ -120,8 +120,75 @@
     content: image_url('steve-carell-pic.jpg');
     margin: 2vh 1vw 2vh 2vw;
     height: 10vh;
-    width: 6.65vw;
+    width: 4.65vw;
     border-radius: 5vh;
     position: absolute; 
 
+}
+
+.invitations-list-container {
+    box-shadow: 0 0 0 0.07vw rgba(0, 0, 0, 0.15);
+}
+
+.invitations-user-info {
+    margin: 0vh 0 0 8vw;
+    // width: 50.8vw; 
+    height: 14vh;
+    background-color: white; 
+    // display:flex; 
+    // flex-direction: column;
+    // box-shadow: 0 0 0 0.07vw rgba(0, 0, 0, 0.15);
+
+    // border-radius: .3vh;
+    // padding: 5vh 2.4vw 5vh 2.4vw;
+}
+
+.invitations-headline-buttons {
+    display: flex;
+}
+
+#invitations-name {
+    padding: 2vh 0 0vh 0;
+    font-size: 13pt;
+    font-weight: 500;
+}
+
+#invitations-headline {
+    font-size: 12pt;
+    color: grey;
+    padding-top: 1.25vh;
+}
+
+#invitations-ignore-button {
+    margin-left: 67%;
+    font-size: 12pt;
+    font-weight: 500;
+    height: 5vh;
+    max-width: 5vw;
+    border: none;
+    background-color: white;
+    color: grey;
+}
+
+#invitations-ignore-button:hover {
+    color: rgba(0, 0, 0, .85);
+    background: lightgrey;
+}
+
+#invitations-accept-button {
+    margin-left: 1vw;
+    background-color: white;
+    color: #0073b1;
+    font-size: 12pt;
+    font-weight: 500;
+    height: 5vh;
+    max-width: 5vw;
+    border: .05vh solid #0073b1;
+
+    // border-radius: .3vh;
+    // margin: 2vh 1.4vw 3vh 89%;
+}
+
+#invitations-accept-button:hover {
+    background-color: lightblue;
 }

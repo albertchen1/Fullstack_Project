@@ -1,15 +1,19 @@
 .edit-header-modal, .edit-about-modal, .edit-experience-modal, 
 .edit-education-modal {
     background-color: rgba(0,0,0,.7);
-    height: 100%;
-    width: 100%;
-    max-width: 100vw;
+    height: 150%;
+    width: 150%;
+    max-width: 105vw;
+    max-height: 220vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
     // font-family: BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
 }
 
 .edit-header-container, .edit-about-container, .edit-experience-container,
 .edit-education-container {
-    margin: 1vh 20% 1vh 20%;
+    margin: 8vh 20% 1vh 20%;
     // font-family: BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
 
 

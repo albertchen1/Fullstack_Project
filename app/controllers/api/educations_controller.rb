@@ -21,6 +21,7 @@ class Api::EducationsController < ApplicationController
     def update
         @education = Education.find(params[:id])
         if @education.update_attributes(education_params)
+            @educations = Education.where(user_id: @education.user_id)
             render '/api/education/show'
         else
             render json: @education.errors.full_messages, status: 422

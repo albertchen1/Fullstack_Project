@@ -148,7 +148,8 @@
     border: .01vh solid black;
 }
 
-.edit-header-submit-container, .edit-about-submit-container {
+.edit-header-submit-container, .edit-about-submit-container,
+.edit-education-submit-container, .edit-experience-submit-container {
     display: flex; 
     justify-content: space-between;
 }
@@ -178,7 +179,9 @@
     padding-bottom: 1vh;
 }
 
-#profile-education-info-fieldstudy, #profile-education-info-degree, #profile-experience-info-company {
+#profile-education-info-fieldstudy, #profile-education-info-degree, 
+#profile-experience-info-company, #profile-experience-info-location, 
+#profile-experience-info-description {
     font-size: 11pt;
     padding-bottom: 1vh;
 }
@@ -220,7 +223,7 @@
     display:flex; 
     flex-direction: column;
     // box-shadow: 0 0 0 2px rgba(0,0,0,.15);
-    box-shadow:0px 1px 1px rgba(0,0,0,.15);
+    box-shadow:0px 1px 0 rgba(0,0,0,.15);
 }
 
 .profile-education-pic {

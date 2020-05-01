@@ -121,7 +121,11 @@ class PostItem extends React.Component {
                         return (
                             <div className="comment-list" key={comment.id}>
                                 <div className="comment-pic"></div>
-                                <div className="comment-body">{comment.body}</div>
+                                <div className="comment-body-box">
+                                    <h3 id="comment-user">Albert Chen</h3>
+                                    <h3 id="comment-user-headline">Software Engineer</h3>
+                                    <div id="comment-body">{comment.body}</div>
+                                </div>
                             </div>
                         )
                     } else {

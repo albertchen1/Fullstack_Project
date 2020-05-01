@@ -295,7 +295,7 @@ class EditEducationModal extends React.Component {
                         </div>
 
                         <div className="edit-education-submit-container">
-                            <button className='edit-education-submit' value='Save' onClick={this.handleSubmit}/>
+                            <input className='edit-education-submit' type='submit' value='Save' onClick={this.handleSubmit}/>
                         </div>
 
                     </div>

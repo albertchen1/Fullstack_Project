@@ -43,8 +43,13 @@ class Profile extends React.Component {
         // this.renderEditEducation = this.renderEditEducation.bind(this)
         // this.renderEditExperience = this.renderEditExperience.bind(this)
         // this.renderEditHeader = this.renderEditHeader.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this)
         this.openEditModal = this.openEditModal.bind(this)
+        this.closeUpdate = this.closeUpdate.bind(this)
+    }
+
+    closeUpdate(field) {
+        this.setState({[field]: false})
     }
 
     update(field) {
@@ -55,8 +60,14 @@ class Profile extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        let user = {
+            id: this.props.user.id,
+            summary: this.state.summary,
+            first_name: this.state.firstName,
+            last_name: this.state.lastName,
+            headline: this.state.headline
+        }
+        this.props.updateUser(user);
     }
 
     renderErrors() {
@@ -104,7 +115,7 @@ class Profile extends React.Component {
     renderEditHeader() {
         if (this.state.header) {
             return (
-                <EditHeaderModal user={this.props.user} updateUser={this.props.updateUser}/>
+                <EditHeaderModal user={this.props.user} updateUser={this.props.updateUser} close={this.closeUpdate}/>
                 // null
             )
         }else {
@@ -115,7 +126,7 @@ class Profile extends React.Component {
     renderEditAbout() {
         if (this.state.about) {
             return (
-                <EditAboutModal user={this.props.user} updateUser={this.props.updateUser}/>
+                <EditAboutModal user={this.props.user} updateUser={this.props.updateUser} close={this.closeUpdate}/>
             )
         }else {
             return null
@@ -141,19 +152,19 @@ class Profile extends React.Component {
         return (
             <div className="profile-page">
                 <NavbarContainer />
-
+                <div className="profile-top"></div>
                 <div className="profile-header-container">
                     <div className="profile-header-background"></div>
                     <div className="profile-header-pic"></div>
                     
                     <div className="profile-header-info">
                         <div className="profile-header-name-edit-line">
-                            <div id="profile-header-name">Albert Chen</div>
+                            <div id="profile-header-name">{this.props.user.firstName}&nbsp;{this.props.user.lastName}</div>
                             <div id="profile-header-edit-icon" onClick={() => this.openEditModal('header')}><i className="fas fa-pencil-alt"></i></div>
                         </div>
                         
-                        <div id="profile-header-title">Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java</div>
-                        <div id="profile-header-location">United States</div>
+                        <div id="profile-header-title">{this.props.user.headline}</div>
+                        <div id="profile-header-location"> {this.props.user.location}</div>
                     </div>
                 </div>
                 <div className="profile-about-container">
@@ -166,7 +177,7 @@ class Profile extends React.Component {
                 <div className="profile-experience-container">
                     <div className="profile-experience-header">
                         <h4 id="experience-title">Experience</h4>
-                        <div id="add-experience-icon"><i className="fas fa-plus"></i></div>
+                        <div id="add-experience-icon"><i className="fas fa-plus" onClick={e => alert("Feature coming soon!")}></i></div>
                     </div>
                     {/* <div id="profile-experience-edit-icon" onClick={() => this.openEditModal('experience')}><i className="fas fa-pencil-alt"></i></div> */}
                     <div className="profile-experience-list">{this.renderExperience()}</div>
@@ -174,7 +185,7 @@ class Profile extends React.Component {
                 <div className="profile-education-container">
                     <div className="profile-education-header">
                         <h4 id="education-title">Education</h4>
-                        <div id="add-education-icon"><i className="fas fa-plus"></i></div>
+                        <div id="add-education-icon"><i className="fas fa-plus" onClick={e => alert("Feature coming soon!")}></i></div>
                     </div>
                     {/* <div id="profile-education-edit-icon" onClick={() => this.openEditModal('education')}><i className="fas fa-pencil-alt"></i></div> */}
                     <div className="profile-education-list">{this.renderEducation()}</div>

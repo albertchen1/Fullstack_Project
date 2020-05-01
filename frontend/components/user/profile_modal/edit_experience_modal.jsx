@@ -11,7 +11,8 @@ class EditExperienceModal extends React.Component {
             start_date_month: this.props.experience.start_date_month,
             start_date_year: this.props.experience.start_date_year,
             end_date_year: this.props.experience.end_date_year,
-            end_date_month: this.props.experience.end_date_month
+            end_date_month: this.props.experience.end_date_month,
+            description: this.props.experience.description
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -48,17 +49,18 @@ class EditExperienceModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let experience = this.props.experience
-        experience.title = this.experience.title
-        experience.company = this.experience.company
-        experience.location = this.experience.location
-        experience.start_date_month = this.experience.start_date_month
-        experience.start_date_year = this.experience.start_date_year
-        experience.end_date_month = this.experience.end_date_month
-        experience.end_date_year = this.experience.end_date_year
-        experience.description = this.experience.description
 
-
+        let experience = {
+            id: this.props.experience.id,
+            title: this.state.title,
+            company: this.state.company,
+            location: this.state.location,
+            start_date_month: this.state.start_date_month,
+            start_date_year: this.state.start_date_year,
+            end_date_month: this.state.end_date_month,
+            end_date_year: this.state.end_date_year,
+            description: this.state.description
+        }
         // const user = Object.assign({}, this.state);
         this.props.updateExperience(experience).then(this.props.close);
     }
@@ -125,7 +127,7 @@ class EditExperienceModal extends React.Component {
                                             <option value="Jun">June</option>
                                             <option value="Jul">July</option>
                                             <option value="Aug">August</option>
-                                            <option value="Sep" selected hidden>September</option>
+                                            <option value="Sep" >September</option>
                                             <option value="Oct">October</option>
                                             <option value="Nov">November</option>
                                             <option value="Dec">December</option>
@@ -136,7 +138,7 @@ class EditExperienceModal extends React.Component {
                                             onChange={this.update('start_date_year')}>
                                             <option value="2020">2020</option>
                                             <option value="2019">2019</option>
-                                            <option value="2018" selected hidden>2018</option>
+                                            <option value="2018" >2018</option>
                                             <option value="2017">2017</option>
                                             <option value="2016">2016</option>
                                             <option value="2015">2015</option>
@@ -243,7 +245,7 @@ class EditExperienceModal extends React.Component {
                                             <option value="Jul">July</option>
                                             <option value="Aug">August</option>
                                             <option value="Sep">September</option>
-                                            <option value="Oct" selected hidden>October</option>
+                                            <option value="Oct" >October</option>
                                             <option value="Nov">November</option>
                                             <option value="Dec">December</option>
                                         </select>
@@ -251,7 +253,7 @@ class EditExperienceModal extends React.Component {
                                     <div id="edit-experience-enddate-year">
                                         <select id="edit-experience-enddate-year-list">
                                             <option value="2020">2020</option>
-                                            <option value="2019" selected hidden>2019</option>
+                                            <option value="2019" >2019</option>
                                             <option value="2018">2018</option>
                                             <option value="2017">2017</option>
                                             <option value="2016">2016</option>
@@ -357,7 +359,7 @@ class EditExperienceModal extends React.Component {
                         </div>
 
                         <div className="edit-experience-submit-container">
-                            <button className='edit-experience-submit' type='submit' value='Save' onClick={this.handleSubmit} />
+                            <input className='edit-experience-submit' type='submit' value='Save' onClick={this.handleSubmit} />
                         </div>
 
 

@@ -15,12 +15,13 @@ body {
     // padding-top: 10vh;
     // padding-left: 12vh;
     // padding-right: 12vh;
-    margin: 14vh 0 3vh 9.5vw;
+    
     // font-family: Arial, Helvetica, sans-serif;
     // border: 1px solid black;
     // width: 45%;
 
-
+    // margin: 14vh 0 3vh 9.5vw;
+    margin: 9vh 0 3vh 9.5vw;
     width: 55.5vw; 
     height: 58.5vh; 
     background-color: white; 
@@ -59,7 +60,7 @@ body {
 }
 
 #profile-header-edit-icon {
-    margin-left: 77%;
+    // margin-left: 77%;
     color: #0073b1;
     font-size: 16pt;
     cursor: pointer;
@@ -74,6 +75,8 @@ body {
 #profile-header-name {
     font-size: 18pt;
     margin-bottom: 2vh;
+    min-width: 50vw;
+    max-width: 50vw;
 }
 
 #profile-header-title, #profile-header-location {
@@ -135,9 +138,9 @@ body {
     margin-left: 85%;
 }
 
-
-
-
+.profile-top {
+    height: 5vh;
+}
 
 .profile-about-content {
     font-size: 11pt;

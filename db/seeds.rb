@@ -53,7 +53,7 @@ experience1 = Experience.create!({
     start_date_year: 2018, 
     end_date_month: 'Oct', 
     end_date_year: 2019,
-    # description: 'I love this job',
+    description: 'I love this job',
     user_id: User.find_by(username: 'demo@demo.com').id
 })
 

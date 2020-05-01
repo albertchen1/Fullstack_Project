@@ -25,7 +25,7 @@ export const createEducation = (education) => dispatch => (
         .then(education => dispatch(receiveEducation(education)))
 )
 
-export const updateEducation = education => dispatch (
+export const updateEducation = education => dispatch => (
     APIUtil.updateEducation(education)
         .then(educations => dispatch(receiveEducations(educations)))
 )

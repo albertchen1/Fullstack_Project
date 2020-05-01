@@ -18,7 +18,7 @@ export const fetchExperience = (userId) => dispatch => (
         .then(experiences => dispatch(receiveExperiences(experiences)))
 )
 
-export const updateExperience = experience => dispatch (
+export const updateExperience = experience => dispatch => (
     APIUtil.updateExperience(experience)
         .then(experiences => dispatch(receiveExperiences(experiences)))
 )

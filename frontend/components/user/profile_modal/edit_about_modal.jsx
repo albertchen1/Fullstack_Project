@@ -6,6 +6,7 @@ class EditAboutModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: this.props.user.id,
             summary: this.props.user.summary
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,7 +33,7 @@ class EditAboutModal extends React.Component {
         const user = Object.assign({}, this.state);
         // this.props.processForm(user).then(this.props.close);
         // this.props.user.summary = this.state.user.summary;
-        this.props.updateUser(user).then(this.props.close);
+        this.props.updateUser(user).then(this.props.close('about'));
     }
 
     renderErrors() {
@@ -55,7 +56,7 @@ class EditAboutModal extends React.Component {
                     <div className="edit-about-container">
                         <div className="edit-about-top">
                             <h2 id="edit-about-title">Edit about</h2>
-                            <h2 id="edit-about-exit" onClick={this.props.close}>X</h2>
+                            <h2 id="edit-about-exit" onClick={() => this.props.close('about')}>X</h2>
                         </div>
                         
 

@@ -29,6 +29,7 @@ class Api::ExperiencesController < ApplicationController
     def update
         @experience = Experience.find(params[:id])
         if @experience.update_attributes(experience_params)
+            @experiences = Experience.where(user_id: @experience.user_id)
             render '/api/experiences/show'
         else
             render json: @experience.errors.full_messages, status: 422
@@ -49,7 +50,7 @@ class Api::ExperiencesController < ApplicationController
   private
 
   def experience_params
-    params.require(:experience).permit(:title, :company, :location, :start_date_month, :start_date_year, :end_date_month, :end_date_year)
+    params.require(:experience).permit(:title, :company, :location, :start_date_month, :start_date_year, :end_date_month, :end_date_year, :description)
   end
 
 end

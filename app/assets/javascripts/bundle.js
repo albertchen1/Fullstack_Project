@@ -309,9 +309,11 @@ var createEducation = function createEducation(education) {
   };
 };
 var updateEducation = function updateEducation(education) {
-  return dispatch(_util_profile_education_api_util__WEBPACK_IMPORTED_MODULE_0__["updateEducation"](education).then(function (educations) {
-    return dispatch(receiveEducations(educations));
-  }));
+  return function (dispatch) {
+    return _util_profile_education_api_util__WEBPACK_IMPORTED_MODULE_0__["updateEducation"](education).then(function (educations) {
+      return dispatch(receiveEducations(educations));
+    });
+  };
 };
 var deleteEducation = function deleteEducation(educationId) {
   return function (dispatch) {
@@ -365,9 +367,11 @@ var fetchExperience = function fetchExperience(userId) {
   };
 };
 var updateExperience = function updateExperience(experience) {
-  return dispatch(_util_profile_experience_api_util__WEBPACK_IMPORTED_MODULE_0__["updateExperience"](experience).then(function (experiences) {
-    return dispatch(receiveExperiences(experiences));
-  }));
+  return function (dispatch) {
+    return _util_profile_experience_api_util__WEBPACK_IMPORTED_MODULE_0__["updateExperience"](experience).then(function (experiences) {
+      return dispatch(receiveExperiences(experiences));
+    });
+  };
 };
 var createExperience = function createExperience(experience) {
   return function (dispatch) {
@@ -1085,7 +1089,8 @@ var Feed = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "openModal",
     value: function openModal() {
-      document.getElementsByClassName("feed-div")[0].className = "greyed-out";
+      document.getElementsByClassName("feed-div")[0].className = "greyed-out"; // document.getElementsByClassName("create-post-modal-hidden")[0].className = "modal"
+
       document.getElementsByClassName("create-post-modal-hidden")[0].className = "create-post-modal-show";
     }
   }, {
@@ -1613,8 +1618,14 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "comment-pic"
             }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-              className: "comment-body"
-            }, comment.body));
+              className: "comment-body-box"
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+              id: "comment-user"
+            }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+              id: "comment-user-headline"
+            }, "Software Engineer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+              id: "comment-body"
+            }, comment.body)));
           } else {
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "null");
           }
@@ -3012,10 +3023,16 @@ var Profile = /*#__PURE__*/function (_React$Component) {
 
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.openEditModal = _this.openEditModal.bind(_assertThisInitialized(_this));
+    _this.closeUpdate = _this.closeUpdate.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Profile, [{
+    key: "closeUpdate",
+    value: function closeUpdate(field) {
+      this.setState(_defineProperty({}, field, false));
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -3028,8 +3045,14 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var user = Object.assign({}, this.state);
-      this.props.processForm(user);
+      var user = {
+        id: this.props.user.id,
+        summary: this.state.summary,
+        first_name: this.state.firstName,
+        last_name: this.state.lastName,
+        headline: this.state.headline
+      };
+      this.props.updateUser(user);
     }
   }, {
     key: "renderErrors",
@@ -3088,7 +3111,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       if (this.state.header) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_profile_modal_edit_header_modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
           user: this.props.user,
-          updateUser: this.props.updateUser
+          updateUser: this.props.updateUser,
+          close: this.closeUpdate
         }) // null
         ;
       } else {
@@ -3101,7 +3125,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       if (this.state.about) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_profile_modal_edit_about_modal__WEBPACK_IMPORTED_MODULE_4__["default"], {
           user: this.props.user,
-          updateUser: this.props.updateUser
+          updateUser: this.props.updateUser,
+          close: this.closeUpdate
         });
       } else {
         return null;
@@ -3123,6 +3148,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-page"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-top"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-header-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-header-background"
@@ -3134,7 +3161,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         className: "profile-header-name-edit-line"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "profile-header-name"
-      }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.user.firstName, "\xA0", this.props.user.lastName), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "profile-header-edit-icon",
         onClick: function onClick() {
           return _this5.openEditModal('header');
@@ -3143,9 +3170,9 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         className: "fas fa-pencil-alt"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "profile-header-title"
-      }, "Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.user.headline), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "profile-header-location"
-      }, "United States"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, " ", this.props.user.location))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-about-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-about-header"
@@ -3169,7 +3196,10 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }, "Experience"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "add-experience-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-plus"
+        className: "fas fa-plus",
+        onClick: function onClick(e) {
+          return alert("Feature coming soon!");
+        }
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-experience-list"
       }, this.renderExperience())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3181,7 +3211,10 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }, "Education"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "add-education-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-plus"
+        className: "fas fa-plus",
+        onClick: function onClick(e) {
+          return alert("Feature coming soon!");
+        }
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-education-list"
       }, this.renderEducation())), this.renderEditAbout(), this.renderEditHeader());
@@ -3295,6 +3328,7 @@ var EditAboutModal = /*#__PURE__*/function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(EditAboutModal).call(this, props));
     _this.state = {
+      id: _this.props.user.id,
       summary: _this.props.user.summary
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -3325,7 +3359,7 @@ var EditAboutModal = /*#__PURE__*/function (_React$Component) {
       var user = Object.assign({}, this.state); // this.props.processForm(user).then(this.props.close);
       // this.props.user.summary = this.state.user.summary;
 
-      this.props.updateUser(user).then(this.props.close);
+      this.props.updateUser(user).then(this.props.close('about'));
     }
   }, {
     key: "renderErrors",
@@ -3343,6 +3377,8 @@ var EditAboutModal = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3355,7 +3391,9 @@ var EditAboutModal = /*#__PURE__*/function (_React$Component) {
         id: "edit-about-title"
       }, "Edit about"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         id: "edit-about-exit",
-        onClick: this.props.close
+        onClick: function onClick() {
+          return _this3.props.close('about');
+        }
       }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-about-summary"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -3919,8 +3957,9 @@ var EditEducationModal = /*#__PURE__*/function (_React$Component) {
         onChange: this.update('description')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-education-submit-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "edit-education-submit",
+        type: "submit",
         value: "Save",
         onClick: this.handleSubmit
       })))));
@@ -3985,7 +4024,8 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       start_date_month: _this.props.experience.start_date_month,
       start_date_year: _this.props.experience.start_date_year,
       end_date_year: _this.props.experience.end_date_year,
-      end_date_month: _this.props.experience.end_date_month
+      end_date_month: _this.props.experience.end_date_month,
+      description: _this.props.experience.description
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -4022,15 +4062,17 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var experience = this.props.experience;
-      experience.title = this.experience.title;
-      experience.company = this.experience.company;
-      experience.location = this.experience.location;
-      experience.start_date_month = this.experience.start_date_month;
-      experience.start_date_year = this.experience.start_date_year;
-      experience.end_date_month = this.experience.end_date_month;
-      experience.end_date_year = this.experience.end_date_year;
-      experience.description = this.experience.description; // const user = Object.assign({}, this.state);
+      var experience = {
+        id: this.props.experience.id,
+        title: this.state.title,
+        company: this.state.company,
+        location: this.state.location,
+        start_date_month: this.state.start_date_month,
+        start_date_year: this.state.start_date_year,
+        end_date_month: this.state.end_date_month,
+        end_date_year: this.state.end_date_year,
+        description: this.state.description
+      }; // const user = Object.assign({}, this.state);
 
       this.props.updateExperience(experience).then(this.props.close);
     }
@@ -4122,9 +4164,7 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, "July"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Aug"
       }, "August"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Sep",
-        selected: true,
-        hidden: true
+        value: "Sep"
       }, "September"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Oct"
       }, "October"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -4142,9 +4182,7 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, "2020"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2019"
       }, "2019"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "2018",
-        selected: true,
-        hidden: true
+        value: "2018"
       }, "2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2017"
       }, "2017"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -4350,9 +4388,7 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, "August"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Sep"
       }, "September"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Oct",
-        selected: true,
-        hidden: true
+        value: "Oct"
       }, "October"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Nov"
       }, "November"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -4364,9 +4400,7 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2020"
       }, "2020"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "2019",
-        selected: true,
-        hidden: true
+        value: "2019"
       }, "2019"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2018"
       }, "2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -4557,7 +4591,7 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
         onChange: this.update('description')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-experience-submit-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "edit-experience-submit",
         type: "submit",
         value: "Save",
@@ -4618,6 +4652,7 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(EditHeaderModal).call(this, props));
     _this.state = {
+      id: _this.props.user.id,
       first_name: _this.props.user.firstName,
       last_name: _this.props.user.lastName,
       location: _this.props.user.location,
@@ -4656,11 +4691,11 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault(); // const user = Object.assign({}, this.state);
-      // this.props.processForm(user).then(this.props.close);
+      e.preventDefault();
+      var user = Object.assign({}, this.state); // this.props.processForm(user).then(this.props.close);
+      // this.props.user = this.state.user;
 
-      this.props.user = this.state.user;
-      this.props.updateUser(user).then(this.props.close);
+      this.props.updateUser(user).then(this.props.close('header'));
     }
   }, {
     key: "renderErrors",
@@ -4678,6 +4713,8 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4690,7 +4727,9 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
         id: "edit-header-edit-intro"
       }, "Edit intro"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         id: "edit-header-exit",
-        onClick: this.props.close
+        onClick: function onClick() {
+          return _this3.props.close('header');
+        }
       }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-header-images"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4708,7 +4747,7 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "edit-header-firstname-box",
         value: this.state.first_name,
-        onChange: this.update('firstName')
+        onChange: this.update('first_name')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-header-lastname"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -4718,7 +4757,7 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "edit-header-lastname-box",
         value: this.state.last_name,
-        onChange: this.update('lastName')
+        onChange: this.update('last_name')
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-header-headline"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -4744,7 +4783,8 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "edit-header-submit",
         type: "submit",
-        value: "Save"
+        value: "Save",
+        onClick: this.handleSubmit
       })))));
     }
   }]);

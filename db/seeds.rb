@@ -32,7 +32,7 @@ education1 = Education.create!(
     gpa: 4.0,
     start_year: 2019,
     end_year: 2020,
-    description: 'Cool',
+    description: 'Most selective coding bootcamp, <3% acceptance rate, intensive 1000 hours full-stack development',
     user_id: User.find_by(username: 'demo@demo.com').id
 )
 
@@ -53,7 +53,7 @@ experience1 = Experience.create!({
     start_date_year: 2018, 
     end_date_month: 'Oct', 
     end_date_year: 2019,
-    description: 'I love this job',
+    description: '',
     user_id: User.find_by(username: 'demo@demo.com').id
 })
 

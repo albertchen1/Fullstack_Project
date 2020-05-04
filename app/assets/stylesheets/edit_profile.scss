@@ -212,18 +212,26 @@
 }
 
 
-.profile-education-info, .profile-experience-info {
+.profile-education-info {
     width: 42vw;
     margin: 3vh 2vw 1vh 12%;
-    // font-family: Arial, Helvetica, sans-serif;
-
-
     min-height: 13vh; 
     background-color: white; 
     display:flex; 
     flex-direction: column;
-    // box-shadow: 0 0 0 2px rgba(0,0,0,.15);
+
     box-shadow:0px 1px 0 rgba(0,0,0,.15);
+}
+
+.profile-experience-info {
+    width: 42vw;
+    margin: 3vh 2vw 1vh 12%;
+    min-height: 13vh; 
+    background-color: white; 
+    display:flex; 
+    flex-direction: column;
+
+    // box-shadow:0px 1px 0 rgba(0,0,0,.15);
 }
 
 .profile-education-pic {

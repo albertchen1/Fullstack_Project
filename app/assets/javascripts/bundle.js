@@ -1076,8 +1076,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      // console.log(this.props)
-      this.props.fetchAllPosts();
+      this.props.fetchAllPosts(); // this.props.fetchUser(this.props.user.id)
     }
   }, {
     key: "handleSubmit",
@@ -1129,7 +1128,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
         id: "feed-name"
       }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "feed-title"
-      }, "Software Engineer")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.user.headline)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-num"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-num-container"
@@ -1412,7 +1411,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state) {
-  return {};
+  return {
+    user: Object.values(state.entities.users)[0]
+  };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -1621,9 +1622,9 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
               className: "comment-body-box"
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
               id: "comment-user"
-            }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+            }, comment.author.firstName, "\xA0", comment.author.lastName), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
               id: "comment-user-headline"
-            }, "Software Engineer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            }, comment.author.headline), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               id: "comment-body"
             }, comment.body)));
           } else {
@@ -1657,12 +1658,12 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         id: "post-item-name-dropdown"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post-item-name"
-      }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, this.props.post.author.firstName, "\xA0", this.props.post.author.lastName), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "three-dot-dropdown",
         onClick: this.openDropdown
       }, this.renderDropdown())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post2-headline"
-      }, "Software Engineer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.post.author.headline), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post2-time"
       }, "1m"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post2-body-text"
@@ -1673,7 +1674,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         className: "post-likes"
       }, "0 Likes "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-comments"
-      }, "0 comments")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.comments.length, " comments")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-reacts"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "like",
@@ -1820,7 +1821,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    posts: Object.values(state.entities.posts),
+    posts: Object.values(state.entities.posts).sort(function (a, b) {
+      return b.id - a.id;
+    }),
     comments: Object.values(state.entities.comments)
   };
 };
@@ -3572,7 +3575,9 @@ var EditEducationModal = /*#__PURE__*/function (_React$Component) {
       }, "Start Year"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "edit-education-start-year"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        id: "edit-education-start-year-list"
+        id: "edit-education-start-year-list",
+        value: this.state.start_year,
+        onChange: this.update('start_year')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2020"
       }, "2020"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -3762,7 +3767,9 @@ var EditEducationModal = /*#__PURE__*/function (_React$Component) {
       }, "End Year (or expected)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "edit-education-end-year"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        id: "edit-education-end-year-list"
+        id: "edit-education-end-year-list",
+        value: this.state.end_year,
+        onChange: this.update('end_year')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2020"
       }, "2020"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -4146,32 +4153,34 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "edit-experience-startdate-month"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        id: "edit-experience-startdate-month-list"
+        id: "edit-experience-startdate-month-list",
+        value: this.state.start_date_month,
+        onChange: this.update('start_date_month')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Jan"
-      }, "January"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Jan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Feb"
-      }, "February"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Feb"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Mar"
-      }, "March"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Mar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Apr"
-      }, "April"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Apr"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "May"
       }, "May"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Jun"
-      }, "June"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Jun"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Jul"
-      }, "July"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Jul"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Aug"
-      }, "August"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Aug"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Sep"
-      }, "September"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Sep"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Oct"
-      }, "October"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Oct"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Nov"
-      }, "November"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Nov"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Dec"
-      }, "December"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Dec"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "edit-experience-startdate-year"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         id: "edit-experience-startdate-year-list",
@@ -4368,35 +4377,39 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "edit-experience-enddate-month"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        id: "edit-experience-enddate-month-list"
+        id: "edit-experience-enddate-month-list",
+        value: this.state.end_date_month,
+        onChange: this.update('end_date_month')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Jan"
-      }, "January"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Jan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Feb"
-      }, "February"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Feb"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Mar"
-      }, "March"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Mar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Apr"
-      }, "April"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Apr"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "May"
       }, "May"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Jun"
-      }, "June"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Jun"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Jul"
-      }, "July"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Jul"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Aug"
-      }, "August"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Aug"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Sep"
-      }, "September"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Sep"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Oct"
-      }, "October"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Oct"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Nov"
-      }, "November"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Nov"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Dec"
-      }, "December"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Dec"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "edit-experience-enddate-year"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        id: "edit-experience-enddate-year-list"
+        id: "edit-experience-enddate-year-list",
+        value: this.state.end_date_year,
+        onChange: this.update('end_date_year')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2020"
       }, "2020"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {

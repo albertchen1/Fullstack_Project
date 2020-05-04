@@ -118,19 +118,20 @@ class EditExperienceModal extends React.Component {
                                 <h3 id="edit-experience-startdate-label">Start Date *</h3>
                                 <div id="edit-experience-startdate-dates">
                                     <div id="edit-experience-startdate-month">
-                                        <select id="edit-experience-startdate-month-list">
-                                            <option value="Jan">January</option>
-                                            <option value="Feb">February</option>
-                                            <option value="Mar">March</option>
-                                            <option value="Apr">April</option>
+                                        <select id="edit-experience-startdate-month-list" value={this.state.start_date_month}
+                                            onChange={this.update('start_date_month')}>
+                                            <option value="Jan">Jan</option>
+                                            <option value="Feb">Feb</option>
+                                            <option value="Mar">Mar</option>
+                                            <option value="Apr">Apr</option>
                                             <option value="May">May</option>
-                                            <option value="Jun">June</option>
-                                            <option value="Jul">July</option>
-                                            <option value="Aug">August</option>
-                                            <option value="Sep" >September</option>
-                                            <option value="Oct">October</option>
-                                            <option value="Nov">November</option>
-                                            <option value="Dec">December</option>
+                                            <option value="Jun">Jun</option>
+                                            <option value="Jul">Jul</option>
+                                            <option value="Aug">Aug</option>
+                                            <option value="Sep">Sep</option>
+                                            <option value="Oct">Oct</option>
+                                            <option value="Nov">Nov</option>
+                                            <option value="Dec">Dec</option>
                                         </select>
                                     </div>
                                     <div id="edit-experience-startdate-year">
@@ -235,23 +236,25 @@ class EditExperienceModal extends React.Component {
                                 <h3 id="edit-experience-enddate-label">End Date *</h3>
                                 <div id="edit-experience-enddate-dates">
                                     <div id="edit-experience-enddate-month">
-                                        <select id="edit-experience-enddate-month-list">
-                                            <option value="Jan">January</option>
-                                            <option value="Feb">February</option>
-                                            <option value="Mar">March</option>
-                                            <option value="Apr">April</option>
+                                        <select id="edit-experience-enddate-month-list" value={this.state.end_date_month}
+                                            onChange={this.update('end_date_month')}>
+                                            <option value="Jan">Jan</option>
+                                            <option value="Feb">Feb</option>
+                                            <option value="Mar">Mar</option>
+                                            <option value="Apr">Apr</option>
                                             <option value="May">May</option>
-                                            <option value="Jun">June</option>
-                                            <option value="Jul">July</option>
-                                            <option value="Aug">August</option>
-                                            <option value="Sep">September</option>
-                                            <option value="Oct" >October</option>
-                                            <option value="Nov">November</option>
-                                            <option value="Dec">December</option>
+                                            <option value="Jun">Jun</option>
+                                            <option value="Jul">Jul</option>
+                                            <option value="Aug">Aug</option>
+                                            <option value="Sep">Sep</option>
+                                            <option value="Oct" >Oct</option>
+                                            <option value="Nov">Nov</option>
+                                            <option value="Dec">Dec</option>
                                         </select>
                                     </div>
                                     <div id="edit-experience-enddate-year">
-                                        <select id="edit-experience-enddate-year-list">
+                                        <select id="edit-experience-enddate-year-list" value={this.state.end_date_year}
+                                            onChange={this.update('end_date_year')}>
                                             <option value="2020">2020</option>
                                             <option value="2019" >2019</option>
                                             <option value="2018">2018</option>

@@ -5,7 +5,7 @@ import { createComment, fetchAllComments } from '../../actions/comment_actions'
 
 const mapStateToProps = (state) => {
     return {
-        posts: Object.values(state.entities.posts),
+        posts: Object.values(state.entities.posts).sort((a,b) => b.id - a.id),
         comments: Object.values(state.entities.comments)
     };
 };

@@ -33,8 +33,8 @@ class Feed extends React.Component {
     // }
 
     componentDidMount() {
-        // console.log(this.props)
         this.props.fetchAllPosts()
+        // this.props.fetchUser(this.props.user.id)
     }
 
     handleSubmit(e) {
@@ -79,7 +79,7 @@ class Feed extends React.Component {
                         <div className="feed-profile-info">
                             <div id="feed-img"><img src={window.blankprofilepic}/></div>
                             <div id="feed-name">Albert Chen</div>
-                            <div id="feed-title">Software Engineer</div>
+                            <div id="feed-title">{this.props.user.headline}</div>
                         </div>
                         <hr/>
                         <div className="feed-num">

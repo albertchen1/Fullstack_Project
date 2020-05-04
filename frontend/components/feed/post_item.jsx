@@ -122,8 +122,8 @@ class PostItem extends React.Component {
                             <div className="comment-list" key={comment.id}>
                                 <div className="comment-pic"></div>
                                 <div className="comment-body-box">
-                                    <h3 id="comment-user">Albert Chen</h3>
-                                    <h3 id="comment-user-headline">Software Engineer</h3>
+                                    <h3 id="comment-user">{comment.author.firstName}&nbsp;{comment.author.lastName}</h3>
+                                    <h3 id="comment-user-headline">{comment.author.headline}</h3>
                                     <div id="comment-body">{comment.body}</div>
                                 </div>
                             </div>
@@ -157,7 +157,7 @@ class PostItem extends React.Component {
                     <div id="self-post"></div>
                     <div id="post-item-header-text">
                         <div id="post-item-name-dropdown">
-                            <div id="post-item-name">Albert Chen</div>
+                            <div id="post-item-name">{this.props.post.author.firstName}&nbsp;{this.props.post.author.lastName}</div>
                             <button id="three-dot-dropdown" onClick={this.openDropdown}>
                                 {this.renderDropdown()}
                                 {/* <div id="post-dropdown-content">
@@ -167,7 +167,7 @@ class PostItem extends React.Component {
                             </button>
                         </div>
 
-                        <div id="post2-headline">Software Engineer</div>
+                        <div id="post2-headline">{this.props.post.author.headline}</div>
                         <div id="post2-time">1m</div>
                     </div>
                 </div>
@@ -178,7 +178,7 @@ class PostItem extends React.Component {
                 <div className="post-likes-comments" onClick={this.openCreateComment}>
                     <div className="post-likes">0 Likes </div> 
                     {/* <h4 onClick={this.openCreateComment}> */}
-                    <div className="post-comments">0 comments</div>
+                    <div className="post-comments">{this.props.comments.length} comments</div>
                     
                     {/* </h4> */}
                 </div>

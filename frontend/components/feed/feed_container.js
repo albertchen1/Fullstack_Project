@@ -5,6 +5,7 @@ import {fetchAllPosts} from '../../actions/post_actions'
 
 const mapStateToProps = (state) => {
     return {
+        user: Object.values(state.entities.users)[0]
     };
 };
 

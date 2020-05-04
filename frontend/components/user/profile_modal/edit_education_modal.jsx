@@ -90,7 +90,8 @@ class EditEducationModal extends React.Component {
                             <div className="edit-education-start">
                                 <h3 id="edit-education-start-label">Start Year</h3>
                                 <div id="edit-education-start-year">
-                                    <select id="edit-education-start-year-list">
+                                    <select id="edit-education-start-year-list" value={this.state.start_year}
+                                        onChange={this.update('start_year')}>
                                         <option value="2020">2020</option>
                                         <option value="2019">2019</option>
                                         <option value="2018">2018</option>
@@ -188,7 +189,8 @@ class EditEducationModal extends React.Component {
                             <div className="edit-education-end">
                                 <h3 id="edit-education-end-label">End Year (or expected)</h3>
                                 <div id="edit-education-end-year">
-                                    <select id="edit-education-end-year-list">
+                                    <select id="edit-education-end-year-list" value={this.state.end_year}
+                                        onChange={this.update('end_year')}>
                                         <option value="2020">2020</option>
                                         <option value="2019">2019</option>
                                         <option value="2018">2018</option>

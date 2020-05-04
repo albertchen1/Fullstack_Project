@@ -1,4 +1,4 @@
-.connections-page {
+.connections-page, .connection-list-page {
     // height: 100%;
     height: 800vh;
     background-color:  #f2f2f2;
@@ -46,6 +46,11 @@
 #manage-network-connections-text {
     font-size: 14pt;
     padding-left: 1vw;
+}
+
+#manage-network-connections-number {
+    font-size: 14pt;
+    padding-left: 7.5vw;
 }
 
 #manage-network-others {
@@ -101,6 +106,19 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.connection-list-page-container {
+    width: 55%;
+    min-height: 30vh;
+    // max-height: 50vh;
+    height: 40vh;
+    position: sticky;
+    top: 15vh;
+    margin-left: 11vw;
+    box-shadow: 0 0 0 0.15vh rgba(0, 0, 0, 0.15);
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .invitations-header-container {
     height: 2vh;
     position: sticky;
@@ -112,11 +130,22 @@
     color: rgb(46, 46, 46)
 }
 
-#invitations-label {
+.connection-list-header-container {
+    height: 2vh;
+    position: sticky;
+    top: 15vh;
+    // box-shadow: 0 0 0 0.15vh rgba(0, 0, 0, 0.15);
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 3vh 2vw;
+    color: rgb(46, 46, 46)
+}
+
+#invitations-label, #connection-list-label {
     font-size: 13pt;
 }
 
-.invitations-Steve-pic {
+.invitations-Michael-pic {
     content: image_url('steve-carell-pic.jpg');
     margin: 2vh 1vw 2vh 2vw;
     height: 10vh;
@@ -126,8 +155,8 @@
 
 }
 
-.invitations-Albert2-pic {
-    content: image_url('mini-profile-pic.png');
+.invitations-Jim-pic {
+    content: image_url('Jim.png');
     margin: 2vh 1vw 2vh 2vw;
     height: 10vh;
     width: 4.65vw;
@@ -136,7 +165,17 @@
 
 }
 
-.invitations-list-container {
+.invitations-Dwight-pic {
+    content: image_url('dwight.jpeg');
+    margin: 2vh 1vw 2vh 2vw;
+    height: 10vh;
+    width: 4.65vw;
+    border-radius: 5vh;
+    position: absolute; 
+
+}
+
+.invitations-list-container, .connection-list-container {
     box-shadow: 0 0 0 0.07vw rgba(0, 0, 0, 0.15);
 }
 
@@ -153,24 +192,43 @@
     // padding: 5vh 2.4vw 5vh 2.4vw;
 }
 
-.invitations-headline-buttons {
+.connection-list-user-info {
+    margin: 0vh 0 0 8vw;
+    // width: 50.8vw; 
+    height: 14vh;
+    background-color: white; 
+}
+
+.invitations-headline-buttons, .connection-list-headline-row {
     display: flex;
 }
 
-#invitations-name {
+#invitations-name, #connection-list-name {
     padding: 2vh 0 0vh 0;
     font-size: 13pt;
     font-weight: 500;
 }
 
 #invitations-headline {
-    font-size: 12pt;
+    font-size: 11pt;
     color: grey;
     padding-top: 1.25vh;
+    min-width: 30vw;
+}
+
+#connection-list-headline {
+    font-size: 11pt;
+    color: grey;
+    padding-top: 1.25vh;
+    min-width: 37vw;
+}
+
+#connection-list-time {
+    font-size: 10pt;
+    color: grey;
 }
 
 #invitations-ignore-button {
-    margin-left: 67%;
     font-size: 12pt;
     font-weight: 500;
     height: 5vh;
@@ -194,11 +252,23 @@
     height: 5vh;
     max-width: 5vw;
     border: .05vh solid #0073b1;
-
-    // border-radius: .3vh;
-    // margin: 2vh 1.4vw 3vh 89%;
 }
 
 #invitations-accept-button:hover {
+    background-color: lightblue;
+}
+
+#connection-list-message-button {
+    margin-left: 1vw;
+    background-color: white;
+    color: #0073b1;
+    font-size: 12pt;
+    font-weight: 500;
+    height: 5vh;
+    max-width: 10vw;
+    border: .05vh solid #0073b1;
+}
+
+#connection-list-message-button:hover {
     background-color: lightblue;
 }

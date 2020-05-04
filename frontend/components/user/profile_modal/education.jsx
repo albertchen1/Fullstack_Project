@@ -84,7 +84,7 @@ class Education extends React.Component {
         let education = this.props.education
         return (
             <div className="profile-education-list-container">
-                <div className="profile-education-pic"></div>
+                <div className={`profile-education-${education.school.split(' ')[0]}-pic`}></div>
                 <div className="profile-education-info">
                     <div className="profile-education-school-edit-icon">
                         <h3 id="profile-education-info-school">{education.school}</h3>

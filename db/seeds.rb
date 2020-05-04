@@ -28,23 +28,27 @@ demo = User.create!(username: 'demo@demo.com' ,
 )
 demo2 = User.create!(username: 'demo2@demo.com' , 
                    password: '123456', 
-                   first_name: 'Albert2', 
-                   last_name:'Chen', 
-                   location: 'San Francisco Bay Area2', 
-                   headline: 'Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java',
-                   summary: "I'm a software engineer with a passion for building products. I have experience with React, Redux, Ruby, Ruby on Rails, SQL, JavaScript, HTML5, CSS3, Node.js, Express.js, Python, and Java. My main projects right now are a MERN stack project creating custom memes and a React/Redux/Rails project rebuilding LinkedIn's site. Other frameworks and technologies I have experience with include Git, AJAX, RESTful API, JBuilder, jQuery, Heroku, AWS, and Ruby ERB."
-
-
+                   first_name: 'Jim', 
+                   last_name:'Halpert', 
+                   location: 'Greater New York City Area', 
+                   headline: 'Top Salesman',
+                   summary: "We didn't play many video games in Scranton. Instead we'd do stuff like.. uh, Pam and I would sometimes hum the same high pitched note and try to get Dwight to make an appointment with an ear doctor. And, uh, Pam called it... Pretendinitis."
 )
 demo3 = User.create!(username: 'demo3@demo.com' , 
                    password: '123456', 
-                   first_name: 'Steve', 
-                   last_name:'Carell', 
-                   location: 'San Francisco Bay Area2', 
-                   headline: 'Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java',
-                   summary: "I'm a software engineer with a passion for building products. I have experience with React, Redux, Ruby, Ruby on Rails, SQL, JavaScript, HTML5, CSS3, Node.js, Express.js, Python, and Java. My main projects right now are a MERN stack project creating custom memes and a React/Redux/Rails project rebuilding LinkedIn's site. Other frameworks and technologies I have experience with include Git, AJAX, RESTful API, JBuilder, jQuery, Heroku, AWS, and Ruby ERB."
-
-
+                   first_name: 'Michael', 
+                   last_name:'Scott', 
+                   location: 'Scranton, PA', 
+                   headline: 'I am Beyonce always',
+                   summary: "I love inside jokes. I'd love to be a part of one someday."
+)
+demo4 = User.create!(username: 'demo4@demo.com' , 
+                   password: '123456', 
+                   first_name: 'Dwight', 
+                   last_name:'Schrute', 
+                   location: 'Scranton, PA', 
+                   headline: 'Assistant to the Regional Manager',
+                   summary: "I'm somewhere between a snake and a mongoose."
 )
 
 education1 = Education.create!(
@@ -66,6 +70,14 @@ education2 = Education.create!(
     end_year: 2018,
     user_id: User.find_by(username: 'demo@demo.com').id
 )
+education3 = Education.create!(
+    school: "University of Illinois at Urbana-Champaign",
+    degree: 'Bachelor of Science',
+    field_study: 'Accountancy',
+    start_year: 2013,
+    end_year: 2016,
+    user_id: User.find_by(username: 'demo@demo.com').id
+)
 
 experience1 = Experience.create!({
     title: "Business Intelligence Analyst - Tax Technology & Transformation",
@@ -83,8 +95,14 @@ connection1 = Connection.create!({
     user_id: User.find_by(username: 'demo@demo.com').id,
     recipient_id: User.find_by(username: 'demo2@demo.com').id
 })
+
 request1 = ConnectionRequest.create!({
     user_id: User.find_by(username: 'demo3@demo.com').id,
+    recipient_id: User.find_by(username: 'demo@demo.com').id
+})
+
+request2 = ConnectionRequest.create!({
+    user_id: User.find_by(username: 'demo4@demo.com').id,
     recipient_id: User.find_by(username: 'demo@demo.com').id
 })
 

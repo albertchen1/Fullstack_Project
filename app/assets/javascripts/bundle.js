@@ -737,6 +737,7 @@ var App = function App() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nav_bar_navbar_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../nav_bar/navbar_container */ "./frontend/components/nav_bar/navbar_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -754,6 +755,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -784,9 +786,27 @@ var ConnectionList = /*#__PURE__*/function (_React$Component) {
     value: function renderConnections() {
       if (this.props.connections.length > 0) {
         return this.props.connections.map(function (connection) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-            key: connection.id
-          }, connection.recipient.firstName);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "connection-list-container"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "invitations-".concat(connection.recipient.firstName, "-pic")
+          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "connection-list-user-info"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+            id: "connection-list-name"
+          }, connection.recipient.firstName, "\xA0", connection.recipient.lastName), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "connection-list-headline-row"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+            id: "connection-list-headline"
+          }, connection.recipient.headline), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            id: "connection-list-message-button",
+            onClick: function onClick(e) {
+              return alert("Feature coming soon!");
+            }
+          }, "Message")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+            id: "connection-list-time"
+          }, "Connected 1m ago"))) // <li key={connection.id}>{connection.recipient.firstName}</li>
+          ;
         });
       } else {
         return null;
@@ -795,7 +815,17 @@ var ConnectionList = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderConnections());
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "connection-list-page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "connection-list-page-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "connection-list-header-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        id: "connection-list-label"
+      }, this.props.connections.length, " Connections")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "connection-list"
+      }, this.renderConnections()))));
     }
   }]);
 
@@ -953,7 +983,7 @@ var Connections = /*#__PURE__*/function (_React$Component) {
             className: "invitations-headline-buttons"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
             id: "invitations-headline"
-          }, "Actor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          }, request.sender.headline), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
             id: "invitations-ignore-button",
             onClick: function onClick() {
               return _this3.deleteRequest(request.id);
@@ -980,7 +1010,9 @@ var Connections = /*#__PURE__*/function (_React$Component) {
         className: "manage-network-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         id: "manage-network-title"
-      }, "Manage Network"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Manage Network"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/connection_list"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "manage-network-connections"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "manage-network-connections-icon"
@@ -988,7 +1020,9 @@ var Connections = /*#__PURE__*/function (_React$Component) {
         className: "fas fa-user-friends"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         id: "manage-network-connections-text"
-      }, "Connections")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Connections"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "manage-network-connections-number"
+      }, "33"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "manage-network-others"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "manage-network-others-icon"
@@ -1033,7 +1067,7 @@ var Connections = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "invitations-header-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-        id: "invitations-label"
+        id: "connections-list-label"
       }, "Invitations")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "invitations-list"
       }, this.renderRequests()))));
@@ -1445,9 +1479,12 @@ var Feed = /*#__PURE__*/function (_React$Component) {
         className: "feed-num-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "feed-num-connections-text"
-      }, "Connections"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Connections"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/connection_list",
         id: "feed-num-connections-num"
-      }, this.props.connections.length)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "feed-num-connections-num"
+      }, this.props.connections.length))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-create"
@@ -2242,7 +2279,10 @@ var Navbar = function Navbar(_ref) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "navbar-icons"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-suitcase"
+      className: "fas fa-suitcase",
+      onClick: function onClick(e) {
+        return alert("Feature coming soon!");
+      }
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       id: "navbar-icon-label"
     }, "Jobs"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -2250,7 +2290,10 @@ var Navbar = function Navbar(_ref) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "navbar-icons"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-envelope"
+      className: "fas fa-envelope",
+      onClick: function onClick(e) {
+        return alert("Feature coming soon!");
+      }
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       id: "navbar-icon-label"
     }, "Messaging"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -2258,7 +2301,10 @@ var Navbar = function Navbar(_ref) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "navbar-icons"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-bell"
+      className: "fas fa-bell",
+      onClick: function onClick(e) {
+        return alert("Feature coming soon!");
+      }
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       id: "navbar-icon-label"
     }, "Notifications"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -5248,7 +5294,7 @@ var Education = /*#__PURE__*/function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-education-list-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "profile-education-pic"
+        className: "profile-education-".concat(education.school.split(' ')[0], "-pic")
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-education-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

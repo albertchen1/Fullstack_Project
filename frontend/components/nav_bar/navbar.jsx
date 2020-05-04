@@ -46,21 +46,21 @@ const Navbar = ({ currentUser, logout }) => {
                     </Link>
                     <Link to="/jobs" >
                         <div className="navbar-icons">
-                            <i className="fas fa-suitcase"></i>
+                            <i className="fas fa-suitcase" onClick={e => alert("Feature coming soon!")}></i>
                             <br/>
                         <div id="navbar-icon-label">Jobs</div>
                         </div>
                     </Link>
                     <Link to="/messaging" >
                         <div className="navbar-icons">
-                            <i className="fas fa-envelope"></i>
+                            <i className="fas fa-envelope" onClick={e => alert("Feature coming soon!")}></i>
                             <br/>
-                        <div id="navbar-icon-label">Messaging</div>
+                            <div id="navbar-icon-label">Messaging</div>
                         </div>
                     </Link>
                     <Link to="/notifications" >
                         <div className="navbar-icons">
-                            <i className="fas fa-bell"></i>
+                            <i className="fas fa-bell" onClick={e => alert("Feature coming soon!")}></i>
                             <br/>
                         <div id="navbar-icon-label">Notifications</div>
                         </div>

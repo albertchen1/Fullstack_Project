@@ -58,7 +58,7 @@ class Connections extends React.Component {
                     <div className="invitations-user-info">
                         <h4 id="invitations-name">{request.sender.firstName}&nbsp;{request.sender.lastName}</h4>
                         <div className="invitations-headline-buttons">
-                            <h4 id="invitations-headline">Actor</h4>
+                            <h4 id="invitations-headline">{request.sender.headline}</h4>
                             <button id="invitations-ignore-button" onClick={() => this.deleteRequest(request.id)}>Ignore</button>
                             <button id="invitations-accept-button" onClick={() => this.acceptRequest(request.id)}>Accept</button>
                         </div>
@@ -80,10 +80,13 @@ class Connections extends React.Component {
                     <div className="manage-network-container">
                         <div className="manage-network-info">
                             <h3 id="manage-network-title">Manage Network</h3>
-                            <div id="manage-network-connections">
-                                <div id="manage-network-connections-icon"><i className="fas fa-user-friends"></i></div>
-                                <h3 id="manage-network-connections-text">Connections</h3>
-                            </div>
+                            <Link to="/connection_list">
+                                <div id="manage-network-connections">
+                                    <div id="manage-network-connections-icon"><i className="fas fa-user-friends"></i></div>
+                                    <h3 id="manage-network-connections-text">Connections</h3>
+                                    <h3 id="manage-network-connections-number">33</h3>
+                                </div>
+                            </Link>
                             <div id="manage-network-others">
                                 <div id="manage-network-others-icon"><i className="fas fa-address-book"></i></div>
                                 <div id="manage-network-contacts-text">Contacts</div>
@@ -108,7 +111,7 @@ class Connections extends React.Component {
                     </div>
                     <div className="invitations-container">
                         <div className="invitations-header-container">
-                            <h4 id="invitations-label">Invitations</h4>
+                            <h4 id="connections-list-label">Invitations</h4>
                         </div>
                         <div className="invitations-list">
                             {this.renderRequests()}

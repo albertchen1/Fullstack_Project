@@ -234,8 +234,18 @@
     // box-shadow:0px 1px 0 rgba(0,0,0,.15);
 }
 
-.profile-education-pic {
+.profile-education-App-pic {
     content: image_url('aa-logo.png');
+    // margin-left: 2%;
+    // display: inline-block;
+    height: 8vh;
+    width: 3.5vw;
+    position: absolute; 
+    // margin-top: -11%;
+}
+
+.profile-education-University-pic{
+    content: image_url('uiuc-logo.png');
     // margin-left: 2%;
     // display: inline-block;
     height: 8vh;

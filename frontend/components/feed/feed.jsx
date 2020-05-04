@@ -91,7 +91,9 @@ class Feed extends React.Component {
                             <br/>
                             <div className="feed-num-container">
                                 <div id="feed-num-connections-text">Connections</div>
-                                <div id="feed-num-connections-num">{this.props.connections.length}</div>
+                                <Link to="/connection_list" id="feed-num-connections-num">
+                                    <div id="feed-num-connections-num">{this.props.connections.length}</div>
+                                </Link>
                             </div>
                         </div>
                     </div>

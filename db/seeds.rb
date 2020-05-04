@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Connection.delete_all
+ConnectionRequest.delete_all
 Experience.delete_all
 Comment.delete_all
 Post.delete_all
@@ -19,6 +21,26 @@ demo = User.create!(username: 'demo@demo.com' ,
                    first_name: 'Albert', 
                    last_name:'Chen', 
                    location: 'San Francisco Bay Area', 
+                   headline: 'Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java',
+                   summary: "I'm a software engineer with a passion for building products. I have experience with React, Redux, Ruby, Ruby on Rails, SQL, JavaScript, HTML5, CSS3, Node.js, Express.js, Python, and Java. My main projects right now are a MERN stack project creating custom memes and a React/Redux/Rails project rebuilding LinkedIn's site. Other frameworks and technologies I have experience with include Git, AJAX, RESTful API, JBuilder, jQuery, Heroku, AWS, and Ruby ERB."
+
+
+)
+demo2 = User.create!(username: 'demo2@demo.com' , 
+                   password: '123456', 
+                   first_name: 'Albert2', 
+                   last_name:'Chen', 
+                   location: 'San Francisco Bay Area2', 
+                   headline: 'Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java',
+                   summary: "I'm a software engineer with a passion for building products. I have experience with React, Redux, Ruby, Ruby on Rails, SQL, JavaScript, HTML5, CSS3, Node.js, Express.js, Python, and Java. My main projects right now are a MERN stack project creating custom memes and a React/Redux/Rails project rebuilding LinkedIn's site. Other frameworks and technologies I have experience with include Git, AJAX, RESTful API, JBuilder, jQuery, Heroku, AWS, and Ruby ERB."
+
+
+)
+demo3 = User.create!(username: 'demo3@demo.com' , 
+                   password: '123456', 
+                   first_name: 'Steve', 
+                   last_name:'Carell', 
+                   location: 'San Francisco Bay Area2', 
                    headline: 'Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java',
                    summary: "I'm a software engineer with a passion for building products. I have experience with React, Redux, Ruby, Ruby on Rails, SQL, JavaScript, HTML5, CSS3, Node.js, Express.js, Python, and Java. My main projects right now are a MERN stack project creating custom memes and a React/Redux/Rails project rebuilding LinkedIn's site. Other frameworks and technologies I have experience with include Git, AJAX, RESTful API, JBuilder, jQuery, Heroku, AWS, and Ruby ERB."
 
@@ -55,6 +77,15 @@ experience1 = Experience.create!({
     end_date_year: 2019,
     description: '',
     user_id: User.find_by(username: 'demo@demo.com').id
+})
+
+connection1 = Connection.create!({
+    user_id: User.find_by(username: 'demo@demo.com').id,
+    recipient_id: User.find_by(username: 'demo2@demo.com').id
+})
+request1 = ConnectionRequest.create!({
+    user_id: User.find_by(username: 'demo3@demo.com').id,
+    recipient_id: User.find_by(username: 'demo@demo.com').id
 })
 
 # about1 = About.create!({

@@ -34,6 +34,7 @@ class Feed extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllPosts()
+        this.props.fetchAllConnections(this.props.user.id)
         // this.props.fetchUser(this.props.user.id)
     }
 
@@ -90,7 +91,7 @@ class Feed extends React.Component {
                             <br/>
                             <div className="feed-num-container">
                                 <div id="feed-num-connections-text">Connections</div>
-                                <div id="feed-num-connections-num">1</div>
+                                <div id="feed-num-connections-num">{this.props.connections.length}</div>
                             </div>
                         </div>
                     </div>

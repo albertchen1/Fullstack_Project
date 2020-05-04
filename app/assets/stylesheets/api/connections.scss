@@ -116,8 +116,18 @@
     font-size: 13pt;
 }
 
-.invitations-user-pic {
+.invitations-Steve-pic {
     content: image_url('steve-carell-pic.jpg');
+    margin: 2vh 1vw 2vh 2vw;
+    height: 10vh;
+    width: 4.65vw;
+    border-radius: 5vh;
+    position: absolute; 
+
+}
+
+.invitations-Albert2-pic {
+    content: image_url('mini-profile-pic.png');
     margin: 2vh 1vw 2vh 2vw;
     height: 10vh;
     width: 4.65vw;

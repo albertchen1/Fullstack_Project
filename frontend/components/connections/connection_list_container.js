@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
-// import Posts from './posts'
-import Feed from './feed'
-import {fetchAllPosts} from '../../actions/post_actions'
-import {fetchAllConnections} from '../../actions/connection_actions'
+import ConnectionList from './connection_list';
+import { fetchAllConnections } from '../../actions/connection_actions'; 
 
 const mapStateToProps = (state) => {
     return {
@@ -12,11 +10,10 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    fetchAllPosts: () => dispatch(fetchAllPosts()),
     fetchAllConnections: (id) => dispatch(fetchAllConnections(id))
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Feed);
+)(ConnectionList);

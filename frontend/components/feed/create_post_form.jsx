@@ -126,11 +126,11 @@ class CreatePostForm extends React.Component {
                                     <input className='post-modal-submit' type='submit' value='Post' />
 
                                 </div>
-                                    <input
+                                    {/* <input
                                         id='icon-submit-file'
                                         type='file'
                                         onChange={this.handleFile.bind(this)}
-                                    />
+                                    /> */}
                             </div>
 
                         </div>

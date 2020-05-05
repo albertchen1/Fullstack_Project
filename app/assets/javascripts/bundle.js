@@ -90,7 +90,7 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/comment_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_ALL_COMMENTS, RECEIVE_COMMENT, receiveAllComments, receiveComment, fetchAllComments, fetchComment, createComment, deleteComment */
+/*! exports provided: RECEIVE_ALL_COMMENTS, RECEIVE_COMMENT, receiveAllComments, receiveComment, fetchAllComments, createComment, deleteComment */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -100,7 +100,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllComments", function() { return receiveAllComments; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveComment", function() { return receiveComment; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllComments", function() { return fetchAllComments; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchComment", function() { return fetchComment; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createComment", function() { return createComment; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComment", function() { return deleteComment; });
 /* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/comment_api_util */ "./frontend/util/comment_api_util.js");
@@ -128,14 +127,11 @@ var fetchAllComments = function fetchAllComments(id) {
       return dispatch(receiveAllComments(comments));
     });
   };
-};
-var fetchComment = function fetchComment(id) {
-  return function (dispatch) {
-    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchComment"](id).then(function (comment) {
-      return dispatch(receiveComment(comment));
-    });
-  };
-};
+}; // export const fetchComment = (id) => dispatch => (
+//     APIUtil.fetchComment(id)
+//         .then(comment => dispatch(receiveComment(comment)))
+// )
+
 var createComment = function createComment(comment) {
   return function (dispatch) {
     return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["createComment"](comment) // .then(comments => dispatch(receiveAllComments(comments)))
@@ -510,7 +506,7 @@ var deleteExperience = function deleteExperience(experienceId) {
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_ALL_USERS, RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_ERRORS, CLEAR_ERRORS, receiveAllUsers, receiveCurrentUser, logoutCurrentUser, receiveErrors, clearErrors, login, logout, signup, fetchAllUsers, fetchUser */
+/*! exports provided: RECEIVE_ALL_USERS, RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_ERRORS, CLEAR_ERRORS, receiveAllUsers, receiveCurrentUser, logoutCurrentUser, receiveErrors, clearErrors, login, logout, signup, fetchAllUsers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -529,7 +525,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signup", function() { return signup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllUsers", function() { return fetchAllUsers; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
 /* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js");
 
 var RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
@@ -598,16 +593,11 @@ var fetchAllUsers = function fetchAllUsers() {
       return dispatch(receiveErrors(err.responseJSON));
     });
   };
-};
-var fetchUser = function fetchUser(userId) {
-  return function (dispatch) {
-    return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchUser"](userId).then(function (user) {
-      return dispatch(receiveCurrentUser(user));
-    }, function (err) {
-      return dispatch(receiveErrors(err.responseJSON));
-    });
-  };
-};
+}; // export const fetchUser = (userId) => (dispatch) => {
+//     return APIUtil.fetchUser(userId)
+//       .then(user => dispatch(receiveCurrentUser(user)),
+//        (err) => dispatch(receiveErrors(err.responseJSON)));
+// }
 
 /***/ }),
 
@@ -1335,11 +1325,7 @@ var CreatePostForm = /*#__PURE__*/function (_React$Component) {
           className: "post-modal-submit",
           type: "submit",
           value: "Post"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          id: "icon-submit-file",
-          type: "file",
-          onChange: this.handleFile.bind(this)
-        }))))) // </div>
+        })))))) // </div>
 
       );
     }
@@ -1953,7 +1939,10 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "edit-button"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "far fa-edit"
+          className: "far fa-edit",
+          onClick: function onClick(e) {
+            return alert("Feature coming soon!");
+          }
         }), " Edit Post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "delete-button",
           onClick: function onClick() {
@@ -2239,6 +2228,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // import { Route, Redirect, withRouter } from 'react-router-dom';
+// componentDidMount() {
+//     this.props.fetchUser(this.props.currentUser.id)
+// }
 
 var Navbar = function Navbar(_ref) {
   var currentUser = _ref.currentUser,
@@ -2335,8 +2327,18 @@ var Navbar = function Navbar(_ref) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/profile"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "view-profile"
-    }, "View Profile")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "dropdown-profile"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "dropdown-pic"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "dropdown-profile-info-container"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      className: "dropdown-profile-name"
+    }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      className: "dropdown-profile-headline"
+    }, "Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      className: "dropdown-profile-view-profile"
+    }, "View Profile")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/"
     }, "  ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "header-button-logout",
@@ -2371,6 +2373,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
 /* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navbar */ "./frontend/components/nav_bar/navbar.jsx");
+ // import { fetchUser, updateUser } from '../../actions/user_actions'
 
 
 
@@ -2385,6 +2388,8 @@ var mapStateToProps = function mapStateToProps(_ref) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
+    // fetchUser: (userId) => dispatch(fetchUser(userId)),
+    // updateUser: (user) => dispatch(updateUser(user)),
     logout: function logout() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["logout"])());
     }
@@ -3362,7 +3367,6 @@ var Profile = /*#__PURE__*/function (_React$Component) {
   _createClass(Profile, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      console.log(this.props);
       this.props.fetchUser(this.props.user.id);
       this.props.fetchEducation(this.props.user.id);
       this.props.fetchExperience(this.props.user.id);
@@ -4400,10 +4404,10 @@ var EditExperienceModal = /*#__PURE__*/function (_React$Component) {
       title: _this.props.experience.title,
       company: _this.props.experience.company,
       location: _this.props.experience.location,
-      start_date_month: _this.props.experience.start_date_month,
-      start_date_year: _this.props.experience.start_date_year,
-      end_date_year: _this.props.experience.end_date_year,
-      end_date_month: _this.props.experience.end_date_month,
+      start_date_month: _this.props.experience.startDateMonth,
+      start_date_year: _this.props.experience.startDateYear,
+      end_date_year: _this.props.experience.endDateYear,
+      end_date_month: _this.props.experience.endDateMonth,
       description: _this.props.experience.description
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));

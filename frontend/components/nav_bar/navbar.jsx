@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import { render } from 'react-dom';
 // import { Route, Redirect, withRouter } from 'react-router-dom';
 
+// componentDidMount() {
+//     this.props.fetchUser(this.props.currentUser.id)
+// }
+
 const Navbar = ({ currentUser, logout }) => {
     const sessionLinks = () => (
         <nav className="login-signup">
@@ -75,8 +79,18 @@ const Navbar = ({ currentUser, logout }) => {
                             Me &nbsp;<i className='fa fa-caret-down'></i>
                             <div className='dropdown-content'>
                                 {/* <Link to={`/git/${this.props.currentUser.id}`}>View Profile</Link> */}
+
                                 <Link to="/profile" >
-                                    <div className="view-profile">View Profile</div>
+                                    <div className='dropdown-profile'>
+                                        <div className='dropdown-pic'></div>
+                                        <div className='dropdown-profile-info-container'>
+                                            <h1 className='dropdown-profile-name'>Albert Chen</h1>
+                                        <h2 className='dropdown-profile-headline'>Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java</h2>
+                                            <h2 className="dropdown-profile-view-profile">View Profile</h2>
+                                        </div>
+                                    </div>
+
+                                    
                                 </Link>
                                 <Link to='/'>  <div className="header-button-logout" onClick={logout}>Sign Out</div> </Link>
 

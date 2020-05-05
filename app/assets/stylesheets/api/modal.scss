@@ -1,4 +1,4 @@
-.modal , .greyed-out{
+.modal{
   position: fixed;
   top: 0;
   bottom: 0;
@@ -39,7 +39,7 @@
   padding: 1rem;
 }
 .modal-header {
-  border-bottom: 1px solid #dbdbdb;
+  // border-bottom: 1px solid #dbdbdb;
   justify-content: space-between;
 }
 .modal-footer {

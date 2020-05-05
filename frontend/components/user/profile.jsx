@@ -12,7 +12,7 @@ import Experience from '../../components/user/profile_modal/experience';
 class Profile extends React.Component {
 
     componentDidMount() {
-        console.log(this.props)
+
         this.props.fetchUser(this.props.user.id)
         this.props.fetchEducation(this.props.user.id)
         this.props.fetchExperience(this.props.user.id)

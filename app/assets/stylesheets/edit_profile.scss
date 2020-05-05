@@ -13,6 +13,28 @@
     // font-family: BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
 }
 
+.greyed-out .create-post-modal-show{
+    left: 0;
+    background-color: rgba(0,0,0,.7);
+    height: 150%;
+    width: 150%;
+    max-width: 105vw;
+    max-height: 220vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+}
+
+.create-post-outer {
+    background-color: white;
+    left: 22%;
+    top: 10%;
+    width: 40%;
+    height: 50vh;
+    position: absolute
+}
+
+
 .edit-header-container, .edit-about-container, .edit-experience-container,
 .edit-education-container {
     margin: 8vh 20% 1vh 20%;

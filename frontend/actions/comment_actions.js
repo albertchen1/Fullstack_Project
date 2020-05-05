@@ -19,10 +19,10 @@ export const fetchAllComments = (id) => dispatch => (
         .then(comments => dispatch(receiveAllComments(comments)))
 )
 
-export const fetchComment = (id) => dispatch => (
-    APIUtil.fetchComment(id)
-        .then(comment => dispatch(receiveComment(comment)))
-)
+// export const fetchComment = (id) => dispatch => (
+//     APIUtil.fetchComment(id)
+//         .then(comment => dispatch(receiveComment(comment)))
+// )
 
 export const createComment = (comment) => dispatch => (
     APIUtil.createComment(comment)

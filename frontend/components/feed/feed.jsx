@@ -257,9 +257,9 @@ class Feed extends React.Component {
                 </div>
                 <div className="create-post-modal-hidden">
                     {/* <div className="create-a-post"> */}
-                        <div className="modal-header">
-                            <CreatePostFormContainer closeModal={this.closeModal}/>
-                        </div>
+                    <div className="modal-header">
+                        <CreatePostFormContainer closeModal={this.closeModal}/>
+                    </div>
                     {/* </div> */}
                 </div>
             </div>

@@ -8,10 +8,10 @@ class EditExperienceModal extends React.Component {
             title: this.props.experience.title,
             company: this.props.experience.company,
             location: this.props.experience.location,
-            start_date_month: this.props.experience.start_date_month,
-            start_date_year: this.props.experience.start_date_year,
-            end_date_year: this.props.experience.end_date_year,
-            end_date_month: this.props.experience.end_date_month,
+            start_date_month: this.props.experience.startDateMonth,
+            start_date_year: this.props.experience.startDateYear,
+            end_date_year: this.props.experience.endDateYear,
+            end_date_month: this.props.experience.endDateMonth,
             description: this.props.experience.description
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -256,7 +256,7 @@ class EditExperienceModal extends React.Component {
                                         <select id="edit-experience-enddate-year-list" value={this.state.end_date_year}
                                             onChange={this.update('end_date_year')}>
                                             <option value="2020">2020</option>
-                                            <option value="2019" >2019</option>
+                                            <option value="2019">2019</option>
                                             <option value="2018">2018</option>
                                             <option value="2017">2017</option>
                                             <option value="2016">2016</option>

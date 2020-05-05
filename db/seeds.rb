@@ -14,7 +14,7 @@ Post.delete_all
 Education.delete_all
 User.delete_all
 
-#User
+
 
 demo = User.create!(username: 'demo@demo.com' , 
                    password: '123456', 
@@ -23,9 +23,26 @@ demo = User.create!(username: 'demo@demo.com' ,
                    location: 'San Francisco Bay Area', 
                    headline: 'Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java',
                    summary: "I'm a software engineer with a passion for building products. I have experience with React, Redux, Ruby, Ruby on Rails, SQL, JavaScript, HTML5, CSS3, Node.js, Express.js, Python, and Java. My main projects right now are a MERN stack project creating custom memes and a React/Redux/Rails project rebuilding LinkedIn's site. Other frameworks and technologies I have experience with include Git, AJAX, RESTful API, JBuilder, jQuery, Heroku, AWS, and Ruby ERB."
-
-
 )
+
+shaq = User.create!(username: 'shaq@demo.com' , 
+                   password: '123456', 
+                   first_name: 'Shaquille', 
+                   last_name: "O'Neal", 
+                   location: 'United States', 
+                   headline: 'Business mogul, Former athlete, Purveyor of fun',
+                   summary: "I love chicken."
+)
+
+uiuc = User.create!(username: 'uiuc@demo.com' , 
+                   password: '123456', 
+                   first_name: 'University', 
+                   last_name: "of Illinois at Urbana-Champaign", 
+                   location: 'Champaign, IL', 
+                   headline: '411,797 followers',
+                   summary: "Learning is great."
+)
+
 demo2 = User.create!(username: 'demo2@demo.com' , 
                    password: '123456', 
                    first_name: 'Jim', 
@@ -105,6 +122,18 @@ request2 = ConnectionRequest.create!({
     user_id: User.find_by(username: 'demo4@demo.com').id,
     recipient_id: User.find_by(username: 'demo@demo.com').id
 })
+
+shaqpost = Post.create!({
+    user_id: User.find_by(username: 'shaq@demo.com').id,
+    body: 'TESTING'
+})
+
+uiucpost = Post.create!({
+    user_id: User.find_by(username: 'uiuc@demo.com').id,
+    body: 'UIUC TESTING'
+})
+
+
 
 # about1 = About.create!({
 #     summary: "I love coding"

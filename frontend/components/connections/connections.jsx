@@ -31,8 +31,6 @@ class Connections extends React.Component {
         }
         this.props.createConnection(connection)
         this.props.deleteRequest(request.id)
-        //then make the connection
-        // Try this now
     }
 
     deleteRequest(id) {

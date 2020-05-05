@@ -173,26 +173,17 @@ var receiveAllConnections = function receiveAllConnections(connections) {
     type: RECEIVE_ALL_CONNECTIONS,
     connections: connections
   };
-}; // export const receiveComment = (comment) => ({
-//     type: RECEIVE_COMMENT,
-//     comment
-// })
-
+};
 var fetchAllConnections = function fetchAllConnections(id) {
   return function (dispatch) {
     return _util_connection_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllConnections"](id).then(function (connections) {
       return dispatch(receiveAllConnections(connections));
     });
   };
-}; // export const fetchComment = (id) => dispatch => (
-//     APIUtil.fetchComment(id)
-//         .then(comment => dispatch(receiveComment(comment)))
-// )
-
+};
 var createConnection = function createConnection(connection) {
   return function (dispatch) {
-    return _util_connection_api_util__WEBPACK_IMPORTED_MODULE_0__["createConnection"](connection) // .then(comments => dispatch(receiveAllComments(comments)))
-    .then(function (connections) {
+    return _util_connection_api_util__WEBPACK_IMPORTED_MODULE_0__["createConnection"](connection).then(function (connections) {
       return dispatch(receiveAllConnections(connections));
     });
   };
@@ -937,8 +928,7 @@ var Connections = /*#__PURE__*/function (_React$Component) {
         recipient_id: request.recipientId
       };
       this.props.createConnection(connection);
-      this.props.deleteRequest(request.id); //then make the connection
-      // Try this now
+      this.props.deleteRequest(request.id);
     }
   }, {
     key: "deleteRequest",
@@ -1466,7 +1456,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
         src: window.blankprofilepic
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "feed-name"
-      }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.user.firstName, "\xA0", this.props.user.lastName), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "feed-title"
       }, this.props.user.headline)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-num"
@@ -1946,7 +1936,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         className: "post-likes"
       }, "0 Likes "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-comments"
-      }, this.props.comments.length, " comments")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.comments.length, " Comments")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-reacts"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "like",
@@ -3799,8 +3789,7 @@ var EditEducationModal = /*#__PURE__*/function (_React$Component) {
       education.field_study = this.state.field_study;
       education.start_year = this.state.start_year;
       education.end_year = this.state.end_year;
-      education.description = this.state.description; // education.id = this.props.education.id
-
+      education.description = this.state.description;
       this.props.updateEducation(education).then(this.props.close);
     }
   }, {

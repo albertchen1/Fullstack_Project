@@ -34,7 +34,6 @@ class EditEducationModal extends React.Component {
         education.start_year = this.state.start_year
         education.end_year = this.state.end_year
         education.description = this.state.description
-        // education.id = this.props.education.id
         this.props.updateEducation(education).then(this.props.close);
     }
 

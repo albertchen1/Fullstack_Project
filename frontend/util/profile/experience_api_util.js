@@ -15,7 +15,6 @@ export const fetchExperience = (userId) => (
     })
 )
 
-
 export const updateExperience = (experience) => (
     $.ajax({
         method: "PATCH",

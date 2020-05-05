@@ -8,24 +8,13 @@ export const receiveAllConnections = (connections) => ({
     connections
 });
 
-// export const receiveComment = (comment) => ({
-//     type: RECEIVE_COMMENT,
-//     comment
-// })
-
 export const fetchAllConnections = (id) => dispatch => (
     APIUtil.fetchAllConnections(id)
         .then(connections => dispatch(receiveAllConnections(connections)))
 )
 
-// export const fetchComment = (id) => dispatch => (
-//     APIUtil.fetchComment(id)
-//         .then(comment => dispatch(receiveComment(comment)))
-// )
-
 export const createConnection = (connection) => dispatch => (
     APIUtil.createConnection(connection)
-        // .then(comments => dispatch(receiveAllComments(comments)))
         .then(connections => dispatch(receiveAllConnections(connections)))
 )
 

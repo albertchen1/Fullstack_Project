@@ -182,10 +182,7 @@ class PostItem extends React.Component {
                 </div>
                 <div className="post-likes-comments" onClick={this.openCreateComment}>
                     <div className="post-likes">0 Likes </div> 
-                    {/* <h4 onClick={this.openCreateComment}> */}
-                    <div className="post-comments">{this.props.comments.length} comments</div>
-                    
-                    {/* </h4> */}
+                    <div className="post-comments">{this.props.comments.length} Comments</div>
                 </div>
                 <div className="post-reacts">
                     <div className="like" onClick={e => alert("Feature coming soon! Try leaving a comment!")}><i className="far fa-thumbs-up"></i> Like </div>

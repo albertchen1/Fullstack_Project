@@ -55,7 +55,7 @@
     align-items: center;
 }
 
-.comment-pic {
+.real-comment-pic {
     content: image_url('mini-profile-pic.png');
     margin-left: 3%;
     display: inline-block;
@@ -64,6 +64,17 @@
     border-radius: 5vh;
     align-self: flex-start;
     margin-top: 2vh;
+
+}
+.comment-pic {
+    content: image_url('mini-profile-pic.png');
+    margin-left: 3%;
+    display: inline-block;
+    height: 5vh;
+    width: 2.4vw;
+    border-radius: 5vh;
+    align-self: flex-start;
+    // margin-top: 2vh;
 
 }
 

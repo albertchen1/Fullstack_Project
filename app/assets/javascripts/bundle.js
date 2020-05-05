@@ -1429,9 +1429,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "openModal",
     value: function openModal() {
-      document.getElementsByClassName("feed-div")[0].className = "greyed-out"; // document.getElementsByClassName("feed-div")[0].className="modal" not working. original above
-      // document.getElementsByClassName("create-post-modal-hidden")[0].className = "modal"
-
+      document.getElementsByClassName("feed-div")[0].className = "greyed-out";
       document.getElementsByClassName("create-post-modal-hidden")[0].className = "create-post-modal-show";
     }
   }, {
@@ -1537,44 +1535,6 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-list-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post2-post"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post2-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "shaq-post"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post2-header-text"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post2-name"
-      }, "Shaquille O'Neal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post2-headline"
-      }, "Business mogul, Former athlete, Purveyor of fun"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post2-time"
-      }, "5d"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post2-body-text"
-      }, "I can't lie - if companies are doing video interviews via Zoom, I'm not sure I'll be able to find a job until this pandemic ends.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "My wife gave me a haircut last night, and I currently look like one of the players in Wii Tennis"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-likes-comments"
-      }, "0 Likes 0 comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-reacts"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "like",
-        onClick: function onClick(e) {
-          return alert("Feature coming soon!");
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-thumbs-up"
-      }), " Like "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "comment"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-comment-alt"
-      }), " Comment "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "share",
-        onClick: function onClick(e) {
-          return alert("Feature coming soon!");
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-share-square"
-      }), " Share "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post1-ad"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post1-container"
@@ -1607,55 +1567,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "like",
         onClick: function onClick(e) {
-          return alert("Feature coming soon!");
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-thumbs-up"
-      }), " Like "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "comment"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-comment-alt"
-      }), " Comment "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "share",
-        onClick: function onClick(e) {
-          return alert("Feature coming soon!");
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-share-square"
-      }), " Share "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post3-uiuc"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post3-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "uiuc-post"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post3-header-text"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post3-company"
-      }, "University of Illinois at Urbana-Champaign"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post3-followers"
-      }, "411,797 followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post3-time"
-      }, "1mo"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post3-body-text"
-      }, "For the ninth time in the past 10 years, Illinois has been named among the U.S. colleges and universities that produce the most Fulbright U.S. Student Awards."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://news.illinois.edu/view/6367/806559"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post3-pic"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post3-pic-desc"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-        id: "post3-pic-desc-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "U of I among top producers of Fulbright awards"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-        id: "post3-pic-desc-site"
-      }, "news.illinois.edu", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-likes-comments"
-      }, "0 Likes 0 comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-reacts"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "like",
-        onClick: function onClick(e) {
-          return alert("Feature coming soon!");
+          return alert("Feature coming soon! Try leaving a comment!");
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-thumbs-up"
@@ -1969,7 +1881,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
               className: "comment-list",
               key: comment.id
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-              className: "comment-pic"
+              className: "real-comment-pic"
             }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "comment-body-box"
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -2003,7 +1915,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-item-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "self-post"
+        id: "post-".concat(this.props.post.author.firstName, "-pic")
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post-item-header-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2017,9 +1929,17 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         id: "post2-headline"
       }, this.props.post.author.headline), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post2-time"
-      }, "1m"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.post.author.lastName.length - 3, "m"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post2-body-text"
       }, this.props.post.body, this.props.post.photoFile), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post-body-".concat(this.props.post.author.firstName.length, "-pic")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post-body-".concat(this.props.post.author.firstName.length, "-desc")
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post-body-".concat(this.props.post.author.firstName.length, "-desc-header")
+      }, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "post-body-".concat(this.props.post.author.firstName.length, "-desc-site")
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-likes-comments",
         onClick: this.openCreateComment
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2031,7 +1951,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "like",
         onClick: function onClick(e) {
-          return alert("Feature coming soon!");
+          return alert("Feature coming soon! Try leaving a comment!");
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-thumbs-up"

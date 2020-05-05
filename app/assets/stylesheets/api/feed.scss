@@ -256,8 +256,8 @@ hr{
     height: 5vh;
 }
 
-#shaq-post {
-    content: image_url('shaq.jpeg');
+#shaq-post, #post-Shaquille-pic {
+    content: image_url('Shaquille.jpeg');
     margin-left: 3%;
     border-radius: 1.9vh;
     display: inline-block;
@@ -266,7 +266,27 @@ hr{
     border-radius: 5vh;
 }
 
-#self-post {
+#post-Michael-pic {
+    content: image_url('steve-carell-pic.jpg');
+    margin-left: 3%;
+    border-radius: 1.9vh;
+    display: inline-block;
+    height: 7vh;
+    width: 3.3vw;
+    border-radius: 5vh;
+}
+
+#post-Pam-pic {
+    content: image_url('pam.jpg');
+    margin-left: 3%;
+    border-radius: 1.9vh;
+    display: inline-block;
+    height: 7vh;
+    width: 3.3vw;
+    border-radius: 5vh;
+}
+
+#post-Albert-pic {
     content: image_url('mini-profile-pic.png');
     margin-left: 3%;
     border-radius: 1.9vh;
@@ -276,7 +296,7 @@ hr{
     border-radius: 5vh;
 }
 
-#uiuc-post {
+#uiuc-post, #post-University-pic {
     content: image_url('uiuc-logo.png');
     margin-left: 3%;
     border-radius: 1.9vh;
@@ -332,7 +352,7 @@ hr{
     cursor: pointer;
 }
 
-.post3-pic {
+.post3-pic, #post-body-10-pic {
     content: image_url('uiuc-post-pic.png');
     display: block;
     margin: auto;
@@ -341,17 +361,18 @@ hr{
     cursor: pointer;
 }
 
-.post1-pic-desc, .post3-pic-desc {
+.post1-pic-desc, .post3-pic-desc, #post-body-10-desc {
     background-color:  #f2f2f2;
     cursor: pointer;
 }
 
-#post1-pic-desc-header , #post3-pic-desc-header {
+#post1-pic-desc-header , #post3-pic-desc-header, #post-body-10-desc-header {
     margin: 0 3% 0 5%;
     font-size: 2.2vh;
+    padding-top: 2%;
 }
 
-#post1-pic-desc-site, #post3-pic-desc-site {
+#post1-pic-desc-site, #post3-pic-desc-site, #post-body-10-desc-site {
     margin: 2% 3% 0 5%;
     font-size: 2vh;
     color: grey;

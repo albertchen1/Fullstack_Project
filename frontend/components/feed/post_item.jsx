@@ -120,7 +120,7 @@ class PostItem extends React.Component {
                     if (comment.postId === this.props.post.id) {
                         return (
                             <div className="comment-list" key={comment.id}>
-                                <div className="comment-pic"></div>
+                                <div className="real-comment-pic"></div>
                                 <div className="comment-body-box">
                                     <h3 id="comment-user">{comment.author.firstName}&nbsp;{comment.author.lastName}</h3>
                                     <h3 id="comment-user-headline">{comment.author.headline}</h3>
@@ -153,8 +153,7 @@ class PostItem extends React.Component {
             <div className={`post-item post-item-${this.props.post.id}`}>
                 <div className="post-item-container">
 
-                    
-                    <div id="self-post"></div>
+                    <div id={`post-${this.props.post.author.firstName}-pic`}></div>
                     <div id="post-item-header-text">
                         <div id="post-item-name-dropdown">
                             <div id="post-item-name">{this.props.post.author.firstName}&nbsp;{this.props.post.author.lastName}</div>
@@ -168,12 +167,18 @@ class PostItem extends React.Component {
                         </div>
 
                         <div id="post2-headline">{this.props.post.author.headline}</div>
-                        <div id="post2-time">1m</div>
+                            <div id="post2-time">{this.props.post.author.lastName.length-3}m</div>
                     </div>
                 </div>
                 <div className="post2-body-text">
                     {this.props.post.body}
+
                     {this.props.post.photoFile}
+                </div>
+                <div id={`post-body-${this.props.post.author.firstName.length}-pic`}></div>
+                <div id={`post-body-${this.props.post.author.firstName.length}-desc`}>
+                    <div id={`post-body-${this.props.post.author.firstName.length}-desc-header`}> </div>
+                    <div id={`post-body-${this.props.post.author.firstName.length}-desc-site`}></div>
                 </div>
                 <div className="post-likes-comments" onClick={this.openCreateComment}>
                     <div className="post-likes">0 Likes </div> 
@@ -183,7 +188,7 @@ class PostItem extends React.Component {
                     {/* </h4> */}
                 </div>
                 <div className="post-reacts">
-                    <div className="like" onClick={e => alert("Feature coming soon!")}><i className="far fa-thumbs-up"></i> Like </div>
+                    <div className="like" onClick={e => alert("Feature coming soon! Try leaving a comment!")}><i className="far fa-thumbs-up"></i> Like </div>
                     <div className="comment" onClick={this.openCreateComment}><i className="far fa-comment-alt"></i> Comment </div>
                     <div className="share" onClick={e => alert("Feature coming soon!")}><i className="far fa-share-square"></i> Share </div>
                 </div>

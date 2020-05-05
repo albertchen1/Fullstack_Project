@@ -46,8 +46,6 @@ class Feed extends React.Component {
 
     openModal() {
         document.getElementsByClassName("feed-div")[0].className="greyed-out"  
-        // document.getElementsByClassName("feed-div")[0].className="modal" not working. original above
-        // document.getElementsByClassName("create-post-modal-hidden")[0].className = "modal"
         document.getElementsByClassName("create-post-modal-hidden")[0].className = "create-post-modal-show"
     }
 
@@ -123,7 +121,7 @@ class Feed extends React.Component {
                                 <PostsContainer />
                             </div>
                         </div>
-                        <div className="post2-post">
+                        {/* <div className="post2-post">
                             <div className="post2-container">
                                 <div id="shaq-post"></div>
                                 <div id="post2-header-text">
@@ -150,7 +148,7 @@ class Feed extends React.Component {
                                 <div className="comment"><i className="far fa-comment-alt"></i> Comment </div>
                                 <div className="share" onClick={e => alert("Feature coming soon!")} ><i className="far fa-share-square"></i> Share </div>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="post1-ad">
                             <div className="post1-container">
                                 <div id="list-logo-post"></div>
@@ -176,12 +174,12 @@ class Feed extends React.Component {
                                 0 Likes 0 comments
                             </div>
                             <div className="post-reacts">
-                                <div className="like" onClick={e => alert("Feature coming soon!")}><i className="far fa-thumbs-up"></i> Like </div>
+                                <div className="like" onClick={e => alert("Feature coming soon! Try leaving a comment!")}><i className="far fa-thumbs-up"></i> Like </div>
                                 <div className="comment"><i className="far fa-comment-alt"></i> Comment </div>
                                 <div className="share" onClick={e => alert("Feature coming soon!")}><i className="far fa-share-square"></i> Share </div>
                             </div>
                         </div>
-                        <div className="post3-uiuc">
+                        {/* <div className="post3-uiuc">
                             <div className="post3-container">
                                 <div id="uiuc-post"></div>
                                 <div id="post3-header-text">
@@ -219,7 +217,7 @@ class Feed extends React.Component {
                                 <div className="comment"><i className="far fa-comment-alt"></i> Comment </div>
                                 <div className="share" onClick={e => alert("Feature coming soon!")}><i className="far fa-share-square"></i> Share </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="news-container">
                         <div className="news-container-header"> Today’s news and views </div>

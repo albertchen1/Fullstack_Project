@@ -56,7 +56,7 @@ demo3 = User.create!(username: 'demo3@demo.com' ,
                    first_name: 'Michael', 
                    last_name:'Scott', 
                    location: 'Scranton, PA', 
-                   headline: 'I am Beyonce always',
+                   headline: 'Regional Manager at Dunder Mifflin',
                    summary: "I love inside jokes. I'd love to be a part of one someday."
 )
 demo4 = User.create!(username: 'demo4@demo.com' , 
@@ -66,6 +66,14 @@ demo4 = User.create!(username: 'demo4@demo.com' ,
                    location: 'Scranton, PA', 
                    headline: 'Assistant to the Regional Manager',
                    summary: "I'm somewhere between a snake and a mongoose."
+)
+demo4 = User.create!(username: 'demo5@demo.com' , 
+                   password: '123456', 
+                   first_name: 'Pam', 
+                   last_name:'Beesly', 
+                   location: 'Scranton, PA', 
+                   headline: 'Receptionist',
+                   summary: "I'm gonna start telling people what I want, directly."
 )
 
 education1 = Education.create!(
@@ -123,15 +131,27 @@ request2 = ConnectionRequest.create!({
     recipient_id: User.find_by(username: 'demo@demo.com').id
 })
 
-shaqpost = Post.create!({
-    user_id: User.find_by(username: 'shaq@demo.com').id,
-    body: 'TESTING'
-})
-
 uiucpost = Post.create!({
     user_id: User.find_by(username: 'uiuc@demo.com').id,
-    body: 'UIUC TESTING'
+    body: 'For the ninth time in the past 10 years, Illinois has been named among the U.S. colleges and universities that produce the most Fulbright U.S. Student Awards.'
 })
+
+shaqpost = Post.create!({
+    user_id: User.find_by(username: 'shaq@demo.com').id,
+    body: "I can't lie - if companies are doing video interviews via Zoom, I'm not sure I'll be able to find a job until this pandemic ends. \n \n My wife gave me a haircut last night, and I currently look like one of the players in Wii Tennis"
+})
+
+pampost = Post.create!({
+    user_id: User.find_by(username: 'demo5@demo.com').id,
+    body: "I suggested we flip a coin, but Angela said she doesn't like to gamble."
+})
+
+michaelpost = Post.create!({
+    user_id: User.find_by(username: 'demo3@demo.com').id,
+    body: "I am Beyonce always"
+})
+
+
 
 
 

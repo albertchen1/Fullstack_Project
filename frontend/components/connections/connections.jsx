@@ -15,6 +15,7 @@ class Connections extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllRequests(this.props.user.id)
+        this.props.fetchAllConnections(this.props.user.id)
     }
 
     update(field) {
@@ -23,9 +24,15 @@ class Connections extends React.Component {
         });
     }
 
-    acceptRequest(id) {
-        this.props.deleteRequest(id)
+    acceptRequest(request) {
+        let connection = {
+            user_id: request.userId,
+            recipient_id: request.recipientId
+        }
+        this.props.createConnection(connection)
+        this.props.deleteRequest(request.id)
         //then make the connection
+        // Try this now
     }
 
     deleteRequest(id) {
@@ -60,7 +67,7 @@ class Connections extends React.Component {
                         <div className="invitations-headline-buttons">
                             <h4 id="invitations-headline">{request.sender.headline}</h4>
                             <button id="invitations-ignore-button" onClick={() => this.deleteRequest(request.id)}>Ignore</button>
-                            <button id="invitations-accept-button" onClick={() => this.acceptRequest(request.id)}>Accept</button>
+                            <button id="invitations-accept-button" onClick={() => this.acceptRequest(request)}>Accept</button>
                         </div>
                     </div>
                 </div>
@@ -84,7 +91,7 @@ class Connections extends React.Component {
                                 <div id="manage-network-connections">
                                     <div id="manage-network-connections-icon"><i className="fas fa-user-friends"></i></div>
                                     <h3 id="manage-network-connections-text">Connections</h3>
-                                    <h3 id="manage-network-connections-number">33</h3>
+                                    <h3 id="manage-network-connections-number">{this.props.connections.length}</h3>
                                 </div>
                             </Link>
                             <div id="manage-network-others">

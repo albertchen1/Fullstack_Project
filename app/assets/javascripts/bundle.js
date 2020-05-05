@@ -928,6 +928,7 @@ var Connections = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchAllRequests(this.props.user.id);
+      this.props.fetchAllConnections(this.props.user.id);
     }
   }, {
     key: "update",
@@ -940,8 +941,14 @@ var Connections = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "acceptRequest",
-    value: function acceptRequest(id) {
-      this.props.deleteRequest(id); //then make the connection
+    value: function acceptRequest(request) {
+      var connection = {
+        user_id: request.userId,
+        recipient_id: request.recipientId
+      };
+      this.props.createConnection(connection);
+      this.props.deleteRequest(request.id); //then make the connection
+      // Try this now
     }
   }, {
     key: "deleteRequest",
@@ -991,7 +998,7 @@ var Connections = /*#__PURE__*/function (_React$Component) {
           }, "Ignore"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
             id: "invitations-accept-button",
             onClick: function onClick() {
-              return _this3.acceptRequest(request.id);
+              return _this3.acceptRequest(request);
             }
           }, "Accept"))));
         });
@@ -1022,7 +1029,7 @@ var Connections = /*#__PURE__*/function (_React$Component) {
         id: "manage-network-connections-text"
       }, "Connections"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         id: "manage-network-connections-number"
-      }, "33"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.connections.length))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "manage-network-others"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "manage-network-others-icon"
@@ -1093,6 +1100,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _connections__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./connections */ "./frontend/components/connections/connections.jsx");
 /* harmony import */ var _actions_connection_request_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/connection_request_actions */ "./frontend/actions/connection_request_actions.js");
+/* harmony import */ var _actions_connection_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/connection_actions */ "./frontend/actions/connection_actions.js");
+
 
 
 
@@ -1100,7 +1109,8 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state) {
   return {
     user: Object.values(state.entities.users)[0],
-    requests: Object.values(state.entities.requests)
+    requests: Object.values(state.entities.requests),
+    connections: Object.values(state.entities.connections)
   };
 };
 
@@ -1111,6 +1121,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deleteRequest: function deleteRequest(id) {
       return dispatch(Object(_actions_connection_request_actions__WEBPACK_IMPORTED_MODULE_2__["deleteRequest"])(id));
+    },
+    createConnection: function createConnection(connection) {
+      return dispatch(Object(_actions_connection_actions__WEBPACK_IMPORTED_MODULE_3__["createConnection"])(connection));
+    },
+    fetchAllConnections: function fetchAllConnections(id) {
+      return dispatch(Object(_actions_connection_actions__WEBPACK_IMPORTED_MODULE_3__["fetchAllConnections"])(id));
     }
   };
 };
@@ -1427,7 +1443,8 @@ var Feed = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "openModal",
     value: function openModal() {
-      document.getElementsByClassName("feed-div")[0].className = "greyed-out"; // document.getElementsByClassName("create-post-modal-hidden")[0].className = "modal"
+      document.getElementsByClassName("feed-div")[0].className = "greyed-out"; // document.getElementsByClassName("feed-div")[0].className="modal" not working. original above
+      // document.getElementsByClassName("create-post-modal-hidden")[0].className = "modal"
 
       document.getElementsByClassName("create-post-modal-hidden")[0].className = "create-post-modal-show";
     }
@@ -1719,12 +1736,10 @@ var Feed = /*#__PURE__*/function (_React$Component) {
       }, " 12h ago \u2022 3,031 readers"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-post-modal-hidden"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "create-a-post"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_feed_create_post_form__WEBPACK_IMPORTED_MODULE_3__["default"], {
         closeModal: this.closeModal
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null))));
+      }))));
     }
   }]);
 

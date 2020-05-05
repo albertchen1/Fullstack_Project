@@ -45,7 +45,8 @@ class Feed extends React.Component {
     }
 
     openModal() {
-        document.getElementsByClassName("feed-div")[0].className="greyed-out"
+        document.getElementsByClassName("feed-div")[0].className="greyed-out"  
+        // document.getElementsByClassName("feed-div")[0].className="modal" not working. original above
         // document.getElementsByClassName("create-post-modal-hidden")[0].className = "modal"
         document.getElementsByClassName("create-post-modal-hidden")[0].className = "create-post-modal-show"
     }
@@ -255,13 +256,11 @@ class Feed extends React.Component {
                     </div>
                 </div>
                 <div className="create-post-modal-hidden">
-                    <div className="create-a-post">
+                    {/* <div className="create-a-post"> */}
                         <div className="modal-header">
                             <CreatePostFormContainer closeModal={this.closeModal}/>
                         </div>
-                        <div>
-                        </div>
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
         );

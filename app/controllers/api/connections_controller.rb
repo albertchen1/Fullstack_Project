@@ -35,7 +35,7 @@ class Api::ConnectionsController < ApplicationController
             @connections = Connection.where(user_id: @connection.recipient_id).or(Connection.where(recipient_id: @connection.recipient_id))
             render '/api/connections/show'
         else
-            render json: @connections.errors.full_messages, status: 422
+            render json: @connection.errors.full_messages, status: 422
         end
     end
 
@@ -47,4 +47,10 @@ class Api::ConnectionsController < ApplicationController
 
     #     end
     # end
+
+    private
+
+    def connection_params
+        params.require(:connection).permit(:user_id, :recipient_id)
+    end 
 end

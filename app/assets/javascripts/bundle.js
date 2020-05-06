@@ -3195,11 +3195,15 @@ var Splash = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderErrors",
     value: function renderErrors() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: "error-".concat(i)
-        }, error);
-      }));
+      return (// <ul>
+        //     {this.props.errors.map((error, i) => (
+        //         <li key={`error-${i}`}>
+        //             {error}
+        //         </li>
+        //     ))}
+        // </ul>
+        null
+      );
     }
   }, {
     key: "render",

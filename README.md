@@ -47,7 +47,7 @@ def self.find_by_credentials(username, password)
 ```
 
 #### Profile editing
-(will have screen recording of scrolling through profile here)
+![profile](https://im7.ezgif.com/tmp/ezgif-7-703fc43e41e2.gif)
 
 * User can click the edit icon for a modal to pop up and show text boxes containing current data for user to revise and submit.
 

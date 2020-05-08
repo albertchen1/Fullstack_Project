@@ -1448,6 +1448,10 @@ var Feed = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      if (!this.props.user) {
+        window.location.reload();
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1464,11 +1468,7 @@ var Feed = /*#__PURE__*/function (_React$Component) {
         id: "feed-img"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: window.blankprofilepic
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "feed-name"
-      }, this.props.user.firstName, "\xA0", this.props.user.lastName)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "feed-title"
-      }, this.props.user.headline)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-num"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-num-container"
@@ -1669,6 +1669,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
+    // user: Object.values(state.session.user)[0],
     user: Object.values(state.entities.users)[0],
     connections: Object.values(state.entities.connections)
   };
@@ -2156,6 +2157,9 @@ var Navbar = function Navbar(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout;
 
+  // showDropdown() {
+  //     document.getElementsByClassName("dropdown-content").classList.toggle("dropdown-content-show")
+  // }
   var sessionLinks = function sessionLinks() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
       className: "login-signup"
@@ -2239,7 +2243,20 @@ var Navbar = function Navbar(_ref) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "navbar-pic"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "nav-dropdown"
+      className: "nav-dropdown",
+      onClick: function onClick() {
+        if (document.getElementsByClassName("dropdown-content").length > 0) {
+          var element = document.getElementsByClassName("dropdown-content")[0];
+          element.classList.toggle("dropdown-content-show");
+          element.classList.toggle("dropdown-content");
+        } else {
+          var _element = document.getElementsByClassName("dropdown-content-show")[0];
+
+          _element.classList.toggle("dropdown-content-show");
+
+          _element.classList.toggle("dropdown-content");
+        }
+      }
     }, "Me \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
       className: "fa fa-caret-down"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2455,7 +2472,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
-      this.props.processForm(user);
+      this.props.processForm(user); // .then(() => this.props.history.push('/feed'));
     }
   }, {
     key: "handleDemo",
@@ -2465,7 +2482,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         username: 'demo@demo.com',
         password: '123456'
       };
-      this.props.processForm(demo); //.then(() => this.props.history.push('/feed'));
+      this.props.processForm(demo); // .then(() => this.props.history.push('/feed'));
     }
   }, {
     key: "renderErrors",
@@ -2479,6 +2496,11 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         // </ul>
         null
       );
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log(this.props);
     }
   }, {
     key: "render",
@@ -5969,7 +5991,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_3__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_3__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"] // logger
+  ));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);

@@ -6,6 +6,7 @@ import {fetchAllConnections} from '../../actions/connection_actions'
 
 const mapStateToProps = (state) => {
     return {
+        // user: Object.values(state.session.user)[0],
         user: Object.values(state.entities.users)[0],
         connections: Object.values(state.entities.connections)
     };

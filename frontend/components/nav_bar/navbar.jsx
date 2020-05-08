@@ -8,6 +8,11 @@ import { render } from 'react-dom';
 // }
 
 const Navbar = ({ currentUser, logout }) => {
+
+    // showDropdown() {
+    //     document.getElementsByClassName("dropdown-content").classList.toggle("dropdown-content-show")
+    // }
+
     const sessionLinks = () => (
         <nav className="login-signup">
             <div>
@@ -75,7 +80,19 @@ const Navbar = ({ currentUser, logout }) => {
                     <div className="navbar-profile">
                         <div className="navbar-pic"></div>
 
-                        <div className="nav-dropdown">
+                        <div className="nav-dropdown" onClick={
+                            () => {
+                                if (document.getElementsByClassName("dropdown-content").length > 0) {
+                                    let element = document.getElementsByClassName("dropdown-content")[0]
+                                    element.classList.toggle("dropdown-content-show")
+                                    element.classList.toggle("dropdown-content")
+                                } else {
+                                    let element = document.getElementsByClassName("dropdown-content-show")[0]
+                                    element.classList.toggle("dropdown-content-show")
+                                    element.classList.toggle("dropdown-content")
+                                }
+                            }
+                            }>
                             Me &nbsp;<i className='fa fa-caret-down'></i>
                             <div className='dropdown-content'>
                                 {/* <Link to={`/git/${this.props.currentUser.id}`}>View Profile</Link> */}
@@ -101,6 +118,7 @@ const Navbar = ({ currentUser, logout }) => {
             </hgroup>
         </div>
     );
+
 
 
     if (currentUser) {

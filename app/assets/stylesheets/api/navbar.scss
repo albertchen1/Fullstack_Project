@@ -77,8 +77,20 @@ a {
 }
 
 
-.navbar-profile:hover .dropdown-content {
+// .navbar-profile:hover .dropdown-content {
+//     display: block;
+// }
+
+.dropdown-content-show{
     display: block;
+    position: absolute;
+    color: #666666;
+    background-color: white;
+    min-width: 18vw;
+    min-height: 40vh;
+    z-index: 1;
+    // border-radius: .1vh;
+    left: 24vw;
 }
 
 .dropdown-content {

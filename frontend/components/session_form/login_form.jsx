@@ -62,7 +62,8 @@ class LoginForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user)
+            // .then(() => this.props.history.push('/feed'));
     }
 
     handleDemo(e) {
@@ -71,7 +72,9 @@ class LoginForm extends React.Component {
             username: 'demo@demo.com',
             password: '123456'
         };
-        this.props.processForm(demo) //.then(() => this.props.history.push('/feed'));
+        this.props.processForm(demo) 
+        // .then(() => this.props.history.push('/feed'));
+
     }
 
     renderErrors() {
@@ -85,6 +88,10 @@ class LoginForm extends React.Component {
             // </ul>
             null
         );
+    }
+
+    componentDidMount() {
+        console.log(this.props)
     }
 
 

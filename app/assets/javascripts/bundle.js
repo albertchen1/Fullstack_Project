@@ -1458,13 +1458,15 @@ var Feed = /*#__PURE__*/function (_React$Component) {
         className: "feed-profile-background"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-profile-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/profile"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "feed-img"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: window.blankprofilepic
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "feed-name"
-      }, this.props.user.firstName, "\xA0", this.props.user.lastName), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.user.firstName, "\xA0", this.props.user.lastName)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "feed-title"
       }, this.props.user.headline)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-num"

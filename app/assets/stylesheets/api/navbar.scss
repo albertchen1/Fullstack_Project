@@ -128,14 +128,32 @@ a {
 
 .dropdown-profile-view-profile {
     padding-top: 1.3vh;
+    padding-bottom: 1.3vh;
     color: #2977c9;
     font-size: 12pt;
     text-align: center;
 }
 
-.header-button-logout {
-    margin: 4vh 1vw;
+.dropdown-profile-view-profile:hover {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    color: #2977c9;
     font-size: 12pt;
+    text-align: center;
+    background-color: rgb(174, 221, 243);
+}
+
+.header-button-logout {
+    margin: 2vh 1vw;
+    padding: 1vh 1vw;
+    font-size: 12pt;
+}
+
+.header-button-logout:hover {
+    margin: 2vh 1vw;
+    padding: 1vh 1vw;
+    font-size: 12pt;
+    background-color: lightgrey;
 }
 
 #navbar-icon-label{

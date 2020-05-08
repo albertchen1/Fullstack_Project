@@ -78,8 +78,10 @@ class Feed extends React.Component {
                     <div className="feed-profile-container">
                         <div className="feed-profile-background"></div>
                         <div className="feed-profile-info">
-                            <div id="feed-img"><img src={window.blankprofilepic}/></div>
-                            <div id="feed-name">{this.props.user.firstName}&nbsp;{this.props.user.lastName}</div>
+                            <Link to="/profile">
+                                <div id="feed-img"><img src={window.blankprofilepic}/></div>
+                                <div id="feed-name">{this.props.user.firstName}&nbsp;{this.props.user.lastName}</div>
+                            </Link>
                             <div id="feed-title">{this.props.user.headline}</div>
                         </div>
                         <hr/>

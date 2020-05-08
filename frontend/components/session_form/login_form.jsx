@@ -18,12 +18,14 @@ class LoginForm extends React.Component {
 
     displayusererr(){
         let errorOutput = "";
-        this.props.errors.forEach( (ele) => {
-                if(ele === 'Invalid email'){
-                    errorOutput += ele;
+        if (this.props.errors) {
+            this.props.errors.forEach( (ele) => {
+                    if(ele === 'Invalid email'){
+                        errorOutput += ele;
+                    }
                 }
-            }
-        )
+            )
+        }
         return (
             <div>
                 {errorOutput}
@@ -32,12 +34,14 @@ class LoginForm extends React.Component {
     }
     displaypassworderr() {
         let errorOutput = "";
-        this.props.errors.forEach((ele) => {
-            if (ele !== 'Invalid email') {
-                errorOutput += ele;
+        if (this.props.errors) {
+            this.props.errors.forEach((ele) => {
+                if (ele !== 'Invalid email') {
+                    errorOutput += ele;
+                }
             }
+            )
         }
-        )
         return (
             <div>
                 {errorOutput}

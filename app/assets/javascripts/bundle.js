@@ -2410,22 +2410,30 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     key: "displayusererr",
     value: function displayusererr() {
       var errorOutput = "";
-      this.props.errors.forEach(function (ele) {
-        if (ele === 'Invalid email') {
-          errorOutput += ele;
-        }
-      });
+
+      if (this.props.errors) {
+        this.props.errors.forEach(function (ele) {
+          if (ele === 'Invalid email') {
+            errorOutput += ele;
+          }
+        });
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, errorOutput);
     }
   }, {
     key: "displaypassworderr",
     value: function displaypassworderr() {
       var errorOutput = "";
-      this.props.errors.forEach(function (ele) {
-        if (ele !== 'Invalid email') {
-          errorOutput += ele;
-        }
-      });
+
+      if (this.props.errors) {
+        this.props.errors.forEach(function (ele) {
+          if (ele !== 'Invalid email') {
+            errorOutput += ele;
+          }
+        });
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, errorOutput);
     }
   }, {

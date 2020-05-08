@@ -93,7 +93,7 @@ class Connections extends React.Component {
                                     <h3 id="manage-network-connections-number">{this.props.connections.length}</h3>
                                 </div>
                             </Link>
-                            <div id="manage-network-others">
+                            {/* <div id="manage-network-others">
                                 <div id="manage-network-others-icon"><i className="fas fa-address-book"></i></div>
                                 <div id="manage-network-contacts-text">Contacts</div>
                             </div>
@@ -112,7 +112,7 @@ class Connections extends React.Component {
                             <div id="manage-network-others">
                                 <div id="manage-network-others-icon"><i className="fas fa-hashtag"></i></div>
                                 <div id="manage-network-hashtags-text">Hashtags</div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className="invitations-container">

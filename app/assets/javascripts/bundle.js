@@ -756,11 +756,7 @@ var ConnectionList = /*#__PURE__*/function (_React$Component) {
   _createClass(ConnectionList, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
-
-      this.props.fetchAllConnections(this.props.user.id).then(function () {
-        return console.log(_this2.props);
-      });
+      this.props.fetchAllConnections(this.props.user.id); // .then(() => console.log(this.props))
     }
   }, {
     key: "renderConnections",
@@ -779,14 +775,9 @@ var ConnectionList = /*#__PURE__*/function (_React$Component) {
             className: "connection-list-headline-row"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
             id: "connection-list-headline"
-          }, connection.recipient.headline), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-            id: "connection-list-message-button",
-            onClick: function onClick(e) {
-              return alert("Feature coming soon!");
-            }
-          }, "Message")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+          }, connection.recipient.headline)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
             id: "connection-list-time"
-          }, "Connected 1m ago"))) // <li key={connection.id}>{connection.recipient.firstName}</li>
+          }, "Connected ", connection.recipient.lastName.length - 4, "m ago"))) // <li key={connection.id}>{connection.recipient.firstName}</li>
           ;
         });
       } else {
@@ -1013,47 +1004,7 @@ var Connections = /*#__PURE__*/function (_React$Component) {
         id: "manage-network-connections-text"
       }, "Connections"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         id: "manage-network-connections-number"
-      }, this.props.connections.length))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-others"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-others-icon"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-address-book"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-contacts-text"
-      }, "Contacts")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-others"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-others-icon"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-walking"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-people-text"
-      }, "People I Follow")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-others"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-others-icon"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-users"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-groups-text"
-      }, "Groups")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-others"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-others-icon"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-file-alt"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-pages-text"
-      }, "Pages")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-others"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-others-icon"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-hashtag"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "manage-network-hashtags-text"
-      }, "Hashtags")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.connections.length))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "invitations-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "invitations-header-container"
@@ -1256,13 +1207,10 @@ var CreatePostForm = /*#__PURE__*/function (_React$Component) {
       var that = this;
 
       window.onclick = function (e) {
-        console.log(e.target);
-
-        if (!e.target.matches(".create-post-modal-show")) {
-          console.log("not matching"); // that.props.closeModal();
-        } else {
-          console.log("dont close");
-        }
+        if (!e.target.matches(".create-post-modal-show")) {// console.log("not matching")
+          // that.props.closeModal();
+        } else {// console.log("dont close")
+          }
       };
 
       return (// <div className="modal">
@@ -1303,19 +1251,7 @@ var CreatePostForm = /*#__PURE__*/function (_React$Component) {
           className: "post-form-icons"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "icon-post-form"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          id: "icon-post-form-each"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-camera"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          id: "icon-post-form-each"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-video"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          id: "icon-post-form-each"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-file-alt"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           className: "post-modal-submit",
           type: "submit",
           value: "Post"
@@ -1468,7 +1404,11 @@ var Feed = /*#__PURE__*/function (_React$Component) {
         id: "feed-img"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: window.blankprofilepic
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "feed-name"
+      }, this.props.user.firstName, "\xA0", this.props.user.lastName)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "feed-title"
+      }, this.props.user.headline)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-num"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-num-container"
@@ -1502,87 +1442,11 @@ var Feed = /*#__PURE__*/function (_React$Component) {
         onClick: this.openModal
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-edit"
-      }), "\xA0 Start a post")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "icon-post"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-camera",
-        onClick: function onClick(e) {
-          return alert("feature not available");
-        }
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "icon-post"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-video",
-        onClick: function onClick(e) {
-          return alert("feature not available");
-        }
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "icon-post"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-file-alt",
-        onClick: function onClick(e) {
-          return alert("feature not available");
-        }
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "write-article",
-        onClick: function onClick(e) {
-          return alert("feature not available");
-        }
-      }, "Write an article "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "on-linkedlist"
-      }, " on LinkedList")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), "\xA0 Start a post")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-list"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-list-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post1-ad"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post1-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "list-logo-post"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post1-header-text"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post1-company"
-      }, "LinkedList"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post1-followers"
-      }, "11,332,114 followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post1-promoted"
-      }, "Promoted"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post1-body-text"
-      }, "See the expanded list of who\u2019s viewed your profile. Make connections to boost the power of your network. Try LinkedList Premium for free."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://premium.linkedin.com/"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post1-pic"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post1-pic-desc"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-        id: "post1-pic-desc-header"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " LinkedList Premium"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-        id: "post1-pic-desc-site"
-      }, "linkedlist.com ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-likes-comments"
-      }, "0 Likes 0 comments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-reacts"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "like",
-        onClick: function onClick(e) {
-          return alert("Feature coming soon! Try leaving a comment!");
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-thumbs-up"
-      }), " Like "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "comment"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-comment-alt"
-      }), " Comment "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "share",
-        onClick: function onClick(e) {
-          return alert("Feature coming soon!");
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-share-square"
-      }), " Share ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_container__WEBPACK_IMPORTED_MODULE_4__["default"], null)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-container-header"
@@ -1756,9 +1620,8 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
     value: function openCreateComment() {
       var _this2 = this;
 
-      var post = this.props.post;
-      console.log(document.getElementById("create-comment-form-".concat(post.id)));
-      console.log(!document.getElementById("create-comment-form-".concat(post.id)) ? "true" : "false");
+      var post = this.props.post; // console.log(document.getElementById(`create-comment-form-${post.id}`))
+      // console.log(!document.getElementById(`create-comment-form-${post.id}`) ? "true" : "false")
 
       if (!document.getElementById("create-comment-form-".concat(post.id))) {
         // <form action="/action_page.php" method="get" id="form1">
@@ -1850,13 +1713,6 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "post-dropdown-content"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          id: "edit-button"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "far fa-edit",
-          onClick: function onClick(e) {
-            return alert("Feature coming soon!");
-          }
-        }), " Edit Post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "delete-button",
           onClick: function onClick() {
             return _this3.props.deletePost(_this3.props.post.id);
@@ -1961,14 +1817,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         onClick: this.openCreateComment
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-comment-alt"
-      }), " Comment "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "share",
-        onClick: function onClick(e) {
-          return alert("Feature coming soon!");
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-share-square"
-      }), " Share ")), this.renderViewComments());
+      }), " Comment ")), this.renderViewComments());
     }
   }]);
 
@@ -2205,40 +2054,7 @@ var Navbar = function Navbar(_ref) {
       className: "fas fa-user-friends"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       id: "navbar-icon-label"
-    }, "My Network"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      to: "/jobs"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "navbar-icons"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-suitcase",
-      onClick: function onClick(e) {
-        return alert("Feature coming soon!");
-      }
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "navbar-icon-label"
-    }, "Jobs"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      to: "/messaging"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "navbar-icons"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-envelope",
-      onClick: function onClick(e) {
-        return alert("Feature coming soon!");
-      }
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "navbar-icon-label"
-    }, "Messaging"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      to: "/notifications"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "navbar-icons"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-bell",
-      onClick: function onClick(e) {
-        return alert("Feature coming soon!");
-      }
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "navbar-icon-label"
-    }, "Notifications"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "My Network"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "navbar-profile"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "navbar-pic"
@@ -2499,8 +2315,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "componentDidMount",
-    value: function componentDidMount() {
-      console.log(this.props);
+    value: function componentDidMount() {// console.log(this.props)
     }
   }, {
     key: "render",
@@ -3444,7 +3259,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "openEditModal",
     value: function openEditModal(topic) {
-      console.log(topic);
+      // console.log(topic)
       this.setState(_defineProperty({}, topic, true));
     }
   }, {
@@ -3535,14 +3350,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         className: "profile-experience-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         id: "experience-title"
-      }, "Experience"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "add-experience-icon"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-plus",
-        onClick: function onClick(e) {
-          return alert("Feature coming soon!");
-        }
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Experience")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-experience-list"
       }, this.renderExperience())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-education-container"
@@ -3550,14 +3358,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         className: "profile-education-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         id: "education-title"
-      }, "Education"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "add-education-icon"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-plus",
-        onClick: function onClick(e) {
-          return alert("Feature coming soon!");
-        }
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Education")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-education-list"
       }, this.renderEducation())), this.renderEditAbout(), this.renderEditHeader());
     }
@@ -3679,8 +3480,7 @@ var EditAboutModal = /*#__PURE__*/function (_React$Component) {
 
   _createClass(EditAboutModal, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      console.log(this.props.user);
+    value: function componentDidMount() {// console.log(this.props.user)
     }
   }, {
     key: "update",
@@ -5015,8 +4815,7 @@ var EditHeaderModal = /*#__PURE__*/function (_React$Component) {
 
   _createClass(EditHeaderModal, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      console.log(this.props.user);
+    value: function componentDidMount() {// console.log(this.props.user)
     }
   }, {
     key: "update",

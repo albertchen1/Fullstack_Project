@@ -26,8 +26,8 @@ class PostItem extends React.Component {
 
     openCreateComment() {
         let post = this.props.post
-        console.log(document.getElementById(`create-comment-form-${post.id}`))
-        console.log(!document.getElementById(`create-comment-form-${post.id}`) ? "true" : "false")
+        // console.log(document.getElementById(`create-comment-form-${post.id}`))
+        // console.log(!document.getElementById(`create-comment-form-${post.id}`) ? "true" : "false")
         if (!document.getElementById(`create-comment-form-${post.id}`)) {
             // <form action="/action_page.php" method="get" id="form1">
             //     <label for="fname">First name:</label>
@@ -101,7 +101,7 @@ class PostItem extends React.Component {
         if (this.state.dropdown === true) {
             return (
                 <div id="post-dropdown-content">
-                    <div id="edit-button"><i className="far fa-edit" onClick={e => alert("Feature coming soon!")}></i> Edit Post</div>
+                    {/* <div id="edit-button"><i className="far fa-edit" onClick={e => alert("Feature coming soon!")}></i> Edit Post</div> */}
                     <div id="delete-button" onClick={() => this.props.deletePost(this.props.post.id)}><i className="far fa-trash-alt"></i> Delete Post</div>
                 </div>
             )
@@ -159,10 +159,6 @@ class PostItem extends React.Component {
                             <div id="post-item-name">{this.props.post.author.firstName}&nbsp;{this.props.post.author.lastName}</div>
                             <button id="three-dot-dropdown" onClick={this.openDropdown}>
                                 {this.renderDropdown()}
-                                {/* <div id="post-dropdown-content">
-                                    <div id="delete-button" onClick={() => this.props.deletePost(this.props.post.id)}>Delete Post</div>
-                                    <div>HELLO</div>
-                                </div> */}
                             </button>
                         </div>
 
@@ -187,7 +183,7 @@ class PostItem extends React.Component {
                 <div className="post-reacts">
                     <div className="like" onClick={e => alert("Feature coming soon! Try leaving a comment!")}><i className="far fa-thumbs-up"></i> Like </div>
                     <div className="comment" onClick={this.openCreateComment}><i className="far fa-comment-alt"></i> Comment </div>
-                    <div className="share" onClick={e => alert("Feature coming soon!")}><i className="far fa-share-square"></i> Share </div>
+                    {/* <div className="share" onClick={e => alert("Feature coming soon!")}><i className="far fa-share-square"></i> Share </div> */}
                 </div>
                 {this.renderViewComments()}
             </div>

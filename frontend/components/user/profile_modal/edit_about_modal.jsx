@@ -13,7 +13,7 @@ class EditAboutModal extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.user)
+        // console.log(this.props.user)
     }
 
     update(field) {

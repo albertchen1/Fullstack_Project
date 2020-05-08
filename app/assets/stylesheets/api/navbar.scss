@@ -90,7 +90,7 @@ a {
     min-height: 40vh;
     z-index: 1;
     // border-radius: .1vh;
-    left: 24vw;
+    left: 0vw;
 }
 
 .dropdown-content {
@@ -176,4 +176,5 @@ a {
     color: white;
     font-size: 1.75vh;
     font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
 }

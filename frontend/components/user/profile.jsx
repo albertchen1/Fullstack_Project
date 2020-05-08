@@ -109,7 +109,7 @@ class Profile extends React.Component {
     }
 
     openEditModal(topic) {
-        console.log(topic)
+        // console.log(topic)
         this.setState({[topic]: true})
     }
 
@@ -178,7 +178,7 @@ class Profile extends React.Component {
                 <div className="profile-experience-container">
                     <div className="profile-experience-header">
                         <h4 id="experience-title">Experience</h4>
-                        <div id="add-experience-icon"><i className="fas fa-plus" onClick={e => alert("Feature coming soon!")}></i></div>
+                        {/* <div id="add-experience-icon"><i className="fas fa-plus" onClick={e => alert("Feature coming soon!")}></i></div> */}
                     </div>
                     {/* <div id="profile-experience-edit-icon" onClick={() => this.openEditModal('experience')}><i className="fas fa-pencil-alt"></i></div> */}
                     <div className="profile-experience-list">{this.renderExperience()}</div>
@@ -186,7 +186,7 @@ class Profile extends React.Component {
                 <div className="profile-education-container">
                     <div className="profile-education-header">
                         <h4 id="education-title">Education</h4>
-                        <div id="add-education-icon"><i className="fas fa-plus" onClick={e => alert("Feature coming soon!")}></i></div>
+                        {/* <div id="add-education-icon"><i className="fas fa-plus" onClick={e => alert("Feature coming soon!")}></i></div> */}
                     </div>
                     {/* <div id="profile-education-edit-icon" onClick={() => this.openEditModal('education')}><i className="fas fa-pencil-alt"></i></div> */}
                     <div className="profile-education-list">{this.renderEducation()}</div>

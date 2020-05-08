@@ -81,9 +81,9 @@ class Feed extends React.Component {
                         <div className="feed-profile-info">
                             <Link to="/profile">
                                 <div id="feed-img"><img src={window.blankprofilepic}/></div>
-                                {/* <div id="feed-name">{this.props.user.firstName}&nbsp;{this.props.user.lastName}</div> */}
+                                <div id="feed-name">{this.props.user.firstName}&nbsp;{this.props.user.lastName}</div>
                             </Link>
-                            {/* <div id="feed-title">{this.props.user.headline}</div> */}
+                            <div id="feed-title">{this.props.user.headline}</div>
                         </div>
                         <hr/>
                         <div className="feed-num">
@@ -113,47 +113,19 @@ class Feed extends React.Component {
                                         &nbsp; Start a post 
                                     </div>
                                 </div>
-                                <div className='icon-post'><i className="fas fa-camera" onClick={e => alert("feature not available")} ></i></div>
-                                <div className='icon-post'><i className="fas fa-video" onClick={e => alert("feature not available")} ></i></div>
-                                <div className='icon-post'><i className="fas fa-file-alt" onClick={e => alert("feature not available")}></i></div>
+                                {/* <div className='icon-post'><i className="fas fa-camera" onClick={e => alert("feature not available")} ></i></div> */}
+                                {/* <div className='icon-post'><i className="fas fa-video" onClick={e => alert("feature not available")} ></i></div> */}
+                                {/* <div className='icon-post'><i className="fas fa-file-alt" onClick={e => alert("feature not available")}></i></div> */}
                             </div>
-                            <div className='write-article' onClick={e => alert("feature not available")}>Write an article </div>
-                            <div className='on-linkedlist'> on LinkedList</div>
+                            {/* <div className='write-article' onClick={e => alert("feature not available")}>Write an article </div>
+                            <div className='on-linkedlist'> on LinkedList</div> */}
                         </div>
                         <div className="post-list">
                             <div className="post-list-container">
                                 <PostsContainer />
                             </div>
                         </div>
-                        {/* <div className="post2-post">
-                            <div className="post2-container">
-                                <div id="shaq-post"></div>
-                                <div id="post2-header-text">
-                                    <div id="post2-name">Shaquille O'Neal</div>
-                                    <div id="post2-headline">Business mogul, Former athlete, Purveyor of fun</div>
-                                    <div id="post2-time">5d</div>
-                                </div>
-                            </div>
-                            <div className="post2-body-text">
-                                I can't lie - if companies are doing video 
-                                interviews via Zoom, I'm not sure I'll be able 
-                                to find a job until this pandemic ends.
-                                <br/>
-                                <br/>
-                                My wife gave me a haircut last night, and I 
-                                currently look like one of the players in Wii 
-                                Tennis
-                            </div>
-                            <div className="post-likes-comments">
-                                0 Likes 0 comments
-                            </div>
-                            <div className="post-reacts">
-                                <div className="like" onClick={e => alert("Feature coming soon!")}><i className="far fa-thumbs-up"></i> Like </div>
-                                <div className="comment"><i className="far fa-comment-alt"></i> Comment </div>
-                                <div className="share" onClick={e => alert("Feature coming soon!")} ><i className="far fa-share-square"></i> Share </div>
-                            </div>
-                        </div> */}
-                        <div className="post1-ad">
+                        {/* <div className="post1-ad">
                             <div className="post1-container">
                                 <div id="list-logo-post"></div>
                                 <div id="post1-header-text">
@@ -182,7 +154,7 @@ class Feed extends React.Component {
                                 <div className="comment"><i className="far fa-comment-alt"></i> Comment </div>
                                 <div className="share" onClick={e => alert("Feature coming soon!")}><i className="far fa-share-square"></i> Share </div>
                             </div>
-                        </div>
+                        </div> */}
                         {/* <div className="post3-uiuc">
                             <div className="post3-container">
                                 <div id="uiuc-post"></div>

@@ -82,12 +82,11 @@ class CreatePostForm extends React.Component {
     render() {
         let that = this;
         window.onclick = function(e) {
-            console.log(e.target)
             if (!e.target.matches(".create-post-modal-show")) {
-                console.log("not matching")
+                // console.log("not matching")
                 // that.props.closeModal();
             } else {
-                console.log("dont close")
+                // console.log("dont close")
             }
         }
         return (
@@ -119,9 +118,9 @@ class CreatePostForm extends React.Component {
                         <div className='create-post-bottom'>
                             <div className='post-form-icons'>
                                 <div className='icon-post-form'>
-                                    <div id="icon-post-form-each"><i className="fas fa-camera"></i></div>
+                                    {/* <div id="icon-post-form-each"><i className="fas fa-camera"></i></div>
                                     <div id="icon-post-form-each"><i className="fas fa-video"></i></div>
-                                    <div id="icon-post-form-each"><i className="fas fa-file-alt"></i></div>
+                                    <div id="icon-post-form-each"><i className="fas fa-file-alt"></i></div> */}
 
                                     <input className='post-modal-submit' type='submit' value='Post' />
 

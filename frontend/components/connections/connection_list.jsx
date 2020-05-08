@@ -11,7 +11,7 @@ class ConnectionList extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllConnections(this.props.user.id)
-            .then(() => console.log(this.props))
+            // .then(() => console.log(this.props))
     }
 
     renderConnections() {
@@ -23,9 +23,9 @@ class ConnectionList extends React.Component {
                         <h4 id="connection-list-name">{connection.recipient.firstName}&nbsp;{connection.recipient.lastName}</h4>
                         <div className="connection-list-headline-row">
                             <h4 id="connection-list-headline">{connection.recipient.headline}</h4>
-                            <button id="connection-list-message-button" onClick={e => alert("Feature coming soon!")}>Message</button>
+                            {/* <button id="connection-list-message-button" onClick={e => alert("Feature coming soon!")}>Message</button> */}
                         </div>
-                        <h4 id="connection-list-time">Connected 1m ago</h4>
+                        <h4 id="connection-list-time">Connected {connection.recipient.lastName.length-4}m ago</h4>
                     </div>
                 </div>
 

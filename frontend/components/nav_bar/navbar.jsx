@@ -53,7 +53,7 @@ const Navbar = ({ currentUser, logout }) => {
                         <div id="navbar-icon-label">My Network</div>
                         </div>
                     </Link>
-                    <Link to="/jobs" >
+                    {/* <Link to="/jobs" >
                         <div className="navbar-icons">
                             <i className="fas fa-suitcase" onClick={e => alert("Feature coming soon!")}></i>
                             <br/>
@@ -73,7 +73,7 @@ const Navbar = ({ currentUser, logout }) => {
                             <br/>
                         <div id="navbar-icon-label">Notifications</div>
                         </div>
-                    </Link>
+                    </Link> */}
 
                     {/* <button className="header-button-logout" onClick={logout}>Log Out</button> */}
             

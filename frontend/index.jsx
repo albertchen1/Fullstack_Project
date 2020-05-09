@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
         store = configureStore();
     }
 
+    //added below line from stack overflow https://stackoverflow.com/questions/49772493/getting-a-503-error-when-uploading-to-heroku-with-my-nodejs-application
+    // require("http-server").createServer().listen(process.env.PORT);
+
     // const store = configureStore();
     window.getState = store.getState;
     window.dispatch = store.dispatch;

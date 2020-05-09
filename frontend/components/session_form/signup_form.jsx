@@ -8,7 +8,8 @@ class SignupForm extends React.Component {
             password: '',
             first_name: '',
             last_name: '',
-            location: ''
+            location: '',
+            headline: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
@@ -69,78 +70,64 @@ class SignupForm extends React.Component {
         return (
             <div className="signup-form-container">
                 <div className="signup-logo"></div>
-                <br/>
-                <br/>
                 <form onSubmit={this.handleSubmit} className="signup-form-box">
-                    Make the most of your professional life
-                <br />
-                <br />
-                    {/* Please {this.props.formType} or {this.props.navLink} */}
-
-                    
+                    <h2 className='make-the-most'>Make the most of your professional life</h2>
                     <div className="signup-form">
                         <div className="signup-errors">{this.renderErrors()}</div>
-                        <br/>
+
                         <label className="signup-email-label">Email/Username</label>
                         <br/>
-                        <label>
+
                             <input type="text"
                                 value={this.state.username}
                                 onChange={this.update('username')}
                                 className="signup-input"
                                 // placeholder="Email/Username"
                             />
-                        </label>
-                        <br/>
-                        <br/>
+
                         <label className="signup-password-label">Password (6 or more characters)</label>
                         <br/>
-                        <label>
+
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 className="signup-input"
                                 // placeholder="Password (6 or more characters)"
                             />
-                        </label>
-                        <br/>
+
                         <br/>
                         <label className="signup-fname-label">First Name</label>
                         <br/>
-                        <label>
                             <input type="text"
                                 value={this.state.first_name}
                                 onChange={this.update('first_name')}
                                 className="signup-input"
-                                // placeholder="First Name"
                             />
-                        </label>
-                        <br />
                         <br/>
                         <label className="signup-lname-label">Last Name</label>
                         <br/>
-                        <label>
                             <input type="text"
                                 value={this.state.last_name}
                                 onChange={this.update('last_name')}
                                 className="signup-input"
-                                // placeholder="Last Name"
                             />
-                        </label>
-                        <br />
                         <br/>
                         <label className="signup-location-label" >Location</label>
                         <br/>
-                        <label>
                             <input type="text"
                                 value={this.state.location}
                                 onChange={this.update('location')}
                                 className="signup-input"
-                                // placeholder="Location"
                             />
-                        </label>
+                        <br/>
+                        <label className="signup-headline-label" >Headline</label>
+                        <br/>
+                        <input type="text"
+                                value={this.state.headline}
+                                onChange={this.update('headline')}
+                                className="signup-input"
+                            />
                         <br />
-
                         <br />
                         <input className="session-submit" type="submit" value="Join" />
                         <br />

@@ -3,6 +3,14 @@
 .signup-logo{
     content: url(https://i.imgur.com/mtLupon.png);
     display: inline-block;
+    margin: 3vh 0;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+}
+
+.make-the-most {
+    font-size: 20pt;
+    padding: 2vh 0;
 }
 
 .signup-form-container{
@@ -23,9 +31,10 @@
 .signup-form{
     width: 34.7vw;
     background-color: #D3D3D3;
-    padding: 2.9vh 1.4vw 2.9vh 1.4vw;
+    margin-top: 2vh;
+    padding: 1vh 1.4vw 1vh 1.4vw;
     display: inline-block;
-    border-radius: .58vh;
+    font-weight: 400;
 }
 
 label{
@@ -35,7 +44,8 @@ label{
     position: relative;
     float: left;
     left: 7vh;
-
+    padding: 2vh 0 0 0;
+    display: inline-block;
 }
 
 .signup-input{
@@ -45,6 +55,7 @@ label{
     background-color: white;
     border-style: solid;
     border-radius: .58vh;
+    display: inline-block;
 }
 
 .signup-form-box{
@@ -76,6 +87,7 @@ label{
     font-size: 2.3vh;
     color: white;
     background-color: red;
+    margin: 2vh 0;
 }
 
 .already-on-linkedlist{

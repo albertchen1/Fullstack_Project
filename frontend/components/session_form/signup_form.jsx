@@ -76,71 +76,55 @@ class SignupForm extends React.Component {
                         <div className="signup-errors">{this.renderErrors()}</div>
 
                         <label className="signup-email-label">Email/Username</label>
-                        <br/>
-
                             <input type="text"
-                                value={this.state.username}
-                                onChange={this.update('username')}
-                                className="signup-input"
-                                // placeholder="Email/Username"
+                            value={this.state.username}
+                            onChange={this.update('username')}
+                            className="signup-input"
                             />
-
                         <label className="signup-password-label">Password (6 or more characters)</label>
-                        <br/>
-
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 className="signup-input"
-                                // placeholder="Password (6 or more characters)"
                             />
-
-                        <br/>
                         <label className="signup-fname-label">First Name</label>
-                        <br/>
-                            <input type="text"
+                                <input type="text"
                                 value={this.state.first_name}
                                 onChange={this.update('first_name')}
                                 className="signup-input"
                             />
-                        <br/>
                         <label className="signup-lname-label">Last Name</label>
-                        <br/>
                             <input type="text"
                                 value={this.state.last_name}
                                 onChange={this.update('last_name')}
                                 className="signup-input"
                             />
-                        <br/>
                         <label className="signup-location-label" >Location</label>
-                        <br/>
                             <input type="text"
                                 value={this.state.location}
                                 onChange={this.update('location')}
                                 className="signup-input"
                             />
-                        <br/>
                         <label className="signup-headline-label" >Headline</label>
-                        <br/>
-                        <input type="text"
-                                value={this.state.headline}
-                                onChange={this.update('headline')}
-                                className="signup-input"
-                            />
-                        <br />
-                        <br />
-                        <input className="session-submit" type="submit" value="Join" />
-                        <br />
-                        <br />
-                        <button className='session-demo' onClick={this.handleDemo}>Demo User</button>
-                        <br/>
-                        <br/>
+                            <input type="text"
+                                    value={this.state.headline}
+                                    onChange={this.update('headline')}
+                                    className="signup-input"
+                                />
+                        <div className='signup-bottom-buttons'>
+                            <input className="session-submit" type="submit" value="Join" />
+                            <button className='session-demo' onClick={this.handleDemo}>Demo User</button>
+                            <br/>
+                            <div className='already-linkedlist-button'>
+                                <div className="already-on-linkedlist">Already on LinkedList? </div>
+                                <div className="already-signin-link">&nbsp;{this.props.navLink}</div>
+                            </div>
+                            
+                        </div>
 
-                        <div className="already-on-linkedlist">Already on LinkedList? </div>
-                        <div className="already-signin-link">{this.props.navLink}</div>
                     </div>
                 </form>
-                <br />
+
                 
             </div>
         );

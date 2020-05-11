@@ -122,14 +122,12 @@ const Navbar = ({ currentUser, logout }) => {
 
 
     if (currentUser) {
-        console.log(currentUser)
         return (
             <div className="welcome-page">
                     {welcomePage()}
             </div>
         )
     } else {
-        console.log('none')
         return (
             <div>
                 <header className="page-header">

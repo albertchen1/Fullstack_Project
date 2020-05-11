@@ -1761,7 +1761,14 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
     key: "renderIllinoisHeader",
     value: function renderIllinoisHeader() {
       if (this.props.post.author.lastName === 'of Illinois at Urbana-Champaign') {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "illinois.edu");
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          target: "_blank",
+          href: "https://news.illinois.edu/view/6367/806559"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          id: "post-body-".concat(this.props.post.author.firstName.length, "-desc-header")
+        }, "U of I among top producers of Fulbright awards"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          id: "post-body-".concat(this.props.post.author.firstName.length, "-desc-site")
+        }, "news.illinois.edu")));
       } else {
         return null;
       }
@@ -1802,11 +1809,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         id: "post-body-".concat(this.props.post.author.firstName.length, "-pic")
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post-body-".concat(this.props.post.author.firstName.length, "-desc")
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post-body-".concat(this.props.post.author.firstName.length, "-desc-header")
       }, this.renderIllinoisHeader()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "post-body-".concat(this.props.post.author.firstName.length, "-desc-site")
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-likes-comments",
         onClick: this.openCreateComment
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2707,7 +2710,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       }, "Make the most of your professional life"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "signup-errors"
+        className: "signup-errors-list"
       }, this.renderErrors()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "signup-email-label"
       }, "Email/Username"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {

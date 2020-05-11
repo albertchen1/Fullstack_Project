@@ -108,9 +108,9 @@
 
 .connection-list-page-container {
     width: 55%;
-    min-height: 30vh;
+    min-height: 64vh;
     // max-height: 50vh;
-    height: 40vh;
+    height: 90vh;
     position: sticky;
     top: 15vh;
     margin-left: 11vw;
@@ -132,7 +132,7 @@
 
 .connection-list-header-container {
     height: 2vh;
-    position: sticky;
+    // position: sticky;
     top: 15vh;
     // box-shadow: 0 0 0 0.15vh rgba(0, 0, 0, 0.15);
     background-color: white;
@@ -152,11 +152,50 @@
     width: 4.65vw;
     border-radius: 5vh;
     position: absolute; 
+}
+
+.invitations-Oscar-pic {
+    content: image_url('Oscar.jpg');
+    margin: 2vh 1vw 2vh 2vw;
+    height: 10vh;
+    width: 4.65vw;
+    border-radius: 5vh;
+    position: absolute; 
+
+}
+
+.invitations-Stanley-pic {
+    content: image_url('Stanley.jpg');
+    margin: 2vh 1vw 2vh 2vw;
+    height: 10vh;
+    width: 4.65vw;
+    border-radius: 5vh;
+    position: absolute; 
+
+}
+
+.invitations-Angela-pic {
+    content: image_url('Angela.png');
+    margin: 2vh 1vw 2vh 2vw;
+    height: 10vh;
+    width: 4.65vw;
+    border-radius: 5vh;
+    position: absolute; 
 
 }
 
 .invitations-Jim-pic {
     content: image_url('Jim.png');
+    margin: 2vh 1vw 2vh 2vw;
+    height: 10vh;
+    width: 4.65vw;
+    border-radius: 5vh;
+    position: absolute; 
+
+}
+
+.invitations-Kevin-pic {
+    content: image_url('Kevin.jpeg');
     margin: 2vh 1vw 2vh 2vw;
     height: 10vh;
     width: 4.65vw;

@@ -21,8 +21,16 @@ demo = User.create!(username: 'demo@demo.com' ,
                    first_name: 'Albert', 
                    last_name:'Chen', 
                    location: 'San Francisco Bay Area', 
-                   headline: 'Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java',
-                   summary: "I'm a software engineer with a passion for building products. I have experience with React, Redux, Ruby, Ruby on Rails, SQL, JavaScript, HTML5, CSS3, Node.js, Express.js, Python, and Java. My main projects right now are a MERN stack project creating custom memes and a React/Redux/Rails project rebuilding LinkedIn's site. Other frameworks and technologies I have experience with include Git, AJAX, RESTful API, JBuilder, jQuery, Heroku, AWS, and Ruby ERB."
+                   headline: 'Software Engineer | React | Redux | Ruby on Rails 
+                   | JavaScript | Node.js | SQL | Python | Java',
+                   summary: "I'm a software engineer with a passion for building 
+                   products. I have experience with React, Redux, Ruby, Ruby on 
+                   Rails, SQL, JavaScript, HTML5, CSS3, Node.js, Express.js, 
+                   Python, and Java. My main projects right now are a MERN 
+                   stack project creating custom memes and a React/Redux/Rails 
+                   project rebuilding LinkedIn's site. Other frameworks and 
+                   technologies I have experience with include Git, AJAX, RESTful 
+                   API, JBuilder, jQuery, Heroku, AWS, and Ruby ERB."
 )
 
 shaq = User.create!(username: 'shaq@demo.com' , 
@@ -43,23 +51,28 @@ uiuc = User.create!(username: 'uiuc@demo.com' ,
                    summary: "Learning is great."
 )
 
-demo2 = User.create!(username: 'demo2@demo.com' , 
+jim_user = User.create!(username: 'demo2@demo.com' , 
                    password: '123456', 
                    first_name: 'Jim', 
                    last_name:'Halpert', 
                    location: 'Greater New York City Area', 
                    headline: 'Top Salesman',
-                   summary: "We didn't play many video games in Scranton. Instead we'd do stuff like.. uh, Pam and I would sometimes hum the same high pitched note and try to get Dwight to make an appointment with an ear doctor. And, uh, Pam called it... Pretendinitis."
+                   summary: "We didn't play many video games in Scranton. 
+                   Instead we'd do stuff like.. uh, Pam and I would sometimes 
+                    hum the same high pitched note and try to get Dwight to make 
+                    an appointment with an ear doctor. And, uh, Pam called it... 
+                    Pretendinitis."
 )
-demo3 = User.create!(username: 'demo3@demo.com' , 
+michael_user = User.create!(username: 'demo3@demo.com' , 
                    password: '123456', 
                    first_name: 'Michael', 
                    last_name:'Scott', 
                    location: 'Scranton, PA', 
                    headline: 'Regional Manager at Dunder Mifflin',
-                   summary: "I love inside jokes. I'd love to be a part of one someday."
+                   summary: "I love inside jokes. I'd love to be a part of one 
+                   someday."
 )
-demo4 = User.create!(username: 'demo4@demo.com' , 
+dwight_user = User.create!(username: 'demo4@demo.com' , 
                    password: '123456', 
                    first_name: 'Dwight', 
                    last_name:'Schrute', 
@@ -67,13 +80,50 @@ demo4 = User.create!(username: 'demo4@demo.com' ,
                    headline: 'Assistant to the Regional Manager',
                    summary: "I'm somewhere between a snake and a mongoose."
 )
-demo4 = User.create!(username: 'demo5@demo.com' , 
+pam_user = User.create!(username: 'demo5@demo.com' , 
                    password: '123456', 
                    first_name: 'Pam', 
                    last_name:'Beesly', 
                    location: 'Scranton, PA', 
                    headline: 'Receptionist',
-                   summary: "I'm gonna start telling people what I want, directly."
+                   summary: "I'm gonna start telling people what I want, 
+                   directly."
+)
+kevin_user = User.create!(username: 'demo6@demo.com' , 
+                   password: '123456', 
+                   first_name: 'Kevin', 
+                   last_name:'Malone', 
+                   location: 'Scranton, PA', 
+                   headline: 'Accountant',
+                   summary: "Me think, why waste time say lot word, when few 
+                   word do trick."
+)
+oscar_user = User.create!(username: 'demo7@demo.com' , 
+                   password: '123456', 
+                   first_name: 'Oscar', 
+                   last_name:'Martinez', 
+                   location: 'Scranton, PA', 
+                   headline: 'Accountant',
+                   summary: "Actually..."
+)
+
+angela_user = User.create!(username: 'demo8@demo.com' , 
+                   password: '123456', 
+                   first_name: 'Angela', 
+                   last_name:'Martin', 
+                   location: 'Scranton, PA', 
+                   headline: 'Head of Accounting',
+                   summary: "If you pray enough you can change yourself 
+                   into a cat person."
+)
+
+stanley_user = User.create!(username: 'demo9@demo.com' , 
+                   password: '123456', 
+                   first_name: 'Stanley', 
+                   last_name:'Hudson', 
+                   location: 'Scranton, PA', 
+                   headline: 'Sales Representative at Dunder Mifflin',
+                   summary: "Did I stutter?!"
 )
 
 education1 = Education.create!(
@@ -83,7 +133,8 @@ education1 = Education.create!(
     gpa: 4.0,
     start_year: 2019,
     end_year: 2020,
-    description: 'Most selective coding bootcamp, <3% acceptance rate, intensive 1000 hours full-stack development',
+    description: 'Most selective coding bootcamp, <3% acceptance rate, 
+    intensive 1000 hours full-stack development',
     user_id: User.find_by(username: 'demo@demo.com').id
 )
 
@@ -121,6 +172,21 @@ connection1 = Connection.create!({
     recipient_id: User.find_by(username: 'demo2@demo.com').id
 })
 
+connection2 = Connection.create!({
+    user_id: User.find_by(username: 'demo@demo.com').id,
+    recipient_id: User.find_by(username: 'demo6@demo.com').id
+})
+
+connection3 = Connection.create!({
+    user_id: User.find_by(username: 'demo@demo.com').id,
+    recipient_id: User.find_by(username: 'demo7@demo.com').id
+})
+
+connection4 = Connection.create!({
+    user_id: User.find_by(username: 'demo@demo.com').id,
+    recipient_id: User.find_by(username: 'demo8@demo.com').id
+})
+
 request1 = ConnectionRequest.create!({
     user_id: User.find_by(username: 'demo3@demo.com').id,
     recipient_id: User.find_by(username: 'demo@demo.com').id
@@ -133,17 +199,53 @@ request2 = ConnectionRequest.create!({
 
 uiucpost = Post.create!({
     user_id: User.find_by(username: 'uiuc@demo.com').id,
-    body: 'For the ninth time in the past 10 years, Illinois has been named among the U.S. colleges and universities that produce the most Fulbright U.S. Student Awards.'
+    body: 'For the ninth time in the past 10 years, Illinois has been named 
+    among the U.S. colleges and universities that produce the most Fulbright 
+    U.S. Student Awards.'
 })
 
 shaqpost = Post.create!({
     user_id: User.find_by(username: 'shaq@demo.com').id,
-    body: "I can't lie - if companies are doing video interviews via Zoom, I'm not sure I'll be able to find a job until this pandemic ends. \n \n My wife gave me a haircut last night, and I currently look like one of the players in Wii Tennis"
+    body: "I can't lie - if companies are doing video interviews via Zoom, 
+    I'm not sure I'll be able to find a job until this pandemic ends. \n \n 
+    My wife gave me a haircut last night, and I currently look like one of the 
+    players in Wii Tennis"
+})
+
+oscarpost = Post.create!({
+    user_id: User.find_by(username: 'demo7@demo.com').id,
+    body: "I consider myself a good person, but I'm going to make him cry."
+})
+
+jimpost = Post.create!({
+    user_id: User.find_by(username: 'demo2@demo.com').id,
+    body: "Stanley just drank OJ out of my mug and didn’t seem to realize that 
+    it wasn’t his hot coffee. So the question has to be asked, is there no limit 
+    to what he won’t notice?"
+})
+
+kevin = Post.create!({
+    user_id: User.find_by(username: 'demo6@demo.com').id,
+    body: "The only problem is whenever I try to make a taco, I get too excited 
+    and crush it."
 })
 
 pampost = Post.create!({
     user_id: User.find_by(username: 'demo5@demo.com').id,
-    body: "I suggested we flip a coin, but Angela said she doesn't like to gamble."
+    body: "I suggested we flip a coin, but Angela said she doesn't like to 
+    gamble."
+})
+
+stanleypost = Post.create!({
+    user_id: User.find_by(username: 'demo9@demo.com').id,
+    body: "It's like I used to tell my wife. I do not apologize unless I think 
+        I'm wrong, and if you don't like it, you can leave. And I say the same 
+        thing to my current wife, and I'll say it to my next one, too."
+})
+
+angelapost = Post.create!({
+    user_id: User.find_by(username: 'demo8@demo.com').id,
+    body: "I don't have a headache. I'm just preparing."
 })
 
 michaelpost = Post.create!({
@@ -155,6 +257,3 @@ michaelpost = Post.create!({
 
 
 
-# about1 = About.create!({
-#     summary: "I love coding"
-# })

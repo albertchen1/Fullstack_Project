@@ -276,6 +276,55 @@ hr{
     border-radius: 5vh;
 }
 
+#post-Angela-pic {
+    content: image_url('Angela.png');
+    margin-left: 3%;
+    border-radius: 1.9vh;
+    display: inline-block;
+    height: 7vh;
+    width: 3.3vw;
+    border-radius: 5vh;
+}
+
+#post-Stanley-pic {
+    content: image_url('Stanley.jpg');
+    margin-left: 3%;
+    border-radius: 1.9vh;
+    display: inline-block;
+    height: 7vh;
+    width: 3.3vw;
+    border-radius: 5vh;
+}
+
+#post-Oscar-pic {
+    content: image_url('Oscar.jpg');
+    margin-left: 3%;
+    border-radius: 1.9vh;
+    display: inline-block;
+    height: 7vh;
+    width: 3.3vw;
+    border-radius: 5vh;
+}
+
+#post-Kevin-pic {
+    content: image_url('Kevin.jpeg');
+    margin-left: 3%;
+    border-radius: 1.9vh;
+    display: inline-block;
+    height: 7vh;
+    width: 3.3vw;
+    border-radius: 5vh;
+}
+#post-Jim-pic {
+    content: image_url('Jim.png');
+    margin-left: 3%;
+    border-radius: 1.9vh;
+    display: inline-block;
+    height: 7vh;
+    width: 3.3vw;
+    border-radius: 5vh;
+}
+
 #post-Pam-pic {
     content: image_url('pam.jpg');
     margin-left: 3%;
@@ -358,7 +407,7 @@ hr{
     margin: auto;
     max-width:100%;
     max-height: 100%;
-    cursor: pointer;
+    // cursor: pointer;
 }
 
 .post1-pic-desc, .post3-pic-desc, #post-body-10-desc {

@@ -73,7 +73,7 @@ class SignupForm extends React.Component {
                 <form onSubmit={this.handleSubmit} className="signup-form-box">
                     <h2 className='make-the-most'>Make the most of your professional life</h2>
                     <div className="signup-form">
-                        <div className="signup-errors">{this.renderErrors()}</div>
+                        <div className="signup-errors-list">{this.renderErrors()}</div>
 
                         <label className="signup-email-label">Email/Username</label>
                             <input type="text"

@@ -144,7 +144,13 @@ class PostItem extends React.Component {
     renderIllinoisHeader() {
         if (this.props.post.author.lastName === 'of Illinois at Urbana-Champaign') {
             return (
-                <h2>illinois.edu</h2>
+                <div>
+                    <a target="_blank" href="https://news.illinois.edu/view/6367/806559">
+                        <h2 id={`post-body-${this.props.post.author.firstName.length}-desc-header`}>U of I among top producers of Fulbright awards</h2>
+                        <h2 id={`post-body-${this.props.post.author.firstName.length}-desc-site`}>news.illinois.edu</h2>
+                    </a>
+                </div>
+
             )
         } else {
             return null
@@ -182,10 +188,7 @@ class PostItem extends React.Component {
                     {this.props.post.photoFile}
                 </div>
                 <div id={`post-body-${this.props.post.author.firstName.length}-pic`}></div>
-                <div id={`post-body-${this.props.post.author.firstName.length}-desc`}>
-                <div id={`post-body-${this.props.post.author.firstName.length}-desc-header`}>{this.renderIllinoisHeader()}</div>
-                    <div id={`post-body-${this.props.post.author.firstName.length}-desc-site`}></div>
-                </div>
+                <div id={`post-body-${this.props.post.author.firstName.length}-desc`}>{this.renderIllinoisHeader()}</div>
                 <div className="post-likes-comments" onClick={this.openCreateComment}>
                     <div className="post-likes">0 Likes </div> 
                     <div className="post-comments">{this.props.comments.length} Comments</div>

@@ -2,7 +2,7 @@
 
 LinkedList is a clone of professional networking site LinkedIn. Users can edit their profile, view other profiles, and add connections. In their news feed, they can create posts as well as interact with other posts by liking or leaving comments on posts. 
 
-Link to live Heroku app: 
+Link to live Heroku app: [Live Link](https://linkedlist-connect.herokuapp.com/)
 
 ![splash](https://i.imgur.com/puakGsf.png)
 

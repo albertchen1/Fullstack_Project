@@ -1607,6 +1607,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
     _this.closeDropdown = _this.closeDropdown.bind(_assertThisInitialized(_this));
     _this.renderDropdown = _this.renderDropdown.bind(_assertThisInitialized(_this));
     _this.renderViewComments = _this.renderViewComments.bind(_assertThisInitialized(_this));
+    _this.renderIllinoisHeader = _this.renderIllinoisHeader.bind(_assertThisInitialized(_this));
     return _this;
   } // updateField(field) {
   //     return e => this.setState({
@@ -1757,6 +1758,15 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "renderIllinoisHeader",
+    value: function renderIllinoisHeader() {
+      if (this.props.post.author.lastName === 'of Illinois at Urbana-Champaign') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "illinois.edu");
+      } else {
+        return null;
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var that = this;
@@ -1794,7 +1804,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         id: "post-body-".concat(this.props.post.author.firstName.length, "-desc")
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post-body-".concat(this.props.post.author.firstName.length, "-desc-header")
-      }, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.renderIllinoisHeader()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "post-body-".concat(this.props.post.author.firstName.length, "-desc-site")
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-likes-comments",
@@ -2087,9 +2097,9 @@ var Navbar = function Navbar(_ref) {
       className: "dropdown-profile-info-container"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
       className: "dropdown-profile-name"
-    }, "Albert Chen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    }, "".concat(currentUser.firstName, " ").concat(currentUser.lastName)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: "dropdown-profile-headline"
-    }, "Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    }, currentUser.headline), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: "dropdown-profile-view-profile"
     }, "View Profile")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/"
@@ -2100,10 +2110,12 @@ var Navbar = function Navbar(_ref) {
   };
 
   if (currentUser) {
+    console.log(currentUser);
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "welcome-page"
     }, welcomePage());
   } else {
+    console.log('none');
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
       className: "page-header"
     }, sessionLinks()));
@@ -2670,15 +2682,13 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderErrors",
     value: function renderErrors() {
-      return (// <ul>
-        //     {this.props.errors.map((error, i) => (
-        //         <li className="signup-errors" key={`error-${i}`}>
-        //             {error}
-        //         </li>
-        //     ))}
-        // </ul>
-        null
-      );
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "signup-errors",
+          key: "error-".concat(i)
+        }, error);
+      })) // null
+      ;
     }
   }, {
     key: "render",
@@ -6158,7 +6168,13 @@ var signup = function signup(formUser) {
       user: formUser
     }
   });
-};
+}; // export const fetchAllUsers = () => (
+//     $.ajax({
+//         method: "GET",
+//         url: "/api/users"
+//     })
+// )
+
 var fetchAllUsers = function fetchAllUsers() {
   return $.ajax({
     method: "GET",

@@ -16,6 +16,7 @@ class PostItem extends React.Component {
         this.closeDropdown = this.closeDropdown.bind(this)
         this.renderDropdown = this.renderDropdown.bind(this)
         this.renderViewComments = this.renderViewComments.bind(this)
+        this.renderIllinoisHeader = this.renderIllinoisHeader.bind(this)
     }
 
     // updateField(field) {
@@ -140,6 +141,15 @@ class PostItem extends React.Component {
             return null;
         }
     }
+    renderIllinoisHeader() {
+        if (this.props.post.author.lastName === 'of Illinois at Urbana-Champaign') {
+            return (
+                <h2>illinois.edu</h2>
+            )
+        } else {
+            return null
+        }
+    }
 
 
     render() {
@@ -173,7 +183,7 @@ class PostItem extends React.Component {
                 </div>
                 <div id={`post-body-${this.props.post.author.firstName.length}-pic`}></div>
                 <div id={`post-body-${this.props.post.author.firstName.length}-desc`}>
-                    <div id={`post-body-${this.props.post.author.firstName.length}-desc-header`}> </div>
+                <div id={`post-body-${this.props.post.author.firstName.length}-desc-header`}>{this.renderIllinoisHeader()}</div>
                     <div id={`post-body-${this.props.post.author.firstName.length}-desc-site`}></div>
                 </div>
                 <div className="post-likes-comments" onClick={this.openCreateComment}>

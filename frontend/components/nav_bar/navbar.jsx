@@ -101,8 +101,8 @@ const Navbar = ({ currentUser, logout }) => {
                                     <div className='dropdown-profile'>
                                         <div className='dropdown-pic'></div>
                                         <div className='dropdown-profile-info-container'>
-                                            <h1 className='dropdown-profile-name'>Albert Chen</h1>
-                                        <h2 className='dropdown-profile-headline'>Software Engineer | React | Redux | Ruby on Rails | JavaScript | Node.js | SQL | Python | Java</h2>
+                                        <h1 className='dropdown-profile-name'>{`${currentUser.firstName} ${currentUser.lastName}`}</h1>
+                                        <h2 className='dropdown-profile-headline'>{currentUser.headline}</h2>
                                             <h2 className="dropdown-profile-view-profile">View Profile</h2>
                                         </div>
                                     </div>
@@ -122,12 +122,14 @@ const Navbar = ({ currentUser, logout }) => {
 
 
     if (currentUser) {
+        console.log(currentUser)
         return (
             <div className="welcome-page">
                     {welcomePage()}
             </div>
         )
     } else {
+        console.log('none')
         return (
             <div>
                 <header className="page-header">

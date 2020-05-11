@@ -8,6 +8,13 @@ export const signup = (formUser) => (
     })
 )
 
+// export const fetchAllUsers = () => (
+//     $.ajax({
+//         method: "GET",
+//         url: "/api/users"
+//     })
+// )
+
 export const fetchAllUsers = () => (
     $.ajax({
         method: "GET",

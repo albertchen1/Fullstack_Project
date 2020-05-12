@@ -47,7 +47,7 @@ def self.find_by_credentials(username, password)
 ```
 
 #### Profile editing
-![profile](https://imgur.com/a/LKs5Xzc)
+![profile](https://i.imgur.com/i9RapV0.gif)
 
 * User can click the edit icon for a modal to pop up and show text boxes containing current data for user to revise and submit.
 

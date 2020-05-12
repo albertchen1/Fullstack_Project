@@ -157,13 +157,14 @@ connection1 = Connection.create!({
 
 connection2 = Connection.create!({
     user_id: User.find_by(username: 'demo@demo.com').id,
-    recipient_id: User.find_by(username: 'demo6@demo.com').id
+    recipient_id: User.find_by(username: 'demo7@demo.com').id
 })
 
 connection3 = Connection.create!({
     user_id: User.find_by(username: 'demo@demo.com').id,
-    recipient_id: User.find_by(username: 'demo7@demo.com').id
+    recipient_id: User.find_by(username: 'demo6@demo.com').id
 })
+
 
 connection4 = Connection.create!({
     user_id: User.find_by(username: 'demo@demo.com').id,

@@ -109,14 +109,19 @@
 .connection-list-page-container {
     width: 55%;
     min-height: 64vh;
-    // max-height: 50vh;
-    height: 90vh;
+    max-height: 92vh;
+    height: 64vh;
+    display: table;
     position: sticky;
     top: 15vh;
     margin-left: 11vw;
     box-shadow: 0 0 0 0.15vh rgba(0, 0, 0, 0.15);
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.connection-list {
+    display: table-row;
 }
 
 .invitations-header-container {

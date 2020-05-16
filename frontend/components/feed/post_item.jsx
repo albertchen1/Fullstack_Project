@@ -17,6 +17,7 @@ class PostItem extends React.Component {
         this.renderDropdown = this.renderDropdown.bind(this)
         this.renderViewComments = this.renderViewComments.bind(this)
         this.renderIllinoisHeader = this.renderIllinoisHeader.bind(this)
+        this.createLike = this.createLike.bind(this)
     }
 
     // updateField(field) {
@@ -24,6 +25,19 @@ class PostItem extends React.Component {
     //         [field]: e.target.value
     //     })
     // }
+
+    
+
+    createLike() {
+        like = {
+            postId: this.props.post.id
+        }
+        this.props.createLike(like)
+    }
+
+    renderLike() {
+        // if (this.props.post.)
+    }
 
     openCreateComment() {
         let post = this.props.post
@@ -194,7 +208,7 @@ class PostItem extends React.Component {
                     <div className="post-comments">{this.props.comments.length} Comments</div>
                 </div>
                 <div className="post-reacts">
-                    <div className="like" onClick={e => alert("Feature coming soon! Try leaving a comment!")}><i className="far fa-thumbs-up"></i> Like </div>
+                    <div className="like" onClick={this.createLike}><i className="far fa-thumbs-up"></i> Like </div>
                     <div className="comment" onClick={this.openCreateComment}><i className="far fa-comment-alt"></i> Comment </div>
                     {/* <div className="share" onClick={e => alert("Feature coming soon!")}><i className="far fa-share-square"></i> Share </div> */}
                 </div>

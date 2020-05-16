@@ -6,6 +6,7 @@ class User < ApplicationRecord
     validates :session_token, presence: true, uniqueness: true
     validates :password, length: { minimum: 6, allow_nil: true }
     has_many :comments
+    has_many :likes
     has_many :posts
     has_many :experiences
     has_many :educations

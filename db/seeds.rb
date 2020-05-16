@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Like.delete_all
 Connection.delete_all
 ConnectionRequest.delete_all
 Experience.delete_all
@@ -13,6 +14,7 @@ Comment.delete_all
 Post.delete_all
 Education.delete_all
 User.delete_all
+
 
 
 
@@ -224,6 +226,11 @@ angelapost = Post.create!({
 michaelpost = Post.create!({
     user_id: User.find_by(username: 'demo3@demo.com').id,
     body: "I am Beyonce always"
+})
+
+likemichaelpost = Like.create!({
+    user_id: User.find_by(username: 'demo8@demo.com').id,
+    post_id: Post.find_by(body: 'I am Beyonce always').id
 })
 
 

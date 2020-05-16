@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :connections, only: [:create, :show]
     resources :posts
     resources :comments
+    resources :likes
+
   end
   
   root to: 'static_pages#root'

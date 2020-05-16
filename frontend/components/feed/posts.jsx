@@ -40,8 +40,11 @@ class Posts extends React.Component {
                   key={idx}
                   post={post}
                   deletePost={this.deletePost}
+                  createLike={this.props.createLike}
+                  deleteLike={this.props.deleteLike}
                   createComment={this.props.createComment}
                   fetchAllComments={this.props.fetchAllComments}
+                  currentUser={this.props.user}
                   comments={post.comments ? Object.values(post.comments) : []}
                 />
               ))}

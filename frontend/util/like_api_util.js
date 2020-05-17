@@ -23,7 +23,7 @@ export const createLike = (like) => (
 //     })
 // )
 
-export const removeComment = (id) => (
+export const removeLike = (id) => (
     $.ajax({
         method: "DELETE",
         url: `/api/likes/${id}`,

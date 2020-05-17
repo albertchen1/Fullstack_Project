@@ -1,9 +1,9 @@
-json.extract! @post, :id, :body, :user_id,
+json.extract! @post, :id, :body, :user_id
 json.author do 
     json.partial! '/api/users/user', user:  @post.user
 end
 json.likes do
-    post.likes.each do |like|
+    @post.likes.each do |like|
         json.set! like.id do 
             json.extract! like, :id, :user_id, :post_id
             json.liked_person do
@@ -12,7 +12,6 @@ json.likes do
         end
     end
 end
-json.like_count post.likes.count
 json.comments do
     @post.comments.each do |comment|
         json.set! comment.id do 

@@ -16,6 +16,11 @@ class Api::PostsController < ApplicationController
         render :index
     end
 
+    def show
+        @post = Post.find(params[:id])
+        render :show
+    end
+
     def destroy
         @post = Post.find(params[:id])
         @post.destroy

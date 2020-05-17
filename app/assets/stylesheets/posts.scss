@@ -55,7 +55,7 @@
     align-items: center;
 }
 
-.real-comment-pic {
+.real-comment-Albert-pic, .real-comment-Demo-pic {
     content: image_url('mini-profile-pic.png');
     margin-left: 3%;
     display: inline-block;
@@ -64,8 +64,52 @@
     border-radius: 5vh;
     align-self: flex-start;
     margin-top: 2vh;
-
 }
+
+.real-comment-Jim-pic {
+    content: image_url('Jim.png');
+    margin-left: 3%;
+    display: inline-block;
+    height: 5vh;
+    width: 2.4vw;
+    border-radius: 5vh;
+    align-self: flex-start;
+    margin-top: 2vh;
+}
+
+.real-comment-Pam-pic {
+    content: image_url('pam.jpg');
+    margin-left: 3%;
+    display: inline-block;
+    height: 5vh;
+    width: 2.4vw;
+    border-radius: 5vh;
+    align-self: flex-start;
+    margin-top: 2vh;
+}
+
+.real-comment-Kevin-pic {
+    content: image_url('Kevin.jpeg');
+    margin-left: 3%;
+    display: inline-block;
+    height: 5vh;
+    width: 2.4vw;
+    border-radius: 5vh;
+    align-self: flex-start;
+    margin-top: 2vh;
+}
+
+.real-comment-Michael-pic {
+    content: image_url('steve-carell-pic.jpg');
+    margin-left: 3%;
+    display: inline-block;
+    height: 5vh;
+    width: 2.4vw;
+    border-radius: 5vh;
+    align-self: flex-start;
+    margin-top: 2vh;
+}
+
 .comment-pic {
     content: image_url('mini-profile-pic.png');
     margin-left: 3%;

@@ -1659,7 +1659,8 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
       post_id: _this.props.post.id,
       body: '',
       dropdown: false,
-      showComments: false
+      showComments: false,
+      liked: _this.isLiked()
     };
     _this.createComment = _this.createComment.bind(_assertThisInitialized(_this));
     _this.fetchAllComments = _this.fetchAllComments.bind(_assertThisInitialized(_this));
@@ -1670,6 +1671,9 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
     _this.renderViewComments = _this.renderViewComments.bind(_assertThisInitialized(_this));
     _this.renderIllinoisHeader = _this.renderIllinoisHeader.bind(_assertThisInitialized(_this));
     _this.createLike = _this.createLike.bind(_assertThisInitialized(_this));
+    _this.isLiked = _this.isLiked.bind(_assertThisInitialized(_this));
+    _this.deleteLike = _this.deleteLike.bind(_assertThisInitialized(_this));
+    _this.renderNumLikes = _this.renderNumLikes.bind(_assertThisInitialized(_this));
     return _this;
   } // updateField(field) {
   //     return e => this.setState({
@@ -1681,19 +1685,59 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
   _createClass(PostItem, [{
     key: "createLike",
     value: function createLike() {
-      like = {
-        postId: this.props.post.id
+      var like = {
+        post_id: this.props.post.id
       };
+      this.setState({
+        liked: true
+      });
       this.props.createLike(like);
     }
   }, {
-    key: "renderLike",
-    value: function renderLike() {// if (this.props.post.)
+    key: "deleteLike",
+    value: function deleteLike() {
+      var _this2 = this;
+
+      this.props.likes.forEach(function (like) {
+        if (like.userId === _this2.props.currentUser.id) {
+          _this2.props.deleteLike(like.id);
+
+          _this2.setState({
+            liked: false
+          });
+        }
+      });
+    }
+  }, {
+    key: "renderNumLikes",
+    value: function renderNumLikes() {
+      if (this.props.likes) {
+        return "".concat(this.props.likes.length);
+      } else {
+        return 0;
+      }
+    }
+  }, {
+    key: "isLiked",
+    value: function isLiked() {
+      if (this.props.likes) {
+        console.log(this.props.likes);
+
+        for (var i = 0; i < this.props.likes.length; i++) {
+          var like = this.props.likes[i];
+
+          if (like.userId === this.props.currentUser.id) {
+            return true;
+          }
+        }
+      }
+
+      return false;
     }
   }, {
     key: "openCreateComment",
     value: function openCreateComment() {
-      var _this2 = this;
+      var _this3 = this;
 
       var post = this.props.post; // console.log(document.getElementById(`create-comment-form-${post.id}`))
       // console.log(!document.getElementById(`create-comment-form-${post.id}`) ? "true" : "false")
@@ -1722,7 +1766,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         submitCommentButton.innerHTML = "Submit";
 
         createCommentForm.onsubmit = function (e) {
-          return _this2.createComment();
+          return _this3.createComment();
         };
 
         createCommentForm.setAttribute("class", "create-comment-form");
@@ -1782,7 +1826,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderDropdown",
     value: function renderDropdown() {
-      var _this3 = this;
+      var _this4 = this;
 
       if (this.state.dropdown === true) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1790,7 +1834,7 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "delete-button",
           onClick: function onClick() {
-            return _this3.props.deletePost(_this3.props.post.id);
+            return _this4.props.deletePost(_this4.props.post.id);
           }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "far fa-trash-alt"
@@ -1804,16 +1848,16 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderViewComments",
     value: function renderViewComments() {
-      var _this4 = this;
+      var _this5 = this;
 
       if (this.state.showComments) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.comments.map(function (comment) {
-          if (comment.postId === _this4.props.post.id) {
+          if (comment.postId === _this5.props.post.id) {
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "comment-list",
               key: comment.id
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-              className: "real-comment-pic"
+              className: "real-comment-".concat(comment.author.firstName, "-pic")
             }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "comment-body-box"
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -1888,16 +1932,16 @@ var PostItem = /*#__PURE__*/function (_React$Component) {
         onClick: this.openCreateComment
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-likes"
-      }, "0 Likes "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "".concat(this.renderNumLikes(), " Likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-comments"
       }, this.props.comments.length, " Comments")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-reacts"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "like",
-        onClick: this.createLike
+        onClick: this.state.liked ? this.deleteLike : this.createLike
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-thumbs-up"
-      }), " Like "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), " ", this.state.liked ? "Unlike" : "Like"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "comment",
         onClick: this.openCreateComment
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -1998,6 +2042,7 @@ var Posts = /*#__PURE__*/function (_React$Component) {
           createComment: _this2.props.createComment,
           fetchAllComments: _this2.props.fetchAllComments,
           currentUser: _this2.props.user,
+          likes: post.likes ? Object.values(post.likes) : null,
           comments: post.comments ? Object.values(post.comments) : []
         });
       }));
@@ -6031,13 +6076,13 @@ var removeRequest = function removeRequest(id) {
 /*!****************************************!*\
   !*** ./frontend/util/like_api_util.js ***!
   \****************************************/
-/*! exports provided: createLike, removeComment */
+/*! exports provided: createLike, removeLike */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createLike", function() { return createLike; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeComment", function() { return removeComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeLike", function() { return removeLike; });
 var createLike = function createLike(like) {
   return $.ajax({
     method: "POST",
@@ -6059,7 +6104,7 @@ var createLike = function createLike(like) {
 //     })
 // )
 
-var removeComment = function removeComment(id) {
+var removeLike = function removeLike(id) {
   return $.ajax({
     method: "DELETE",
     url: "/api/likes/".concat(id)

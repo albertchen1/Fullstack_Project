@@ -6,11 +6,14 @@ class Api::LikesController < ApplicationController
 
 
     def create
-        @like = Likes.new(like_params)
+        @like = Like.new(like_params)
+        # @like.post_id = @like.post_id.to_i
         @like.user_id = current_user.id
         if @like.save
             # @comments = Comment.where(post_id: @comment.post_id)
             @post = Post.find(@like.post_id)
+            p @post
+            p '-----------------------------'
             render '/api/posts/show'
             # render :show 
         else
@@ -27,10 +30,11 @@ class Api::LikesController < ApplicationController
     #when you click on the post, show all the posts comment
 
     def destroy
-        @like = Like.find(params[:id])
+        @like = Like.find(params[:id].to_i)
         # @post_id = @like.post_id
+        @post = Post.find(@like.post_id)
+        p @post
         if @like.destroy
-            @post = Post.find(@like.post_id)
             render '/api/posts/show'
         else
             render json: @like.errors.full_messages, status: 422

@@ -45,6 +45,7 @@ class Posts extends React.Component {
                   createComment={this.props.createComment}
                   fetchAllComments={this.props.fetchAllComments}
                   currentUser={this.props.user}
+                  likes={post.likes ? Object.values(post.likes) : null}
                   comments={post.comments ? Object.values(post.comments) : []}
                 />
               ))}

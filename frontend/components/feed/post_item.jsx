@@ -7,7 +7,8 @@ class PostItem extends React.Component {
             post_id: this.props.post.id,
             body: '',
             dropdown: false,
-            showComments: false
+            showComments: false,
+            liked: this.isLiked()
         }
         this.createComment=this.createComment.bind(this)
         this.fetchAllComments=this.fetchAllComments.bind(this)
@@ -18,6 +19,9 @@ class PostItem extends React.Component {
         this.renderViewComments = this.renderViewComments.bind(this)
         this.renderIllinoisHeader = this.renderIllinoisHeader.bind(this)
         this.createLike = this.createLike.bind(this)
+        this.isLiked = this.isLiked.bind(this)
+        this.deleteLike = this.deleteLike.bind(this)
+        this.renderNumLikes = this.renderNumLikes.bind(this)
     }
 
     // updateField(field) {
@@ -29,14 +33,45 @@ class PostItem extends React.Component {
     
 
     createLike() {
-        like = {
-            postId: this.props.post.id
+        let like = {
+            post_id: this.props.post.id
         }
+        this.setState({
+            liked: true
+        })
         this.props.createLike(like)
     }
 
-    renderLike() {
-        // if (this.props.post.)
+    deleteLike() {
+        this.props.likes.forEach(like => {
+            if (like.userId === this.props.currentUser.id) {
+                this.props.deleteLike(like.id)
+                this.setState({
+                    liked: false
+                })
+            }
+        });
+    }
+
+    renderNumLikes() {
+        if (this.props.likes) {
+            return `${this.props.likes.length}`
+        } else {
+            return 0
+        }
+    }
+
+    isLiked() {
+        if (this.props.likes) {
+            console.log(this.props.likes)
+            for (let i = 0; i < this.props.likes.length; i++) {
+                let like = this.props.likes[i]
+                if (like.userId === this.props.currentUser.id) {
+                    return true
+                }
+            }
+        }
+        return false
     }
 
     openCreateComment() {
@@ -73,7 +108,6 @@ class PostItem extends React.Component {
             createCommentForm.setAttribute("id", `create-comment-form-${post.id}`)
             let createCommentInput = document.createElement("input")
             createCommentInput.setAttribute("type", "text");
-
             createCommentInput.setAttribute("id", `create-comment-input-${post.id}`);
             createCommentInput.setAttribute("class", "create-message")
             createCommentInput.placeholder = "Add a comment..."
@@ -135,7 +169,7 @@ class PostItem extends React.Component {
                     if (comment.postId === this.props.post.id) {
                         return (
                             <div className="comment-list" key={comment.id}>
-                                <div className="real-comment-pic"></div>
+                                <div className={`real-comment-${comment.author.firstName}-pic`}></div>
                                 <div className="comment-body-box">
                                     <h3 id="comment-user">{comment.author.firstName}&nbsp;{comment.author.lastName}</h3>
                                     <h3 id="comment-user-headline">{comment.author.headline}</h3>
@@ -204,11 +238,11 @@ class PostItem extends React.Component {
                 <div id={`post-body-${this.props.post.author.firstName.length}-pic`}></div>
                 <div id={`post-body-${this.props.post.author.firstName.length}-desc`}>{this.renderIllinoisHeader()}</div>
                 <div className="post-likes-comments" onClick={this.openCreateComment}>
-                    <div className="post-likes">0 Likes </div> 
+                    <div className="post-likes">{`${this.renderNumLikes()} Likes`}</div> 
                     <div className="post-comments">{this.props.comments.length} Comments</div>
                 </div>
                 <div className="post-reacts">
-                    <div className="like" onClick={this.createLike}><i className="far fa-thumbs-up"></i> Like </div>
+                <div className="like" onClick={this.state.liked ? this.deleteLike : this.createLike}><i className="far fa-thumbs-up"></i> {this.state.liked ? `Unlike` : `Like`}</div>
                     <div className="comment" onClick={this.openCreateComment}><i className="far fa-comment-alt"></i> Comment </div>
                     {/* <div className="share" onClick={e => alert("Feature coming soon!")}><i className="far fa-share-square"></i> Share </div> */}
                 </div>

@@ -119,7 +119,6 @@ export const createConnection = (connection) => dispatch => (
 ```
 
 ### Features in Progress
-* Likes button
 * Adding connections that aren't preloaded into requests
 * Jobs page
 * Messaging functionality

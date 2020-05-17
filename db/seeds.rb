@@ -233,7 +233,30 @@ likemichaelpost = Like.create!({
     post_id: Post.find_by(body: 'I am Beyonce always').id
 })
 
+pamcommentangelapost = Comment.create!({
+    user_id: User.find_by(username: 'demo5@demo.com').id,
+    post_id: Post.find_by(body: "I don't have a headache. I'm just preparing.").id,
+    body: "Preparing with what?"
+})
+
+jimcommentkevinpost = Comment.create!({
+    user_id: User.find_by(username: 'demo2@demo.com').id,
+    post_id: Post.find_by(body: "The only problem is whenever I try to make a taco, I get too excited and crush it.").id,
+    body: "Have you tried soft tacos?"
+})
+
+kevincommentkevinpost = Comment.create!({
+    user_id: User.find_by(username: 'demo6@demo.com').id,
+    post_id: Post.find_by(body: "The only problem is whenever I try to make a taco, I get too excited and crush it.").id,
+    body: "You underestimate the strength of my hands."
+})
 
 
+
+michaelcommentoscarpost = Comment.create!({
+    user_id: User.find_by(username: 'demo3@demo.com').id,
+    post_id: Post.find_by(body: "I consider myself a good person, but I'm going to make him cry.").id,
+    body: "Love is hard. Jan broke my heart."
+})
 
 

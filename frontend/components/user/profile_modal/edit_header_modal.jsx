@@ -14,9 +14,6 @@ class EditHeaderModal extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount() {
-        // console.log(this.props.user)
-    }
 
     update(field) {
         return e => this.setState({
@@ -24,27 +21,10 @@ class EditHeaderModal extends React.Component {
         });
     }
 
-    // handleInputFirstName(e) {
-    //     this.setState({ first_name: e.currentTarget.value});
-    // }
-
-    // handleInputLastName(e) {
-    //     this.setState({ last_name: e.currentTarget.value});
-    // }
-
-    // handleInputHeadline(e) {
-    //     this.setState({ last_name: e.currentTarget.value});
-    // }
-
-    // handleInputLocation(e) {
-    //     this.setState({ location: e.currentTarget.value});
-    // }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        // this.props.processForm(user).then(this.props.close);
-        // this.props.user = this.state.user;
         this.props.updateUser(user).then(this.props.close('header'));
     }
 

@@ -25,14 +25,13 @@ const mapDispatchToProps = (dispatch) => {
 class CreatePostForm extends React.Component {
     constructor(props) {
         super(props);
-        // this.handleSubmit = this.handleSubmit.bind(this); 
         this.state = {
             body: ''
         }
         this.state = this.props.post;
         this.state.photoFile = null;
         this.handleSubmit = this.handleSubmit.bind(this)
-        // this.validateSubmit = this.validateSubmit.bind(this); 
+
     }
 
     update(field) {
@@ -51,21 +50,6 @@ class CreatePostForm extends React.Component {
             this.setState({body: ''})
             this.props.closeModal();
         })
-
-
-
-
-        // const formData = new FormData();
-        // formData.append('post[body]', this.state.body);
-        // formData.append('post[photo]', this.state.photoFile);
-        // $.ajax({
-        //     url: 'api/posts', 
-        //     method: 'POST', 
-        //     data: formData, 
-        //     contentType: false, 
-        //     processDate: false
-        // });
-        // this.props.createPost(form).then(() => this.props.closeModal());
 
     }
 
@@ -90,7 +74,7 @@ class CreatePostForm extends React.Component {
             }
         }
         return (
-            // <div className="modal">
+
                 <div className="create-post-outer">
                     <div className='create-post-header'>
                         <div className="create-a-post">Create a post</div>
@@ -135,7 +119,7 @@ class CreatePostForm extends React.Component {
                         </div>
                     </form>
                 </div>
-            // </div>
+
 
         )
     }

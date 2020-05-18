@@ -11,7 +11,6 @@ class ConnectionList extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllConnections(this.props.user.id)
-            // .then(() => console.log(this.props))
     }
 
     renderConnections() {
@@ -29,7 +28,7 @@ class ConnectionList extends React.Component {
                     </div>
                 </div>
 
-                // <li key={connection.id}>{connection.recipient.firstName}</li>
+
             ))
         } else {
             return null

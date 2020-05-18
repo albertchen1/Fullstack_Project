@@ -79,7 +79,6 @@ class Connections extends React.Component {
     render() {
         return (
             <div>
-                {/* dispatch(logout()); to logout */}
                 <NavbarContainer />
 
                 <div className="connections-page">
@@ -121,68 +120,10 @@ class Connections extends React.Component {
                         </div>
                         <div className="invitations-list">
                             {this.renderRequests()}
-                            {/* <div className="invitations-list-container">
-                                <div className="invitations-user-pic"></div>
-                                <div className="invitations-user-info">
-                                    <h4 id="invitations-name">Steve Carell</h4>
-                                    <div className="invitations-headline-buttons">
-                                        <h4 id="invitations-headline">Actor</h4>
-                                        <button id="invitations-ignore-button">Ignore</button>
-                                        <button id="invitations-accept-button">Accept</button>
-                                    </div>
-                                </div>
-                            </div> */}
                         </div>
 
                     </div>
-
-
                 </div>
-
-
-
-
-
-
-
-
-
-                {/* <div className="login-form-container">
-                    <form onSubmit={this.handleSubmit} className="login-form-box">
-                        <label className="welcome-back">Welcome Back!</label>
-                        <h6>Don't miss your next opportunity. Sign in to stay updated on your professional world.</h6>
-                        <br />
-
-                        {this.renderErrors()}
-                        <div className="login-form">
-                            <br />
-                            <label>Username:
-                <input type="text"
-                                    value={this.state.username}
-                                    onChange={this.update('username')}
-                                    className="login-input"
-                                />
-                            </label>
-                            <br />
-                            <label>Password:
-                <input type="password"
-                                    value={this.state.password}
-                                    onChange={this.update('password')}
-                                    className="login-input"
-                                />
-                            </label>
-                            <br />
-
-
-                            <br />
-                            <input className="session-submit" type="submit" value="Log In" />
-
-                        </div>
-                        New to LinkedList? {this.props.navLink}
-                    </form>
-                </div>
-                <img className="splash_pic1" src={window.splash_pic1}/>
-                <img className="splash_pic2" src={window.splash_pic2}/> */}
             </div>
         );
     }

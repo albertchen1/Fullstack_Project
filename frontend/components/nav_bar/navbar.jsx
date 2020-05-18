@@ -1,17 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { render } from 'react-dom';
-// import { Route, Redirect, withRouter } from 'react-router-dom';
 
-// componentDidMount() {
-//     this.props.fetchUser(this.props.currentUser.id)
-// }
 
 const Navbar = ({ currentUser, logout }) => {
-
-    // showDropdown() {
-    //     document.getElementsByClassName("dropdown-content").classList.toggle("dropdown-content-show")
-    // }
 
     const sessionLinks = () => (
         <nav className="login-signup">
@@ -74,8 +66,6 @@ const Navbar = ({ currentUser, logout }) => {
                         <div id="navbar-icon-label">Notifications</div>
                         </div>
                     </Link> */}
-
-                    {/* <button className="header-button-logout" onClick={logout}>Log Out</button> */}
             
                     <div className="navbar-profile">
                         <div className="navbar-pic"></div>
@@ -95,7 +85,6 @@ const Navbar = ({ currentUser, logout }) => {
                             }>
                             Me &nbsp;<i className='fa fa-caret-down'></i>
                             <div className='dropdown-content'>
-                                {/* <Link to={`/git/${this.props.currentUser.id}`}>View Profile</Link> */}
 
                                 <Link to="/profile" >
                                     <div className='dropdown-profile'>

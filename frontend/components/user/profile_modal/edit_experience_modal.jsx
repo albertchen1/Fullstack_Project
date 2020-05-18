@@ -23,29 +23,7 @@ class EditExperienceModal extends React.Component {
         });
     }
 
-    // handleInputTitle(e) {
-    //     this.setState({ user: e.currentTarget.value });
-    // }
 
-    // handleInputCompany(e) {
-    //     this.setState({ user: e.currentTarget.value });
-    // }
-
-    // handleInputLocation(e) {
-    //     this.setState({ user: e.currentTarget.value });
-    // }
-
-    // handleInputStartDate(e) {
-    //     this.setState({ user: e.currentTarget.value });
-    // }
-
-    // handleInputEndDate(e) {
-    //     this.setState({ user: e.currentTarget.value });
-    // }
-
-    // handleInputDescription(e) {
-    //     this.setState({ user: e.currentTarget.value });
-    // }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -61,7 +39,7 @@ class EditExperienceModal extends React.Component {
             end_date_year: this.state.end_date_year,
             description: this.state.description
         }
-        // const user = Object.assign({}, this.state);
+
         this.props.updateExperience(experience).then(this.props.close);
     }
 

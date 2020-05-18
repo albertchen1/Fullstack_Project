@@ -4,7 +4,6 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import SplashContainer from './splash/splash';
 import ProfileContainer from './user/profile_container'
-// import Feed from './feed/feed';
 import FeedContainer from './feed/feed_container'
 import ConnectionsContainer from './connections/connections_container'
 import ConnectionListContainer from './connections/connection_list_container'
@@ -22,12 +21,6 @@ import NotFound from "../../public/notfound";
 
 const App = () => (
     <div>
-        {/* <Link to="/" className="header-link">
-            <div className="header-logo"></div>
-        </Link> */}
-
-
-
         <Switch>
             <AuthRoute path="/login" component={LogInFormContainer} />
             <AuthRoute path="/signup" component={SignUpFormContainer} />

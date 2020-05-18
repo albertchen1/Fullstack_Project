@@ -9,7 +9,6 @@ class Experience extends React.Component {
         this.state = {
             edit: false
         };
-        // this.handleSubmit = this.handleSubmit.bind(this);
         this.renderEdit = this.renderEdit.bind(this)
         this.openEdit = this.openEdit.bind(this)
         this.closeEdit = this.closeEdit.bind(this)
@@ -32,54 +31,6 @@ class Experience extends React.Component {
         }
     }
 
-    // update(field) {
-    //     return e => this.setState({
-    //         [field]: e.currentTarget.value
-    //     });
-    // }
-
-    // handleInputSchool(e) {
-    //     this.setState({ user: e.currentTarget.value });
-    // }
-
-    // handleInputDegree(e) {
-    //     this.setState({ user: e.currentTarget.value });
-    // }
-
-    // handleInputFieldStudy(e) {
-    //     this.setState({ user: e.currentTarget.value });
-    // }
-
-    // handleInputStartYear(e) {
-    //     this.setState({ user: e.currentTarget.value });
-    // }
-
-    // handleInputEndYear(e) {
-    //     this.setState({ user: e.currentTarget.value });
-    // }
-
-    // handleInputDescription(e) {
-    //     this.setState({ user: e.currentTarget.value });
-    // }
-
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     const user = Object.assign({}, this.state);
-    //     this.props.processForm(user).then(this.props.closeModal);
-    // }
-
-    // renderErrors() {
-    //     return (
-    //         // <ul>
-    //         //     {this.props.errors.map((error, i) => (
-    //         //         <li key={`error-${i}`}>
-    //         //             {error}
-    //         //         </li>
-    //         //     ))}
-    //         // </ul>
-    //         null
-    //     );
-    // }
 
     render() {
         let experience = this.props.experience

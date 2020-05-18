@@ -24,14 +24,6 @@ class PostItem extends React.Component {
         this.renderNumLikes = this.renderNumLikes.bind(this)
     }
 
-    // updateField(field) {
-    //     return e => this.setState({
-    //         [field]: e.target.value
-    //     })
-    // }
-
-    
-
     createLike() {
         let like = {
             post_id: this.props.post.id
@@ -76,8 +68,6 @@ class PostItem extends React.Component {
 
     openCreateComment() {
         let post = this.props.post
-        // console.log(document.getElementById(`create-comment-form-${post.id}`))
-        // console.log(!document.getElementById(`create-comment-form-${post.id}`) ? "true" : "false")
         if (!document.getElementById(`create-comment-form-${post.id}`)) {
             // <form action="/action_page.php" method="get" id="form1">
             //     <label for="fname">First name:</label>

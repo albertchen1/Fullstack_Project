@@ -12,9 +12,6 @@ class EditAboutModal extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount() {
-        // console.log(this.props.user)
-    }
 
     update(field) {
         return e => this.setState({
@@ -22,17 +19,10 @@ class EditAboutModal extends React.Component {
         });
     }
 
-    // handleInput(e) {
-    //     this.setState({ user: e.currentTarget.value });
-    // }
-
 
     handleSubmit(e) {
         e.preventDefault();
-
         const user = Object.assign({}, this.state);
-        // this.props.processForm(user).then(this.props.close);
-        // this.props.user.summary = this.state.user.summary;
         this.props.updateUser(user).then(this.props.close('about'));
     }
 

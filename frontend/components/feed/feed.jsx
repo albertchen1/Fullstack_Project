@@ -4,8 +4,6 @@ import NavbarContainer from '../nav_bar/navbar_container';
 import CreatePostFormContainer from '../feed/create_post_form'
 import PostsContainer from './posts_container'
 
-//need a container for openmodal for dispatch to props 
-
 
 class Feed extends React.Component {
     constructor(props) {
@@ -28,14 +26,9 @@ class Feed extends React.Component {
         });
     }
 
-    // refreshPage() {
-    //     window.location.reload();
-    // }
-
     componentDidMount() {
         this.props.fetchAllPosts()
         this.props.fetchAllConnections(this.props.user.id)
-        // this.props.fetchUser(this.props.user.id)
     }
 
     handleSubmit(e) {
@@ -72,7 +65,6 @@ class Feed extends React.Component {
         return (
             
             <div className="feed-div">
-               {/* {this.refreshPage()}  */}
                 <NavbarContainer />
 
                 <div className="feed-container">
@@ -125,75 +117,6 @@ class Feed extends React.Component {
                                 <PostsContainer />
                             </div>
                         </div>
-                        {/* <div className="post1-ad">
-                            <div className="post1-container">
-                                <div id="list-logo-post"></div>
-                                <div id="post1-header-text">
-                                    <div id="post1-company">LinkedList</div>
-                                    <div id="post1-followers">11,332,114 followers</div>
-                                    <div id="post1-promoted">Promoted</div>
-                                </div>
-                            </div>
-                            <div className="post1-body-text">
-                                See the expanded list of who’s viewed your 
-                                profile. Make connections to boost the power of 
-                                your network. Try LinkedList Premium for free. 
-                            </div>
-                            <a href="https://premium.linkedin.com/">
-                                <div className="post1-pic"></div>
-                                <div className="post1-pic-desc">
-                                    <h4 id="post1-pic-desc-header"> <br/> LinkedList Premium</h4>
-                                    <h4 id="post1-pic-desc-site">linkedlist.com <br/> </h4>
-                                </div>
-                            </a>    
-                            <div className="post-likes-comments">
-                                0 Likes 0 comments
-                            </div>
-                            <div className="post-reacts">
-                                <div className="like" onClick={e => alert("Feature coming soon! Try leaving a comment!")}><i className="far fa-thumbs-up"></i> Like </div>
-                                <div className="comment"><i className="far fa-comment-alt"></i> Comment </div>
-                                <div className="share" onClick={e => alert("Feature coming soon!")}><i className="far fa-share-square"></i> Share </div>
-                            </div>
-                        </div> */}
-                        {/* <div className="post3-uiuc">
-                            <div className="post3-container">
-                                <div id="uiuc-post"></div>
-                                <div id="post3-header-text">
-                                    <div id="post3-company">University of 
-                                        Illinois at Urbana-Champaign
-                                    </div>
-                                    <div id="post3-followers">411,797 followers</div>
-                                    <div id="post3-time">1mo</div>
-                                </div>
-                            </div>
-                            <div className="post3-body-text">
-                                For the ninth time in the past 10 years, 
-                                Illinois has been named among the U.S. colleges 
-                                and universities that produce the most Fulbright 
-                                U.S. Student Awards.
-                            </div>
-                            <a href="https://news.illinois.edu/view/6367/806559">
-                                <div className="post3-pic"></div>
-                                <div className="post3-pic-desc">
-                                    <h4 id="post3-pic-desc-header">
-                                        <br /> 
-                                        U of I among top producers of Fulbright awards
-                                    </h4>
-                                    <h4 id="post3-pic-desc-site">
-                                        news.illinois.edu 
-                                        <br /> 
-                                    </h4>
-                                </div>
-                            </a>
-                            <div className="post-likes-comments">
-                                0 Likes 0 comments
-                            </div>
-                            <div className="post-reacts">
-                                <div className="like" onClick={e => alert("Feature coming soon!")}><i className="far fa-thumbs-up"></i> Like </div>
-                                <div className="comment"><i className="far fa-comment-alt"></i> Comment </div>
-                                <div className="share" onClick={e => alert("Feature coming soon!")}><i className="far fa-share-square"></i> Share </div>
-                            </div>
-                        </div> */}
                     </div>
                     <div className="news-container">
                         <div className="news-container-header"> Today’s news and views </div>
@@ -230,11 +153,9 @@ class Feed extends React.Component {
                     </div>
                 </div>
                 <div className="create-post-modal-hidden">
-                    {/* <div className="create-a-post"> */}
                     <div className="modal-header">
                         <CreatePostFormContainer closeModal={this.closeModal}/>
                     </div>
-                    {/* </div> */}
                 </div>
             </div>
         );
